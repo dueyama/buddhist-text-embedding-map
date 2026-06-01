@@ -189,3 +189,20 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the `要旨` heading.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `eed853b552a8a728c31741c10830074ce648f285`
+
+## 2026-06-01 19:22 JST
+
+- Summary: Rebuilt the paper PDF with BasicTeX using upLaTeX and dvipdfmx instead of the earlier XeLaTeX/Tectonic route.
+- Files:
+  - `.gitignore`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+- Verification:
+  - Confirmed `uplatex`, `dvipdfmx`, `latexmk`, and `tlmgr` under `/Library/TeX/texbin`.
+  - Compiled a minimal `jsarticle` Japanese smoke test with `uplatex` and `dvipdfmx`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
+  - Added LaTeX intermediate patterns to `.gitignore` and removed generated `aux`, `dvi`, `log`, and `out` files.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending; the actual hash will be recorded after the commit exists.
