@@ -270,4 +270,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the updated multilingual title.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending
+- Commit: `e3770e0ce094b23de6e62af16cf0ef29fda62db7`
