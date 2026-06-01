@@ -34,7 +34,7 @@ def fetch_sat(item: dict[str, Any], refresh: bool = False) -> str:
 
 
 def read_local(item: dict[str, Any]) -> str:
-    path = PROJECT_ROOT / item["source_url"]
+    path = PROJECT_ROOT / item.get("source_path", item["source_url"])
     if not path.exists():
         raise FileNotFoundError(f"Local source not found: {path}")
     return path.read_text(encoding="utf-8")

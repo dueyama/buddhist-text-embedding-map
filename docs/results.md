@@ -87,6 +87,8 @@ This file records experiment results worth keeping outside generated caches.
   - `T0365` 佛説觀無量壽佛經: `23` chunks, `9003` chars
   - `T0366` 佛説阿彌陀經: `7` chunks, `2368` chars
   - 教行信証: `197` chunks, `78978` chars
+    - 出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース
+    - 利用規定: 成果公表時は同データベースを利用した旨を明記する必要がある
 - 法華系
   - 妙法蓮華經 local text: `13` chunks, `4718` chars
   - 觀世音菩薩普門品 SAT range: `6` chunks, `2134` chars

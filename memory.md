@@ -206,3 +206,27 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Added LaTeX intermediate patterns to `.gitignore` and removed generated `aux`, `dvi`, `log`, and `out` files.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `1cf10f30bacfdf16a82b960875407d2c26b87db9`
+
+## 2026-06-01 19:35 JST
+
+- Summary: Added the J-SOKEN source credit for the local Kyogyoshinsho text and moved the Figure 1 legend below the semantic map so it does not hide plotted labels.
+- Files:
+  - `experiments/sect_sutra_map/manifest.json`
+  - `experiments/sect_sutra_map/build_corpus.py`
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-paper-draft.md`
+  - `docs/figures/sect-sutra-semantic-map.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+- Verification:
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/build_corpus.py experiments/sect_sutra_map/common.py experiments/sect_sutra_map/embed_texts.py experiments/sect_sutra_map/make_viewer_data.py experiments/sect_sutra_map/make_paper_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/build_corpus.py` and confirmed `15` non-empty texts.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `433` cache hits, `0` misses, and `0` API tokens.
+  - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py` and confirmed `15` texts, `433` chunks, `11` sect centroids, and `3` translator centroids.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py` and visually checked `docs/figures/sect-sutra-semantic-map.png`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending

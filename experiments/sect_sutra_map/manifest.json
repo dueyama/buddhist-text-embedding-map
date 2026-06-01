@@ -52,12 +52,14 @@
     "title": "顯淨土眞實教行證文類",
     "taisho_id": "",
     "source": "local",
-    "source_url": "お経/kyougyoushinsyou.txt",
+    "source_url": "https://j-soken.jp/ask/10831",
+    "source_path": "お経/kyougyoushinsyou.txt",
     "sects": ["浄土真宗"],
     "layer": "founder_text",
     "translator": "親鸞",
     "period": "日本撰述",
-    "notes": "既存ローカル本文。宗派重心の祖師文献レイヤーとして扱う。"
+    "credit": "本文データの出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース。成果公表時は同データベースを利用した旨を明記する。",
+    "notes": "既存ローカル本文。公式ダウンロードページに『顕浄土真実教行証文類』が収載されているため、出典クレジットを付す。宗派重心の祖師文献レイヤーとして扱う。"
   },
   {
     "id": "t0262_lotus_sutra",

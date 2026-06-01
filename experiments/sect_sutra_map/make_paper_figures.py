@@ -73,7 +73,7 @@ def first_sect(text: dict) -> str:
 def figure_semantic_map(data: dict, font: font_manager.FontProperties) -> Path:
     texts = data["texts"]
     translator_centroids = data.get("translator_centroids", [])
-    fig, ax = plt.subplots(figsize=(9.5, 6.5))
+    fig, ax = plt.subplots(figsize=(9.8, 7.2))
 
     for text in texts:
         sect = first_sect(text)
@@ -126,7 +126,18 @@ def figure_semantic_map(data: dict, font: font_manager.FontProperties) -> Path:
             legend_labels.append(sect)
     legend_handles.append(plt.Line2D([0], [0], marker="D", color="w", markerfacecolor="#111827", markersize=7))
     legend_labels.append("訳者重心")
-    ax.legend(legend_handles, legend_labels, loc="upper right", fontsize=8, prop=font, frameon=True)
+    ax.legend(
+        legend_handles,
+        legend_labels,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.14),
+        ncol=6,
+        fontsize=8,
+        prop=font,
+        frameon=False,
+        columnspacing=1.3,
+        handletextpad=0.4,
+    )
 
     out = FIGURE_DIR / "sect-sutra-semantic-map.png"
     fig.tight_layout()
