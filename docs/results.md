@@ -335,3 +335,59 @@ Query: `toh106_samdhinirmocana_en`
 - チャンク境界は 700 tokens / 100 overlap の機械分割で、巻・品・段落などの自然単位ではない。
 - 楕円は 2D PCA 上の 1σ 近似なので、非楕円形・多峰性の分布を十分には表現できない。
 - 今後は chapter/section 単位での分布、密度推定、Earth Mover's Distance なども比較候補にする。
+
+## 2026-06-01: 親鸞の阿弥陀経二訳参照分析 v0.1
+
+### 入力
+
+- Target translations:
+  - `T0366` 羅什訳『佛説阿彌陀經』
+  - `T0367` 玄奘訳『稱讃淨土佛攝受經』
+- Shinran-side sources:
+  - 『教行信証』: J-SOKEN 聖教DB由来の既存 processed text
+  - 『入出二門偈』p543: 真宗大谷派（東本願寺）真宗聖典検索サイトから取得
+- Literature notes:
+  - 『観無量寿経集註附阿弥陀経集註』
+  - 千葉隆誓「親鸞『阿弥陀経集註』における元照『阿弥陀経義疏』引文について」
+
+### 生成物
+
+- Script: `experiments/shinran_amida_sources/run_analysis.py`
+- Manifest: `experiments/shinran_amida_sources/manifest.json`
+- Detailed note: `docs/shinran-amida-source-analysis.md`
+- Figures:
+  - `docs/figures/shinran-amida-source-markers.png`
+  - `docs/figures/shinran-kyogyoshinsho-amida-chunk-affinity.png`
+- Raw/output cache:
+  - `experiments/shinran_amida_sources/data/`
+  - `experiments/shinran_amida_sources/outputs/`
+  - Both are ignored by git.
+
+### 主要結果
+
+- 『入出二門偈』p543 は『称讃浄土経』を玄奘訳として明示し、玄奘訳 `T0367` 側の讃嘆モチーフに対応する句を持つ。
+- 『教行信証』本文平均ベクトル:
+  - `T0366`: `0.8058`
+  - `T0367`: `0.8152`
+  - 玄奘訳の方がわずかに高いが、差は小さく、これだけでは決定打にならない。
+- 『教行信証』の上位 chunk affinity:
+
+| Target | Kyogyoshinsho chunk | Target chunk | Cosine |
+| --- | --- | --- | ---: |
+| `T0366` | `kyogyoshinsho::chunk_0098` | `t0366_amida_sutra::chunk_0005` | `0.7250` |
+| `T0366` | `kyogyoshinsho::chunk_0019` | `t0366_amida_sutra::chunk_0005` | `0.7103` |
+| `T0366` | `kyogyoshinsho::chunk_0018` | `t0366_amida_sutra::chunk_0005` | `0.7088` |
+| `T0367` | `kyogyoshinsho::chunk_0023` | `t0367_praise_pure_land::chunk_0006` | `0.7033` |
+
+### 解釈
+
+- 親鸞の阿弥陀経理解は「羅什訳か玄奘訳か」の二択ではなく、羅什訳を標準的な小経として持ちつつ、玄奘訳『称讃浄土経』も明示的に用いる多層構造として見るのがよい。
+- 『教行信証』単体では、意味的に二訳へ近いが、訳系統の決定には弱い。文字列・明示引用・注釈伝統を別レイヤーにする必要がある。
+- 『入出二門偈』は玄奘訳参照の強い証拠になる。
+- 次の本命は『阿弥陀経集註』であり、経文本文・註記・裏書を分けて解析する必要がある。
+
+### 未検証点
+
+- 『阿弥陀経集註』本文はまだ機械可読テキストとして投入していない。
+- 今回の文字列一致は異体字正規化と簡易 marker に基づく。校訂本文・訓点・注記を分けた厳密な処理は未実装。
+- 真宗聖典検索の raw HTML は研究用キャッシュであり、本文再配布はしない。

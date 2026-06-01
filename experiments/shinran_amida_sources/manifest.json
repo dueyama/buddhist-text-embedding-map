@@ -1,0 +1,51 @@
+{
+  "description": "Pilot analysis for Shinran's use of the two Smaller Sukhavati-vyuha Chinese translations.",
+  "target_translations": [
+    {
+      "id": "t0366_amida_sutra",
+      "label": "羅什訳 阿弥陀経",
+      "path": "experiments/sect_sutra_map/data/processed/t0366_amida_sutra_body.txt"
+    },
+    {
+      "id": "t0367_praise_pure_land",
+      "label": "玄奘訳 称讃浄土経",
+      "path": "experiments/sect_sutra_map/data/processed/t0367_praise_pure_land_body.txt"
+    }
+  ],
+  "shinran_sources": [
+    {
+      "id": "kyogyoshinsho",
+      "label": "教行信証",
+      "source": "j-soken",
+      "path": "experiments/sect_sutra_map/data/processed/kyogyoshinsho_body.txt",
+      "credit": "浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース"
+    },
+    {
+      "id": "nyushutsu_nimonge_p543",
+      "label": "入出二門偈 p543",
+      "source": "shinshuseiten",
+      "url": "https://shinshuseiten.higashihonganji.or.jp/contents.html?id=2&page=543",
+      "credit": "真宗大谷派（東本願寺）真宗聖典検索サイト"
+    }
+  ],
+  "literature_sources": [
+    {
+      "id": "kangyo-amidakyo-shitchu",
+      "label": "観無量寿経集註附阿弥陀経集註",
+      "url": "https://da.adm.thers.ac.jp/item/n004-20230901-00882",
+      "note": "若き親鸞の阿弥陀経学習を追う一次資料候補。v0では書誌・研究対象として扱う。"
+    },
+    {
+      "id": "chiba-2014",
+      "label": "千葉隆誓 2014",
+      "url": "https://buddhism.lib.ntu.edu.tw/jp/search/search_detail.jsp?seq=546211",
+      "note": "親鸞『阿弥陀経集註』における元照『阿弥陀経義疏』引文研究。"
+    },
+    {
+      "id": "jodoshu-t0367",
+      "label": "新纂浄土宗大辞典 称讃浄土仏摂受経",
+      "url": "https://jodoshuzensho.jp/daijiten/index.php/%E7%A7%B0%E8%AE%83%E6%B5%84%E5%9C%9F%E4%BB%8F%E6%91%82%E5%8F%97%E7%B5%8C",
+      "note": "T0367の異訳性、十方段などを確認する参照先。"
+    }
+  ]
+}

@@ -334,3 +334,27 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `9b3a8951fb8629f581df3af497fa6f7eed123354`
+
+## 2026-06-02 00:19 JST
+
+- Summary: Added a Shinran-side Amida source attribution pilot, separating explicit citation labels, translation-specific markers, and semantic chunk affinity for `T0366` / `T0367`.
+- Files:
+  - `experiments/shinran_amida_sources/manifest.json`
+  - `experiments/shinran_amida_sources/run_analysis.py`
+  - `docs/shinran-amida-source-analysis.md`
+  - `docs/figures/shinran-amida-source-markers.png`
+  - `docs/figures/shinran-kyogyoshinsho-amida-chunk-affinity.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/results.md`
+  - `memory.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/shinran_amida_sources/run_analysis.py`.
+  - Ran `python3 -m json.tool experiments/shinran_amida_sources/manifest.json`.
+  - Ran `python3 experiments/shinran_amida_sources/run_analysis.py` and confirmed marker summary, text-level similarities, chunk affinities, and generated figures.
+  - Validated `experiments/shinran_amida_sources/outputs/analysis_results.json` with `python3 -m json.tool`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references.
+  - Rendered Quick Look thumbnails for PDF pages 1, 9, and 10 and confirmed Japanese text plus the new Shinran figures.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`
