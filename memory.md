@@ -188,4 +188,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `tectonic sect-sutra-map-paper.tex --outdir .`.
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the `要旨` heading.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `eed853b552a8a728c31741c10830074ce648f285`
