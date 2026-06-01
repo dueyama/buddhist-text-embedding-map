@@ -1,0 +1,17 @@
+.DS_Store
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Generated experiment artifacts. Keep summaries in docs/results.md.
+experiments/**/data/raw/
+experiments/**/data/processed/
+experiments/**/outputs/
+
+# Legacy exploratory files known to contain hardcoded API keys.
+お経/embedding.py
+お経/embedding2.py
+お経/embedding.ipynb
+埋め込みテスト/embedding.ipynb
+埋め込みお経/embedding.ipynb
