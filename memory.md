@@ -314,3 +314,23 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `f3eefacfaff5a454287e018a6c4d7c84eb563f75`
+
+## 2026-06-01 23:00 JST
+
+- Summary: Added an overlap-vs-centroid scatter plot and bridge chunk table, with explicit interpretation of Kyogyoshinsho's partial overlap with the Pure Land three sutras.
+- Files:
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `docs/figures/sect-sutra-chunk-overlap-heatmap.png`
+  - `docs/figures/sect-sutra-overlap-vs-centroid.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/results.md`
+  - `memory.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py` and checked the new scatter figure visually.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

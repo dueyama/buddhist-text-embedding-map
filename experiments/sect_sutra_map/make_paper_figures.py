@@ -87,6 +87,64 @@ OVERVIEW_TEXT_IDS = [
     "t0475_vimalakirti",
 ]
 
+OVERLAP_TEXT_IDS = [
+    "t0366_amida_sutra",
+    "t0367_praise_pure_land",
+    "t0360_larger_sukhavati",
+    "t0365_meditation_sutra",
+    "kyogyoshinsho",
+    "t0848_maha_vairocana",
+    "t0865_vajrasekhara",
+    "t0243_rishu_kyo",
+    "t0676_samdhinirmocana",
+    "t0235_diamond_sutra",
+    "t0475_vimalakirti",
+]
+
+HIGHLIGHT_PAIR_IDS = [
+    ("t0366_amida_sutra", "t0367_praise_pure_land"),
+    ("kyogyoshinsho", "t0360_larger_sukhavati"),
+    ("kyogyoshinsho", "t0365_meditation_sutra"),
+    ("kyogyoshinsho", "t0366_amida_sutra"),
+    ("t0360_larger_sukhavati", "t0365_meditation_sutra"),
+    ("t0865_vajrasekhara", "t0243_rishu_kyo"),
+    ("t0235_diamond_sutra", "t0475_vimalakirti"),
+    ("t0366_amida_sutra", "t0243_rishu_kyo"),
+]
+
+BRIDGE_PAIR_IDS = [
+    ("t0366_amida_sutra", "t0367_praise_pure_land"),
+    ("kyogyoshinsho", "t0360_larger_sukhavati"),
+    ("kyogyoshinsho", "t0365_meditation_sutra"),
+    ("kyogyoshinsho", "t0366_amida_sutra"),
+    ("t0360_larger_sukhavati", "t0365_meditation_sutra"),
+    ("t0865_vajrasekhara", "t0243_rishu_kyo"),
+    ("t0235_diamond_sutra", "t0475_vimalakirti"),
+    ("t0366_amida_sutra", "t0243_rishu_kyo"),
+]
+
+PAIR_SHORT_LABELS = {
+    frozenset(("t0366_amida_sutra", "t0367_praise_pure_land")): "阿弥陀/稱讃",
+    frozenset(("kyogyoshinsho", "t0360_larger_sukhavati")): "教行/無量寿",
+    frozenset(("kyogyoshinsho", "t0365_meditation_sutra")): "教行/観無量寿",
+    frozenset(("kyogyoshinsho", "t0366_amida_sutra")): "教行/阿弥陀",
+    frozenset(("t0360_larger_sukhavati", "t0365_meditation_sutra")): "無量寿/観無量寿",
+    frozenset(("t0865_vajrasekhara", "t0243_rishu_kyo")): "金剛頂/理趣",
+    frozenset(("t0235_diamond_sutra", "t0475_vimalakirti")): "金剛/維摩",
+    frozenset(("t0366_amida_sutra", "t0243_rishu_kyo")): "阿弥陀/理趣",
+}
+
+PAIR_LABEL_OFFSETS = {
+    frozenset(("t0366_amida_sutra", "t0367_praise_pure_land")): (6, 8),
+    frozenset(("kyogyoshinsho", "t0360_larger_sukhavati")): (6, -13),
+    frozenset(("kyogyoshinsho", "t0365_meditation_sutra")): (8, 7),
+    frozenset(("kyogyoshinsho", "t0366_amida_sutra")): (8, -18),
+    frozenset(("t0360_larger_sukhavati", "t0365_meditation_sutra")): (-74, 7),
+    frozenset(("t0865_vajrasekhara", "t0243_rishu_kyo")): (6, 7),
+    frozenset(("t0235_diamond_sutra", "t0475_vimalakirti")): (-52, 7),
+    frozenset(("t0366_amida_sutra", "t0243_rishu_kyo")): (6, 6),
+}
+
 
 def load_data() -> dict:
     with VIEWER_DATA.open(encoding="utf-8") as handle:
@@ -141,6 +199,25 @@ def add_covariance_ellipse(ax, points: np.ndarray, color: str, linewidth: float 
 def chunks_for_texts(embeddings: dict, text_ids: list[str]) -> list[dict]:
     text_set = set(text_ids)
     return [chunk for chunk in embeddings["chunks"] if chunk["text_id"] in text_set]
+
+
+def chunks_for_text(embeddings: dict, text_id: str) -> list[dict]:
+    return [chunk for chunk in embeddings["chunks"] if chunk["text_id"] == text_id]
+
+
+def text_embedding_lookup(embeddings: dict) -> dict[str, np.ndarray]:
+    return {
+        text["id"]: np.array(text["embedding"], dtype=np.float32)
+        for text in embeddings["texts"]
+        if text.get("embedding")
+    }
+
+
+def text_cosine(embeddings: dict, text_a: str, text_b: str) -> float:
+    lookup = text_embedding_lookup(embeddings)
+    vector_a = lookup[text_a].reshape(1, -1)
+    vector_b = lookup[text_b].reshape(1, -1)
+    return float(cosine_similarity(vector_a, vector_b)[0, 0])
 
 
 def chunk_coordinates(chunks: list[dict]) -> np.ndarray:
@@ -341,18 +418,7 @@ def chunk_knn_mixing(chunks: list[dict], text_a: str, text_b: str, k: int = 5) -
 
 
 def figure_chunk_overlap_heatmap(embeddings: dict, font: font_manager.FontProperties) -> Path:
-    selected_ids = [
-        "t0366_amida_sutra",
-        "t0367_praise_pure_land",
-        "t0360_larger_sukhavati",
-        "t0365_meditation_sutra",
-        "t0848_maha_vairocana",
-        "t0865_vajrasekhara",
-        "t0243_rishu_kyo",
-        "t0676_samdhinirmocana",
-        "t0235_diamond_sutra",
-        "t0475_vimalakirti",
-    ]
+    selected_ids = OVERLAP_TEXT_IDS
     chunks = embeddings["chunks"]
     n = len(selected_ids)
     matrix = np.zeros((n, n), dtype=float)
@@ -366,7 +432,7 @@ def figure_chunk_overlap_heatmap(embeddings: dict, font: font_manager.FontProper
                 matrix[j, i] = score
 
     labels = [SHORT_LABELS[text_id] for text_id in selected_ids]
-    fig, ax = plt.subplots(figsize=(8.4, 7.2))
+    fig, ax = plt.subplots(figsize=(8.8, 7.6))
     image = ax.imshow(matrix, cmap="YlOrRd", vmin=0, vmax=0.4)
     ax.set_title("チャンク近傍混合率による分布重なり", fontproperties=font, fontsize=15, pad=12)
     ax.set_xticks(range(n))
@@ -387,6 +453,106 @@ def figure_chunk_overlap_heatmap(embeddings: dict, font: font_manager.FontProper
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
     return out
+
+
+def pair_label(text_a: str, text_b: str) -> str:
+    pair_key = frozenset((text_a, text_b))
+    return PAIR_SHORT_LABELS.get(pair_key, f"{SHORT_LABELS[text_a]}/{SHORT_LABELS[text_b]}")
+
+
+def figure_overlap_vs_centroid(embeddings: dict, font: font_manager.FontProperties) -> Path:
+    chunks = embeddings["chunks"]
+    highlighted = {frozenset(pair) for pair in HIGHLIGHT_PAIR_IDS}
+    rows = []
+    for i, text_a in enumerate(OVERLAP_TEXT_IDS):
+        for text_b in OVERLAP_TEXT_IDS[i + 1 :]:
+            rows.append(
+                {
+                    "text_a": text_a,
+                    "text_b": text_b,
+                    "centroid": text_cosine(embeddings, text_a, text_b),
+                    "mixing": chunk_knn_mixing(chunks, text_a, text_b),
+                    "highlight": frozenset((text_a, text_b)) in highlighted,
+                }
+            )
+
+    fig, ax = plt.subplots(figsize=(8.5, 6.2))
+    background = [row for row in rows if not row["highlight"]]
+    ax.scatter(
+        [row["centroid"] for row in background],
+        [row["mixing"] for row in background],
+        s=34,
+        color="#94a3b8",
+        alpha=0.46,
+        edgecolor="white",
+        linewidth=0.5,
+        label="その他のペア",
+        zorder=2,
+    )
+
+    palette = ["#2563eb", "#0891b2", "#0f766e", "#60a5fa", "#7c3aed", "#f97316", "#16a34a", "#64748b"]
+    for color, (text_a, text_b) in zip(palette, HIGHLIGHT_PAIR_IDS):
+        row = next(item for item in rows if {item["text_a"], item["text_b"]} == {text_a, text_b})
+        pair_key = frozenset((text_a, text_b))
+        ax.scatter(
+            row["centroid"],
+            row["mixing"],
+            s=78,
+            color=color,
+            edgecolor="white",
+            linewidth=0.8,
+            zorder=4,
+        )
+        ax.annotate(
+            pair_label(text_a, text_b),
+            xy=(row["centroid"], row["mixing"]),
+            xytext=PAIR_LABEL_OFFSETS.get(pair_key, (5, 5)),
+            textcoords="offset points",
+            fontsize=7.6,
+            fontproperties=font,
+            color="#0f172a",
+            zorder=5,
+        )
+
+    ax.set_title("平均類似度とチャンク分布重なりの関係", fontproperties=font, fontsize=15, pad=12)
+    ax.set_xlabel("本文平均ベクトルのコサイン類似度", fontproperties=font)
+    ax.set_ylabel("チャンク近傍混合率", fontproperties=font)
+    ax.set_xlim(0.45, 0.93)
+    ax.set_ylim(-0.01, 0.42)
+    ax.grid(color="#e2e8f0", linewidth=0.7)
+    ax.legend(loc="upper left", prop=font, frameon=False)
+
+    out = FIGURE_DIR / "sect-sutra-overlap-vs-centroid.png"
+    fig.tight_layout()
+    fig.savefig(out, bbox_inches="tight")
+    plt.close(fig)
+    return out
+
+
+def best_bridge_chunk_pair(embeddings: dict, text_a: str, text_b: str) -> dict:
+    chunks_a = chunks_for_text(embeddings, text_a)
+    chunks_b = chunks_for_text(embeddings, text_b)
+    matrix_a = np.array([chunk["embedding"] for chunk in chunks_a], dtype=np.float32)
+    matrix_b = np.array([chunk["embedding"] for chunk in chunks_b], dtype=np.float32)
+    similarities = cosine_similarity(matrix_a, matrix_b)
+    row_index, col_index = np.unravel_index(np.argmax(similarities), similarities.shape)
+    chunk_a = chunks_a[row_index]
+    chunk_b = chunks_b[col_index]
+    return {
+        "text_a": text_a,
+        "text_b": text_b,
+        "chunk_a": chunk_a["chunk_id"],
+        "chunk_b": chunk_b["chunk_id"],
+        "chunk_index_a": chunk_a["chunk_index"],
+        "chunk_index_b": chunk_b["chunk_index"],
+        "bridge_similarity": float(similarities[row_index, col_index]),
+        "text_similarity": text_cosine(embeddings, text_a, text_b),
+        "mixing": chunk_knn_mixing(embeddings["chunks"], text_a, text_b),
+    }
+
+
+def bridge_pair_rows(embeddings: dict) -> list[dict]:
+    return [best_bridge_chunk_pair(embeddings, text_a, text_b) for text_a, text_b in BRIDGE_PAIR_IDS]
 
 
 def similarity_lookup(data: dict) -> dict[tuple[str, str], float]:
@@ -491,11 +657,20 @@ def main() -> None:
         figure_chunk_distribution_overview(embeddings, font),
         figure_chunk_distribution_focus(embeddings, font),
         figure_chunk_overlap_heatmap(embeddings, font),
+        figure_overlap_vs_centroid(embeddings, font),
         figure_similarity_heatmap(data, font),
         figure_amida_comparison(font),
     ]
     for path in outputs:
         print(path)
+    print("bridge_pair\tchunk_a\tchunk_b\tbridge_similarity\ttext_similarity\tmixing")
+    for row in bridge_pair_rows(embeddings):
+        print(
+            f"{pair_label(row['text_a'], row['text_b'])}\t"
+            f"{row['chunk_a']}\t{row['chunk_b']}\t"
+            f"{row['bridge_similarity']:.4f}\t"
+            f"{row['text_similarity']:.4f}\t{row['mixing']:.4f}"
+        )
 
 
 if __name__ == "__main__":
