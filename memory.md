@@ -291,4 +291,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending
+- Commit: `ebb920150384cede81a38608f04f1bc68da5ee69`
