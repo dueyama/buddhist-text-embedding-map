@@ -24,4 +24,15 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Checked planned commit files for hardcoded API key patterns.
   - Confirmed staged files before committing.
+- Commit: `f37b02dda979138c8ba821916543de4b8f03a914`
+
+## 2026-06-01 17:35 JST
+
+- Summary: Added the initial results note for the Amitabha Sutra two-translation comparison.
+- Files:
+  - `docs/results.md`
+- Verification:
+  - Read `experiments/amida_compare/outputs/summary.json` and copied the key metrics into the results note.
+  - Checked planned commit files for hardcoded API key patterns.
+  - Confirmed staged files before committing.
 - Commit: pending; the actual hash will be recorded after the commit exists.
