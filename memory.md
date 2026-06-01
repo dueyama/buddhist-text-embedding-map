@@ -168,3 +168,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked for leftover English section headings and common placeholder markers.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `69008a4a13c4da6ea775725a853d03e7e2b2ae0d`
+
+## 2026-06-01 18:43 JST
+
+- Summary: Installed a lightweight local TeX engine and generated the figure-included Japanese paper PDF.
+- Files:
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `docs/figures/sect-sutra-semantic-map.png`
+  - `docs/figures/sect-sutra-similarity-heatmap.png`
+  - `docs/figures/amida-two-translation-comparison.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+- Verification:
+  - Tried `brew install --cask basictex`; download succeeded but installation required an administrator password, so it was not completed by Codex.
+  - Installed `tectonic` with Homebrew and verified `Tectonic 0.16.9`.
+  - Compiled a minimal Japanese TeX smoke test to PDF.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_figures.py`.
+  - Ran `tectonic sect-sutra-map-paper.tex --outdir .`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the `要旨` heading.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending; the actual hash will be recorded after the commit exists.
