@@ -36,6 +36,18 @@
     "notes": "浄土三部経の小経。"
   },
   {
+    "id": "t0367_praise_pure_land",
+    "title": "稱讃淨土佛攝受經",
+    "taisho_id": "T0367",
+    "source": "sat",
+    "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0367.html",
+    "sects": ["浄土宗", "浄土真宗", "時宗"],
+    "layer": "variant_translation",
+    "translator": "唐 玄奘譯",
+    "period": "漢訳仏典",
+    "notes": "阿弥陀経に近い内容の玄奘訳。訳者比較レイヤーとして扱う。"
+  },
+  {
     "id": "kyogyoshinsho",
     "title": "顯淨土眞實教行證文類",
     "taisho_id": "",
@@ -118,6 +130,18 @@
     "translator": "唐 玄奘譯",
     "period": "漢訳仏典",
     "notes": "般若心経。禅・真言の勤行レイヤーとして扱う。"
+  },
+  {
+    "id": "t0676_samdhinirmocana",
+    "title": "解深密經",
+    "taisho_id": "T0676",
+    "source": "sat",
+    "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0676.html",
+    "sects": ["法相宗"],
+    "layer": "core_sutra",
+    "translator": "唐 玄奘譯",
+    "period": "漢訳仏典",
+    "notes": "玄奘訳の代表的唯識系経典。訳者比較を成立させるため v0.1 で追加。"
   },
   {
     "id": "t0235_diamond_sutra",

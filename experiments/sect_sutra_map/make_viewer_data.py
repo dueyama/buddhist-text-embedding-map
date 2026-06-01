@@ -51,6 +51,39 @@ def build_centroids(texts: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return centroids
 
 
+def normalize_translator(value: str) -> str:
+    for name in ["鳩摩羅什", "玄奘", "不空", "親鸞", "康僧鎧", "畺良耶舍", "善無畏", "一行", "實叉難陀"]:
+        if name in value:
+            return name
+    return value.strip() or "unknown"
+
+
+def build_translator_centroids(texts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for text in texts:
+        translator = normalize_translator(text.get("translator", ""))
+        if translator in {"unknown", "親鸞"}:
+            continue
+        groups.setdefault(translator, []).append(text)
+
+    centroids = []
+    for translator, members in sorted(groups.items()):
+        if len(members) < 2:
+            continue
+        vector = np.array([text["embedding"] for text in members], dtype=np.float32).mean(axis=0)
+        centroids.append(
+            {
+                "id": f"translator::{translator}",
+                "title": translator,
+                "sects": ["訳者"],
+                "layer": "translator_centroid",
+                "member_text_ids": [text["id"] for text in members],
+                "embedding": vector.astype(float).tolist(),
+            }
+        )
+    return centroids
+
+
 def add_coordinates(records: list[dict[str, Any]]) -> None:
     matrix = np.array([record["embedding"] for record in records], dtype=np.float32)
     if len(records) == 1:
@@ -130,7 +163,8 @@ def main() -> None:
     texts = embeddings["texts"]
     chunks = embeddings["chunks"]
     centroids = build_centroids(texts)
-    coordinate_records = texts + centroids
+    translator_centroids = build_translator_centroids(texts)
+    coordinate_records = texts + centroids + translator_centroids
     add_coordinates(coordinate_records)
 
     viewer_data = {
@@ -140,6 +174,9 @@ def main() -> None:
         "texts": [stripped_text_record(text) for text in texts],
         "chunks": [stripped_chunk_record(chunk) for chunk in chunks],
         "sect_centroids": [stripped_text_record(centroid) for centroid in centroids],
+        "translator_centroids": [
+            stripped_text_record(centroid) for centroid in translator_centroids
+        ],
         "similarities": build_text_similarities(texts),
         "nearest_texts": build_nearest_texts(texts),
         "nearest_chunks": build_nearest_chunks(texts, chunks),
@@ -149,6 +186,7 @@ def main() -> None:
     print(f"Texts: {len(texts)}")
     print(f"Chunks: {len(chunks)}")
     print(f"Sect centroids: {len(centroids)}")
+    print(f"Translator centroids: {len(translator_centroids)}")
     print(f"Wrote {args.output}")
 
 

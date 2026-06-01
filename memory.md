@@ -130,3 +130,16 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Read `git rev-parse HEAD` after the results commit.
 - Commit: this entry is committed by the next memory-only commit; its hash is reported in the assistant summary to avoid an infinite self-reference.
+
+## 2026-06-01 18:12 JST
+
+- Summary: Added translator comparison support with additional Xuanzang texts and translator centroids in the viewer data.
+- Files:
+  - `experiments/sect_sutra_map/manifest.json`
+  - `experiments/sect_sutra_map/make_viewer_data.py`
+  - `experiments/sect_sutra_map/viewer/index.html`
+- Verification:
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py`.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending; the actual hash will be recorded after the commit exists.
