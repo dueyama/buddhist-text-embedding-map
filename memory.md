@@ -120,4 +120,13 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py`.
   - Ran `python3 -m json.tool experiments/sect_sutra_map/outputs/viewer_data.json`.
   - Served the viewer locally and captured `/private/tmp/okyou-sect-map.png` with headless Chrome.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `d015b7cbe9f5a951284b53357d0714a86e905a4b`
+
+## 2026-06-01 17:58 JST
+
+- Summary: Recorded the actual commit hash for the sect map v0 results commit.
+- Files:
+  - `memory.md`
+- Verification:
+  - Read `git rev-parse HEAD` after the results commit.
+- Commit: this entry is committed by the next memory-only commit; its hash is reported in the assistant summary to avoid an infinite self-reference.
