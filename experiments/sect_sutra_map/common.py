@@ -74,7 +74,24 @@ def clean_sat_line(value: str) -> str:
     return value.strip()
 
 
+def clean_ref(value: str) -> str:
+    value = strip_html(value)
+    value = re.sub(r"\s+", "", value)
+    return value.rstrip(":")
+
+
 def parse_sat_rows(source: str) -> list[tuple[str, str]]:
+    html_rows = re.findall(
+        r'<span style="color:black">(T[^<]+)</span><a name="[^"]*">(.*?)</a><br\s*/?>',
+        source,
+        flags=re.DOTALL,
+    )
+    if html_rows:
+        return [
+            (clean_ref(ref), clean_sat_line(strip_html(body)))
+            for ref, body in html_rows
+        ]
+
     text = strip_html(source)
     rows: list[tuple[str, str]] = []
     line_pattern = re.compile(r"(T\d{4}[A-Z]?_?\.\d{2}\.\d{4}[abc]\d{2}:)\s*(.*)")

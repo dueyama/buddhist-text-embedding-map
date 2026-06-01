@@ -95,4 +95,15 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Read the beginning of the HTML file for sanity.
   - Checked the planned commit file for hardcoded API key patterns.
+- Commit: `c45805776141df9c8231035e0b4c93a2ae80feb3`
+
+## 2026-06-01 17:53 JST
+
+- Summary: Fixed SAT row parsing for direct SAT pages where refs and body text are split across span/a tags.
+- Files:
+  - `experiments/sect_sutra_map/common.py`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/common.py experiments/sect_sutra_map/build_corpus.py`.
+  - Parsed cached `t0360_larger_sukhavati.html` and confirmed 638 SAT rows with body text.
+  - Checked the planned commit file for hardcoded API key patterns.
 - Commit: pending; the actual hash will be recorded after the commit exists.
