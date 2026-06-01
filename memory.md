@@ -54,4 +54,15 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
   - Checked the planned commit file for hardcoded API key patterns.
+- Commit: `8fb832eef7106d828ad92fa39a62dcc816b5c4ec`
+
+## 2026-06-01 17:45 JST
+
+- Summary: Added the corpus builder and shared helpers for SAT/local text processing.
+- Files:
+  - `experiments/sect_sutra_map/common.py`
+  - `experiments/sect_sutra_map/build_corpus.py`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/common.py experiments/sect_sutra_map/build_corpus.py`.
+  - Checked planned commit files for hardcoded API key patterns.
 - Commit: pending; the actual hash will be recorded after the commit exists.
