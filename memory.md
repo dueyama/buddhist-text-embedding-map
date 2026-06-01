@@ -65,4 +65,14 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Ran `python3 -m py_compile experiments/sect_sutra_map/common.py experiments/sect_sutra_map/build_corpus.py`.
   - Checked planned commit files for hardcoded API key patterns.
+- Commit: `af741f7b9d4a19a25c055cc3c4cb54458532e29f`
+
+## 2026-06-01 17:47 JST
+
+- Summary: Added the OpenAI embedding pipeline with chunk-level cache support.
+- Files:
+  - `experiments/sect_sutra_map/embed_texts.py`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/embed_texts.py`.
+  - Checked the planned commit file for hardcoded API key patterns.
 - Commit: pending; the actual hash will be recorded after the commit exists.
