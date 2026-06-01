@@ -142,4 +142,18 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
   - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py`.
   - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `0d2bb76ac3599b96ba6710b41e2ed991722d0400`
+
+## 2026-06-01 18:15 JST
+
+- Summary: Generated the translator comparison corpus, embeddings, viewer data, and documented the v0.1 result.
+- Files:
+  - `docs/results.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/build_corpus.py` and confirmed `15` texts.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py` and embedded `30` new chunks with `20869` API tokens.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `433` cache hits, `0` misses.
+  - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py` and confirmed `3` translator centroids.
+  - Validated `experiments/sect_sutra_map/outputs/viewer_data.json` with `python3 -m json.tool`.
+  - Captured `/private/tmp/okyou-translator-map.png` with headless Chrome.
 - Commit: pending; the actual hash will be recorded after the commit exists.

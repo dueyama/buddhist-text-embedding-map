@@ -150,3 +150,72 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 - 宗派重心は `core_sutra` と `founder_text` の単純平均なので、宗派ごとの重み付けは未実装。
 - 祖師文献は教行信証だけで、禅・天台・真言・日蓮の祖師文献は未投入。
 - PCA 2D map は可視化用であり、距離の厳密解釈には heatmap と nearest list を併用する必要がある。
+
+## 2026-06-01: 訳者比較 v0.1
+
+### 入力
+
+- Texts: `15`
+- Chunks: `433`
+- Sect centroids: `11`
+- Translator centroids: `3`
+- Model: `text-embedding-3-large`
+- Added texts:
+  - `T0367` 稱讃淨土佛攝受經: 玄奘訳の阿弥陀経系別訳
+  - `T0676` 解深密經: 玄奘訳の法相・瑜伽行系代表経典
+- Incremental embedding run:
+  - Previous cache hits: `403`
+  - New cache misses: `30`
+  - API tokens for new chunks: `20869`
+  - Cache verification with `--no-api`: `433` cache hits, `0` cache misses
+
+### 訳者重心
+
+- 不空: `2` texts
+  - `T0865` 金剛頂経
+  - `T0243` 理趣経
+- 玄奘: `3` texts
+  - `T0367` 稱讃淨土佛攝受經
+  - `T0251` 般若心経
+  - `T0676` 解深密經
+- 鳩摩羅什: `5` texts
+  - `T0366` 阿弥陀経
+  - `T0262` 法華経 local text
+  - `T0262` 観音経相当部分
+  - `T0235` 金剛経
+  - `T0475` 維摩経
+
+### 主要な近傍
+
+- 玄奘訳 `T0367` 稱讃淨土佛攝受經:
+  - 鳩摩羅什訳 `T0366` 阿弥陀経: `0.8825`
+  - `T0360` 無量寿経: `0.8798`
+  - `T0262` 法華経 local text: `0.8469`
+  - `T0365` 観無量寿経: `0.8412`
+  - 教行信証: `0.8152`
+- 玄奘訳 `T0676` 解深密經:
+  - 教行信証: `0.8548`
+  - `T0848` 大日経: `0.8478`
+  - `T0475` 維摩経: `0.8370`
+  - `T0235` 金剛経: `0.8308`
+  - `T0360` 無量寿経: `0.7838`
+
+### 解釈
+
+- `T0367` と `T0366` は訳者が違ってもかなり近く出る。これは semantic embedding が「同じ、または非常に近い原内容」を強く拾っているためと見られる。
+- 一方で、玄奘訳同士である `T0367`・般若心経・`T0676` が、訳者だけを理由に強くまとまるわけではない。特に `T0676` は瑜伽行・法相系の内容差が大きく、意味ベクトルではトピックが支配的になる。
+- 訳者重心は、ビューア上で「この訳者の既知テキスト群がどのあたりに散るか」を見る補助線としては有用。ただし、翻訳の癖そのものを抽出するには semantic embedding だけでは足りない。
+- 翻訳癖を見るには、次に character n-gram、助字・句法、固有訳語対応、文長、句読点なしの文字列特徴などを別レイヤーにした style vector を作る必要がある。
+
+### 生成物
+
+- Viewer data: `experiments/sect_sutra_map/outputs/viewer_data.json`
+- Static viewer: `experiments/sect_sutra_map/viewer/index.html`
+- Visual check: `/private/tmp/okyou-translator-map.png`
+
+### 未検証点
+
+- 訳者重心は、同一訳者の投入テキスト数が少ないため安定しない。
+- 鳩摩羅什の法華経 local text は短いため、全文 SAT に差し替える必要がある。
+- 玄奘・不空以外の訳者サンプルを増やさないと、訳者特徴とジャンル特徴を切り分けられない。
+- 現時点のビューアは semantic map であり、style map は未実装。
