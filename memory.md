@@ -167,4 +167,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Read the draft with `sed` to check structure and wording.
   - Checked for leftover English section headings and common placeholder markers.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `69008a4a13c4da6ea775725a853d03e7e2b2ae0d`
