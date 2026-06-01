@@ -381,4 +381,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
   - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, and 10 and confirmed the revised Japanese paper, corpus table, sensitivity table, and Amida metric table.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `fcc17861a943667608338ceb011894e895f3497d`
