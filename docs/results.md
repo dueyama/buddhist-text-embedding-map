@@ -272,3 +272,46 @@ Query: `toh106_samdhinirmocana_en`
 - 英訳と漢訳の章・段落対応はまだ取っていない。
 - 同じ英語翻訳スタイルに由来するクラスタリングは、英訳サンプルを複数入れないと評価できない。
 - チベット語本文、サンスクリット、パーリは未投入。
+
+## 2026-06-01: チャンク分布マップ v0.1
+
+### 入力
+
+- Source: `experiments/sect_sutra_map/outputs/embeddings.json`
+- Model: `text-embedding-3-large`
+- Texts: `15`
+- Chunks: `433`
+- Main idea: 本文平均ベクトルだけではなく、各本文を構成する chunk embeddings の分布として可視化する。
+
+### 追加図
+
+- `docs/figures/sect-sutra-chunk-distribution-overview.png`
+  - 主要テキストの全体チャンク分布と 1σ 楕円。
+- `docs/figures/sect-sutra-chunk-distribution-focus.png`
+  - 阿弥陀経二訳、真言系密教経典、般若・法相・禅系対照を別パネルで表示。
+- `docs/figures/sect-sutra-chunk-overlap-heatmap.png`
+  - 高次元 embedding 空間での top-5 チャンク近傍混合率。
+
+### 主要な混合率
+
+| Pair | top-5 chunk neighbor mixing |
+| --- | --- |
+| 阿弥陀経 / 稱讃淨土経 | `0.37` |
+| 稱讃淨土経 / 無量寿経 | `0.19` |
+| 無量寿経 / 観無量寿経 | `0.17` |
+| 金剛経 / 維摩経 | `0.14` |
+| 金剛頂経 / 理趣経 | `0.12` |
+| 阿弥陀経 / 理趣経 | `0.04` |
+
+### 解釈
+
+- 平均点マップは全体の位置を読むには便利だが、経典内部の主題の広がりを消してしまう。
+- 阿弥陀経二訳は平均ベクトルでも近く、チャンク近傍混合率も高い。内容対応が部分単位でも出ている可能性がある。
+- 教行信証は引用・教義的総合を含むため、チャンク分布の広がりが大きい。祖師文献を一点で扱うと情報を落としやすい。
+- 2D の楕円は PCA 投影上の見え方なので、重なりの判定には高次元空間の近傍混合率を併用する。
+
+### 未検証点
+
+- チャンク境界は 700 tokens / 100 overlap の機械分割で、巻・品・段落などの自然単位ではない。
+- 楕円は 2D PCA 上の 1σ 近似なので、非楕円形・多峰性の分布を十分には表現できない。
+- 今後は chapter/section 単位での分布、密度推定、Earth Mover's Distance なども比較候補にする。

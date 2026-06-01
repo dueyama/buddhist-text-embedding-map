@@ -292,3 +292,25 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `ebb920150384cede81a38608f04f1bc68da5ee69`
+
+## 2026-06-01 22:43 JST
+
+- Summary: Added chunk distribution figures and high-dimensional chunk neighbor mixing to the paper so the final PDF shows both mean points and text-internal spread/overlap.
+- Files:
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `docs/figures/sect-sutra-semantic-map.png`
+  - `docs/figures/sect-sutra-chunk-distribution-overview.png`
+  - `docs/figures/sect-sutra-chunk-distribution-focus.png`
+  - `docs/figures/sect-sutra-chunk-overlap-heatmap.png`
+  - `docs/figures/sect-sutra-similarity-heatmap.png`
+  - `docs/figures/amida-two-translation-comparison.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/results.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py` and visually checked the three new chunk distribution figures.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending
