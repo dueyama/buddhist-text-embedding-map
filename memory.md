@@ -333,4 +333,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked the LaTeX log for overfull boxes and undefined references.
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `9b3a8951fb8629f581df3af497fa6f7eed123354`
