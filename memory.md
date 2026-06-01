@@ -436,4 +436,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered Quick Look thumbnails for PDF pages 1, 2, and 15 and confirmed the author line, corpus table, and reference page.
   - Compared each `-3` file with its canonical source using `cmp -s`.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `055456210500eee9153109fa90e505362afb1565`
