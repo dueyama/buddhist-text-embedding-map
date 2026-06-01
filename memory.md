@@ -402,4 +402,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
   - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, 9, 10, 14, and 15 and confirmed the author line, corpus table, complete-mixing table, Figure 7 labels, conclusion, and references.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `17739d421a7a3aae0d622d619e5756c241730c97`
