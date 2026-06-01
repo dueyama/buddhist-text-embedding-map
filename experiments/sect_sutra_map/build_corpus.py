@@ -40,12 +40,12 @@ def read_local(item: dict[str, Any]) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def rows_from_local(source: str) -> list[tuple[str, str]]:
+def rows_from_local(source: str, ref_prefix: str = "local") -> list[tuple[str, str]]:
     rows = []
     for index, line in enumerate(source.splitlines(), start=1):
         body = line.strip()
         if body:
-            rows.append((f"local:{index}", body))
+            rows.append((f"{ref_prefix}:{index}", body))
     return rows
 
 
@@ -53,9 +53,9 @@ def build_item(item: dict[str, Any], refresh: bool = False) -> dict[str, Any]:
     if item["source"] == "sat":
         source = fetch_sat(item, refresh=refresh)
         rows = parse_sat_rows(source)
-    elif item["source"] == "local":
+    elif item["source"] in {"local", "j-soken", "excerpt"}:
         source = read_local(item)
-        rows = rows_from_local(source)
+        rows = rows_from_local(source, ref_prefix=item["source"])
     else:
         raise ValueError(f"Unsupported source type: {item['source']}")
 

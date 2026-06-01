@@ -51,7 +51,7 @@
     "id": "kyogyoshinsho",
     "title": "顯淨土眞實教行證文類",
     "taisho_id": "",
-    "source": "local",
+    "source": "j-soken",
     "source_url": "https://j-soken.jp/ask/10831",
     "source_path": "お経/kyougyoushinsyou.txt",
     "sects": ["浄土真宗"],
@@ -59,19 +59,20 @@
     "translator": "親鸞",
     "period": "日本撰述",
     "credit": "本文データの出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース。成果公表時は同データベースを利用した旨を明記する。",
-    "notes": "既存ローカル本文。公式ダウンロードページに『顕浄土真実教行証文類』が収載されているため、出典クレジットを付す。宗派重心の祖師文献レイヤーとして扱う。"
+    "notes": "浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベースのダウンロードページに『顕浄土真実教行証文類』が収載されているため、出典クレジットを付す。宗派重心の祖師文献レイヤーとして扱う。"
   },
   {
     "id": "t0262_lotus_sutra",
     "title": "妙法蓮華經",
     "taisho_id": "T0262",
-    "source": "local",
-    "source_url": "お経/法華経.txt",
+    "source": "excerpt",
+    "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0262.html",
+    "source_path": "お経/法華経.txt",
     "sects": ["天台宗", "日蓮宗"],
     "layer": "core_sutra",
     "translator": "姚秦 鳩摩羅什譯",
     "period": "漢訳仏典",
-    "notes": "既存ローカル本文。法華系の共有中心として扱う。"
+    "notes": "既存取得の抜粋本文。法華系の共有中心として扱う。"
   },
   {
     "id": "t0262_kannon_chapter",

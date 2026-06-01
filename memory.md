@@ -271,3 +271,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the updated multilingual title.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `e3770e0ce094b23de6e62af16cf0ef29fda62db7`
+
+## 2026-06-01 21:15 JST
+
+- Summary: Removed user-facing `local` source labels for Kyogyoshinsho, treating it as J-SOKEN Seikyo DB sourced text, and regenerated the corpus metadata, viewer data, and paper PDF.
+- Files:
+  - `experiments/sect_sutra_map/build_corpus.py`
+  - `experiments/sect_sutra_map/manifest.json`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/sect-sutra-map-paper-draft.md`
+  - `docs/results.md`
+- Verification:
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/build_corpus.py experiments/sect_sutra_map/common.py experiments/sect_sutra_map/embed_texts.py experiments/sect_sutra_map/make_viewer_data.py`.
+  - Ran `python3 experiments/sect_sutra_map/build_corpus.py` and confirmed `15` texts.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `433` cache hits, `0` misses, and `0` API tokens.
+  - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending

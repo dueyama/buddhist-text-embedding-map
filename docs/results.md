@@ -90,7 +90,7 @@ This file records experiment results worth keeping outside generated caches.
     - 出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース
     - 利用規定: 成果公表時は同データベースを利用した旨を明記する必要がある
 - 法華系
-  - 妙法蓮華經 local text: `13` chunks, `4718` chars
+  - 妙法蓮華經 抜粋本文: `13` chunks, `4718` chars
   - 觀世音菩薩普門品 SAT range: `6` chunks, `2134` chars
 - 真言系
   - `T0848` 大毘盧遮那成佛神變加持經: `28` chunks, `10770` chars
@@ -108,10 +108,10 @@ This file records experiment results worth keeping outside generated caches.
 - 阿弥陀経の近傍:
   - 無量寿経: `0.8694`
   - 観無量寿経: `0.8446`
-  - 妙法蓮華経 local text: `0.8275`
+  - 妙法蓮華経抜粋本文: `0.8275`
   - 教行信証: `0.8058`
 - 無量寿経の近傍:
-  - 妙法蓮華経 local text: `0.9111`
+  - 妙法蓮華経抜粋本文: `0.9111`
   - 観無量寿経: `0.9102`
   - 教行信証: `0.8797`
   - 阿弥陀経: `0.8694`
@@ -124,7 +124,7 @@ This file records experiment results worth keeping outside generated caches.
   - 般若心経 -> 金剛経: `0.7622`
   - 般若心経 -> 維摩経: `0.7643`
 - 華厳経 sample:
-  - 妙法蓮華経 local text: `0.8293`
+  - 妙法蓮華経抜粋本文: `0.8293`
   - 無量寿経: `0.8221`
   - 大日経: `0.7886`
 
@@ -134,7 +134,7 @@ This file records experiment results worth keeping outside generated caches.
 - 真言系では、金剛頂経・理趣経・大日経が互いに近く、密教経典クラスタとして観察できる。
 - 禅系の経典だけでは、曹洞・臨済・黄檗の差はまだ出ない。これは予想どおりで、祖師文献や語録を足す必要がある。
 - 教行信証は浄土三部経にも近いが、維摩経や大日経にも高く出る。全文平均では、宗派性だけでなく引用・総合文献としての広がりが強く出ている可能性がある。
-- 妙法蓮華経の local text は `4718` chars と短く、全文ではない可能性が高い。法華系の評価は SAT full text 取得後に再確認する。
+- 妙法蓮華経の抜粋本文は `4718` chars と短く、全文ではない可能性が高い。法華系の評価は SAT full text 取得後に再確認する。
 
 ### 生成物
 
@@ -148,7 +148,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 ### 未検証点
 
 - 大部経典は SAT の直接表示範囲を v0 corpus としているため、全文比較ではないものがある。
-- 法華経 local text は短く、全文 SAT に差し替える必要がある。
+- 法華経抜粋本文 は短く、全文 SAT に差し替える必要がある。
 - 宗派重心は `core_sutra` と `founder_text` の単純平均なので、宗派ごとの重み付けは未実装。
 - 祖師文献は教行信証だけで、禅・天台・真言・日蓮の祖師文献は未投入。
 - PCA 2D map は可視化用であり、距離の厳密解釈には heatmap と nearest list を併用する必要がある。
@@ -182,7 +182,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
   - `T0676` 解深密經
 - 鳩摩羅什: `5` texts
   - `T0366` 阿弥陀経
-  - `T0262` 法華経 local text
+  - `T0262` 法華経抜粋本文
   - `T0262` 観音経相当部分
   - `T0235` 金剛経
   - `T0475` 維摩経
@@ -192,7 +192,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 - 玄奘訳 `T0367` 稱讃淨土佛攝受經:
   - 鳩摩羅什訳 `T0366` 阿弥陀経: `0.8825`
   - `T0360` 無量寿経: `0.8798`
-  - `T0262` 法華経 local text: `0.8469`
+  - `T0262` 法華経抜粋本文: `0.8469`
   - `T0365` 観無量寿経: `0.8412`
   - 教行信証: `0.8152`
 - 玄奘訳 `T0676` 解深密經:
@@ -218,7 +218,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 ### 未検証点
 
 - 訳者重心は、同一訳者の投入テキスト数が少ないため安定しない。
-- 鳩摩羅什の法華経 local text は短いため、全文 SAT に差し替える必要がある。
+- 鳩摩羅什の法華経抜粋本文 は短いため、全文 SAT に差し替える必要がある。
 - 玄奘・不空以外の訳者サンプルを増やさないと、訳者特徴とジャンル特徴を切り分けられない。
 - 現時点のビューアは semantic map であり、style map は未実装。
 
@@ -229,7 +229,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 - Goal: チベット大蔵経由来の 84000 英訳と漢訳が、意味埋め込みで同一経典として近く出るかを確認する。
 - Main pair:
   - `T0676` 解深密經: SAT 由来の既存 processed text
-  - `Toh 106` The Teaching Explaining the Thought: 84000 Reading Room の公開英訳 HTML からローカル抽出
+  - `Toh 106` The Teaching Explaining the Thought: 84000 Reading Room の公開英訳 HTML から抽出
 - Controls:
   - `T0235` 金剛般若波羅蜜經
   - `T0475` 維摩詰所說經
@@ -268,7 +268,7 @@ Query: `toh106_samdhinirmocana_en`
 
 ### 未検証点
 
-- 84000 HTML の抽出は v0 のローカル実験用であり、安定 API ではない。
+- 84000 HTML の抽出は v0 の研究用キャッシュであり、安定 API ではない。
 - 英訳と漢訳の章・段落対応はまだ取っていない。
 - 同じ英語翻訳スタイルに由来するクラスタリングは、英訳サンプルを複数入れないと評価できない。
 - チベット語本文、サンスクリット、パーリは未投入。
