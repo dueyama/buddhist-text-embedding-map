@@ -457,4 +457,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered Quick Look thumbnails for PDF pages 1, 2, 14, and 16 and confirmed the abstract, prior-work introduction, discussion, and reference list.
   - Compared `sect-sutra-map-paper-4.tex` and `.pdf` with the canonical source files using `cmp -s`.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `c6402f29c36e8e3f3a7951b037d71f4d7c887148`
