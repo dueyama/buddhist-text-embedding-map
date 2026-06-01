@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宗派別お経マップ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8f5;
+      --panel: #ffffff;
+      --ink: #1f2723;
+      --muted: #6d756f;
+      --line: #d9ded8;
+      --accent: #2f6f73;
+      --accent-2: #9a5b3f;
+      --shadow: 0 18px 48px rgba(37, 46, 42, 0.09);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      padding: 22px 28px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(16px);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .subhead {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    select,
+    button,
+    label.file {
+      height: 34px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 0 10px;
+      font-size: 13px;
+      line-height: 34px;
+    }
+
+    button,
+    label.file {
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) 390px;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .map-panel {
+      min-height: 620px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      display: block;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0 16px 14px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .side {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .detail,
+    .heatmap {
+      padding: 16px;
+    }
+
+    .detail h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 8px 10px;
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 14px 0;
+    }
+
+    .detail-grid dt {
+      color: var(--muted);
+    }
+
+    .detail-grid dd {
+      margin: 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .row {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 9px;
+      background: #fbfcfa;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .row strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .score {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .heatmap table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 11px;
+    }
+
+    .heatmap th,
+    .heatmap td {
+      border: 1px solid var(--line);
+      padding: 4px;
+      text-align: center;
+      min-width: 28px;
+    }
+
+    .heatmap th {
+      color: var(--muted);
+      font-weight: 600;
+      background: #fbfcfa;
+    }
+
+    .empty {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      header,
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        justify-content: flex-start;
+      }
+
+      main {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>宗派別お経マップ</h1>
+      <div class="subhead" id="summary">viewer_data.json を読み込み中</div>
+    </div>
+    <div class="controls">
+      <select id="sectFilter" aria-label="宗派"></select>
+      <select id="layerFilter" aria-label="レイヤー"></select>
+      <button id="resetButton" type="button">全体表示</button>
+      <label class="file">JSON選択<input id="fileInput" type="file" accept="application/json"></label>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-panel">
+      <div class="panel-head">
+        <div class="panel-title">2D map</div>
+        <div class="meta" id="modelMeta"></div>
+      </div>
+      <svg id="map" role="img" aria-label="経典と宗派重心の二次元マップ"></svg>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <div class="side">
+      <section class="detail" id="detail">
+        <div class="empty">点をクリックすると、経典・宗派重心の詳細と近傍が表示されます。</div>
+      </section>
+      <section class="heatmap">
+        <div class="panel-title">Similarity heatmap</div>
+        <div id="heatmap"></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const colors = {
+      "浄土宗": "#4d7c9b",
+      "浄土真宗": "#386fa4",
+      "時宗": "#6a8caf",
+      "天台宗": "#9a5b3f",
+      "日蓮宗": "#b85c38",
+      "真言宗": "#7a5aa6",
+      "曹洞宗": "#4f7d57",
+      "臨済宗": "#2f6f73",
+      "黄檗宗": "#5e8c61",
+      "華厳宗": "#a7832d"
+    };
+
+    const state = {
+      data: null,
+      selectedId: null,
+      sect: "all",
+      layer: "all"
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    async function loadDefault() {
+      try {
+        const response = await fetch("../outputs/viewer_data.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        setData(await response.json());
+      } catch (error) {
+        $("summary").textContent = "viewer_data.json を自動読込できませんでした。JSON選択から読み込めます。";
+      }
+    }
+
+    function setData(data) {
+      state.data = data;
+      state.selectedId = data.texts[0]?.id || null;
+      state.sect = "all";
+      state.layer = "all";
+      populateFilters();
+      renderAll();
+    }
+
+    function populateFilters() {
+      const sects = [...new Set(state.data.texts.flatMap((text) => text.sects))].sort();
+      const layers = [...new Set(state.data.texts.map((text) => text.layer))].sort();
+      $("sectFilter").innerHTML = `<option value="all">全宗派</option>` + sects.map((sect) => `<option>${sect}</option>`).join("");
+      $("layerFilter").innerHTML = `<option value="all">全レイヤー</option>` + layers.map((layer) => `<option>${layer}</option>`).join("");
+      $("sectFilter").value = state.sect;
+      $("layerFilter").value = state.layer;
+    }
+
+    function filteredRecords() {
+      const texts = state.data.texts.filter((text) => {
+        const sectOk = state.sect === "all" || text.sects.includes(state.sect);
+        const layerOk = state.layer === "all" || text.layer === state.layer;
+        return sectOk && layerOk;
+      });
+      const centroids = state.data.sect_centroids.filter((centroid) => {
+        const sectOk = state.sect === "all" || centroid.sects.includes(state.sect);
+        return sectOk && state.layer === "all";
+      });
+      return [...texts, ...centroids];
+    }
+
+    function renderAll() {
+      if (!state.data) return;
+      $("summary").textContent = `${state.data.texts.length} texts / ${state.data.chunks.length} chunks`;
+      $("modelMeta").textContent = `${state.data.model} / ${state.data.max_tokens} tokens`;
+      renderMap();
+      renderLegend();
+      renderDetail();
+      renderHeatmap();
+    }
+
+    function renderMap() {
+      const svg = $("map");
+      const width = svg.clientWidth || 800;
+      const height = svg.clientHeight || 560;
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      const records = filteredRecords();
+      if (!records.length) {
+        svg.innerHTML = `<text x="${width / 2}" y="${height / 2}" text-anchor="middle" fill="#6d756f">該当データなし</text>`;
+        return;
+      }
+
+      const pad = 46;
+      const xs = records.map((record) => record.x);
+      const ys = records.map((record) => record.y);
+      const minX = Math.min(...xs);
+      const maxX = Math.max(...xs);
+      const minY = Math.min(...ys);
+      const maxY = Math.max(...ys);
+      const spreadX = maxX - minX || 1;
+      const spreadY = maxY - minY || 1;
+      const sx = (value) => pad + ((value - minX) / spreadX) * (width - pad * 2);
+      const sy = (value) => height - pad - ((value - minY) / spreadY) * (height - pad * 2);
+
+      const grid = [];
+      for (let i = 1; i < 4; i += 1) {
+        const x = pad + ((width - pad * 2) * i) / 4;
+        const y = pad + ((height - pad * 2) * i) / 4;
+        grid.push(`<line x1="${x}" x2="${x}" y1="${pad}" y2="${height - pad}" stroke="#e7ebe5"/>`);
+        grid.push(`<line x1="${pad}" x2="${width - pad}" y1="${y}" y2="${y}" stroke="#e7ebe5"/>`);
+      }
+
+      const points = records.map((record) => {
+        const color = colors[record.sects[0]] || "#6d756f";
+        const x = sx(record.x);
+        const y = sy(record.y);
+        const selected = record.id === state.selectedId;
+        const size = record.layer === "sect_centroid" ? 13 : 9;
+        const stroke = selected ? "#1f2723" : "#ffffff";
+        if (record.layer === "sect_centroid") {
+          return `<g class="point" data-id="${record.id}" tabindex="0">
+            <rect x="${x - size / 2}" y="${y - size / 2}" width="${size}" height="${size}" rx="2" fill="${color}" stroke="${stroke}" stroke-width="${selected ? 3 : 2}"></rect>
+            <text x="${x + 11}" y="${y + 4}" fill="#1f2723" font-size="11">${record.title}</text>
+          </g>`;
+        }
+        return `<g class="point" data-id="${record.id}" tabindex="0">
+          <circle cx="${x}" cy="${y}" r="${selected ? size + 3 : size}" fill="${color}" stroke="${stroke}" stroke-width="${selected ? 3 : 2}"></circle>
+          <title>${record.title}</title>
+        </g>`;
+      });
+
+      svg.innerHTML = `
+        <rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>
+        ${grid.join("")}
+        <line x1="${pad}" x2="${width - pad}" y1="${height - pad}" y2="${height - pad}" stroke="#cdd4cc"></line>
+        <line x1="${pad}" x2="${pad}" y1="${pad}" y2="${height - pad}" stroke="#cdd4cc"></line>
+        ${points.join("")}
+      `;
+
+      svg.querySelectorAll(".point").forEach((node) => {
+        node.addEventListener("click", () => {
+          state.selectedId = node.dataset.id;
+          renderAll();
+        });
+        node.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            state.selectedId = node.dataset.id;
+            renderAll();
+          }
+        });
+      });
+    }
+
+    function renderLegend() {
+      const sects = [...new Set(state.data.texts.flatMap((text) => text.sects))].sort();
+      $("legend").innerHTML = sects.map((sect) => (
+        `<span><i class="swatch" style="background:${colors[sect] || "#6d756f"}"></i>${sect}</span>`
+      )).join("");
+    }
+
+    function findSelected() {
+      return [...state.data.texts, ...state.data.sect_centroids].find((record) => record.id === state.selectedId);
+    }
+
+    function renderDetail() {
+      const record = findSelected();
+      if (!record) {
+        $("detail").innerHTML = `<div class="empty">点をクリックすると詳細が表示されます。</div>`;
+        return;
+      }
+      const isText = !record.id.startsWith("sect::");
+      const nearestTexts = isText ? (state.data.nearest_texts[record.id] || []) : [];
+      const nearestChunks = isText ? (state.data.nearest_chunks[record.id] || []) : [];
+      $("detail").innerHTML = `
+        <h2>${record.title}</h2>
+        <dl class="detail-grid">
+          <dt>ID</dt><dd>${record.id}</dd>
+          <dt>宗派</dt><dd>${record.sects.join(" / ")}</dd>
+          <dt>レイヤー</dt><dd>${record.layer}</dd>
+          ${isText ? `<dt>Taisho</dt><dd>${record.taisho_id || "-"}</dd>` : ""}
+          ${isText ? `<dt>Chunk</dt><dd>${record.chunk_count || "-"} chunks</dd>` : ""}
+          ${isText ? `<dt>文字数</dt><dd>${record.char_count || "-"}</dd>` : ""}
+          ${isText ? `<dt>訳者等</dt><dd>${record.translator || "-"}</dd>` : ""}
+          ${!isText ? `<dt>構成</dt><dd>${record.member_text_ids.join("<br>")}</dd>` : ""}
+        </dl>
+        ${isText ? `<h3 class="panel-title">Nearest texts</h3><div class="list">${nearestTexts.map((item) => `
+          <div class="row"><strong>${item.title}</strong><span class="score">${item.score}</span> ${item.layer}<br>${item.sects.join(" / ")}</div>
+        `).join("")}</div>` : ""}
+        ${isText ? `<h3 class="panel-title" style="margin-top:14px">Nearest chunks</h3><div class="list">${nearestChunks.map((item) => `
+          <div class="row"><strong>${item.text_id} #${item.chunk_index}</strong><span class="score">${item.score}</span><br>${item.preview}</div>
+        `).join("")}</div>` : ""}
+      `;
+    }
+
+    function renderHeatmap() {
+      const labels = state.data.similarities.labels;
+      const matrix = state.data.similarities.matrix;
+      const visibleIds = new Set(filteredRecords().filter((record) => !record.id.startsWith("sect::")).map((record) => record.id));
+      const indexes = labels.map((label, index) => ({ label, index })).filter((item) => visibleIds.has(item.label));
+      if (!indexes.length) {
+        $("heatmap").innerHTML = `<div class="empty">該当データなし</div>`;
+        return;
+      }
+      const header = indexes.map((item) => `<th title="${item.label}">${item.index + 1}</th>`).join("");
+      const rows = indexes.map((row) => {
+        const cells = indexes.map((col) => {
+          const value = matrix[row.index][col.index];
+          const alpha = Math.max(0, Math.min(1, (value - 0.65) / 0.35));
+          return `<td title="${row.label} × ${col.label}: ${value}" style="background:rgba(47,111,115,${alpha})">${value}</td>`;
+        }).join("");
+        return `<tr><th title="${row.label}">${row.index + 1}</th>${cells}</tr>`;
+      }).join("");
+      $("heatmap").innerHTML = `<table><thead><tr><th></th>${header}</tr></thead><tbody>${rows}</tbody></table>`;
+    }
+
+    $("sectFilter").addEventListener("change", (event) => {
+      state.sect = event.target.value;
+      renderAll();
+    });
+
+    $("layerFilter").addEventListener("change", (event) => {
+      state.layer = event.target.value;
+      renderAll();
+    });
+
+    $("resetButton").addEventListener("click", () => {
+      state.sect = "all";
+      state.layer = "all";
+      $("sectFilter").value = "all";
+      $("layerFilter").value = "all";
+      renderAll();
+    });
+
+    $("fileInput").addEventListener("change", async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      setData(JSON.parse(await file.text()));
+    });
+
+    window.addEventListener("resize", () => {
+      if (state.data) renderMap();
+    });
+
+    loadDefault();
+  </script>
+</body>
+</html>
