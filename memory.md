@@ -417,3 +417,23 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Listed the new `-2` files and confirmed sizes.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `11b6fe22ade24caadc17588656ff9e397648bbe5`
+
+## 2026-06-02 02:43 JST
+
+- Summary: Applied the final third-review editorial fixes and created `-3` suffixed paper deliverables.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-3.tex`
+  - `docs/paper/sect-sutra-map-paper-3.pdf`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-review-response.md`
+  - `docs/sect-sutra-map-review-response-3.md`
+  - `memory.md`
+- Verification:
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
+  - Rendered Quick Look thumbnails for PDF pages 1, 2, and 15 and confirmed the author line, corpus table, and reference page.
+  - Compared each `-3` file with its canonical source using `cmp -s`.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

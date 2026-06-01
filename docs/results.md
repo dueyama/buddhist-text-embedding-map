@@ -462,3 +462,23 @@ Query: `toh106_samdhinirmocana_en`
 ### 未検証点
 
 - `dueyama` はローカル git 設定から採った仮の著者表記であり、外部提出時は正式な著者名・所属に置換する必要がある。
+
+## 2026-06-02: 査読レポート3 最終微修正
+
+### 入力
+
+- Review file: `sect-sutra-map-review-report-3.md`
+- Target paper: `docs/paper/sect-sutra-map-paper-2.pdf`
+- Target response memo: `docs/sect-sutra-map-review-response-2.md`
+
+### 主要対応
+
+- 第3ラウンド査読の判定は「採択可。編集上の微修正のみ。再査読不要」。
+- 著者名を内部識別子 `dueyama` から `上山大信` へ置換した。
+- データ節の `v0.1で用いたテキスト数は15、チャンク数は433である` を、投稿版向けに `本稿で用いたテキスト数は15、チャンク数は433である` へ変更した。
+- 表1の `畺良耶舍`、`實叉難陀` と参考文献の `Kumārajīva` は、PDF表示の最終確認対象として扱った。
+- 第3稿ファイルとして `docs/paper/sect-sutra-map-paper-3.pdf`、`docs/paper/sect-sutra-map-paper-3.tex`、`docs/sect-sutra-map-review-response-3.md` を作成した。
+
+### 残る投稿前確認
+
+- 所属、連絡先、投稿先スタイルが必要な場合は、投稿先の指定に合わせて表紙・参考文献体裁を調整する。
