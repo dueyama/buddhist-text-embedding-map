@@ -59,3 +59,17 @@
 - データ節の作業版表現 `v0.1で用いたテキスト数` を、論文本文向けに `本稿で用いたテキスト数` へ変更。
 - 表1の `畺良耶舍`、`實叉難陀`、参考文献の `Kumārajīva` はPDF表示で確認する対象として扱い、最終版PDFで目視確認した。
 - 第3稿として `sect-sutra-map-paper-3.pdf`、`sect-sutra-map-paper-3.tex`、`sect-sutra-map-review-response-3.md` を作成した。
+
+## 2026-06-02 オリジナリティ・先行研究レポート対応
+
+著者向けレポートで、仏教文献への embedding 応用自体を新規性として読ませないこと、Buddhist NLP / Buddhist DH の先行研究を導入部で整理することが求められたため、本文の研究史上の位置づけを補強した。
+
+## 追加対応済み
+
+- 要旨に、word embedding、parallel passage detection、cross-lingual semantic textual similarity、stylometry の既存研究を踏まえた探索的意味地図であることを追記。
+- 導入部に、SAT、CBETA、84000、BDRC などのデジタル資源、漢訳仏典 stylometry、CBETA word embedding、並行句検出・intertextuality、多言語 Buddhist NLP の短いレビューを追加。
+- 本稿の貢献を、埋め込み手法の初適用ではなく、日本仏教の宗派別参照群、阿弥陀経二訳、親鸞文献、チャンク分布、多言語パイロットを一つの探索枠組みに統合する点として明記。
+- 考察に、阿弥陀経二訳と word embedding / stylometry の関係、教行信証と parallel passage / intertextuality の関係、多言語パイロットと cross-lingual STS / MITRA の関係を追記。
+- 結論に、既存研究を置き換えるのではなく、意味マップ・文体マップ・引用参照マップを分離して重ねる探索基盤であることを再掲。
+- 参考文献に、CBETA、BDRC、Hung et al. 2010、Bingenheimer et al. 2017、Huang and Wang 2023、Nehrdich 2020、Felbur et al. 2022、Lugli et al. 2022、DharmaNexus、MITRA を追加。
+- 第4稿相当として `sect-sutra-map-paper-4.pdf`、`sect-sutra-map-paper-4.tex`、`sect-sutra-map-author-report-originality-response.md` を作成した。

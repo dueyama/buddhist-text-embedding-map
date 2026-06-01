@@ -437,3 +437,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Compared each `-3` file with its canonical source using `cmp -s`.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `055456210500eee9153109fa90e505362afb1565`
+
+## 2026-06-02 06:39 JST
+
+- Summary: Added Buddhist NLP / Buddhist DH prior-work framing and originality positioning, clarifying that the paper's contribution is an integrated exploratory map rather than first application of embeddings to Buddhist texts.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-4.tex`
+  - `docs/paper/sect-sutra-map-paper-4.pdf`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-review-response.md`
+  - `docs/sect-sutra-map-author-report-originality-response.md`
+  - `memory.md`
+- Verification:
+  - Checked and added prior-work references for CBETA, BDRC, Hung et al. 2010, Bingenheimer et al. 2017, Huang and Wang 2023, Nehrdich 2020, Felbur et al. 2022, Lugli et al. 2022, DharmaNexus, and MITRA.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
+  - Rendered Quick Look thumbnails for PDF pages 1, 2, 14, and 16 and confirmed the abstract, prior-work introduction, discussion, and reference list.
+  - Compared `sect-sutra-map-paper-4.tex` and `.pdf` with the canonical source files using `cmp -s`.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

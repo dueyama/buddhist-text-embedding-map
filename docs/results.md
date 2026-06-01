@@ -482,3 +482,29 @@ Query: `toh106_samdhinirmocana_en`
 ### 残る投稿前確認
 
 - 所属、連絡先、投稿先スタイルが必要な場合は、投稿先の指定に合わせて表紙・参考文献体裁を調整する。
+
+## 2026-06-02: オリジナリティ・先行研究レポート対応
+
+### 入力
+
+- Report file: `sect-sutra-map-author-report-originality.md`
+- Target paper: `docs/paper/sect-sutra-map-paper.tex`
+
+### 主要対応
+
+- レポートの主旨は、本稿の新規性を「仏教文献への embedding 初適用」ではなく、「日本仏教の宗派別参照群・異訳・親鸞文献・チャンク分布・多言語パイロットを統合した探索地図」として明確化すること。
+- 要旨に、word embedding、parallel passage detection、cross-lingual semantic textual similarity、stylometry の既存研究を踏まえた位置づけを追記した。
+- 導入部に、Buddhist NLP / Buddhist DH の簡潔な先行研究レビューを追加した。
+- 考察に、阿弥陀経二訳と word embedding / stylometry、教行信証と parallel passage / intertextuality、多言語パイロットと cross-lingual STS / MITRA の関係を追記した。
+- 結論に、既存研究を置き換えるのではなく、意味マップ・文体マップ・引用参照マップを分離して重ねる探索基盤であることを再掲した。
+- 参考文献に、CBETA、BDRC、Hung et al. 2010、Bingenheimer et al. 2017、Huang and Wang 2023、Nehrdich 2020、Felbur et al. 2022、Lugli et al. 2022、DharmaNexus、MITRA を追加した。
+
+### 生成物
+
+- `docs/paper/sect-sutra-map-paper-4.tex`
+- `docs/paper/sect-sutra-map-paper-4.pdf`
+- `docs/sect-sutra-map-author-report-originality-response.md`
+
+### 残る投稿前確認
+
+- 投稿先の参考文献スタイルに応じて、句読点、アクセス日、DOI表記、プレプリントの扱いを整える。
