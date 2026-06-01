@@ -403,3 +403,17 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, 9, 10, 14, and 15 and confirmed the author line, corpus table, complete-mixing table, Figure 7 labels, conclusion, and references.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `17739d421a7a3aae0d622d619e5756c241730c97`
+
+## 2026-06-02 02:23 JST
+
+- Summary: Added `-2` suffixed filenames for the second-review paper deliverables while keeping the canonical build filenames in place.
+- Files:
+  - `docs/paper/sect-sutra-map-paper-2.tex`
+  - `docs/paper/sect-sutra-map-paper-2.pdf`
+  - `docs/sect-sutra-map-review-response-2.md`
+  - `memory.md`
+- Verification:
+  - Compared each `-2` file with its source file using `cmp -s`.
+  - Listed the new `-2` files and confirmed sizes.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`
