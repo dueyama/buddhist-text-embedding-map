@@ -205,4 +205,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Added LaTeX intermediate patterns to `.gitignore` and removed generated `aux`, `dvi`, `log`, and `out` files.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `1cf10f30bacfdf16a82b960875407d2c26b87db9`
