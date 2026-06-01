@@ -75,4 +75,14 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Ran `python3 -m py_compile experiments/sect_sutra_map/embed_texts.py`.
   - Checked the planned commit file for hardcoded API key patterns.
+- Commit: `93ad4b31d1947cfbe1f9445e9f0d818c16a99ba2`
+
+## 2026-06-01 17:49 JST
+
+- Summary: Added viewer-data export for coordinates, sect centroids, similarities, and nearest neighbors.
+- Files:
+  - `experiments/sect_sutra_map/make_viewer_data.py`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_viewer_data.py`.
+  - Checked the planned commit file for hardcoded API key patterns.
 - Commit: pending; the actual hash will be recorded after the commit exists.
