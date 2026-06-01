@@ -16,6 +16,8 @@ from matplotlib.patches import Ellipse
 from sklearn.decomposition import PCA
 from sklearn.metrics.pairwise import cosine_similarity
 
+from make_viewer_data import build_centroids, build_translator_centroids
+
 
 ROOT = Path(__file__).resolve().parents[2]
 VIEWER_DATA = ROOT / "experiments" / "sect_sutra_map" / "outputs" / "viewer_data.json"
@@ -220,14 +222,35 @@ def text_cosine(embeddings: dict, text_a: str, text_b: str) -> float:
     return float(cosine_similarity(vector_a, vector_b)[0, 0])
 
 
-def chunk_coordinates(chunks: list[dict]) -> np.ndarray:
+def pca_coordinates(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    pca = PCA(n_components=2, random_state=0)
+    coords = pca.fit_transform(matrix)
+    return coords, pca.explained_variance_ratio_
+
+
+def semantic_pca_ratio(embeddings: dict) -> np.ndarray:
+    records = (
+        embeddings["texts"]
+        + build_centroids(embeddings["texts"])
+        + build_translator_centroids(embeddings["texts"])
+    )
+    matrix = np.array([record["embedding"] for record in records], dtype=np.float32)
+    return PCA(n_components=2, random_state=0).fit(matrix).explained_variance_ratio_
+
+
+def chunk_coordinates(chunks: list[dict]) -> tuple[np.ndarray, np.ndarray]:
     matrix = np.array([chunk["embedding"] for chunk in chunks], dtype=np.float32)
-    return PCA(n_components=2, random_state=0).fit_transform(matrix)
+    return pca_coordinates(matrix)
 
 
-def figure_semantic_map(data: dict, font: font_manager.FontProperties) -> Path:
+def axis_label(label: str, ratio: float) -> str:
+    return f"{label} ({ratio * 100:.1f}%)"
+
+
+def figure_semantic_map(data: dict, embeddings: dict, font: font_manager.FontProperties) -> Path:
     texts = data["texts"]
     translator_centroids = data.get("translator_centroids", [])
+    pca_ratio = semantic_pca_ratio(embeddings)
     fig, ax = plt.subplots(figsize=(9.8, 7.2))
 
     for text in texts:
@@ -268,9 +291,9 @@ def figure_semantic_map(data: dict, font: font_manager.FontProperties) -> Path:
 
     ax.axhline(0, color="#cbd5e1", linewidth=0.8, zorder=1)
     ax.axvline(0, color="#cbd5e1", linewidth=0.8, zorder=1)
-    ax.set_title("意味埋め込みによる宗派別お経マップ", fontproperties=font, fontsize=15, pad=12)
-    ax.set_xlabel("PCA 第1軸", fontproperties=font)
-    ax.set_ylabel("PCA 第2軸", fontproperties=font)
+    ax.set_title("宗派別参照テキスト群の意味配置", fontproperties=font, fontsize=15, pad=12)
+    ax.set_xlabel(axis_label("PCA 第1軸", pca_ratio[0]), fontproperties=font)
+    ax.set_ylabel(axis_label("PCA 第2軸", pca_ratio[1]), fontproperties=font)
     ax.grid(color="#e2e8f0", linewidth=0.7)
 
     legend_handles = []
@@ -303,7 +326,7 @@ def figure_semantic_map(data: dict, font: font_manager.FontProperties) -> Path:
 
 def figure_chunk_distribution_overview(embeddings: dict, font: font_manager.FontProperties) -> Path:
     chunks = chunks_for_texts(embeddings, OVERVIEW_TEXT_IDS)
-    coords = chunk_coordinates(chunks)
+    coords, pca_ratio = chunk_coordinates(chunks)
     text_lookup = {text["id"]: text for text in embeddings["texts"]}
 
     fig, ax = plt.subplots(figsize=(9.8, 7.2))
@@ -331,8 +354,8 @@ def figure_chunk_distribution_overview(embeddings: dict, font: font_manager.Font
     ax.axvline(0, color="#cbd5e1", linewidth=0.8, zorder=1)
     ax.grid(color="#e2e8f0", linewidth=0.7)
     ax.set_title("主要テキストのチャンク分布と1σ楕円", fontproperties=font, fontsize=15, pad=12)
-    ax.set_xlabel("チャンク PCA 第1軸", fontproperties=font)
-    ax.set_ylabel("チャンク PCA 第2軸", fontproperties=font)
+    ax.set_xlabel(axis_label("チャンク PCA 第1軸", pca_ratio[0]), fontproperties=font)
+    ax.set_ylabel(axis_label("チャンク PCA 第2軸", pca_ratio[1]), fontproperties=font)
 
     handles = [
         plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=TEXT_COLORS[text_id], markersize=6)
@@ -369,7 +392,7 @@ def figure_chunk_distribution_focus(embeddings: dict, font: font_manager.FontPro
     fig, axes = plt.subplots(1, 3, figsize=(12, 4.4))
     for ax, (title, text_ids) in zip(axes, panels):
         chunks = chunks_for_texts(embeddings, text_ids)
-        coords = chunk_coordinates(chunks)
+        coords, pca_ratio = chunk_coordinates(chunks)
         for text_id in text_ids:
             indices = [index for index, chunk in enumerate(chunks) if chunk["text_id"] == text_id]
             points = coords[indices]
@@ -387,7 +410,12 @@ def figure_chunk_distribution_focus(embeddings: dict, font: font_manager.FontPro
                 color="#0f172a",
                 zorder=6,
             )
-        ax.set_title(title, fontproperties=font, fontsize=11, pad=8)
+        ax.set_title(
+            f"{title}\nPC1+PC2={pca_ratio.sum() * 100:.1f}%",
+            fontproperties=font,
+            fontsize=10.5,
+            pad=8,
+        )
         ax.axhline(0, color="#cbd5e1", linewidth=0.7, zorder=1)
         ax.axvline(0, color="#cbd5e1", linewidth=0.7, zorder=1)
         ax.grid(color="#e2e8f0", linewidth=0.6)
@@ -653,7 +681,7 @@ def main() -> None:
     data = load_data()
     embeddings = load_embeddings()
     outputs = [
-        figure_semantic_map(data, font),
+        figure_semantic_map(data, embeddings, font),
         figure_chunk_distribution_overview(embeddings, font),
         figure_chunk_distribution_focus(embeddings, font),
         figure_chunk_overlap_heatmap(embeddings, font),

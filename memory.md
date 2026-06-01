@@ -358,3 +358,27 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered Quick Look thumbnails for PDF pages 1, 9, and 10 and confirmed Japanese text plus the new Shinran figures.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `92926a51437154e86aa59ffc0078e2aee7b81250`
+
+## 2026-06-02 01:46 JST
+
+- Summary: Addressed the attached review comments for the sect sutra map paper by softening claims, expanding reproducibility details, adding corpus statistics, PCA variance, top-k sensitivity checks, and a response checklist.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-review-response.md`
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `experiments/sect_sutra_map/review_stats.py`
+  - `docs/figures/sect-sutra-semantic-map.png`
+  - `docs/figures/sect-sutra-chunk-distribution-overview.png`
+  - `docs/figures/sect-sutra-chunk-distribution-focus.png`
+  - `memory.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_figures.py experiments/sect_sutra_map/review_stats.py`.
+  - Ran `python3 experiments/sect_sutra_map/review_stats.py` and confirmed PCA variance, corpus table, and Amida top-k sensitivity output.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py` and regenerated the paper figures.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
+  - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, and 10 and confirmed the revised Japanese paper, corpus table, sensitivity table, and Amida metric table.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`
