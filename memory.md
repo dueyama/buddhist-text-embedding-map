@@ -258,3 +258,16 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Validated `experiments/multilingual_sutra_map/outputs/pilot_results.json` with `python3 -m json.tool`.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `cb2aa95efb8b74bb6b47834e9d64a2fa6c60b59c`
+
+## 2026-06-01 20:34 JST
+
+- Summary: Updated the paper PDF to include the multilingual sutra pilot result for SAT `T0676` and 84000 `Toh 106`.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+- Verification:
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text and the updated multilingual title.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending
