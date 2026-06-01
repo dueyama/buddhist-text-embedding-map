@@ -230,3 +230,13 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered the PDF first-page Quick Look thumbnail and confirmed Japanese text.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `9592ef602f02e7c7e17d9a117e543d264d485637`
+
+## 2026-06-01 19:41 JST
+
+- Summary: Added a v0 plan for cross-lingual sutra comparison, focusing first on whether parallel Chinese, Tibetan-derived English, and later Tibetan texts cluster by meaning across languages.
+- Files:
+  - `docs/multilingual-sutra-map-plan.md`
+- Verification:
+  - Reviewed the document with `sed`.
+  - Checked the planned commit file for hardcoded API key patterns.
+- Commit: pending
