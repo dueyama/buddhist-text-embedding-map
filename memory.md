@@ -157,3 +157,14 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Validated `experiments/sect_sutra_map/outputs/viewer_data.json` with `python3 -m json.tool`.
   - Captured `/private/tmp/okyou-translator-map.png` with headless Chrome.
 - Commit: `433e5e75974581d0e9e2a6f8665781a1ce1c1368`
+
+## 2026-06-01 18:23 JST
+
+- Summary: Added a Japanese paper-style draft summarizing the sect sutra map and translator comparison results.
+- Files:
+  - `docs/sect-sutra-map-paper-draft.md`
+- Verification:
+  - Read the draft with `sed` to check structure and wording.
+  - Checked for leftover English section headings and common placeholder markers.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending; the actual hash will be recorded after the commit exists.
