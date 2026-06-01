@@ -458,3 +458,22 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Compared `sect-sutra-map-paper-4.tex` and `.pdf` with the canonical source files using `cmp -s`.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `c6402f29c36e8e3f3a7951b037d71f4d7c887148`
+
+## 2026-06-02 07:03 JST
+
+- Summary: Applied the literature-review-after-revision report's editorial follow-up to the sect sutra map paper, including introduction subheadings, citation ordering, MITRA preprint wording, and regenerated fifth-version paper deliverables.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-author-report-literature-review-after-revision-response.md`
+  - `memory.md`
+- Verification:
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references; only the known caption warning and underfull boxes remained.
+  - Rendered Quick Look thumbnails for PDF pages 1, 2, 15, and 16 and confirmed the added introduction subheadings, citation order, reference pages, special characters, and MITRA preprint wording.
+  - Compared `sect-sutra-map-paper-5.tex` and `.pdf` with the canonical source files using `cmp -s`.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

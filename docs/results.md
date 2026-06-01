@@ -508,3 +508,24 @@ Query: `toh106_samdhinirmocana_en`
 ### 残る投稿前確認
 
 - 投稿先の参考文献スタイルに応じて、句読点、アクセス日、DOI表記、プレプリントの扱いを整える。
+
+## 2026-06-02: 先行研究レビュー追加後レポート微修正
+
+### 入力
+
+- Report file: `sect-sutra-map-author-report-literature-review-after-revision.md`
+- Target paper: `docs/paper/sect-sutra-map-paper-4.pdf`
+- Target response memo: `docs/sect-sutra-map-author-report-originality-response.md`
+
+### 主要対応
+
+- レポートの総合判断は「採択可に近い。編集上の微修正のみ。再査読不要相当」。
+- 導入部に `問題設定` と `関連研究と本稿の位置づけ` の小見出しを追加し、読者が問題設定と先行研究レビューを追いやすい構成にした。
+- 導入部のデジタル資源に関する引用順を調整した。
+- MITRA について、本文では `近年のプレプリント`、参考文献では `arXiv preprint` と明記した。
+- 第5稿ファイルとして `docs/paper/sect-sutra-map-paper-5.pdf`、`docs/paper/sect-sutra-map-paper-5.tex`、`docs/sect-sutra-map-author-report-literature-review-after-revision-response.md` を作成した。
+
+### 残る投稿前確認
+
+- 参考文献全体の句読点、アクセス日、DOI表記、URL改行は、投稿先スタイルに合わせて最終調整する。
+- `Kumārajīva`、`Gaṇḍavyūha`、`Pāli` などの特殊文字はPDF上の表示を確認する。投稿先のPDFテキスト抽出仕様によっては追加調整が必要になる可能性がある。
