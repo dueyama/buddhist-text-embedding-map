@@ -35,4 +35,13 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Read `experiments/amida_compare/outputs/summary.json` and copied the key metrics into the results note.
   - Checked planned commit files for hardcoded API key patterns.
   - Confirmed staged files before committing.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `6c0a0439df63b8753bc5d2c45ed56ff64fd43fec`
+
+## 2026-06-01 17:36 JST
+
+- Summary: Recorded the actual commit hash for the initial results-note commit.
+- Files:
+  - `memory.md`
+- Verification:
+  - Read `git rev-parse HEAD` after the results-note commit.
+- Commit: this entry is committed by the next memory-only commit; its hash is reported in the assistant summary to avoid an infinite self-reference.
