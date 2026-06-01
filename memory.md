@@ -45,3 +45,13 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Read `git rev-parse HEAD` after the results-note commit.
 - Commit: this entry is committed by the next memory-only commit; its hash is reported in the assistant summary to avoid an infinite self-reference.
+
+## 2026-06-01 17:43 JST
+
+- Summary: Added the v0 manifest for the sect-based sutra map.
+- Files:
+  - `experiments/sect_sutra_map/manifest.json`
+- Verification:
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json`.
+  - Checked the planned commit file for hardcoded API key patterns.
+- Commit: pending; the actual hash will be recorded after the commit exists.
