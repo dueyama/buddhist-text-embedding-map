@@ -156,4 +156,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py` and confirmed `3` translator centroids.
   - Validated `experiments/sect_sutra_map/outputs/viewer_data.json` with `python3 -m json.tool`.
   - Captured `/private/tmp/okyou-translator-map.png` with headless Chrome.
-- Commit: pending; the actual hash will be recorded after the commit exists.
+- Commit: `433e5e75974581d0e9e2a6f8665781a1ce1c1368`
