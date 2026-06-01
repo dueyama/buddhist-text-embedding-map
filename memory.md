@@ -106,4 +106,18 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m py_compile experiments/sect_sutra_map/common.py experiments/sect_sutra_map/build_corpus.py`.
   - Parsed cached `t0360_larger_sukhavati.html` and confirmed 638 SAT rows with body text.
   - Checked the planned commit file for hardcoded API key patterns.
+- Commit: `d407ab19c0592b3cb22fca89f81179daee1d4be5`
+
+## 2026-06-01 17:57 JST
+
+- Summary: Generated the sect map v0 corpus, embeddings, viewer data, and documented the initial results.
+- Files:
+  - `docs/results.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/build_corpus.py`.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py`.
+  - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `403` cache hits, `0` misses.
+  - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py`.
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/outputs/viewer_data.json`.
+  - Served the viewer locally and captured `/private/tmp/okyou-sect-map.png` with headless Chrome.
 - Commit: pending; the actual hash will be recorded after the commit exists.
