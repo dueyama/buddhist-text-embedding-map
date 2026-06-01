@@ -382,3 +382,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, and 10 and confirmed the revised Japanese paper, corpus table, sensitivity table, and Amida metric table.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `fcc17861a943667608338ceb011894e895f3497d`
+
+## 2026-06-02 02:19 JST
+
+- Summary: Applied the second review report's minor revisions to the sect sutra map paper, including author placeholder replacement, table and figure label fixes, complete-mixing terminology, corpus notes, and final PDF regeneration.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/figures/amida-two-translation-comparison.png`
+  - `docs/results.md`
+  - `docs/sect-sutra-map-review-response.md`
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `memory.md`
+- Verification:
+  - Checked T0365 and T0279 translator name forms against online catalog/search sources before editing notes.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_figures.py experiments/sect_sutra_map/review_stats.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py` and regenerated the Amida comparison figure.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the LaTeX log for overfull boxes and undefined references; only known caption and underfull warnings remained.
+  - Rendered Quick Look thumbnails for PDF pages 1, 2, 8, 9, 10, 14, and 15 and confirmed the author line, corpus table, complete-mixing table, Figure 7 labels, conclusion, and references.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

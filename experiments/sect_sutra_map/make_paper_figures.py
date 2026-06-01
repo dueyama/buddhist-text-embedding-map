@@ -649,7 +649,7 @@ def figure_similarity_heatmap(data: dict, font: font_manager.FontProperties) -> 
 
 
 def figure_amida_comparison(font: font_manager.FontProperties) -> Path:
-    labels = ["全文レベル", "チャンク最良一致平均"]
+    labels = ["全文直接埋め込み", "チャンク最良一致平均"]
     tfidf = [0.1928, 0.1424]
     embedding = [0.8943, 0.7108]
     x = np.arange(len(labels))
@@ -657,7 +657,7 @@ def figure_amida_comparison(font: font_manager.FontProperties) -> Path:
 
     fig, ax = plt.subplots(figsize=(7.5, 4.5))
     ax.bar(x - width / 2, tfidf, width, label="文字単位 TF-IDF", color="#94a3b8")
-    ax.bar(x + width / 2, embedding, width, label="OpenAI 埋め込み", color="#2563eb")
+    ax.bar(x + width / 2, embedding, width, label="意味埋め込み", color="#2563eb")
     ax.set_ylim(0, 1.0)
     ax.set_ylabel("類似度", fontproperties=font)
     ax.set_title("阿弥陀経二訳の類似度比較", fontproperties=font, fontsize=15, pad=12)
