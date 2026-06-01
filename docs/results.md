@@ -221,3 +221,54 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 - 鳩摩羅什の法華経 local text は短いため、全文 SAT に差し替える必要がある。
 - 玄奘・不空以外の訳者サンプルを増やさないと、訳者特徴とジャンル特徴を切り分けられない。
 - 現時点のビューアは semantic map であり、style map は未実装。
+
+## 2026-06-01: 多言語比較パイロット v0.1
+
+### 入力
+
+- Goal: チベット大蔵経由来の 84000 英訳と漢訳が、意味埋め込みで同一経典として近く出るかを確認する。
+- Main pair:
+  - `T0676` 解深密經: SAT 由来の既存 processed text
+  - `Toh 106` The Teaching Explaining the Thought: 84000 Reading Room の公開英訳 HTML からローカル抽出
+- Controls:
+  - `T0235` 金剛般若波羅蜜經
+  - `T0475` 維摩詰所說經
+  - `T0251` 般若波羅蜜多心經
+  - `T0366` 佛說阿彌陀經
+- Model: `text-embedding-3-large`
+- Texts: `6`
+- Chunks: `105`
+- API tokens: `71630`
+- Cache verification: `105` cache hits, `0` cache misses, `0` API tokens
+
+### 最近傍結果
+
+Query: `toh106_samdhinirmocana_en`
+
+| Rank | Target | Same work | Cosine |
+| --- | --- | --- | --- |
+| 1 | `t0676_samdhinirmocana_zh` | yes | `0.7662` |
+| 2 | `t0475_vimalakirti_zh` | no | `0.6926` |
+| 3 | `t0235_diamond_zh` | no | `0.6922` |
+| 4 | `t0251_heart_zh` | no | `0.6167` |
+| 5 | `t0366_amida_zh` | no | `0.5683` |
+
+### 解釈
+
+- 初回パイロットでは、84000 英訳 `Toh 106` の最近傍が漢訳 `T0676` になった。これは、少なくともこの組み合わせでは、言語を越えて「同一経典らしさ」を semantic embedding が拾えていることを示す。
+- ただし、次点の維摩経・金剛経も `0.69` 台であり、大乗経典一般の語彙・主題に由来する近さもある。したがって、「同一経典判定」として使うには、同一 work の異言語ペアを増やして margin を見る必要がある。
+- 現段階ではチベット語本文そのものではなく、チベット大蔵経由来の英訳を使った cross-language pilot である。チベット語本文を入れる場合は、BDRC/Adarshah/84000 Scholar Room などの安定した取得元と利用条件を別途確認する。
+
+### 生成物
+
+- Plan: `docs/multilingual-sutra-map-plan.md`
+- Manifest: `experiments/multilingual_sutra_map/manifest.json`
+- Script: `experiments/multilingual_sutra_map/run_pilot.py`
+- Raw/processed/output cache: `experiments/multilingual_sutra_map/data/` and `experiments/multilingual_sutra_map/outputs/` are ignored by git.
+
+### 未検証点
+
+- 84000 HTML の抽出は v0 のローカル実験用であり、安定 API ではない。
+- 英訳と漢訳の章・段落対応はまだ取っていない。
+- 同じ英語翻訳スタイルに由来するクラスタリングは、英訳サンプルを複数入れないと評価できない。
+- チベット語本文、サンスクリット、パーリは未投入。

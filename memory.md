@@ -240,3 +240,21 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Reviewed the document with `sed`.
   - Checked the planned commit file for hardcoded API key patterns.
 - Commit: `cbda8ea94c2ab11c2585ed02c4bc229e08c2e6ba`
+
+## 2026-06-01 19:55 JST
+
+- Summary: Implemented and ran a cross-language sutra pilot using SAT `T0676` and 84000 `Toh 106` English translation against Chinese controls; the 84000 English text's nearest Chinese text was the matching `T0676`.
+- Files:
+  - `docs/multilingual-sutra-map-plan.md`
+  - `docs/results.md`
+  - `experiments/multilingual_sutra_map/manifest.json`
+  - `experiments/multilingual_sutra_map/run_pilot.py`
+- Verification:
+  - Downloaded the 84000 `Toh 106` HTML into ignored raw cache.
+  - Ran `python3 -m json.tool experiments/multilingual_sutra_map/manifest.json`.
+  - Ran `python3 -m py_compile experiments/multilingual_sutra_map/run_pilot.py`.
+  - Ran `python3 experiments/multilingual_sutra_map/run_pilot.py`, embedding `105` chunks with `71630` API tokens.
+  - Ran `python3 experiments/multilingual_sutra_map/run_pilot.py --no-api` and confirmed `105` cache hits, `0` misses, and `0` API tokens.
+  - Validated `experiments/multilingual_sutra_map/outputs/pilot_results.json` with `python3 -m json.tool`.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: pending
