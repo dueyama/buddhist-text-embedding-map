@@ -257,4 +257,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/multilingual_sutra_map/run_pilot.py --no-api` and confirmed `105` cache hits, `0` misses, and `0` API tokens.
   - Validated `experiments/multilingual_sutra_map/outputs/pilot_results.json` with `python3 -m json.tool`.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: pending
+- Commit: `cb2aa95efb8b74bb6b47834e9d64a2fa6c60b59c`
