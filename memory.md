@@ -1046,3 +1046,19 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran current searches for hard-coded Tailscale IPs and OpenAI API key patterns over public docs, scripts, experiments, memory, license files, and citation metadata; no matches found.
   - Confirmed staged files were limited to the helper script, README, and publication checklist, and `git grep --cached` found no hard-coded Tailscale IP or API key pattern.
 - Commit: `fb3d794f747fdf6080009c68113160d82ac29709`
+
+## 2026-06-02 17:54 JST
+
+- Summary: Added an AI-oriented researcher guide so other researchers can feed the repository to an AI agent for reproduction, review, or extension. The guide explains which files to read first, what public artifacts exist, what must not be committed, minimal and full reproduction paths, extension ideas, interpretation rules, safety checks, and suggested prompts for AI agents or review-style critique.
+- Files:
+  - `AI_RESEARCHER_GUIDE.md`
+  - `README.md`
+  - `docs/PUBLICATION.md`
+- Verification:
+  - Reviewed `README.md`, `docs/PUBLICATION.md`, experiment scripts, and memory context to keep the guide aligned with the current repository structure and commands.
+  - Confirmed `AI_RESEARCHER_GUIDE.md` is linked from `README.md` and listed in `docs/PUBLICATION.md`.
+  - Ran `python3 -m py_compile scripts/serve_pages_preview.py`.
+  - Ran `git diff --check`.
+  - Ran current searches for hard-coded Tailscale IPs, OpenAI API key patterns, and local absolute path strings in the new guide and public entry documents; only the intentional local-path check-command examples in `docs/PUBLICATION.md` matched.
+  - Confirmed staged files were limited to `AI_RESEARCHER_GUIDE.md`, `README.md`, and `docs/PUBLICATION.md`, and `git grep --cached` found no hard-coded Tailscale IP or API key pattern.
+- Commit: `6f5441319494fc66c95179c16f0b30e40ad6dc8d`
