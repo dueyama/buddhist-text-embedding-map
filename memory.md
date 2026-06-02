@@ -632,4 +632,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
   - Checked the generated process Markdown/HTML for the new phase, MathJax mention, English-version plan, and absence of absolute local filesystem paths.
-- Commit: pending
+- Commit: `db003ff156761407466eb2d841415266858f3bac`
