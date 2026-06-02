@@ -651,3 +651,40 @@ Query: `toh106_samdhinirmocana_en`
 - 引用参照層は小規模なマーカー辞書に依存するため、典拠関係の有無を判定する指標ではない。
 - 文体層は文字n-gram TF-IDF による初期的な操作化であり、助字、虚詞、句法、固有訳語対応はまだ組み込んでいない。
 - source-mixture は softmax による重み付けであり、今後は章・巻・品の位置情報や unbalanced optimal transport などとの比較が必要である。
+
+## 2026-06-02: 三層追加後査読への対応とHTML用語リンク
+
+### 主要対応
+
+- `sect-sutra-map-review-after-three-layer-addition.md` の指摘を踏まえ、三層分析の用語を整理した。
+  - `文体層` を `文体・語彙層` に改めた。
+  - `引用参照層` を、現状の実装に即して `明示マーカー層` とした。
+  - `source-mixture map` の日本語名を `三層参照源混合地図` とした。
+- 方法節に、三層参照源混合地図の操作的定義を詳述した。
+  - TF-IDF の fit 対象は『教行信証』チャンクと四参照源チャンクの合併集合であることを明記した。
+  - 意味層・文体・語彙層は参照源内最大類似度を用いるため、参照源チャンク数の偏りを受けうることを明記した。
+  - softmax 温度を、意味層 `0.04`、文体・語彙層 `0.025` と明記した。
+  - z-score 標準化は行わず、数値安定化のため行最大値を差し引く実装であることを明記した。
+  - 意味層・文体・語彙層には `その他` カテゴリをまだ導入していないことを限界として明記した。
+- 明示マーカー辞書の代表例表と、『教行信証』三層参照源混合地図の平均重み表を追加した。
+- 図1と図12の図中表記を、本文の `三層参照源混合地図`、`文体・語彙層`、`明示マーカー層` に合わせた。
+- 参考文献中の特殊文字を一部ASCII表記に変更し、PDF/HTML公開時の文字化けリスクを下げた。
+- ユーザー希望により、謝辞の `ChatGPT 5.5 Pro xhigh を査読者役として` という記述は保持した。
+- HTML論文では、付録「用語・モデル・ツール」に説明がある語の初出箇所から該当付録項目へ飛べるリンクを追加した。
+- HTML論文の数式表示を、TeX断片をそのまま見せる方式から MathJax レンダリング方式へ変更した。HTMLソース上には `\(...\)`、`\[...\]` が残るが、ブラウザ表示では数式として組版される。
+
+### 検証
+
+- `python3 experiments/sect_sutra_map/make_three_layer_figures.py`
+- `python3 experiments/sect_sutra_map/make_paper_html.py`
+- `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_three_layer_figures.py`
+- `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex`
+- `dvipdfmx sect-sutra-map-paper.dvi`
+- HTML用語リンク38件について、すべての `href="#..."` が既存IDを指すことを確認した。
+- HTMLに MathJax の `tex-svg.js` 読み込みが入り、インライン数式23件・表示数式2件がMathJax対象になっていることを確認した。
+- 図1と図12を目視し、主要ラベル・凡例・タイトルが重なっていないことを確認した。
+
+### 未検証点
+
+- in-app browser での `file://` 直接検証は、ブラウザ安全ポリシーにより実行できなかった。代替としてHTMLソース、生成図、PDF生成ログを確認した。
+- `dvipdfmx` はCMap警告を1件出すが、PDF生成は完了している。PDF本文の実表示は今後の目視確認で必要に応じて調整する。

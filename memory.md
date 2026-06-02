@@ -594,3 +594,29 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
   - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used the generated image, HTML source, and rebuilt PDF instead.
 - Commit: `db2973ca1003af5394a8b8bd05cca9807b3563f9`
+
+## 2026-06-02 12:16 JST
+
+- Summary: Addressed the post-three-layer review by clarifying the source-mixture method, renaming layers to semantic, lexical/style, and explicit-marker layers, adding method parameters and summary tables, preserving the user-requested ChatGPT 5.5 Pro xhigh acknowledgement, and adding HTML glossary links plus MathJax rendering for paper formulas.
+- Files:
+  - `docs/figures/three-layer-concept-map.png`
+  - `docs/figures/kyogyoshinsho-three-layer-source-mixture.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/paper/index.html`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Confirmed HTML glossary links have no missing anchor targets.
+  - Confirmed the generated HTML includes MathJax, 23 inline math spans, and 2 display math blocks.
+  - Visually inspected Figure 1 and Figure 12 after regeneration.
+  - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used generated images, HTML source, and rebuilt PDF instead.
+- Commit: pending

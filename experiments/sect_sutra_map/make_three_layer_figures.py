@@ -36,6 +36,10 @@ SOURCE_IDS = [
     "t0366_amida_sutra",
     "t0367_praise_pure_land",
 ]
+SEMANTIC_TEMPERATURE = 0.04
+LEXICAL_TEMPERATURE = 0.025
+SOURCE_MIXTURE_SMOOTHING_WINDOW = 7
+CITATION_SMOOTHING_WINDOW = 9
 
 SOURCE_LABELS = {
     "t0360_larger_sukhavati": "無量寿経",
@@ -380,9 +384,9 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
             "color": "#dc2626",
             "face": "#fee2e2",
             "label": "C",
-            "title": "引用参照層",
+            "title": "明示マーカー層",
             "method": "経名・訳者名・固定句",
-            "reads": "典拠経路の手がかり",
+            "reads": "引用・参照の proxy",
             "note": "明示的参照を拾う",
         },
     ]
@@ -412,7 +416,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.5,
         0.285,
-        "三層 source-mixture map",
+        "三層参照源混合地図",
         ha="center",
         va="center",
         fontsize=13.2,
@@ -448,7 +452,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.5,
         0.060,
-        "近さの種類を混同しないための探索図。低い引用参照スコアは、典拠関係の不在そのものを意味しない。",
+        "近さの種類を混同しないための探索図。低い明示マーカースコアは、典拠関係の不在そのものを意味しない。",
         ha="center",
         va="center",
         fontsize=8.5,
@@ -506,9 +510,9 @@ def figure_source_mixture(
     fig, axes = plt.subplots(3, 1, figsize=(10.2, 7.0), sharex=True)
     x = np.arange(semantic_weights.shape[0])
     layers = [
-        ("意味層 S: embedding source-mixture", semantic_weights, SOURCE_IDS),
-        ("文体層 T: 文字n-gram source-mixture", lexical_weights, SOURCE_IDS),
-        ("引用参照層 C: 辞書マーカー source-mixture", citation_weights, SOURCE_IDS + ["unmarked"]),
+        ("意味層 S: 埋め込み参照源混合", semantic_weights, SOURCE_IDS),
+        ("文体・語彙層 T: 文字n-gram参照源混合", lexical_weights, SOURCE_IDS),
+        ("明示マーカー層 C: 辞書マーカー参照源混合", citation_weights, SOURCE_IDS + ["unmarked"]),
     ]
     for ax, (title, weights, ids) in zip(axes, layers):
         ax.stackplot(
@@ -525,7 +529,7 @@ def figure_source_mixture(
     axes[-1].set_xlabel("『教行信証』 chunk index", fontproperties=font)
     handles, labels = axes[-1].get_legend_handles_labels()
     fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, prop=font, bbox_to_anchor=(0.5, 1.01))
-    fig.suptitle("『教行信証』の三層 source-mixture map", fontproperties=font, fontsize=16, y=1.06)
+    fig.suptitle("『教行信証』の三層参照源混合地図", fontproperties=font, fontsize=16, y=1.06)
     out = FIGURE_DIR / "kyogyoshinsho-three-layer-source-mixture.png"
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
@@ -551,9 +555,15 @@ def main() -> None:
     lexical_scores, amida_tfidf = lexical_source_scores(chunk_texts)
     citation_scores = citation_source_scores(chunk_texts)
 
-    semantic_weights = smooth(softmax_weights(semantic_scores))
-    lexical_weights = smooth(softmax_weights(lexical_scores, temperature=0.025))
-    citation_weights = smooth(normalize_citation_weights(citation_scores), window=9)
+    semantic_weights = smooth(
+        softmax_weights(semantic_scores, temperature=SEMANTIC_TEMPERATURE),
+        window=SOURCE_MIXTURE_SMOOTHING_WINDOW,
+    )
+    lexical_weights = smooth(
+        softmax_weights(lexical_scores, temperature=LEXICAL_TEMPERATURE),
+        window=SOURCE_MIXTURE_SMOOTHING_WINDOW,
+    )
+    citation_weights = smooth(normalize_citation_weights(citation_scores), window=CITATION_SMOOTHING_WINDOW)
 
     metrics = {
         "semantic_text_cosine": round(text_cosine(embeddings, "t0366_amida_sutra", "t0367_praise_pure_land"), 4),
@@ -572,6 +582,16 @@ def main() -> None:
         "target": TARGET_ID,
         "sources": SOURCE_IDS,
         "source_labels": SOURCE_LABELS,
+        "parameters": {
+            "semantic_softmax_temperature": SEMANTIC_TEMPERATURE,
+            "lexical_softmax_temperature": LEXICAL_TEMPERATURE,
+            "source_mixture_smoothing_window": SOURCE_MIXTURE_SMOOTHING_WINDOW,
+            "citation_smoothing_window": CITATION_SMOOTHING_WINDOW,
+            "lexical_tfidf_analyzer": "char",
+            "lexical_tfidf_ngram_range": [2, 5],
+            "semantic_and_lexical_source_score": "max chunk similarity per source",
+        },
+        "reference_markers": REFERENCE_MARKERS,
         "amida_three_layer": metrics,
         "kyogyoshinsho_source_mixture": {
             "chunk_count": int(semantic_weights.shape[0]),

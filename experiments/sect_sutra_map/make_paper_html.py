@@ -12,6 +12,90 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = PROJECT_ROOT / "docs/paper/sect-sutra-map-paper-5.tex"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs/paper/index.html"
 AUTHOR_URL = "https://sites.google.com/site/dueyama/"
+GLOSSARY_SECTION_MARKER = '<h2 id="付録-用語-モデル-ツール">'
+GLOSSARY_DEFINITIONS = [
+    ("<strong>コーパス：</strong>", "glossary-corpus"),
+    ("<strong>前処理と正規化：</strong>", "glossary-preprocess"),
+    ("<strong>トークン：</strong>", "glossary-token"),
+    ("<strong><code>tiktoken</code> と <code>cl100k_base</code>：</strong>", "glossary-tiktoken"),
+    ("<strong>チャンクとオーバーラップ：</strong>", "glossary-chunk"),
+    ("<strong>埋め込みと <code>text-embedding-3-large</code>：</strong>", "glossary-embedding"),
+    ("<strong>埋め込み空間：</strong>", "glossary-embedding-space"),
+    ("<strong>OpenAI API、APIキー、SDK：</strong>", "glossary-openai-api"),
+    ("<strong>APIトークンとキャッシュ：</strong>", "glossary-api-cache"),
+    ("<strong>コサイン類似度：</strong>", "glossary-cosine"),
+    ("<strong>L2正規化：</strong>", "glossary-l2"),
+    ("<strong>重心：</strong>", "glossary-centroid"),
+    ("<strong>PCA：</strong>", "glossary-pca"),
+    ("<strong>寄与率：</strong>", "glossary-explained-variance"),
+    ("<strong>1標準偏差楕円：</strong>", "glossary-ellipse"),
+    ("<strong>TF-IDF と文字n-gram：</strong>", "glossary-tfidf"),
+    ("<strong>stylometry（計量文体論）：</strong>", "glossary-stylometry"),
+    ("<strong>top-k近傍とチャンク近傍混合率：</strong>", "glossary-top-k"),
+    ("<strong>三層参照源混合地図（source-mixture map）：</strong>", "glossary-source-mixture"),
+    ("<strong>softmax：</strong>", "glossary-softmax"),
+    ("<strong>optimal transport と unbalanced optimal transport：</strong>", "glossary-optimal-transport"),
+    ("<strong>ラベルランダム化と完全混合参照：</strong>", "glossary-randomization"),
+    ("<strong>top-1 accuracy、MRR、ROC-AUC：</strong>", "glossary-retrieval-metrics"),
+    (
+        "<strong>parallel句、intertextuality、cross-linguistic semantic textual similarity：</strong>",
+        "glossary-parallel-intertextuality",
+    ),
+    ("<strong>manifest、JSON、HTML：</strong>", "glossary-formats"),
+    ("<strong>静的ビューアとGitHub Pages：</strong>", "glossary-static-viewer"),
+    ("<strong>SAT、聖教DB、84000：</strong>", "glossary-sources"),
+]
+GLOSSARY_TERMS = [
+    ("cross-linguistic semantic textual similarity", "glossary-parallel-intertextuality"),
+    ("cross-lingual semantic textual similarity", "glossary-parallel-intertextuality"),
+    ("unbalanced optimal transport", "glossary-optimal-transport"),
+    ("三層参照源混合地図", "glossary-source-mixture"),
+    ("source-mixture map", "glossary-source-mixture"),
+    ("text-embedding-3-large", "glossary-embedding"),
+    ("チャンク近傍混合率", "glossary-top-k"),
+    ("top-1 accuracy", "glossary-retrieval-metrics"),
+    ("intertextuality", "glossary-parallel-intertextuality"),
+    ("OpenAI API", "glossary-openai-api"),
+    ("OpenAI SDK", "glossary-openai-api"),
+    ("APIトークン", "glossary-api-cache"),
+    ("APIキー", "glossary-openai-api"),
+    ("オーバーラップ", "glossary-chunk"),
+    ("完全混合参照", "glossary-randomization"),
+    ("ラベルランダム化", "glossary-randomization"),
+    ("optimal transport", "glossary-optimal-transport"),
+    ("コサイン類似度", "glossary-cosine"),
+    ("埋め込み空間", "glossary-embedding-space"),
+    ("1標準偏差楕円", "glossary-ellipse"),
+    ("静的ビューア", "glossary-static-viewer"),
+    ("GitHub Pages", "glossary-static-viewer"),
+    ("文字n-gram", "glossary-tfidf"),
+    ("cl100k_base", "glossary-tiktoken"),
+    ("stylometry", "glossary-stylometry"),
+    ("前処理", "glossary-preprocess"),
+    ("正規化", "glossary-preprocess"),
+    ("コーパス", "glossary-corpus"),
+    ("トークン", "glossary-token"),
+    ("tiktoken", "glossary-tiktoken"),
+    ("チャンク", "glossary-chunk"),
+    ("埋め込み", "glossary-embedding"),
+    ("キャッシュ", "glossary-api-cache"),
+    ("L2正規化", "glossary-l2"),
+    ("重心", "glossary-centroid"),
+    ("PCA", "glossary-pca"),
+    ("寄与率", "glossary-explained-variance"),
+    ("TF-IDF", "glossary-tfidf"),
+    ("top-k", "glossary-top-k"),
+    ("softmax", "glossary-softmax"),
+    ("MRR", "glossary-retrieval-metrics"),
+    ("ROC-AUC", "glossary-retrieval-metrics"),
+    ("parallel句", "glossary-parallel-intertextuality"),
+    ("manifest", "glossary-formats"),
+    ("JSON", "glossary-formats"),
+    ("HTML", "glossary-formats"),
+    ("SAT", "glossary-sources"),
+    ("聖教DB", "glossary-sources"),
+    ("84000", "glossary-sources"),
+]
 
 
 def find_braced(source: str, command: str) -> str:
@@ -133,6 +217,13 @@ def inline_tex(value: str, citation_numbers: dict[str, int], label_numbers: dict
     value = value.replace(r"\par}", "")
     value = value.replace("--", "–")
     value = re.sub(r"\\(?:noindent|small|footnotesize)\b", "", value)
+    math_values: list[str] = []
+
+    def stash_math(match: re.Match[str]) -> str:
+        math_values.append(match.group(1).strip())
+        return f"@@MATH{len(math_values) - 1}@@"
+
+    value = re.sub(r"\$(.+?)\$", stash_math, value)
     escaped = html.escape(value, quote=False)
 
     def cite_repl(match: re.Match[str]) -> str:
@@ -163,8 +254,18 @@ def inline_tex(value: str, citation_numbers: dict[str, int], label_numbers: dict
     escaped = re.sub(r"\\mathrm\{([^}]+)\}", r"\1", escaped)
     escaped = escaped.replace(r"\cup", "∪")
     escaped = escaped.replace(r"\in", "∈")
-    escaped = re.sub(r"\$(.+?)\$", r'<span class="math">\1</span>', escaped)
+    escaped = escaped.replace(r"\max", "max")
+    escaped = escaped.replace(r"\tau_S", "τ_S")
+    escaped = escaped.replace(r"\tau_T", "τ_T")
+    for index, math_value in enumerate(math_values):
+        math_html = html.escape(math_value, quote=False)
+        escaped = escaped.replace(f"@@MATH{index}@@", f'<span class="math-inline">\\({math_html}\\)</span>')
     return escaped.strip()
+
+
+def math_block_html(block: str) -> str:
+    math_html = html.escape(block.strip(), quote=False)
+    return f'<div class="math-display">\\[{math_html}\\]</div>'
 
 
 def split_rows(block: str) -> list[list[str]]:
@@ -262,6 +363,62 @@ def section_id(title: str) -> str:
     return base or "section"
 
 
+def add_glossary_definition_ids(fragment: str) -> str:
+    for heading, anchor in GLOSSARY_DEFINITIONS:
+        fragment = fragment.replace(f"<p>{heading}", f'<p id="{anchor}">{heading}', 1)
+    return fragment
+
+
+def link_glossary_text(text: str, seen_terms: set[str]) -> str:
+    term_pairs = sorted(GLOSSARY_TERMS, key=lambda item: len(item[0]), reverse=True)
+    pattern = re.compile("|".join(re.escape(term) for term, _ in term_pairs))
+    anchors = dict(term_pairs)
+
+    def repl(match: re.Match[str]) -> str:
+        term = match.group(0)
+        if term in seen_terms:
+            return term
+        seen_terms.add(term)
+        return f'<a class="glossary-link" href="#{anchors[term]}">{term}</a>'
+
+    return pattern.sub(repl, text)
+
+
+def add_glossary_links(fragment: str, seen_terms: set[str]) -> str:
+    output: list[str] = []
+    blocked_tags: list[str] = []
+    blocked = {"a", "pre", "h1", "h2", "h3", "figcaption", "caption", "th", "script", "style"}
+    for token in re.split(r"(<[^>]+>)", fragment):
+        if not token:
+            continue
+        if token.startswith("<"):
+            end_tag = re.match(r"</([a-zA-Z0-9]+)>", token)
+            start_tag = re.match(r"<([a-zA-Z0-9]+)(?:\s|>|/)", token)
+            if end_tag:
+                tag = end_tag.group(1).lower()
+                if tag in blocked_tags:
+                    blocked_tags.remove(tag)
+            elif start_tag and not token.endswith("/>"):
+                tag = start_tag.group(1).lower()
+                if tag in blocked:
+                    blocked_tags.append(tag)
+            output.append(token)
+            continue
+        if blocked_tags:
+            output.append(token)
+        else:
+            output.append(link_glossary_text(token, seen_terms))
+    return "".join(output)
+
+
+def add_glossary_anchors_and_links(body_html: str, seen_terms: set[str]) -> str:
+    body_html = add_glossary_definition_ids(body_html)
+    before, marker, after = body_html.partition(GLOSSARY_SECTION_MARKER)
+    if not marker:
+        return add_glossary_links(body_html, seen_terms)
+    return add_glossary_links(before, seen_terms) + marker + after
+
+
 def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
     body = body.replace(r"\maketitle", "")
     output: list[str] = []
@@ -278,6 +435,17 @@ def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dic
             continue
         if line in {"{\\small", "{", "}"} or line.startswith(r"\setlength"):
             index += 1
+            continue
+        if line == r"\[":
+            flush_paragraph(paragraph, output)
+            block_lines = []
+            index += 1
+            while index < len(lines) and lines[index].strip() != r"\]":
+                block_lines.append(lines[index].strip())
+                index += 1
+            if index < len(lines):
+                index += 1
+            output.append(math_block_html("\n".join(block_lines)))
             continue
         section = re.match(r"\\section\*?\{(.+?)\}", line)
         subsection = re.match(r"\\subsection\*?\{(.+?)\}", line)
@@ -362,12 +530,15 @@ def build_html(source: str) -> str:
     abstract, main_body = extract_abstract(main_body)
     citation_numbers, entries = parse_bibliography(bibliography)
     label_numbers = collect_label_numbers(main_body)
+    seen_glossary_terms: set[str] = set()
     body_html = content_html(main_body, citation_numbers, label_numbers)
     abstract_html = "\n".join(
         f"<p>{inline_tex(part, citation_numbers, label_numbers)}</p>"
         for part in re.split(r"\n\s*\n", abstract)
         if part.strip()
     )
+    abstract_html = add_glossary_links(abstract_html, seen_glossary_terms)
+    body_html = add_glossary_anchors_and_links(body_html, seen_glossary_terms)
     references = bibliography_html(entries, citation_numbers, label_numbers)
     return f"""<!doctype html>
 <html lang="ja">
@@ -403,7 +574,11 @@ def build_html(source: str) -> str:
     h2 {{ margin: 34px 0 12px; font-size: 25px; line-height: 1.35; letter-spacing: 0; }}
     h3 {{ margin: 26px 0 10px; font-size: 19px; line-height: 1.4; letter-spacing: 0; }}
     p {{ margin: 0 0 1em; }}
-    code, .math {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; background: #f3f5f2; padding: 0 3px; border-radius: 3px; }}
+    code {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; background: #f3f5f2; padding: 0 3px; border-radius: 3px; }}
+    .math-inline {{ white-space: nowrap; }}
+    .math-display {{ margin: 16px 0 20px; padding: 13px 16px; border: 1px solid var(--line); border-radius: 6px; background: #f8faf7; color: #25302b; overflow-x: auto; }}
+    .glossary-link {{ color: var(--accent); text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 3px; }}
+    p[id^="glossary-"] {{ scroll-margin-top: 18px; }}
     figure {{ margin: 26px 0; }}
     figure img {{ display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 7px; background: #fff; }}
     figcaption, caption {{ color: var(--muted); font-size: 13px; line-height: 1.6; }}
@@ -421,6 +596,17 @@ def build_html(source: str) -> str:
       table {{ font-size: 13px; }}
     }}
   </style>
+  <script>
+    window.MathJax = {{
+      tex: {{
+        inlineMath: [["\\\\(", "\\\\)"]],
+        displayMath: [["\\\\[", "\\\\]"]],
+        processEscapes: true
+      }},
+      svg: {{ fontCache: "global" }}
+    }};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
   <header>
