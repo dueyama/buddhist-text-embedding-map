@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import html
+import argparse
 import re
 from pathlib import Path
 
@@ -84,13 +85,52 @@ def markdown_to_html(markdown: str) -> str:
     return "\n".join(parts)
 
 
-def page(content: str) -> str:
+def page(content: str, lang: str = "ja") -> str:
+    is_en = lang == "en"
+    title = "Process Report" if is_en else "制作プロセス"
+    page_title = "Process Report | Exploratory Mapping of Buddhist Texts with Semantic Embeddings" if is_en else "制作プロセス | 意味埋め込みによる仏教文献の探索地図"
+    lead = (
+        "A process report from repository setup through experiments, review-style revision, HTML/PDF papers, and GitHub Pages preparation."
+        if is_en
+        else "Okyouリポジトリの立ち上げから、実験、査読対応、PDF/HTML論文、GitHub Pages公開準備までの流れをまとめた記録です。"
+    )
+    nav_label = "Site navigation" if is_en else "サイト内ナビゲーション"
+    note = (
+        "This report describes the workflow as a reproducible example of AI-assisted humanities data analysis, assuming an OpenAI API key, a ChatGPT Pro account, and a local Codex/Git environment."
+        if is_en
+        else "OpenAI APIキー、ChatGPT Proアカウント、ローカルCodex/Git環境を前提に、人文学系データ解析研究をAI支援で半自動的に進めるための実例として読めるように整理しています。"
+    )
+    footer = (
+        "Exploratory Mapping of Buddhist Texts with Semantic Embeddings. The process report is a preliminary research record."
+        if is_en
+        else "意味埋め込みによる仏教文献の探索地図。制作プロセス文書は研究用の予備的記録です。"
+    )
+    if is_en:
+        nav_links = """
+        <a class="nav-link" href="../../">Top</a>
+        <a class="nav-link" href="../../paper/">Paper JP</a>
+        <a class="nav-link" href="../../paper/en/">Paper EN</a>
+        <a class="nav-link" href="../../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+        <a class="nav-link" href="../../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        <a class="nav-link" href="../">Process JP</a>
+        <a class="nav-link" href="./" aria-current="page">Process EN</a>
+        <a class="nav-link" href="../../viewer/">Viewer</a>"""
+    else:
+        nav_links = """
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="../paper/">論文JP</a>
+        <a class="nav-link" href="../paper/en/">論文EN</a>
+        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+        <a class="nav-link" href="../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        <a class="nav-link" href="./" aria-current="page">制作JP</a>
+        <a class="nav-link" href="en/">制作EN</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>"""
     return f"""<!doctype html>
-<html lang="ja">
+<html lang="{html.escape(lang)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>制作プロセス | 意味埋め込みによる仏教文献の探索地図</title>
+  <title>{html.escape(page_title)}</title>
   <style>
     :root {{
       color-scheme: light;
@@ -131,26 +171,21 @@ def page(content: str) -> str:
 <body>
   <header>
     <div class="wrap">
-      <h1>制作プロセス</h1>
-      <p class="lead">Okyouリポジトリの立ち上げから、実験、査読対応、PDF/HTML論文、GitHub Pages公開準備までの流れをまとめた記録です。</p>
-      <nav class="site-nav" aria-label="サイト内ナビゲーション">
-        <a class="nav-link" href="../">トップ</a>
-        <a class="nav-link" href="../paper/">論文</a>
-        <a class="nav-link" href="../paper/en/">English</a>
-        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
-        <a class="nav-link" href="../viewer/">ビューア</a>
-        <a class="nav-link" href="./" aria-current="page">制作プロセス</a>
+      <h1>{html.escape(title)}</h1>
+      <p class="lead">{html.escape(lead)}</p>
+      <nav class="site-nav" aria-label="{html.escape(nav_label)}">
+{nav_links}
       </nav>
     </div>
   </header>
   <main class="wrap">
     <section class="note">
-      OpenAI APIキー、ChatGPT Proアカウント、ローカルCodex/Git環境を前提に、人文学系データ解析研究をAI支援で半自動的に進めるための実例として読めるように整理しています。
+      {html.escape(note)}
     </section>
 {content}
   </main>
   <footer>
-    <div class="wrap">意味埋め込みによる仏教文献の探索地図。制作プロセス文書は研究用の予備的記録です。</div>
+    <div class="wrap">{html.escape(footer)}</div>
   </footer>
 </body>
 </html>
@@ -158,10 +193,21 @@ def page(content: str) -> str:
 
 
 def main() -> None:
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    content = markdown_to_html(SOURCE.read_text(encoding="utf-8"))
-    OUTPUT.write_text(page(content), encoding="utf-8")
-    print(f"Wrote {OUTPUT.relative_to(ROOT)}")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", default=str(SOURCE))
+    parser.add_argument("--output", default=str(OUTPUT))
+    parser.add_argument("--lang", choices=["ja", "en"], default="ja")
+    args = parser.parse_args()
+    input_path = Path(args.input)
+    output_path = Path(args.output)
+    if not input_path.is_absolute():
+        input_path = ROOT / input_path
+    if not output_path.is_absolute():
+        output_path = ROOT / output_path
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    content = markdown_to_html(input_path.read_text(encoding="utf-8"))
+    output_path.write_text(page(content, args.lang), encoding="utf-8")
+    print(f"Wrote {output_path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

@@ -39,10 +39,12 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - 論文TeX: `docs/paper/sect-sutra-map-paper.tex`
 - English AI-assisted translation HTML: `docs/paper/en/index.html`
 - English AI-assisted translation PDF: `docs/paper/en/sect-sutra-map-paper-en.pdf`
+- English figure variants: `docs/figures/en/*.png`
 - GitHub Pages entry point: `docs/index.html`
 - Public viewer: `docs/viewer/index.html`
 - Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
+- English process report: `docs/process/en/index.html`, `docs/repo-launch-process-report-en.md`
 
 The Japanese paper is the authoritative print/book edition. The English paper is provided as an AI-assisted translation for access by English-language readers; when citing or checking nuance, use the Japanese edition as the primary text.
 
@@ -54,7 +56,9 @@ The Japanese paper is the authoritative print/book edition. The English paper is
 - `experiments/multilingual_sutra_map/`: 解深密経の漢訳・英訳パイロット
 - `experiments/shinran_amida_sources/`: 親鸞文献と阿弥陀経二訳の参照指標分析
 - `docs/figures/`: 論文・Pages 用の図
+- `docs/figures/en/`: 英語AI支援翻訳版用の英語ラベル図
 - `docs/paper/`: HTML論文、PDF、TeXソース
+- `docs/process/`: 制作プロセス文書
 - `docs/viewer/`: GitHub Pages 用の公開版ビューア
 
 ## Reproducibility
@@ -88,6 +92,7 @@ Use GitHub Pages with:
 Then open the generated Pages URL and confirm that the landing page, paper PDF, figures, and public viewer load correctly.
 The landing page links primarily to the HTML paper, while the PDF version remains in `docs/paper/` for citation and offline reading.
 The English AI-assisted translation is available under `docs/paper/en/`.
+The English process report is available under `docs/process/en/`.
 
 ## License
 

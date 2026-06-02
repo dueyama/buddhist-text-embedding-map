@@ -354,17 +354,39 @@ def setup_font() -> font_manager.FontProperties:
     return font
 
 
-def figure_marker_summary(rows: list[dict[str, Any]], font: font_manager.FontProperties) -> Path:
-    labels = {
-        "kyogyoshinsho": "教行信証",
-        "nyushutsu_nimonge_p543": "入出二門偈 p543",
-    }
-    categories = [
-        ("rajiv", "羅什訳固有語"),
-        ("xuanzang", "玄奘訳固有語"),
-        ("xuanzang_title", "称讃浄土経名"),
-        ("xuanzang_explicit", "玄奘訳明示"),
-    ]
+def figure_path(filename: str, lang: str = "ja") -> Path:
+    out_dir = FIGURE_DIR / "en" if lang == "en" else FIGURE_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    return out_dir / filename
+
+
+def figure_marker_summary(rows: list[dict[str, Any]], font: font_manager.FontProperties, lang: str = "ja") -> Path:
+    labels = (
+        {
+            "kyogyoshinsho": "Kyogyoshinsho",
+            "nyushutsu_nimonge_p543": "Nyushutsu Nimonge p.543",
+        }
+        if lang == "en"
+        else {
+            "kyogyoshinsho": "教行信証",
+            "nyushutsu_nimonge_p543": "入出二門偈 p543",
+        }
+    )
+    categories = (
+        [
+            ("rajiv", "Kumarajiva markers"),
+            ("xuanzang", "Xuanzang markers"),
+            ("xuanzang_title", "Praise Pure Land title"),
+            ("xuanzang_explicit", "explicit Xuanzang"),
+        ]
+        if lang == "en"
+        else [
+            ("rajiv", "羅什訳固有語"),
+            ("xuanzang", "玄奘訳固有語"),
+            ("xuanzang_title", "称讃浄土経名"),
+            ("xuanzang_explicit", "玄奘訳明示"),
+        ]
+    )
     x = np.arange(len(rows))
     width = 0.18
     colors = ["#2563eb", "#dc2626", "#f97316", "#111827"]
@@ -374,38 +396,42 @@ def figure_marker_summary(rows: list[dict[str, Any]], font: font_manager.FontPro
         values = [row["weights"].get(key, 0) for row in rows]
         ax.bar(x + (offset - 1.5) * width, values, width, label=label, color=color)
 
-    ax.set_title("親鸞テキスト側の阿弥陀経二訳ソース指標", fontproperties=font, fontsize=14, pad=10)
-    ax.set_ylabel("指標スコア", fontproperties=font)
+    title = "Source Indicators for the Two Amitabha Translations in Shinran-Related Texts" if lang == "en" else "親鸞テキスト側の阿弥陀経二訳ソース指標"
+    ax.set_title(title, fontproperties=font, fontsize=14, pad=10)
+    ax.set_ylabel("indicator score" if lang == "en" else "指標スコア", fontproperties=font)
     ax.set_xticks(x)
     ax.set_xticklabels([labels.get(row["source_id"], row["source_id"]) for row in rows], fontproperties=font)
     ax.grid(axis="y", color="#e2e8f0", linewidth=0.7)
     ax.legend(prop=font, frameon=False, ncol=2, loc="upper left")
 
-    out = FIGURE_DIR / "shinran-amida-source-markers.png"
+    out = figure_path("shinran-amida-source-markers.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
     return out
 
 
-def figure_kyogyoshinsho_chunk_affinity(summary: dict[str, Any], font: font_manager.FontProperties) -> Path:
+def figure_kyogyoshinsho_chunk_affinity(summary: dict[str, Any], font: font_manager.FontProperties, lang: str = "ja") -> Path:
     deltas = summary["chunk_deltas"]
     x = [row["chunk_index"] for row in deltas]
     t0366 = [row["t0366"] for row in deltas]
     t0367 = [row["t0367"] for row in deltas]
 
     fig, ax = plt.subplots(figsize=(9.5, 4.9))
-    ax.plot(x, t0366, color="#2563eb", linewidth=1.1, alpha=0.8, label="羅什訳 阿弥陀経")
-    ax.plot(x, t0367, color="#dc2626", linewidth=1.1, alpha=0.8, label="玄奘訳 称讃浄土経")
+    label_t0366 = "Kumarajiva Amitabha" if lang == "en" else "羅什訳 阿弥陀経"
+    label_t0367 = "Xuanzang Praise Pure Land" if lang == "en" else "玄奘訳 称讃浄土経"
+    ax.plot(x, t0366, color="#2563eb", linewidth=1.1, alpha=0.8, label=label_t0366)
+    ax.plot(x, t0367, color="#dc2626", linewidth=1.1, alpha=0.8, label=label_t0367)
     ax.fill_between(x, t0366, t0367, where=np.array(t0367) >= np.array(t0366), color="#fecaca", alpha=0.35)
     ax.fill_between(x, t0366, t0367, where=np.array(t0367) < np.array(t0366), color="#bfdbfe", alpha=0.35)
-    ax.set_title("教行信証チャンクから見た阿弥陀経二訳への近さ", fontproperties=font, fontsize=14, pad=10)
-    ax.set_xlabel("教行信証 chunk index", fontproperties=font)
-    ax.set_ylabel("各訳チャンクへの最大コサイン類似度", fontproperties=font)
+    title = "Affinity from Kyogyoshinsho Chunks to the Two Amitabha Translations" if lang == "en" else "教行信証チャンクから見た阿弥陀経二訳への近さ"
+    ax.set_title(title, fontproperties=font, fontsize=14, pad=10)
+    ax.set_xlabel("Kyogyoshinsho chunk index" if lang == "en" else "教行信証 chunk index", fontproperties=font)
+    ax.set_ylabel("maximum cosine similarity to each translation" if lang == "en" else "各訳チャンクへの最大コサイン類似度", fontproperties=font)
     ax.grid(color="#e2e8f0", linewidth=0.7)
     ax.legend(prop=font, frameon=False, loc="upper right")
 
-    out = FIGURE_DIR / "shinran-kyogyoshinsho-amida-chunk-affinity.png"
+    out = figure_path("shinran-kyogyoshinsho-amida-chunk-affinity.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -414,6 +440,13 @@ def figure_kyogyoshinsho_chunk_affinity(summary: dict[str, Any], font: font_mana
 
 def main() -> None:
     refresh = "--refresh" in sys.argv
+    lang = "ja"
+    if "--lang" in sys.argv:
+        lang_index = sys.argv.index("--lang")
+        if lang_index + 1 < len(sys.argv):
+            lang = sys.argv[lang_index + 1]
+    if lang not in {"ja", "en"}:
+        raise ValueError("--lang must be ja or en")
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
@@ -424,8 +457,8 @@ def main() -> None:
     embeddings = embedding_summary()
     font = setup_font()
     figures = [
-        str(figure_marker_summary(markers, font).relative_to(PROJECT_ROOT)),
-        str(figure_kyogyoshinsho_chunk_affinity(embeddings, font).relative_to(PROJECT_ROOT)),
+        str(figure_marker_summary(markers, font, lang).relative_to(PROJECT_ROOT)),
+        str(figure_kyogyoshinsho_chunk_affinity(embeddings, font, lang).relative_to(PROJECT_ROOT)),
     ]
 
     result = {

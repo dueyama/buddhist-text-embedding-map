@@ -897,3 +897,38 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
   - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
 - Commit: `d790a2292cfefddec84105cdee6000bba9321ca2`
+
+## 2026-06-02 15:53 JST
+
+- Summary: Added English-labeled figure variants for the English AI-assisted translation edition, switched the English paper to those figures, fixed bilingual navigation labels, added an English process-report page, and updated the public README/checklist so the English paper, English PDF, English figures, and English process report are discoverable. Regenerated the English HTML paper and PDF.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/figures/en/*.png`
+  - `docs/index.html`
+  - `docs/paper/en/index.html`
+  - `docs/paper/en/sect-sutra-map-paper-en.pdf`
+  - `docs/paper/en/sect-sutra-map-paper-en.tex`
+  - `docs/paper/index.html`
+  - `docs/process/en/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report-en.md`
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `experiments/shinran_amida_sources/run_analysis.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_figures.py --lang en`, `python3 experiments/sect_sutra_map/make_three_layer_figures.py --lang en`, and `python3 experiments/shinran_amida_sources/run_analysis.py --lang en`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py --input docs/paper/en/sect-sutra-map-paper-en.tex --output docs/paper/en/index.html --lang en`.
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py --input docs/repo-launch-process-report-en.md --output docs/process/en/index.html --lang en`.
+  - Ran `python3 -m py_compile` for the updated paper/figure/process scripts.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper-en.tex` twice and `dvipdfmx sect-sutra-map-paper-en.dvi`; removed ignored LaTeX intermediate files afterward.
+  - Confirmed with bundled `pypdf` that `docs/paper/en/sect-sutra-map-paper-en.pdf` has 24 pages and English metadata.
+  - Confirmed `docs/paper/en/index.html` references 13 `docs/figures/en/` images and has no raw TeX caption fragments.
+  - Visually inspected English semantic-map and three-layer source-mixture figures.
+  - Confirmed Tailscale preview URLs for English paper, English PDF, and English process report returned `200 OK`.
+  - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
+  - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
+- Commit: `pending`

@@ -613,19 +613,23 @@ def build_html(source: str, lang: str = "ja", pdf_name: str = "sect-sutra-map-pa
     if is_en:
         nav_links = f"""
         <a class="nav-link" href="../../">Top</a>
-        <a class="nav-link" href="../">Japanese Edition</a>
-        <a class="nav-link" href="./" aria-current="page">AI Translation</a>
-        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF</a>
-        <a class="nav-link" href="../../viewer/">Viewer</a>
-        <a class="nav-link" href="../../process/">Process</a>"""
+        <a class="nav-link" href="../">Paper JP</a>
+        <a class="nav-link" href="./" aria-current="page">Paper EN</a>
+        <a class="nav-link" href="../sect-sutra-map-paper.pdf">PDF JP</a>
+        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF EN</a>
+        <a class="nav-link" href="../../process/">Process JP</a>
+        <a class="nav-link" href="../../process/en/">Process EN</a>
+        <a class="nav-link" href="../../viewer/">Viewer</a>"""
     else:
         nav_links = f"""
         <a class="nav-link" href="../">トップ</a>
-        <a class="nav-link" href="./" aria-current="page">論文</a>
-        <a class="nav-link" href="en/">English</a>
-        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF</a>
-        <a class="nav-link" href="../viewer/">ビューア</a>
-        <a class="nav-link" href="../process/">制作プロセス</a>"""
+        <a class="nav-link" href="./" aria-current="page">論文JP</a>
+        <a class="nav-link" href="en/">論文EN</a>
+        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF JP</a>
+        <a class="nav-link" href="en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        <a class="nav-link" href="../process/">制作JP</a>
+        <a class="nav-link" href="../process/en/">制作EN</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>"""
     title = re.sub(r"\\\\(?:\[[^]]+\])?", " ", find_braced(source, "title")).strip()
     author = find_braced(source, "author")
     date = find_braced(source, "date")
@@ -743,7 +747,7 @@ def main() -> None:
     parser.add_argument("--input", default=str(DEFAULT_INPUT))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     parser.add_argument("--lang", choices=["ja", "en"], default="ja")
-    parser.add_argument("--pdf-name", default="sect-sutra-map-paper.pdf")
+    parser.add_argument("--pdf-name")
     args = parser.parse_args()
     input_path = Path(args.input)
     output_path = Path(args.output)
@@ -752,8 +756,11 @@ def main() -> None:
     if not output_path.is_absolute():
         output_path = PROJECT_ROOT / output_path
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    pdf_name = args.pdf_name or (
+        "sect-sutra-map-paper-en.pdf" if args.lang == "en" else "sect-sutra-map-paper.pdf"
+    )
     output_path.write_text(
-        build_html(input_path.read_text(encoding="utf-8"), lang=args.lang, pdf_name=args.pdf_name),
+        build_html(input_path.read_text(encoding="utf-8"), lang=args.lang, pdf_name=pdf_name),
         encoding="utf-8",
     )
     print(f"Wrote {output_path.relative_to(PROJECT_ROOT)}")

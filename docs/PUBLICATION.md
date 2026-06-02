@@ -5,10 +5,11 @@
 - 論文HTML: `docs/paper/index.html`
 - 論文PDF・TeX: `docs/paper/sect-sutra-map-paper.pdf`, `docs/paper/sect-sutra-map-paper.tex`
 - 英語AI支援翻訳版HTML・PDF・TeX: `docs/paper/en/index.html`, `docs/paper/en/sect-sutra-map-paper-en.pdf`, `docs/paper/en/sect-sutra-map-paper-en.tex`
-- 図: `docs/figures/*.png`
+- 図: `docs/figures/*.png`, `docs/figures/en/*.png`
 - 静的サイト: `docs/index.html`
 - 公開版ビューア: `docs/viewer/index.html`, `docs/viewer/viewer_data.json`
 - 制作プロセス: `docs/process/index.html`, `docs/repo-launch-process-report.md`
+- 英語制作プロセス: `docs/process/en/index.html`, `docs/repo-launch-process-report-en.md`
 - 再現用コード: `experiments/sect_sutra_map/`, `experiments/multilingual_sutra_map/`, `experiments/shinran_amida_sources/`
 - 実験結果メモ・計画書: `docs/*.md`
 
@@ -40,6 +41,7 @@
    - `paper/en/` で英語AI支援翻訳版HTMLが表示される。
    - `paper/en/sect-sutra-map-paper-en.pdf` が開く。
    - `process/` で制作プロセス文書が表示される。
+   - `process/en/` で英語制作プロセス文書が表示される。
    - `viewer/index.html` が `viewer_data.json` を自動読み込みする。
    - 主要図が表示される。
 
@@ -54,9 +56,13 @@ git log --all --oneline -G'sk[-][A-Za-z0-9]'
 git log --all --oneline -G'/Users|Documents/Codex'
 python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py
 python3 experiments/sect_sutra_map/make_public_viewer_data.py
+python3 experiments/sect_sutra_map/make_paper_figures.py --lang en
+python3 experiments/sect_sutra_map/make_three_layer_figures.py --lang en
+python3 experiments/shinran_amida_sources/run_analysis.py --lang en
 python3 experiments/sect_sutra_map/make_paper_html.py
 python3 experiments/sect_sutra_map/make_paper_html.py --input docs/paper/en/sect-sutra-map-paper-en.tex --output docs/paper/en/index.html --lang en --pdf-name sect-sutra-map-paper-en.pdf
 python3 experiments/sect_sutra_map/make_process_html.py
+python3 experiments/sect_sutra_map/make_process_html.py --input docs/repo-launch-process-report-en.md --output docs/process/en/index.html --lang en
 ```
 
 追跡対象ファイルとして、次が出ないことを確認する。

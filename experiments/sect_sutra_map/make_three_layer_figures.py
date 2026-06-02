@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import os
+import argparse
 import re
 from pathlib import Path
 from typing import Any
@@ -49,6 +50,14 @@ SOURCE_LABELS = {
     "unmarked": "未検出",
 }
 
+SOURCE_LABELS_EN = {
+    "t0360_larger_sukhavati": "Larger Sutra",
+    "t0365_meditation_sutra": "Contemplation",
+    "t0366_amida_sutra": "Kumarajiva Amitabha",
+    "t0367_praise_pure_land": "Xuanzang Praise",
+    "unmarked": "unmarked",
+}
+
 SOURCE_COLORS = {
     "t0360_larger_sukhavati": "#2563eb",
     "t0365_meditation_sutra": "#60a5fa",
@@ -66,6 +75,16 @@ KYOGYOSHINSHO_VOLUMES = [
     {"id": "true_buddha_land", "label": "真仏土巻", "short_label": "真仏土", "marker": "顕浄土真仏土文類五"},
     {"id": "transformed_land", "label": "化身土巻", "short_label": "化身土", "marker": "顕浄土方便化身土文類六"},
 ]
+
+VOLUME_LABELS_EN = {
+    "preface": ("Preface", "Pref."),
+    "teaching": ("Teaching", "Teach."),
+    "practice": ("Practice", "Prac."),
+    "faith": ("Faith", "Faith"),
+    "realization": ("Realization", "Real."),
+    "true_buddha_land": ("True Buddha Land", "True BL"),
+    "transformed_land": ("Transformed Land", "Trans."),
+}
 
 VARIANTS = str.maketrans(
     {
@@ -161,6 +180,25 @@ def setup_font() -> font_manager.FontProperties:
     plt.rcParams["axes.unicode_minus"] = False
     plt.rcParams["figure.dpi"] = 160
     return font
+
+
+def source_label(source_id: str, lang: str = "ja") -> str:
+    return SOURCE_LABELS_EN.get(source_id, source_id) if lang == "en" else SOURCE_LABELS[source_id]
+
+
+def figure_path(filename: str, lang: str = "ja") -> Path:
+    out_dir = FIGURE_DIR / "en" if lang == "en" else FIGURE_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    return out_dir / filename
+
+
+def volume_display(row: dict[str, Any], field: str, lang: str = "ja") -> str:
+    if lang == "en":
+        labels = VOLUME_LABELS_EN.get(row["volume_id"])
+        if labels:
+            return labels[1] if field == "short" else labels[0]
+    key = "volume_short_label" if field == "short" else "volume_label"
+    return row[key]
 
 
 def normalize_cjk(text: str) -> str:
@@ -359,7 +397,7 @@ def top5_mixing(embeddings: dict[str, Any]) -> float:
     )
 
 
-def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
+def figure_three_layer_concept(font: font_manager.FontProperties, lang: str = "ja") -> Path:
     fig, ax = plt.subplots(figsize=(10.4, 6.0))
     ax.set_axis_off()
     ax.set_xlim(0, 1)
@@ -400,10 +438,11 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
             )
         )
 
+    heading = "Reading the Same Chunk Sequence through Three Layers" if lang == "en" else "同じチャンク列を三つの層で読み分ける"
     ax.text(
         0.5,
         0.955,
-        "同じチャンク列を三つの層で読み分ける",
+        heading,
         ha="center",
         va="center",
         fontsize=15,
@@ -413,62 +452,96 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     )
 
     rounded_box((0.08, 0.80), 0.84, 0.105, "#f8fafc", "#334155", lw=1.3)
-    ax.text(0.17, 0.852, "入力", ha="center", va="center", fontsize=11, fontproperties=font, color="#334155", weight="bold")
+    ax.text(0.17, 0.852, "Input" if lang == "en" else "入力", ha="center", va="center", fontsize=11, fontproperties=font, color="#334155", weight="bold")
     ax.text(
         0.36,
         0.852,
-        "対象: 『教行信証』の各チャンク",
+        "Target:\nKyogyoshinsho chunks" if lang == "en" else "対象: 『教行信証』の各チャンク",
         ha="center",
         va="center",
-        fontsize=10.2,
+        fontsize=9.7 if lang == "en" else 10.2,
         fontproperties=font,
         color="#0f172a",
     )
     ax.text(
         0.69,
         0.852,
-        "参照源: 浄土三部経 + 阿弥陀経二訳",
+        "Sources:\nThree Pure Land Sutras + two Amitabha translations" if lang == "en" else "参照源: 浄土三部経 + 阿弥陀経二訳",
         ha="center",
         va="center",
-        fontsize=10.2,
+        fontsize=9.7 if lang == "en" else 10.2,
         fontproperties=font,
         color="#0f172a",
     )
     ax.plot([0.225, 0.225], [0.815, 0.89], color="#cbd5e1", linewidth=1)
     ax.plot([0.52, 0.52], [0.815, 0.89], color="#cbd5e1", linewidth=1)
 
-    layers = [
-        {
-            "x": 0.06,
-            "color": "#2563eb",
-            "face": "#dbeafe",
-            "label": "S",
-            "title": "意味層",
-            "method": "埋め込み cosine",
-            "reads": "主題・内容の近さ",
-            "note": "原内容の近さを拾う",
-        },
-        {
-            "x": 0.37,
-            "color": "#16a34a",
-            "face": "#dcfce7",
-            "label": "T",
-            "title": "文体・語彙層",
-            "method": "文字 n-gram TF-IDF",
-            "reads": "訳語・表記の近さ",
-            "note": "翻訳の癖を拾う",
-        },
-        {
-            "x": 0.68,
-            "color": "#dc2626",
-            "face": "#fee2e2",
-            "label": "C",
-            "title": "典拠マーカー層",
-            "method": "経名・訳者名・固定句",
-            "reads": "引用・学習経路の手がかり",
-            "note": "明示マーカー proxy",
-        },
-    ]
+    if lang == "en":
+        layers = [
+            {
+                "x": 0.06,
+                "color": "#2563eb",
+                "face": "#dbeafe",
+                "label": "S",
+                "title": "semantic layer",
+                "method": "embedding cosine",
+                "reads": "topic/content proximity",
+                "note": "content-level closeness",
+            },
+            {
+                "x": 0.37,
+                "color": "#16a34a",
+                "face": "#dcfce7",
+                "label": "T",
+                "title": "style/lexical layer",
+                "method": "character n-gram TF-IDF",
+                "reads": "wording/orthography",
+                "note": "translation habit",
+            },
+            {
+                "x": 0.68,
+                "color": "#dc2626",
+                "face": "#fee2e2",
+                "label": "C",
+                "title": "source-marker layer",
+                "method": "titles, translators, fixed phrases",
+                "reads": "source-learning clues",
+                "note": "explicit marker proxy",
+            },
+        ]
+    else:
+        layers = [
+            {
+                "x": 0.06,
+                "color": "#2563eb",
+                "face": "#dbeafe",
+                "label": "S",
+                "title": "意味層",
+                "method": "埋め込み cosine",
+                "reads": "主題・内容の近さ",
+                "note": "原内容の近さを拾う",
+            },
+            {
+                "x": 0.37,
+                "color": "#16a34a",
+                "face": "#dcfce7",
+                "label": "T",
+                "title": "文体・語彙層",
+                "method": "文字 n-gram TF-IDF",
+                "reads": "訳語・表記の近さ",
+                "note": "翻訳の癖を拾う",
+            },
+            {
+                "x": 0.68,
+                "color": "#dc2626",
+                "face": "#fee2e2",
+                "label": "C",
+                "title": "典拠マーカー層",
+                "method": "経名・訳者名・固定句",
+                "reads": "引用・学習経路の手がかり",
+                "note": "明示マーカー proxy",
+            },
+        ]
 
     for layer in layers:
         x = layer["x"]
@@ -495,7 +568,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.5,
         0.285,
-        "三層参照源混合地図",
+        "Three-Layer Source-Mixture Map" if lang == "en" else "三層参照源混合地図",
         ha="center",
         va="center",
         fontsize=13.2,
@@ -521,7 +594,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.665,
         0.195,
-        "層ごとの重み差を比較し、\n意味・文体・参照経路の\nズレを読む",
+        "Compare layer-specific\nweight differences to read\nsemantic, stylistic, and\nsource-path divergence" if lang == "en" else "層ごとの重み差を比較し、\n意味・文体・参照経路の\nズレを読む",
         ha="left",
         va="center",
         fontsize=8.8,
@@ -531,22 +604,22 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.5,
         0.060,
-        "近さの種類を混同しないための探索図。低い典拠マーカースコアは、典拠関係の不在そのものを意味しない。",
+        "An exploratory figure for not conflating kinds of proximity. A low source-marker score does not mean absence of source relation." if lang == "en" else "近さの種類を混同しないための探索図。低い典拠マーカースコアは、典拠関係の不在そのものを意味しない。",
         ha="center",
         va="center",
         fontsize=8.5,
         fontproperties=font,
         color="#64748b",
     )
-    out = FIGURE_DIR / "three-layer-concept-map.png"
+    out = figure_path("three-layer-concept-map.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
     return out
 
 
-def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontProperties) -> Path:
-    labels = ["意味 S\n本文平均", "文体・語彙 T\n文字n-gram", "分布 M\ntop-5混合"]
+def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontProperties, lang: str = "ja") -> Path:
+    labels = ["semantic S\ntext mean", "style/lexical T\nchar n-gram", "distribution M\ntop-5 mixing"] if lang == "en" else ["意味 S\n本文平均", "文体・語彙 T\n文字n-gram", "分布 M\ntop-5混合"]
     values = [
         metrics["semantic_text_cosine"],
         metrics["lexical_tfidf_text_cosine"],
@@ -556,8 +629,9 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
     fig, ax = plt.subplots(figsize=(7.2, 4.6))
     bars = ax.bar(labels, values, color=colors, width=0.58)
     ax.set_ylim(0, 1)
-    ax.set_ylabel("スコア", fontproperties=font)
-    ax.set_title("阿弥陀経二訳の意味・文体・語彙・分布差分", fontproperties=font, fontsize=15, pad=12)
+    ax.set_ylabel("score" if lang == "en" else "スコア", fontproperties=font)
+    title = "Semantic, Style/Lexical, and Distributional Differences between the Two Amitabha Translations" if lang == "en" else "阿弥陀経二訳の意味・文体・語彙・分布差分"
+    ax.set_title(title, fontproperties=font, fontsize=15, pad=12)
     ax.grid(axis="y", color="#e2e8f0", linewidth=0.7)
     for tick in ax.get_xticklabels():
         tick.set_fontproperties(font)
@@ -565,7 +639,7 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
     ax.text(
         0.5,
         -0.22,
-        "典拠マーカー層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
+        "Source-marker layer C is evaluated in Shinran-related texts, not inside the two translations themselves." if lang == "en" else "典拠マーカー層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
         transform=ax.transAxes,
         ha="center",
         va="center",
@@ -573,7 +647,7 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
         fontproperties=font,
         color="#475569",
     )
-    out = FIGURE_DIR / "amida-three-layer-difference.png"
+    out = figure_path("amida-three-layer-difference.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -586,24 +660,33 @@ def figure_source_mixture(
     citation_weights: np.ndarray,
     font: font_manager.FontProperties,
     volumes: dict[str, Any],
+    lang: str = "ja",
 ) -> Path:
     fig, axes = plt.subplots(3, 1, figsize=(10.2, 7.0), sharex=True)
     x = np.arange(semantic_weights.shape[0])
-    layers = [
-        ("意味層 S: 埋め込み参照源混合", semantic_weights, SOURCE_IDS),
-        ("文体・語彙層 T: 文字n-gram参照源混合", lexical_weights, SOURCE_IDS),
-        ("典拠マーカー層 C: 辞書マーカー参照源混合", citation_weights, SOURCE_IDS + ["unmarked"]),
-    ]
+    layers = (
+        [
+            ("Semantic layer S: embedding source mixture", semantic_weights, SOURCE_IDS),
+            ("Style/lexical layer T: character n-gram source mixture", lexical_weights, SOURCE_IDS),
+            ("Source-marker layer C: dictionary-marker source mixture", citation_weights, SOURCE_IDS + ["unmarked"]),
+        ]
+        if lang == "en"
+        else [
+            ("意味層 S: 埋め込み参照源混合", semantic_weights, SOURCE_IDS),
+            ("文体・語彙層 T: 文字n-gram参照源混合", lexical_weights, SOURCE_IDS),
+            ("典拠マーカー層 C: 辞書マーカー参照源混合", citation_weights, SOURCE_IDS + ["unmarked"]),
+        ]
+    )
     for ax, (title, weights, ids) in zip(axes, layers):
         ax.stackplot(
             x,
             [weights[:, index] for index in range(weights.shape[1])],
             colors=[SOURCE_COLORS[source_id] for source_id in ids],
-            labels=[SOURCE_LABELS[source_id] for source_id in ids],
+            labels=[source_label(source_id, lang) for source_id in ids],
             alpha=0.88,
         )
         ax.set_ylim(0, 1)
-        ax.set_ylabel("重み", fontproperties=font)
+        ax.set_ylabel("weight" if lang == "en" else "重み", fontproperties=font)
         ax.set_title(title, fontproperties=font, fontsize=11, loc="left", pad=6)
         ax.grid(axis="y", color="#e2e8f0", linewidth=0.6)
         for segment in volumes["segments"][1:]:
@@ -613,7 +696,7 @@ def figure_source_mixture(
         axes[0].text(
             midpoint,
             0.985,
-            segment["volume_short_label"],
+            volume_display(segment, "short", lang),
             ha="center",
             va="top",
             fontsize=8.5,
@@ -622,11 +705,13 @@ def figure_source_mixture(
             bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "#cbd5e1", "alpha": 0.86},
             transform=axes[0].get_xaxis_transform(),
         )
-    axes[-1].set_xlabel("『教行信証』 chunk index（巻区分はチャンク中心位置による推定）", fontproperties=font)
+    xlabel = "Kyogyoshinsho chunk index (volume boundaries estimated by chunk center)" if lang == "en" else "『教行信証』 chunk index（巻区分はチャンク中心位置による推定）"
+    axes[-1].set_xlabel(xlabel, fontproperties=font)
     handles, labels = axes[-1].get_legend_handles_labels()
     fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, prop=font, bbox_to_anchor=(0.5, 1.01))
-    fig.suptitle("『教行信証』の三層参照源混合地図", fontproperties=font, fontsize=16, y=1.06)
-    out = FIGURE_DIR / "kyogyoshinsho-three-layer-source-mixture.png"
+    title = "Three-Layer Source-Mixture Map for Kyogyoshinsho" if lang == "en" else "『教行信証』の三層参照源混合地図"
+    fig.suptitle(title, fontproperties=font, fontsize=16, y=1.06)
+    out = figure_path("kyogyoshinsho-three-layer-source-mixture.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -666,13 +751,22 @@ def figure_volume_source_means(
     lexical_by_volume: list[dict[str, Any]],
     citation_by_volume: list[dict[str, Any]],
     font: font_manager.FontProperties,
+    lang: str = "ja",
 ) -> Path:
     fig, axes = plt.subplots(3, 1, figsize=(10.4, 7.6), sharex=True)
-    layers = [
-        ("意味層 S: 巻別平均", semantic_by_volume, SOURCE_IDS),
-        ("文体・語彙層 T: 巻別平均", lexical_by_volume, SOURCE_IDS),
-        ("典拠マーカー層 C: 巻別平均", citation_by_volume, SOURCE_IDS + ["unmarked"]),
-    ]
+    layers = (
+        [
+            ("Semantic layer S: volume means", semantic_by_volume, SOURCE_IDS),
+            ("Style/lexical layer T: volume means", lexical_by_volume, SOURCE_IDS),
+            ("Source-marker layer C: volume means", citation_by_volume, SOURCE_IDS + ["unmarked"]),
+        ]
+        if lang == "en"
+        else [
+            ("意味層 S: 巻別平均", semantic_by_volume, SOURCE_IDS),
+            ("文体・語彙層 T: 巻別平均", lexical_by_volume, SOURCE_IDS),
+            ("典拠マーカー層 C: 巻別平均", citation_by_volume, SOURCE_IDS + ["unmarked"]),
+        ]
+    )
     for ax, (title, rows, ids) in zip(axes, layers):
         y = np.arange(len(rows))
         left = np.zeros(len(rows))
@@ -685,12 +779,12 @@ def figure_volume_source_means(
                 color=SOURCE_COLORS[source_id],
                 edgecolor="white",
                 linewidth=0.5,
-                label=SOURCE_LABELS[source_id],
+                label=source_label(source_id, lang),
                 height=0.72,
             )
             left += values
         ax.set_yticks(y)
-        ax.set_yticklabels([row["volume_label"] for row in rows], fontproperties=font)
+        ax.set_yticklabels([volume_display(row, "label", lang) for row in rows], fontproperties=font)
         ax.invert_yaxis()
         ax.set_xlim(0, 1)
         ax.set_title(title, fontproperties=font, fontsize=11, loc="left", pad=6)
@@ -699,18 +793,19 @@ def figure_volume_source_means(
             ax.text(
                 1.012,
                 row_index,
-                f"{row['dominant_source_label']} {row['dominant_weight']:.2f}",
+                f"{source_label(row['dominant_source'], lang)} {row['dominant_weight']:.2f}",
                 va="center",
                 ha="left",
                 fontsize=8.2,
                 fontproperties=font,
                 color="#334155",
             )
-    axes[-1].set_xlabel("巻内チャンクの平均重み", fontproperties=font)
+    axes[-1].set_xlabel("mean weight within each volume" if lang == "en" else "巻内チャンクの平均重み", fontproperties=font)
     handles, labels = axes[-1].get_legend_handles_labels()
     fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, prop=font, bbox_to_anchor=(0.5, 1.01))
-    fig.suptitle("『教行信証』巻別の参照源傾向", fontproperties=font, fontsize=16, y=1.055)
-    out = FIGURE_DIR / "kyogyoshinsho-volume-source-means.png"
+    title = "Volume-Level Source Tendencies in Kyogyoshinsho" if lang == "en" else "『教行信証』巻別の参照源傾向"
+    fig.suptitle(title, fontproperties=font, fontsize=16, y=1.055)
+    out = figure_path("kyogyoshinsho-volume-source-means.png", lang)
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -725,6 +820,10 @@ def layer_means(weights: np.ndarray, ids: list[str]) -> dict[str, float]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lang", choices=["ja", "en"], default="ja")
+    args = parser.parse_args()
+    lang = args.lang
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     embeddings = read_json(EMBEDDINGS_DATA)
     max_tokens = int(embeddings.get("max_tokens", 700))
@@ -763,10 +862,10 @@ def main() -> None:
     lexical_by_volume = volume_layer_means(lexical_weights, SOURCE_IDS, volumes)
     citation_by_volume = volume_layer_means(citation_weights, SOURCE_IDS + ["unmarked"], volumes)
     figures = [
-        figure_three_layer_concept(font),
-        figure_amida_three_layer(metrics, font),
-        figure_source_mixture(semantic_weights, lexical_weights, citation_weights, font, volumes),
-        figure_volume_source_means(semantic_by_volume, lexical_by_volume, citation_by_volume, font),
+        figure_three_layer_concept(font, lang),
+        figure_amida_three_layer(metrics, font, lang),
+        figure_source_mixture(semantic_weights, lexical_weights, citation_weights, font, volumes, lang),
+        figure_volume_source_means(semantic_by_volume, lexical_by_volume, citation_by_volume, font, lang),
     ]
     summary = {
         "model": embeddings.get("model"),

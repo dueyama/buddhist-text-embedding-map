@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Process Report | Exploratory Mapping of Buddhist Texts with Semantic Embeddings</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f2;
+      --paper: #ffffff;
+      --ink: #202723;
+      --muted: #66706a;
+      --line: #d9ded6;
+      --accent: #2f6f73;
+      --warm: #9a5b3f;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.82; }
+    header { background: var(--paper); border-bottom: 1px solid var(--line); padding: 28px 0 18px; }
+    main { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 32px 44px; }
+    .wrap { width: min(980px, calc(100% - 40px)); margin: 0 auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .nav-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }
+    .nav-link[aria-current="page"] { border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }
+    h1 { margin: 0; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.2; letter-spacing: 0; }
+    h2 { margin: 34px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 24px; line-height: 1.35; letter-spacing: 0; }
+    h3 { margin: 24px 0 8px; font-size: 19px; line-height: 1.35; letter-spacing: 0; }
+    h4 { margin: 20px 0 8px; font-size: 16px; line-height: 1.35; letter-spacing: 0; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 1.5em; margin: 8px 0 18px; }
+    li { margin: 4px 0; }
+    code { background: #f0f3ed; border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+    .lead { color: var(--muted); margin-top: 10px; max-width: 760px; }
+    .note { border-left: 5px solid var(--warm); background: #fffaf5; padding: 14px 16px; margin: 20px 0; color: var(--ink); }
+    footer { border-top: 1px solid var(--line); padding: 18px 0; color: var(--muted); font-size: 12px; background: var(--paper); }
+    @media (max-width: 720px) {
+      main { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Process Report</h1>
+      <p class="lead">A process report from repository setup through experiments, review-style revision, HTML/PDF papers, and GitHub Pages preparation.</p>
+      <nav class="site-nav" aria-label="Site navigation">
+
+        <a class="nav-link" href="../../">Top</a>
+        <a class="nav-link" href="../../paper/">Paper JP</a>
+        <a class="nav-link" href="../../paper/en/">Paper EN</a>
+        <a class="nav-link" href="../../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+        <a class="nav-link" href="../../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        <a class="nav-link" href="../">Process JP</a>
+        <a class="nav-link" href="./" aria-current="page">Process EN</a>
+        <a class="nav-link" href="../../viewer/">Viewer</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="note">
+      This report describes the workflow as a reproducible example of AI-assisted humanities data analysis, assuming an OpenAI API key, a ChatGPT Pro account, and a local Codex/Git environment.
+    </section>
+<h1>Process Report from Repository Setup to Publication Preparation</h1>
+<p>Period covered: June 1, 2026 17:33 JST to June 2, 2026 14:54 JST Repository: <code>Okyou/</code></p>
+<h2>Position</h2>
+<p>This document summarizes the process by which the Okyou research repository was set up, developed, revised, and prepared for GitHub Pages publication.</p>
+<p>The project is both a preliminary study of Buddhist texts using semantic embeddings and a prototype for AI-assisted humanities data-analysis paper production. The research questions, source selection, interpretation, and publication policy were directed by <a href="https://sites.google.com/site/dueyama/">Daishin Ueyama</a>. Codex GPT-5.5 xhigh supported code implementation, data processing, visualization, drafting, revision, verification, and local Git recording. ChatGPT 5.5 Pro xhigh was used in a reviewer-like role for comments on framing, literature review, originality, limitations, and public wording.</p>
+<p>The point is not that AI independently conducted the research. Rather, the project tests how a human researcher can direct the questions and interpretation while AI tools help assemble scripts, figures, drafts, local infrastructure, and publication-ready pages at high speed.</p>
+<h2>Preconditions</h2>
+<p>This workflow assumes the following environment.</p>
+<ul>
+<li>An OpenAI API key for generating embeddings.</li>
+<li>A ChatGPT Pro account for review-style discussion and critique.</li>
+<li>A local Codex environment for file editing, scripting, verification, and Git work.</li>
+<li>Python 3 for corpus construction, embedding cache handling, figure generation, and static viewer data export.</li>
+<li>A local Japanese TeX environment only when rebuilding the Japanese and English PDFs.</li>
+<li>Confirmation of the terms of use for text providers such as SAT, J-SOKEN, and 84000.</li>
+</ul>
+<h2>Prior Local Experiments</h2>
+<p>The Codex workflow did not begin from a blank slate. At the start, the local workspace contained three older exploratory folders: <code>お経</code>, <code>埋め込みお経</code>, and <code>埋め込みテスト</code>. These reflected small embedding experiments conducted by Daishin Ueyama several years earlier.</p>
+<p>Those folders provided background context for the renewed question: can Buddhist texts, translations, and sectarian reference sets be explored with embeddings? They are not part of the public reproducible repository, because they may contain API keys, raw source text, or other local-only material. The publishable work was reorganized under <code>experiments/</code> and <code>docs/</code>.</p>
+<h2>Tool Preparation</h2>
+<p>The project also demonstrates that AI assistance can prepare the research tools themselves, not only prose.</p>
+<ul>
+<li><code>.env</code> was used for the OpenAI API key, while <code>.env</code> and legacy key-containing files were kept out of public tracking.</li>
+<li>Embedding cache logic was added so that the same text and model would not be charged repeatedly.</li>
+<li>Raw and processed source texts from SAT, J-SOKEN, and 84000 were excluded from public redistribution.</li>
+<li>Python scripts were written for text acquisition, preprocessing, chunking, embedding, figure generation, viewer data generation, and public data sanitization.</li>
+<li>A local static viewer was built and tested through a local HTTP server.</li>
+<li>BasicTeX plus upLaTeX and dvipdfmx were prepared for PDF generation.</li>
+<li>The paper was made available both as PDF and as ordinary HTML for GitHub Pages.</li>
+<li>MathJax was added so that formulas in the HTML paper render as formulas rather than raw TeX.</li>
+<li>A public landing page, paper pages, process pages, public viewer, checklist, and README were prepared.</li>
+<li><code>memory.md</code> was used as a local project ledger recording JST time, change summary, verification, and commit hash.</li>
+</ul>
+<h2>Workflow Phases</h2>
+<ol>
+<li>The initial question was whether sutras could be compared or loosely classified with embeddings.</li>
+<li>The first concrete experiment compared the two Chinese translations of the Amitabha Sutra.</li>
+<li>The project expanded into a sectarian reference-text map for Japanese Buddhist traditions.</li>
+<li>The pipeline was organized as manifest, corpus builder, embedding cache, viewer-data export, and static viewer.</li>
+<li>Translator centroids and chunk-level nearest neighbors were added after the user asked whether translator style could be visible.</li>
+<li>The analysis moved from mean-vector points to chunk distributions, one-standard-deviation ellipses, overlap heatmaps, and bridge chunks.</li>
+<li>A multilingual pilot compared the 84000 English Toh 106 translation with the SAT Chinese T0676 text.</li>
+<li>A Shinran-focused pilot examined the two Amitabha translations through explicit names, markers, and chunk affinity.</li>
+<li>Review-style feedback from ChatGPT 5.5 Pro xhigh was incorporated through multiple revisions.</li>
+<li>The paper was reframed around a three-layer map: semantic layer, style/lexical layer, and source-marker layer.</li>
+<li>Public hygiene checks removed raw text, body previews, local paths, API keys, and legacy folders from the public surface.</li>
+<li>GitHub Pages assets were prepared under <code>docs/</code>.</li>
+<li>After the Japanese edition was finalized as the authoritative print/book edition, an English AI-assisted translation was created under <code>docs/paper/en/</code>.</li>
+</ol>
+<h2>Publication Surface</h2>
+<p>The public surface is organized as follows.</p>
+<ul>
+<li>Top page: <code>docs/index.html</code></li>
+<li>Japanese paper HTML: <code>docs/paper/index.html</code></li>
+<li>Japanese paper PDF: <code>docs/paper/sect-sutra-map-paper.pdf</code></li>
+<li>English AI-assisted translation HTML: <code>docs/paper/en/index.html</code></li>
+<li>English AI-assisted translation PDF: <code>docs/paper/en/sect-sutra-map-paper-en.pdf</code></li>
+<li>Japanese process report: <code>docs/process/index.html</code></li>
+<li>English process report: <code>docs/process/en/index.html</code></li>
+<li>Public viewer: <code>docs/viewer/index.html</code></li>
+</ul>
+<p>The Japanese paper is the authoritative print/book edition. The English paper is an AI-assisted translation intended to make the work accessible to English-language readers. For citation and fine nuance, the Japanese edition should be checked.</p>
+<h2>What Can Be Reused</h2>
+<p>This prototype can be adapted to other humanities materials such as classical literature, historical documents, translation pairs, legal texts, diaries, letters, or philosophical corpora.</p>
+<p>The reusable pattern is simple.</p>
+<ol>
+<li>Define a small research question.</li>
+<li>Put source metadata in a manifest.</li>
+<li>Script text acquisition and preprocessing.</li>
+<li>Chunk texts and generate cached embeddings.</li>
+<li>Compare both mean vectors and chunk distributions.</li>
+<li>Build a static viewer so the researcher can inspect the results.</li>
+<li>Record results, verification, and limitations in documents.</li>
+<li>Use review-style AI critique to improve framing and limitations.</li>
+<li>Prepare HTML/PDF outputs and publication hygiene checks.</li>
+<li>Preserve a process report so others can understand how the research artifact was assembled.</li>
+</ol>
+<h2>Remaining Tasks</h2>
+<ul>
+<li>Update citation metadata after the GitHub repository URL is fixed.</li>
+<li>Decide the license for code, paper, figures, and derived data.</li>
+<li>Recheck source-provider terms of use before public release.</li>
+<li>Test chunk-size dependency, natural-unit chunking, character normalization, and variant forms.</li>
+<li>Extend the method to stronger style features and source-marker dictionaries.</li>
+<li>Compare Tibetan, Sanskrit, or Pali sources directly where possible.</li>
+<li>Compare Shinran-related results with existing source-critical research.</li>
+<li>Verify the final GitHub Pages deployment after the first push.</li>
+</ul>
+<h2>Summary</h2>
+<p>The project turned an exploratory question about Buddhist-text embeddings into a small research repository containing code, figures, viewer data, a Japanese paper, an English AI-assisted translation, and a process report. The key feature is not only the analysis result, but the workflow: a human researcher directs the questions and interpretation, while Codex and ChatGPT help accelerate implementation, review, documentation, and publication preparation.</p>
+  </main>
+  <footer>
+    <div class="wrap">Exploratory Mapping of Buddhist Texts with Semantic Embeddings. The process report is a preliminary research record.</div>
+  </footer>
+</body>
+</html>
