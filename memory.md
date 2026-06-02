@@ -593,4 +593,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`.
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
   - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used the generated image, HTML source, and rebuilt PDF instead.
-- Commit: pending
+- Commit: `db2973ca1003af5394a8b8bd05cca9807b3563f9`
