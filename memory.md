@@ -931,4 +931,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed Tailscale preview URLs for English paper, English PDF, and English process report returned `200 OK`.
   - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
   - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
-- Commit: `pending`
+- Commit: `c1718f745561c0945970334bb78f84b97b660b1c`
