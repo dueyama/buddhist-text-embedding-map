@@ -735,3 +735,22 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed with text search that public files no longer contain `結果ログ`, `Results log`, or `実験実験結果メモ`.
   - Checked the top page and process page in the in-app browser. The shared navigation is now `トップ / 論文 / PDF / ビューア / 制作プロセス`, and the process page uses `実験結果メモ` only in body text.
 - Commit: `d1c12e428ff4f9a39c5ba6ea2bed9a43e36e900e`
+
+## 2026-06-02 13:36 JST
+
+- Summary: Checked for stale uses of the early v0 project name `宗派別お経マップ` on public-facing pages. Updated the public landing page, README heading, viewer title/H1, process page title/footer, and process report wording to use the broader `意味埋め込みによる仏教文献の探索地図` framing. Kept `宗派別お経マップ v0` only where it refers to the historical v0 implementation phase or planning/result notes.
+- Files:
+  - `README.md`
+  - `docs/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `docs/viewer/index.html`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `experiments/sect_sutra_map/viewer/index.html`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
+  - Searched public pages and process sources for stale `宗派別お経マップ`, `宗派別意味マップ`, and `宗派重心` uses.
+  - Checked the top page, public viewer, process page, and HTML paper in the in-app browser. None uses `宗派別お経マップ` as the page title or H1.
+- Commit: `pending`

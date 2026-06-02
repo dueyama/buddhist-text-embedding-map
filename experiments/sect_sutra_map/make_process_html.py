@@ -90,7 +90,7 @@ def page(content: str) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>制作プロセス | 宗派別お経マップ</title>
+  <title>制作プロセス | 意味埋め込みによる仏教文献の探索地図</title>
   <style>
     :root {{
       color-scheme: light;
@@ -149,7 +149,7 @@ def page(content: str) -> str:
 {content}
   </main>
   <footer>
-    <div class="wrap">宗派別お経マップ v0.1。制作プロセス文書は研究用の予備的記録です。</div>
+    <div class="wrap">意味埋め込みによる仏教文献の探索地図。制作プロセス文書は研究用の予備的記録です。</div>
   </footer>
 </body>
 </html>

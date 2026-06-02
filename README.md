@@ -1,4 +1,4 @@
-# 宗派別お経マップ
+# 意味埋め込みによる仏教文献の探索地図
 
 意味埋め込みを使って、漢訳仏典・日本撰述仏教文献・異訳・多言語対応関係を探索するためのローカル研究リポジトリです。現在の中心成果は、宗派別参照群、阿弥陀経二訳、親鸞文献、多言語パイロットをまとめた予備論文と静的ビューアです。
 
@@ -44,7 +44,7 @@ The local development repository also uses `memory.md` as a project ledger. It r
 
 ## Repository Layout
 
-- `experiments/sect_sutra_map/`: 宗派別お経マップの主要パイプライン
+- `experiments/sect_sutra_map/`: 宗派別参照テキスト群分析の主要パイプライン
 - `experiments/multilingual_sutra_map/`: 解深密経の漢訳・英訳パイロット
 - `experiments/shinran_amida_sources/`: 親鸞文献と阿弥陀経二訳の参照指標分析
 - `docs/figures/`: 論文・Pages 用の図
