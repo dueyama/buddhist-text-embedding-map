@@ -984,3 +984,27 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Used the in-app browser on the Tailscale preview to check top, English top, Japanese/English paper, Japanese/English process, and viewer pages; all loaded with content and no console warnings/errors.
   - Ran `git diff --check`, current secret/local-path searches, and tracked forbidden-file checks after fixes; no issues found.
 - Commit: `22b3baf5a3b6caab4932de465aa7b1cacb0e7071`
+
+## 2026-06-02 17:20 JST
+
+- Summary: Set the repository license policy before public release. Added a split-license notice, MIT License for code, and CC BY 4.0 notice for non-code research outputs. Updated README, citation metadata, publication checklist, process reports, generated process HTML, and results notes so they no longer describe the license as undecided.
+- Files:
+  - `LICENSE`
+  - `LICENSE-CODE`
+  - `LICENSE-CONTENT`
+  - `README.md`
+  - `CITATION.cff`
+  - `docs/PUBLICATION.md`
+  - `docs/process/en/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report-en.md`
+  - `docs/repo-launch-process-report.md`
+  - `docs/results.md`
+- Verification:
+  - Regenerated Japanese and English process HTML with `python3 experiments/sect_sutra_map/make_process_html.py` and `python3 experiments/sect_sutra_map/make_process_html.py --input docs/repo-launch-process-report-en.md --output docs/process/en/index.html --lang en`.
+  - Ran `rg -n "未選択|Decide the license|NOASSERTION|No repository-wide license|ライセンス方針を決める" README.md docs CITATION.cff LICENSE LICENSE-CODE LICENSE-CONTENT`; no matches found.
+  - Ran current secret search over public docs, experiments, `memory.md`, license files, and `CITATION.cff`; no matches found.
+  - Ran public local-path/Tailscale search; only the intentional check-command examples in `docs/PUBLICATION.md` matched.
+  - Ran `git diff --check`, `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`, and a small `CITATION.cff` license-string check.
+  - Confirmed staged files were limited to the license and public-documentation updates, and `git grep --cached -n "sk[-][A-Za-z0-9]"` returned no matches.
+- Commit: `55242e8ff6969adad59e6992588d12b3bb70115a`
