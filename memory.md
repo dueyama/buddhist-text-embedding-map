@@ -956,4 +956,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the English process page has one Japanese switch, one English switch, one Process link, and no browser console warnings/errors.
   - Confirmed Tailscale preview returned `200 OK` for `/en/` and `/paper/en/`; browser verification confirmed `/process/en/`.
   - Ran `git diff --check`, secret searches, and public local-path search; no issues found.
-- Commit: `pending`
+- Commit: `31cdcedf75db2ba3c9a38d09406637a7f39c37a7`
