@@ -794,4 +794,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex`.
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked the generated PDF title page in the in-app browser and confirmed the keyword line uses `キーワード：` and `，` separators.
-- Commit: `pending`
+- Commit: `bf6771179178b2900f591a56c3688397cc6aae10`
