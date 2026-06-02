@@ -852,3 +852,21 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked PDF pages 1 and 16 in the in-app browser; confirmed the short abstract/keywords and Figure 12 display correctly.
   - Ran `git diff --check`, old-term/文字化け searches, proper-name checks, secret search, and public local-path search.
 - Commit: `b06bd3c59fd94a55311a7666ff8d0aaa46a98366`
+
+## 2026-06-02 14:39 JST
+
+- Summary: Applied the final must-change note for Table 2. Removed the PDF-unstable `殑伽沙` representative example from the public paper table and left the safer marker sequence as `恒河沙、慈悲加祐...`. Regenerated the HTML paper and PDF.
+- Files:
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`; confirmed the previous `No character mapping available` warning for `殑` no longer appears.
+  - Rendered PDF page 5 to `/private/tmp/okyou-table2-page5-upright.png` with macOS CoreGraphics via Swift and inspected it; confirmed Table 2 now reads `恒河沙、慈悲加祐...` without a missing glyph.
+  - Confirmed the HTML table row also reads `恒河沙、慈悲加祐...`.
+  - Ran `git diff --check`, bad-glyph/old-term searches, secret search, and public local-path search.
+- Commit: pending
