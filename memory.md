@@ -546,4 +546,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
   - Confirmed the generated HTML includes the glossary appendix, added terms, source wording, author link, and ChatGPT 5.5 Pro xhigh acknowledgement.
   - Checked public/tracked files for obsolete source-wording phrases, real local paths, hardcoded API key patterns, and leftover LaTeX commands in the generated HTML.
-- Commit: `pending`
+- Commit: `7e93635125564a59fc9d1f0d7595dc899d65d574`
