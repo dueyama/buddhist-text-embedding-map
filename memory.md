@@ -932,3 +932,28 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
   - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
 - Commit: `c1718f745561c0945970334bb78f84b97b660b1c`
+
+## 2026-06-02 16:30 JST
+
+- Summary: Reworked the public site navigation so HTML pages use a Japanese/English language switch instead of separate `JP/EN` page entries. Added an English top page at `docs/en/index.html`, kept PDFs as explicit `PDF JP` and `PDF EN` links, regenerated the paper and process HTML pages, and updated the README/publication checklist.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/en/index.html`
+  - `docs/index.html`
+  - `docs/paper/en/index.html`
+  - `docs/paper/index.html`
+  - `docs/process/en/index.html`
+  - `docs/process/index.html`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py` for Japanese and English paper HTML.
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py` for Japanese and English process HTML.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_process_html.py`.
+  - Used the in-app browser to verify top-page Japanese to English switching, English top to English paper navigation, English paper to Japanese paper switching, and Japanese/English process switching.
+  - Confirmed the English process page has one Japanese switch, one English switch, one Process link, and no browser console warnings/errors.
+  - Confirmed Tailscale preview returned `200 OK` for `/en/` and `/paper/en/`; browser verification confirmed `/process/en/`.
+  - Ran `git diff --check`, secret searches, and public local-path search; no issues found.
+- Commit: `pending`

@@ -41,6 +41,7 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - English AI-assisted translation PDF: `docs/paper/en/sect-sutra-map-paper-en.pdf`
 - English figure variants: `docs/figures/en/*.png`
 - GitHub Pages entry point: `docs/index.html`
+- English GitHub Pages entry point: `docs/en/index.html`
 - Public viewer: `docs/viewer/index.html`
 - Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
@@ -91,6 +92,7 @@ Use GitHub Pages with:
 
 Then open the generated Pages URL and confirm that the landing page, paper PDF, figures, and public viewer load correctly.
 The landing page links primarily to the HTML paper, while the PDF version remains in `docs/paper/` for citation and offline reading.
+HTML pages use a language switch between Japanese and English pages; PDF links remain separate as `PDF JP` and `PDF EN`.
 The English AI-assisted translation is available under `docs/paper/en/`.
 The English process report is available under `docs/process/en/`.
 

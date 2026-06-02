@@ -612,24 +612,36 @@ def build_html(source: str, lang: str = "ja", pdf_name: str = "sect-sutra-map-pa
     nav_label = "Site navigation" if is_en else "サイト内ナビゲーション"
     if is_en:
         nav_links = f"""
-        <a class="nav-link" href="../../">Top</a>
-        <a class="nav-link" href="../">Paper JP</a>
-        <a class="nav-link" href="./" aria-current="page">Paper EN</a>
-        <a class="nav-link" href="../sect-sutra-map-paper.pdf">PDF JP</a>
-        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF EN</a>
-        <a class="nav-link" href="../../process/">Process JP</a>
-        <a class="nav-link" href="../../process/en/">Process EN</a>
-        <a class="nav-link" href="../../viewer/">Viewer</a>"""
+        <div class="nav-primary">
+          <a class="nav-link" href="../../en/">Top</a>
+          <a class="nav-link" href="./" aria-current="page">Paper</a>
+          <a class="nav-link" href="../../process/en/">Process</a>
+          <a class="nav-link" href="../../viewer/">Viewer</a>
+        </div>
+        <div class="nav-tools">
+          <span class="lang-switch" aria-label="Language">
+            <a href="../">日本語</a>
+            <a href="./" aria-current="true">English</a>
+          </span>
+          <a class="nav-link pdf-link" href="../sect-sutra-map-paper.pdf">PDF JP</a>
+          <a class="nav-link pdf-link" href="{html.escape(pdf_name, quote=True)}">PDF EN</a>
+        </div>"""
     else:
         nav_links = f"""
-        <a class="nav-link" href="../">トップ</a>
-        <a class="nav-link" href="./" aria-current="page">論文JP</a>
-        <a class="nav-link" href="en/">論文EN</a>
-        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF JP</a>
-        <a class="nav-link" href="en/sect-sutra-map-paper-en.pdf">PDF EN</a>
-        <a class="nav-link" href="../process/">制作JP</a>
-        <a class="nav-link" href="../process/en/">制作EN</a>
-        <a class="nav-link" href="../viewer/">ビューア</a>"""
+        <div class="nav-primary">
+          <a class="nav-link" href="../">トップ</a>
+          <a class="nav-link" href="./" aria-current="page">論文</a>
+          <a class="nav-link" href="../process/">制作プロセス</a>
+          <a class="nav-link" href="../viewer/">ビューア</a>
+        </div>
+        <div class="nav-tools">
+          <span class="lang-switch" aria-label="言語切替">
+            <a href="./" aria-current="true">日本語</a>
+            <a href="en/">English</a>
+          </span>
+          <a class="nav-link pdf-link" href="{html.escape(pdf_name, quote=True)}">PDF JP</a>
+          <a class="nav-link pdf-link" href="en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        </div>"""
     title = re.sub(r"\\\\(?:\[[^]]+\])?", " ", find_braced(source, "title")).strip()
     author = find_braced(source, "author")
     date = find_braced(source, "date")
@@ -677,9 +689,16 @@ def build_html(source: str, lang: str = "ja", pdf_name: str = "sect-sutra-map-pa
     main {{ background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 34px 44px; }}
     h1 {{ margin: 0 0 12px; font-size: clamp(28px, 4vw, 42px); line-height: 1.22; letter-spacing: 0; }}
     .meta {{ color: var(--muted); font-size: 14px; }}
-    .site-nav {{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }}
+    .site-nav {{ display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 18px; }}
+    .nav-primary, .nav-tools {{ display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }}
+    .nav-tools {{ margin-left: auto; }}
     .nav-link {{ display: inline-flex; min-height: 36px; align-items: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); text-decoration: none; background: #fff; font-size: 14px; }}
     .nav-link[aria-current="page"] {{ border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }}
+    .pdf-link {{ color: var(--muted); }}
+    .lang-switch {{ display: inline-flex; min-height: 36px; overflow: hidden; border: 1px solid var(--line); border-radius: 999px; background: #fff; }}
+    .lang-switch a {{ display: inline-flex; align-items: center; padding: 0 12px; color: var(--muted); text-decoration: none; font-size: 14px; }}
+    .lang-switch a + a {{ border-left: 1px solid var(--line); }}
+    .lang-switch a[aria-current="true"] {{ background: var(--accent); color: #fff; font-weight: 700; }}
     .abstract {{ border-left: 5px solid var(--accent); background: #f4f7f5; padding: 18px; margin: 0 0 24px; }}
     .abstract h2 {{ margin-top: 0; }}
     h2 {{ margin: 34px 0 12px; font-size: 25px; line-height: 1.35; letter-spacing: 0; }}
@@ -704,6 +723,7 @@ def build_html(source: str, lang: str = "ja", pdf_name: str = "sect-sutra-map-pa
     .references li {{ margin-bottom: 0.7em; }}
     @media (max-width: 720px) {{
       main {{ padding: 22px 18px; }}
+      .nav-tools {{ margin-left: 0; }}
       table {{ font-size: 13px; }}
     }}
   </style>

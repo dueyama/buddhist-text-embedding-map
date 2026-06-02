@@ -107,24 +107,36 @@ def page(content: str, lang: str = "ja") -> str:
     )
     if is_en:
         nav_links = """
-        <a class="nav-link" href="../../">Top</a>
-        <a class="nav-link" href="../../paper/">Paper JP</a>
-        <a class="nav-link" href="../../paper/en/">Paper EN</a>
-        <a class="nav-link" href="../../paper/sect-sutra-map-paper.pdf">PDF JP</a>
-        <a class="nav-link" href="../../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
-        <a class="nav-link" href="../">Process JP</a>
-        <a class="nav-link" href="./" aria-current="page">Process EN</a>
-        <a class="nav-link" href="../../viewer/">Viewer</a>"""
+        <div class="nav-primary">
+          <a class="nav-link" href="../../en/">Top</a>
+          <a class="nav-link" href="../../paper/en/">Paper</a>
+          <a class="nav-link" href="./" aria-current="page">Process</a>
+          <a class="nav-link" href="../../viewer/">Viewer</a>
+        </div>
+        <div class="nav-tools">
+          <span class="lang-switch" aria-label="Language">
+            <a href="../">日本語</a>
+            <a href="./" aria-current="true">English</a>
+          </span>
+          <a class="nav-link pdf-link" href="../../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+          <a class="nav-link pdf-link" href="../../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        </div>"""
     else:
         nav_links = """
-        <a class="nav-link" href="../">トップ</a>
-        <a class="nav-link" href="../paper/">論文JP</a>
-        <a class="nav-link" href="../paper/en/">論文EN</a>
-        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF JP</a>
-        <a class="nav-link" href="../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
-        <a class="nav-link" href="./" aria-current="page">制作JP</a>
-        <a class="nav-link" href="en/">制作EN</a>
-        <a class="nav-link" href="../viewer/">ビューア</a>"""
+        <div class="nav-primary">
+          <a class="nav-link" href="../">トップ</a>
+          <a class="nav-link" href="../paper/">論文</a>
+          <a class="nav-link" href="./" aria-current="page">制作プロセス</a>
+          <a class="nav-link" href="../viewer/">ビューア</a>
+        </div>
+        <div class="nav-tools">
+          <span class="lang-switch" aria-label="言語切替">
+            <a href="./" aria-current="true">日本語</a>
+            <a href="en/">English</a>
+          </span>
+          <a class="nav-link pdf-link" href="../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+          <a class="nav-link pdf-link" href="../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+        </div>"""
     return f"""<!doctype html>
 <html lang="{html.escape(lang)}">
 <head>
@@ -149,9 +161,16 @@ def page(content: str, lang: str = "ja") -> str:
     main {{ background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 32px 44px; }}
     .wrap {{ width: min(980px, calc(100% - 40px)); margin: 0 auto; }}
     a {{ color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }}
-    .site-nav {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }}
+    .site-nav {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }}
+    .nav-primary, .nav-tools {{ display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }}
+    .nav-tools {{ margin-left: auto; }}
     .nav-link {{ display: inline-flex; align-items: center; min-height: 36px; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }}
     .nav-link[aria-current="page"] {{ border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }}
+    .pdf-link {{ color: var(--muted); }}
+    .lang-switch {{ display: inline-flex; min-height: 36px; overflow: hidden; border: 1px solid var(--line); border-radius: 999px; background: #fff; }}
+    .lang-switch a {{ display: inline-flex; align-items: center; padding: 0 12px; color: var(--muted); text-decoration: none; font-size: 14px; }}
+    .lang-switch a + a {{ border-left: 1px solid var(--line); }}
+    .lang-switch a[aria-current="true"] {{ background: var(--accent); color: #fff; font-weight: 700; }}
     h1 {{ margin: 0; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.2; letter-spacing: 0; }}
     h2 {{ margin: 34px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 24px; line-height: 1.35; letter-spacing: 0; }}
     h3 {{ margin: 24px 0 8px; font-size: 19px; line-height: 1.35; letter-spacing: 0; }}
@@ -165,6 +184,7 @@ def page(content: str, lang: str = "ja") -> str:
     footer {{ border-top: 1px solid var(--line); padding: 18px 0; color: var(--muted); font-size: 12px; background: var(--paper); }}
     @media (max-width: 720px) {{
       main {{ padding: 24px 22px; }}
+      .nav-tools {{ margin-left: 0; }}
     }}
   </style>
 </head>

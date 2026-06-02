@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>意味埋め込みによる仏教文献の探索地図</title>
+  <title>Exploratory Mapping of Buddhist Texts with Semantic Embeddings</title>
   <style>
     :root {
       color-scheme: light;
@@ -14,7 +14,6 @@
       --panel: #ffffff;
       --accent: #2f6f73;
       --warm: #9a5b3f;
-      --gold: #a7832d;
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
     }
 
@@ -271,75 +270,75 @@
   <header>
     <div class="wrap hero">
       <div>
-        <h1>意味埋め込みによる仏教文献の探索地図</h1>
-        <p class="lead">宗派別参照群、阿弥陀経二訳、親鸞文献、多言語パイロットを、意味埋め込みとチャンク分布で見るための予備的研究ノートです。</p>
-        <nav class="site-nav" aria-label="サイト内ナビゲーション">
+        <h1>Exploratory Mapping of Buddhist Texts with Semantic Embeddings</h1>
+        <p class="lead">A preliminary research note on sectarian reference sets, two Chinese translations of the Amitabha Sutra, Shinran-related texts, and a multilingual pilot.</p>
+        <nav class="site-nav" aria-label="Site navigation">
           <div class="nav-primary">
-            <a class="nav-link" href="./" aria-current="page">トップ</a>
-            <a class="nav-link" href="paper/">論文</a>
-            <a class="nav-link" href="process/">制作プロセス</a>
-            <a class="nav-link" href="viewer/">ビューア</a>
+            <a class="nav-link" href="./" aria-current="page">Top</a>
+            <a class="nav-link" href="../paper/en/">Paper</a>
+            <a class="nav-link" href="../process/en/">Process</a>
+            <a class="nav-link" href="../viewer/">Viewer</a>
           </div>
           <div class="nav-tools">
-            <span class="lang-switch" aria-label="言語切替">
-              <a href="./" aria-current="true">日本語</a>
-              <a href="en/">English</a>
+            <span class="lang-switch" aria-label="Language">
+              <a href="../">日本語</a>
+              <a href="./" aria-current="true">English</a>
             </span>
-            <a class="nav-link pdf-link" href="paper/sect-sutra-map-paper.pdf">PDF JP</a>
-            <a class="nav-link pdf-link" href="paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
+            <a class="nav-link pdf-link" href="../paper/sect-sutra-map-paper.pdf">PDF JP</a>
+            <a class="nav-link pdf-link" href="../paper/en/sect-sutra-map-paper-en.pdf">PDF EN</a>
           </div>
         </nav>
       </div>
       <figure>
-        <img src="figures/sect-sutra-semantic-map.png" alt="宗派別参照テキスト群の意味配置図">
-        <figcaption>本文平均ベクトルと宗派・訳者重心の2次元配置。</figcaption>
+        <img src="../figures/en/sect-sutra-semantic-map.png" alt="Semantic placement of sectarian reference texts">
+        <figcaption>Two-dimensional placement of text-mean vectors and translator centroids.</figcaption>
       </figure>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="grid" aria-label="公開資料">
+    <section class="grid" aria-label="Public materials">
       <article class="card">
-        <h2>論文</h2>
-        <p>日本語版を正式な製本版とし、HTML・PDF・TeXソースを公開します。英語版はAI支援翻訳版として別ページに置きます。</p>
+        <h2>Paper</h2>
+        <p>The Japanese paper is the authoritative print/book edition. The English page is an AI-assisted translation for access by English-language readers.</p>
       </article>
       <article class="card">
-        <h2>コード</h2>
-        <p>コーパス構築、埋め込み、viewer data生成、図生成のスクリプトを公開します。APIキーとキャッシュは含めません。</p>
+        <h2>Code</h2>
+        <p>The repository includes scripts for corpus building, embeddings, viewer data, and figure generation. API keys and caches are not included.</p>
       </article>
       <article class="card">
-        <h2>ビューア</h2>
-        <p>公開版データでは本文プレビューを省略し、メタデータ、座標、類似度、近傍IDを表示します。</p>
+        <h2>Viewer</h2>
+        <p>The public viewer omits raw text previews and shows metadata, coordinates, similarities, and nearest-neighbor identifiers.</p>
       </article>
       <article class="card">
-        <h2>制作プロセス</h2>
-        <p>リポジトリ立ち上げから実験、査読対応、PDF/HTML論文、GitHub Pages準備までの流れを記録します。</p>
+        <h2>Process</h2>
+        <p>The process report records repository setup, experiments, review-style revision, HTML/PDF papers, and GitHub Pages preparation.</p>
       </article>
     </section>
 
     <section class="notice">
-      <h2>公開範囲</h2>
-      <p>SAT、J-SOKEN、84000 などの原本文は再配布せず、出典URL、処理手順、図、論文、派生的な類似度・座標データを中心に公開します。本文を再取得して検証する場合は、各提供元の利用条件を確認してください。</p>
+      <h2>Publication Scope</h2>
+      <p>Raw texts from SAT, J-SOKEN, 84000, and related providers are not redistributed. The public repository focuses on source URLs, procedures, figures, papers, and derived similarity or coordinate data.</p>
     </section>
 
-    <section class="figure-row" aria-label="主要図">
-      <a href="figures/sect-sutra-chunk-distribution-focus.png">
-        <img src="figures/sect-sutra-chunk-distribution-focus.png" alt="主要テキストのチャンク分布">
-        <span>チャンク分布と広がり</span>
+    <section class="figure-row" aria-label="Key figures">
+      <a href="../figures/en/sect-sutra-chunk-distribution-focus.png">
+        <img src="../figures/en/sect-sutra-chunk-distribution-focus.png" alt="Chunk distributions for representative text pairs and groups">
+        <span>Chunk distributions</span>
       </a>
-      <a href="figures/amida-two-translation-comparison.png">
-        <img src="figures/amida-two-translation-comparison.png" alt="阿弥陀経二訳の意味類似度と文字TF-IDF比較">
-        <span>阿弥陀経二訳比較</span>
+      <a href="../figures/en/amida-two-translation-comparison.png">
+        <img src="../figures/en/amida-two-translation-comparison.png" alt="Similarity comparison of the two Amitabha Sutra translations">
+        <span>Two Amitabha translations</span>
       </a>
-      <a href="figures/shinran-amida-source-markers.png">
-        <img src="figures/shinran-amida-source-markers.png" alt="親鸞文献と阿弥陀経二訳の参照指標">
-        <span>親鸞文献の参照指標</span>
+      <a href="../figures/en/shinran-amida-source-markers.png">
+        <img src="../figures/en/shinran-amida-source-markers.png" alt="Source indicators for Amitabha translations in Shinran-related texts">
+        <span>Shinran source indicators</span>
       </a>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">意味埋め込みによる仏教文献の探索地図。公開版は研究用の予備的成果物です。</div>
+    <div class="wrap">Exploratory Mapping of Buddhist Texts with Semantic Embeddings. Public outputs are preliminary research artifacts.</div>
   </footer>
 </body>
 </html>
