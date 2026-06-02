@@ -827,3 +827,28 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked the HTML paper and generated PDF in the in-app browser. Confirmed the disclosure section begins with `本稿の著者は上山大信である` and that `上山さん` does not appear.
 - Commit: `051a3e330a1e08e2bff9373084dd35f201c90ec6`
+
+## 2026-06-02 14:20 JST
+
+- Summary: Applied the final polish change list for the paper. Unified the formal third-layer name as `典拠マーカー層`, shortened the abstract, updated visible and PDF-metadata keywords, clarified that the marker layer is an exploratory proxy based on explicit markers, identified Figure 12 as the central trial result, and added cautions about relative four-source weights and preliminary softmax temperature settings. Regenerated the three-layer figures, HTML paper, and PDF.
+- Files:
+  - `docs/figures/amida-three-layer-difference.png`
+  - `docs/figures/kyogyoshinsho-three-layer-source-mixture.png`
+  - `docs/figures/kyogyoshinsho-volume-source-means.png`
+  - `docs/figures/three-layer-concept-map.png`
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Confirmed via bundled PDF metadata inspection that the PDF has 24 pages and the updated keyword metadata.
+  - Checked the HTML paper at `http://localhost:8767/paper/?v=final-polish`; confirmed `典拠マーカー層`, updated keywords, Figure 12 caption, and absence of old layer names.
+  - Checked PDF pages 1 and 16 in the in-app browser; confirmed the short abstract/keywords and Figure 12 display correctly.
+  - Ran `git diff --check`, old-term/文字化け searches, proper-name checks, secret search, and public local-path search.
+- Commit: pending

@@ -463,10 +463,10 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
             "color": "#dc2626",
             "face": "#fee2e2",
             "label": "C",
-            "title": "明示マーカー層",
+            "title": "典拠マーカー層",
             "method": "経名・訳者名・固定句",
-            "reads": "典拠マーカー",
-            "note": "明示的参照を拾う",
+            "reads": "引用・学習経路の手がかり",
+            "note": "明示マーカー proxy",
         },
     ]
 
@@ -531,7 +531,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
     ax.text(
         0.5,
         0.060,
-        "近さの種類を混同しないための探索図。低い明示マーカースコアは、典拠関係の不在そのものを意味しない。",
+        "近さの種類を混同しないための探索図。低い典拠マーカースコアは、典拠関係の不在そのものを意味しない。",
         ha="center",
         va="center",
         fontsize=8.5,
@@ -565,7 +565,7 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
     ax.text(
         0.5,
         -0.22,
-        "明示マーカー層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
+        "典拠マーカー層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
         transform=ax.transAxes,
         ha="center",
         va="center",
@@ -592,7 +592,7 @@ def figure_source_mixture(
     layers = [
         ("意味層 S: 埋め込み参照源混合", semantic_weights, SOURCE_IDS),
         ("文体・語彙層 T: 文字n-gram参照源混合", lexical_weights, SOURCE_IDS),
-        ("明示マーカー層 C: 辞書マーカー参照源混合", citation_weights, SOURCE_IDS + ["unmarked"]),
+        ("典拠マーカー層 C: 辞書マーカー参照源混合", citation_weights, SOURCE_IDS + ["unmarked"]),
     ]
     for ax, (title, weights, ids) in zip(axes, layers):
         ax.stackplot(
@@ -671,7 +671,7 @@ def figure_volume_source_means(
     layers = [
         ("意味層 S: 巻別平均", semantic_by_volume, SOURCE_IDS),
         ("文体・語彙層 T: 巻別平均", lexical_by_volume, SOURCE_IDS),
-        ("明示マーカー層 C: 巻別平均", citation_by_volume, SOURCE_IDS + ["unmarked"]),
+        ("典拠マーカー層 C: 巻別平均", citation_by_volume, SOURCE_IDS + ["unmarked"]),
     ]
     for ax, (title, rows, ids) in zip(axes, layers):
         y = np.arange(len(rows))
