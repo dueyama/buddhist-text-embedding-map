@@ -779,3 +779,19 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked the generated PDF title page in the in-app browser. Confirmed the title breaks after `：` into two lines.
   - Observed that semantic and lexical layers have 無量寿経 as the dominant source for all `教行信証` volumes, while the explicit marker layer is dominated by 未検出 in 信巻, 真仏土巻, and 化身土巻.
 - Commit: `746b6c80fb61e5f4ac1bb46fd786b44c0f3b2112`
+
+## 2026-06-02 13:53 JST
+
+- Summary: Adjusted the paper keyword line typography for a more standard Japanese academic style. Changed the visible keyword label to `キーワード：` and separated keyword terms with full-width commas `，` instead of Japanese commas `、`. Regenerated the HTML paper and PDF.
+- Files:
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex`.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the generated PDF title page in the in-app browser and confirmed the keyword line uses `キーワード：` and `，` separators.
+- Commit: `pending`
