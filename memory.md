@@ -795,3 +795,18 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked the generated PDF title page in the in-app browser and confirmed the keyword line uses `キーワード：` and `，` separators.
 - Commit: `bf6771179178b2900f591a56c3688397cc6aae10`
+
+## 2026-06-02 13:56 JST
+
+- Summary: Improved the PDF layout of Table 1 (`対象テキストとコーパス情報`). Reduced the table font from `small` to `footnotesize`, reduced column padding, and rebalanced column widths so short fields such as `ID・出典`, `全文性`, and `字数/チャンク` wrap less often while the table still fits the page.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked page 3 of the generated PDF in the in-app browser at 90% and 125% zoom. Confirmed Table 1 fits the page and the short metadata columns wrap less often.
+- Commit: `pending`
