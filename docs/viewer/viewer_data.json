@@ -1,0 +1,5641 @@
+{
+  "model": "text-embedding-3-large",
+  "max_tokens": 700,
+  "overlap": 100,
+  "texts": [
+    {
+      "id": "t0360_larger_sukhavati",
+      "title": "佛説無量壽經",
+      "taisho_id": "T0360",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0360.html",
+      "sects": [
+        "浄土宗",
+        "浄土真宗",
+        "時宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "曹魏 康僧鎧譯",
+      "period": "漢訳仏典",
+      "notes": "浄土三部経の大経。",
+      "line_count": 633,
+      "char_count": 10307,
+      "body_sha256": "695c7b176b7771246d936f947badf1c8daa0efa9c8e7203f0dd7c02a83ea70da",
+      "model": "text-embedding-3-large",
+      "chunk_count": 27,
+      "x": -0.1366,
+      "y": 0.0721
+    },
+    {
+      "id": "t0365_meditation_sutra",
+      "title": "佛説觀無量壽佛經",
+      "taisho_id": "T0365",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0365.html",
+      "sects": [
+        "浄土宗",
+        "浄土真宗",
+        "時宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "宋 畺良耶舍譯",
+      "period": "漢訳仏典",
+      "notes": "浄土三部経の観経。",
+      "line_count": 510,
+      "char_count": 9003,
+      "body_sha256": "344bfc2e1bbc18813ef288a1d58d008fda1fcc19e5a7306bbb946c5a2ca12325",
+      "model": "text-embedding-3-large",
+      "chunk_count": 23,
+      "x": -0.1362,
+      "y": 0.1136
+    },
+    {
+      "id": "t0366_amida_sutra",
+      "title": "佛説阿彌陀經",
+      "taisho_id": "T0366",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0366.html",
+      "sects": [
+        "浄土宗",
+        "浄土真宗",
+        "時宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "姚秦 鳩摩羅什譯",
+      "period": "漢訳仏典",
+      "notes": "浄土三部経の小経。",
+      "line_count": 140,
+      "char_count": 2368,
+      "body_sha256": "8fa3fb00d95a9356236ddc33fe497e2de62c3c743c355b19b21a7c92e44f0993",
+      "model": "text-embedding-3-large",
+      "chunk_count": 7,
+      "x": -0.2008,
+      "y": 0.2041
+    },
+    {
+      "id": "t0367_praise_pure_land",
+      "title": "稱讃淨土佛攝受經",
+      "taisho_id": "T0367",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0367.html",
+      "sects": [
+        "浄土宗",
+        "浄土真宗",
+        "時宗"
+      ],
+      "layer": "variant_translation",
+      "translator": "唐 玄奘譯",
+      "period": "漢訳仏典",
+      "notes": "阿弥陀経に近い内容の玄奘訳。訳者比較レイヤーとして扱う。",
+      "line_count": 263,
+      "char_count": 4630,
+      "body_sha256": "f035752a15ffdcc6b3899372fdd9ccff5da7137eb2885857698acea00ffa1f5b",
+      "model": "text-embedding-3-large",
+      "chunk_count": 12,
+      "x": -0.1682,
+      "y": 0.0595
+    },
+    {
+      "id": "kyogyoshinsho",
+      "title": "顯淨土眞實教行證文類",
+      "taisho_id": "",
+      "source": "j-soken",
+      "source_url": "https://j-soken.jp/ask/10831",
+      "sects": [
+        "浄土真宗"
+      ],
+      "layer": "founder_text",
+      "translator": "親鸞",
+      "period": "日本撰述",
+      "credit": "本文データの出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース。成果公表時は同データベースを利用した旨を明記する。",
+      "notes": "浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベースのダウンロードページに『顕浄土真実教行証文類』が収載されているため、出典クレジットを付す。宗派重心の祖師文献レイヤーとして扱う。",
+      "line_count": 6066,
+      "char_count": 78978,
+      "body_sha256": "f8c4307d1c236a2da01ebde345bf4f5643269d011298cc3fd1a04e80965c8209",
+      "model": "text-embedding-3-large",
+      "chunk_count": 197,
+      "x": 0.0648,
+      "y": 0.0533
+    },
+    {
+      "id": "t0262_lotus_sutra",
+      "title": "妙法蓮華經",
+      "taisho_id": "T0262",
+      "source": "excerpt",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0262.html",
+      "sects": [
+        "天台宗",
+        "日蓮宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "姚秦 鳩摩羅什譯",
+      "period": "漢訳仏典",
+      "notes": "既存取得の抜粋本文。法華系の共有中心として扱う。",
+      "line_count": 246,
+      "char_count": 4718,
+      "body_sha256": "caa9ce30179700deeb75da7d4ccee79495e8975708b1fcb7d2f01e985ff377b7",
+      "model": "text-embedding-3-large",
+      "chunk_count": 13,
+      "x": -0.1608,
+      "y": 0.0049
+    },
+    {
+      "id": "t0262_kannon_chapter",
+      "title": "觀世音菩薩普門品",
+      "taisho_id": "T0262",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0262_,09,0056c20:0262_,09,0058b17.html",
+      "sects": [
+        "曹洞宗",
+        "臨済宗",
+        "黄檗宗",
+        "天台宗",
+        "日蓮宗"
+      ],
+      "layer": "chanting_sutra",
+      "translator": "姚秦 鳩摩羅什譯",
+      "period": "漢訳仏典",
+      "notes": "観音経として読まれる法華経第二十五品。SAT range は v0 用の候補範囲。",
+      "line_count": 143,
+      "char_count": 2134,
+      "body_sha256": "b1ada95762892b82145e143fab1eba6fed77e9ccc5a69b5f39dfa1449a0d5311",
+      "model": "text-embedding-3-large",
+      "chunk_count": 6,
+      "x": -0.0079,
+      "y": 0.059
+    },
+    {
+      "id": "t0848_maha_vairocana",
+      "title": "大毘盧遮那成佛神變加持經",
+      "taisho_id": "T0848",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0848.html",
+      "sects": [
+        "真言宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "唐 善無畏・一行譯",
+      "period": "漢訳仏典",
+      "notes": "大日経。SAT の直接表示範囲を v0 corpus とする。",
+      "line_count": 767,
+      "char_count": 10770,
+      "body_sha256": "90504afb90a09841595646aa3175bb091e050db05a71388e1df6c4a85c268993",
+      "model": "text-embedding-3-large",
+      "chunk_count": 28,
+      "x": 0.0648,
+      "y": -0.1309
+    },
+    {
+      "id": "t0865_vajrasekhara",
+      "title": "金剛頂一切如來眞實攝大乘現證大教王經",
+      "taisho_id": "T0865",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0865.html",
+      "sects": [
+        "真言宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "唐 不空譯",
+      "period": "漢訳仏典",
+      "notes": "金剛頂経系の代表として扱う。",
+      "line_count": 497,
+      "char_count": 8342,
+      "body_sha256": "a15317838bdb7c389d17808bec939af0f7b168af9581aadbdee57c8a5372955c",
+      "model": "text-embedding-3-large",
+      "chunk_count": 22,
+      "x": -0.0258,
+      "y": -0.3373
+    },
+    {
+      "id": "t0243_rishu_kyo",
+      "title": "大樂金剛不空眞實三麼耶經",
+      "taisho_id": "T0243",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0243.html",
+      "sects": [
+        "真言宗"
+      ],
+      "layer": "chanting_sutra",
+      "translator": "唐 不空譯",
+      "period": "漢訳仏典",
+      "notes": "理趣経として扱う。",
+      "line_count": 203,
+      "char_count": 3309,
+      "body_sha256": "6915411378da49e9ca186a813fd771cba934bdbc976d63ff7cc28326d1b593a6",
+      "model": "text-embedding-3-large",
+      "chunk_count": 9,
+      "x": 0.1416,
+      "y": -0.2417
+    },
+    {
+      "id": "t0251_heart_sutra",
+      "title": "般若波羅蜜多心經",
+      "taisho_id": "T0251",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?mode=detail&useid=0251_",
+      "sects": [
+        "真言宗",
+        "曹洞宗",
+        "臨済宗",
+        "黄檗宗"
+      ],
+      "layer": "chanting_sutra",
+      "translator": "唐 玄奘譯",
+      "period": "漢訳仏典",
+      "notes": "般若心経。禅・真言の勤行レイヤーとして扱う。",
+      "line_count": 72,
+      "char_count": 1307,
+      "body_sha256": "9a8f13afc607c1b49bcf3bf8db4a828e4244e88ce18a587b911ba842fb3a02e1",
+      "model": "text-embedding-3-large",
+      "chunk_count": 3,
+      "x": 0.3052,
+      "y": 0.0024
+    },
+    {
+      "id": "t0676_samdhinirmocana",
+      "title": "解深密經",
+      "taisho_id": "T0676",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0676.html",
+      "sects": [
+        "法相宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "唐 玄奘譯",
+      "period": "漢訳仏典",
+      "notes": "玄奘訳の代表的唯識系経典。訳者比較を成立させるため v0.1 で追加。",
+      "line_count": 399,
+      "char_count": 7082,
+      "body_sha256": "1facea4c641ab85f51697470fb28e41c41d0ee00e996905e888d24f2acbd2037",
+      "model": "text-embedding-3-large",
+      "chunk_count": 18,
+      "x": 0.2496,
+      "y": 0.0102
+    },
+    {
+      "id": "t0235_diamond_sutra",
+      "title": "金剛般若波羅蜜經",
+      "taisho_id": "T0235",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?mode=detail&useid=0235_",
+      "sects": [
+        "臨済宗",
+        "黄檗宗",
+        "曹洞宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "姚秦 鳩摩羅什譯",
+      "period": "漢訳仏典",
+      "notes": "金剛経。禅系の比較対象として扱う。",
+      "line_count": 340,
+      "char_count": 5909,
+      "body_sha256": "72fa9cee40fd7175a6948cbe6ad4ad343cb76f658df4afde78ac6ce8a51471fe",
+      "model": "text-embedding-3-large",
+      "chunk_count": 15,
+      "x": 0.2034,
+      "y": 0.1291
+    },
+    {
+      "id": "t0475_vimalakirti",
+      "title": "維摩詰所説經",
+      "taisho_id": "T0475",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0475.html",
+      "sects": [
+        "臨済宗",
+        "黄檗宗",
+        "曹洞宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "姚秦 鳩摩羅什譯",
+      "period": "漢訳仏典",
+      "notes": "維摩経。禅系の比較対象として扱う。",
+      "line_count": 690,
+      "char_count": 12129,
+      "body_sha256": "9ac172c268c6e862d7a92f1a597c10f19a315814f1948700cd5866b937a561d1",
+      "model": "text-embedding-3-large",
+      "chunk_count": 32,
+      "x": 0.102,
+      "y": 0.0874
+    },
+    {
+      "id": "t0279_flower_garland",
+      "title": "大方廣佛華嚴經",
+      "taisho_id": "T0279",
+      "source": "sat",
+      "source_url": "https://21dzk.l.u-tokyo.ac.jp/SAT/T0279.html",
+      "sects": [
+        "華厳宗"
+      ],
+      "layer": "core_sutra",
+      "translator": "于闐 實叉難陀譯",
+      "period": "漢訳仏典",
+      "notes": "八十華厳。v0 では SAT 直接表示範囲を corpus とする。",
+      "line_count": 427,
+      "char_count": 7743,
+      "body_sha256": "c5209cafe70a0f89e2040c89a5276378d63990f030c3f3c06ce458e6fe835929",
+      "model": "text-embedding-3-large",
+      "chunk_count": 21,
+      "x": -0.2283,
+      "y": -0.1992
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0000",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 0,
+      "char_count": 443,
+      "chunk_sha256": "ca5cf173445b354c664448ee17e3adf3c9ce9a89b29cbdafa441725357a99080",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0001",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 1,
+      "char_count": 428,
+      "chunk_sha256": "5a66819410f8ad94401f376da2203c6a3b8ef5001d2b0f3273fe7efcede1c680",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0002",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 2,
+      "char_count": 432,
+      "chunk_sha256": "bc3473e8830a86731462d0fe26eb941d66ab3c4fb062850968a0239966e6f1c0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0003",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 3,
+      "char_count": 445,
+      "chunk_sha256": "e6004f5dce26b4da9e05460fe5d6cf5305f42dc010bd4e563464af4e2824f851",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0004",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 4,
+      "char_count": 444,
+      "chunk_sha256": "859cdb8465112d1ebfd812632ee00d5d2c0089f64af991967bb72c6ce7b4aa52",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0005",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 5,
+      "char_count": 485,
+      "chunk_sha256": "e365c927430b529df1855aa9327e94bce1f0d313f1e653681aa7a51a5c1c6bfa",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0006",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 6,
+      "char_count": 426,
+      "chunk_sha256": "c4a2a95cbf7dc241393bbe3c027483102e4e1d97a40ee1f175a5f68dbbef3eed",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0007",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 7,
+      "char_count": 459,
+      "chunk_sha256": "5fd9dd4b04df96d4f6db217544fe5b6cf4c29c9623d0bc0b049630656953196a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0008",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 8,
+      "char_count": 491,
+      "chunk_sha256": "495e0b8c4cd14be098dd4ce16a8e5444bd7ea985079dd0b43aaed5ab04cfb313",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0009",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 9,
+      "char_count": 487,
+      "chunk_sha256": "42d1ec1c4d03721252e7784cdd8c1455350b0d6959b5f831d56825aaa0414998",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0010",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 10,
+      "char_count": 475,
+      "chunk_sha256": "1d38cb6b41c6769da2efae36f5939c638481ded2e6900b158cdab565d7a03d4a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0011",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 11,
+      "char_count": 475,
+      "chunk_sha256": "650dd6432a0b26b60d8cd853c68a0a5fddcd6384094786db022a2c3d3cfcf377",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0012",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 12,
+      "char_count": 477,
+      "chunk_sha256": "b7776bbcf070afd5781760c8b819027145db1861a90ce2fa421741c5c70e2414",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0013",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 13,
+      "char_count": 441,
+      "chunk_sha256": "1501641c00a7e03c16b76678e9188d0b8e783a6e38093ed6f39648dfe1421271",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0014",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 14,
+      "char_count": 455,
+      "chunk_sha256": "98fe4604c40126567a169411bbe8c653a28c9c679b24f0e0da86aa7a0d5d7eb4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0015",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 15,
+      "char_count": 451,
+      "chunk_sha256": "e4a74b4fc63db2fcedcbde89cc89b92561dcd9325d32572f5defca7fe4432f5d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0016",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 16,
+      "char_count": 449,
+      "chunk_sha256": "7b4b4e1becb50d0d2b832669c6e4ed80a25f5c747b5c15a2a3322540a890996b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0017",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 17,
+      "char_count": 451,
+      "chunk_sha256": "9c9d274b0b9b182568befd4a94f2de37c837076510a353181ab0b8a63d5f8f13",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0018",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 18,
+      "char_count": 369,
+      "chunk_sha256": "1ffcc0dfe024188be70d20679a640f8147a77c166f7dd364e6e6f46ad395cc30",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0019",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 19,
+      "char_count": 435,
+      "chunk_sha256": "d99a0c3c11e445c04720177bcffe2f15a64e892f92f24489603386f751ba87f4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0020",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 20,
+      "char_count": 418,
+      "chunk_sha256": "05f7eafb2f2e5b79184134f210a55a4e14da6514d6d48af81c027378c224835b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0021",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 21,
+      "char_count": 443,
+      "chunk_sha256": "288844aa840d9b5d6496fcea73617b8621febed7a2391851605db6cc52da60c0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0022",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 22,
+      "char_count": 443,
+      "chunk_sha256": "269c5f6f7933437d56cb63501a1956db9d5ce170f389d31da4c140a0e440d2ce",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0023",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 23,
+      "char_count": 429,
+      "chunk_sha256": "bdad5074f548ea3590b76e5c03371948cdd4fc06c8bfa9320a49c963bead6758",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0024",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 24,
+      "char_count": 444,
+      "chunk_sha256": "94242b8f3d8997761cc8f95bbb3a86201ef86e0b27a991142500d77b115d1750",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0025",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 25,
+      "char_count": 477,
+      "chunk_sha256": "ad586070289cce20f0e62c186cbd45e9e651cac4e947494b50b69037d073ca8c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0360_larger_sukhavati::chunk_0026",
+      "text_id": "t0360_larger_sukhavati",
+      "chunk_index": 26,
+      "char_count": 308,
+      "chunk_sha256": "edc4bc62d4a251cfa85da47a5f63105f7949b0f29e92adf8107444c5a7303d01",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0000",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 0,
+      "char_count": 436,
+      "chunk_sha256": "b70684e572989c2e9ceaa8f3032ea0164f4b45a57fbb95a1bd0a8935ddf95f39",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0001",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 1,
+      "char_count": 442,
+      "chunk_sha256": "5a7e509737d665c704d24ff53d50715e0fd37faca86fdfb2cadb5329b5eb0fe7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0002",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 2,
+      "char_count": 439,
+      "chunk_sha256": "329a72d01e14b627b7a030835e88364e26e600be22f652b1aefa5733e3c8fddc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0003",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 3,
+      "char_count": 439,
+      "chunk_sha256": "1dbaa0dfaf8daee86c456e0d05fcb81a9c419542997cc51e28ddde76e53b4e89",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0004",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 4,
+      "char_count": 447,
+      "chunk_sha256": "360eb193cad5d0fb5465baac8890343df2e11d09c22c098923a2e60c21dd22f7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0005",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 5,
+      "char_count": 468,
+      "chunk_sha256": "27be87fabd206a5a75a4d1bf053f116dec77699d43e76e61d25c111bc377e041",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0006",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 6,
+      "char_count": 449,
+      "chunk_sha256": "82408e676f2f8b18bc910ce2d77c52679e9ed837d6c1686182d0bbb6417b93ee",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0007",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 7,
+      "char_count": 442,
+      "chunk_sha256": "fc44ffe398ca460ecf6df5d5c67c22e462db96865281898c7a60f663d50b2a9f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0008",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 8,
+      "char_count": 454,
+      "chunk_sha256": "a3835250b511b6e3510ec1dd45f1f864b679f91b4180b09bfbb1acef0341e059",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0009",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 9,
+      "char_count": 450,
+      "chunk_sha256": "0fc05b309cc9d1e275a58839838a1e2a6bb6bce8e92bd1e543d05a60a9eb6dcc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0010",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 10,
+      "char_count": 462,
+      "chunk_sha256": "d53f88e7019cf29db26bffce72bca3aeec48fd9ad6141755e73dd8b777fb5366",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0011",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 11,
+      "char_count": 458,
+      "chunk_sha256": "85f561bed191a1b76451e74b1d2fbbe834762ac5c6e9dd9d7ac62b02cffb310f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0012",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 12,
+      "char_count": 469,
+      "chunk_sha256": "f08154bb999769091d53447c6c84c229d34214a854b3253ae361e1c30cea378f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0013",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 13,
+      "char_count": 455,
+      "chunk_sha256": "3bf33a1e34cdb564005d486dc32dcd5dabb9170d30cfcfab5ebad0cdf80de17f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0014",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 14,
+      "char_count": 450,
+      "chunk_sha256": "313a99b7728bd37b1820318cdf81b8aef1012db707f1fea77b0f2e4715c80d02",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0015",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 15,
+      "char_count": 476,
+      "chunk_sha256": "f750eb47e581d4c00448013dbbf289d4818ecfe50cadf4f2cf5a845705100679",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0016",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 16,
+      "char_count": 474,
+      "chunk_sha256": "8d44b602830b23521a0085ad4b7c66374873c7b62a0ea6761e8c13f22a2cad72",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0017",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 17,
+      "char_count": 479,
+      "chunk_sha256": "7e893b19b51692483cd1fd5dcb63629e18062da99f0b932d6fbe2bcde2b52201",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0018",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 18,
+      "char_count": 472,
+      "chunk_sha256": "8d9fb457bf2a926d4250f79a62f8dbb8fa3008d9a2b8d3478808145bcef3c53c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0019",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 19,
+      "char_count": 465,
+      "chunk_sha256": "a6f0bc8052bc1843b0d0fc9b63914011e0b4be3e601b7b04cfbe458a63fc2ea5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0020",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 20,
+      "char_count": 459,
+      "chunk_sha256": "4036da02bde01b5224653af7b7d9a490c6270b56f98353bffa3608359c6963b7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0021",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 21,
+      "char_count": 453,
+      "chunk_sha256": "27d763c522fb1205db2c98c67ee1b85e65f68de0a79e0c0f35870f0c5e83da7d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0365_meditation_sutra::chunk_0022",
+      "text_id": "t0365_meditation_sutra",
+      "chunk_index": 22,
+      "char_count": 419,
+      "chunk_sha256": "c2748bf604877836034334094f94db9503d6805dc75ad857ae92e03d9e273902",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0000",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 0,
+      "char_count": 421,
+      "chunk_sha256": "5dae081dc49ac155747b3fbd621ad0e1b358eaa20fb6e2a59ed1d05ce264b894",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0001",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 1,
+      "char_count": 433,
+      "chunk_sha256": "e61a4e02d8482dbbcfd6d2e918fbf2c828768ade703059042810153295fad3b7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0002",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 2,
+      "char_count": 465,
+      "chunk_sha256": "53e06d4372f04cf7c2d2d6c0e775207a8519c6645161a817d2ff7fc858226630",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0003",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 3,
+      "char_count": 443,
+      "chunk_sha256": "873d2390ffced54f03b8d3885a739fff7d534198f2f826a6125b63df66c6e207",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0004",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 4,
+      "char_count": 442,
+      "chunk_sha256": "6ca60e99d5422b005f0a64c963b41dbb696c6e33333cde32f9f3b29369f51ef7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0005",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 5,
+      "char_count": 434,
+      "chunk_sha256": "f598dd6609a73ead17eb8370aee175b94b4f8fd7e6d4814ce99aa01c2c2c3e1b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0366_amida_sutra::chunk_0006",
+      "text_id": "t0366_amida_sutra",
+      "chunk_index": 6,
+      "char_count": 110,
+      "chunk_sha256": "38dc12a30172840a2e638991871e41fee4b7270438bda590332246f513e23745",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0000",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 0,
+      "char_count": 448,
+      "chunk_sha256": "b3ab2c4a36718e5fbae767f098092806432adcc01ac77eda2a4a75ff69a867bd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0001",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 1,
+      "char_count": 422,
+      "chunk_sha256": "e14bdd461580f248f5a6fefda4bc534de5b8c34ac12dca377d8dc0c4f88fe0c6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0002",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 2,
+      "char_count": 434,
+      "chunk_sha256": "81b66c779a5c2504570fdf7c583f3d7dec5f5776d3154e9e72258f07706e33a1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0003",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 3,
+      "char_count": 431,
+      "chunk_sha256": "b2a4add91369d44a35f96842ca376c756595a58ea9c80115373e92ae05530aa1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0004",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 4,
+      "char_count": 457,
+      "chunk_sha256": "be757a68d28d26e95117fe2aad6924acd967380de912135631a5f97def9307ce",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0005",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 5,
+      "char_count": 457,
+      "chunk_sha256": "bcf7e978f537f7a8cbda51bd4e5ef7c18f7dd5ff06fa444103b0c1e3be454246",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0006",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 6,
+      "char_count": 465,
+      "chunk_sha256": "720cf0dc78bda0c78d102ad67d5602970b7ff965e35eeb717405dfafcd08040c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0007",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 7,
+      "char_count": 463,
+      "chunk_sha256": "93a4e16ae67378b5e81c7ddcd69d166e3ae797ba86cda77e0249bc88b3e6ebcb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0008",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 8,
+      "char_count": 460,
+      "chunk_sha256": "1ce01d08efb53f8ab40691179a540670ed102d6faa6a30f9b17d434db543ca69",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0009",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 9,
+      "char_count": 455,
+      "chunk_sha256": "8da47f4a745c782baf256e60705a27cdb16230397382e85d9dc69e50f01e53f3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0010",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 10,
+      "char_count": 458,
+      "chunk_sha256": "129b5c4e73b456dd42903d9e7e83df65ebcf472fee61aad44f54a2a84422445a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0367_praise_pure_land::chunk_0011",
+      "text_id": "t0367_praise_pure_land",
+      "chunk_index": 11,
+      "char_count": 394,
+      "chunk_sha256": "e46516ae4ea6fcb21a83039601accded71e7f63552261f8dc2a7ee066f05a633",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0000",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 0,
+      "char_count": 456,
+      "chunk_sha256": "cb516354ddc4b303779c20718fc5969013d4d2e311590490a0cc48aa1d4dcc8c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0001",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 1,
+      "char_count": 453,
+      "chunk_sha256": "66aca7c6187420e155099ae14b9c021c617d6e21c16646c5742ff290b82d5324",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0002",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 2,
+      "char_count": 463,
+      "chunk_sha256": "ec3c1906a8e9fb3d1a810f8fedbcd2d233c6771ee3893b70b0a1c41de555188a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0003",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 3,
+      "char_count": 470,
+      "chunk_sha256": "0e225903e985cbc76b626ca38d7550dab4d68d9c60a089c7bc1e1d736f694762",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0004",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 4,
+      "char_count": 471,
+      "chunk_sha256": "d8180da1be3a72f01b8ce4a62a633573ad70632b472e9425e421bd528cad26fd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0005",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 5,
+      "char_count": 475,
+      "chunk_sha256": "50cbd86658517d6889056beb0c5628e90134a0b87775396d556c1a7a9b7169f0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0006",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 6,
+      "char_count": 468,
+      "chunk_sha256": "8ebdd9298e0fd862f3e6298807eb79f7982f376d156181fae1d02bb498a6ee3a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0007",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 7,
+      "char_count": 507,
+      "chunk_sha256": "de31d9f5aada7f879298c3f43e39760ac9028e3739e56499c6605d49ab51f7b3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0008",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 8,
+      "char_count": 486,
+      "chunk_sha256": "c6e4cd4419fb0309d1fb35e120474d13dfc28169c1a2d183f775741f4fd58d92",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0009",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 9,
+      "char_count": 469,
+      "chunk_sha256": "eb857b1895b32f757765f4a811bdf869460373e8fb4f493366d4d357dcceb035",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0010",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 10,
+      "char_count": 467,
+      "chunk_sha256": "88cb2292854c2c783f5448e6cdd9fe633cfad414d97ea7d77695ad297ed4a37e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0011",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 11,
+      "char_count": 464,
+      "chunk_sha256": "030aeef6dbcaf158957f0cbbdbd45635e1e8130d76e20baff88cfc0e16b5bd2b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0012",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 12,
+      "char_count": 454,
+      "chunk_sha256": "f2e32ca2c0b3fc887862696a09eec11e96af287d571b58abb8ded50d67939ead",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0013",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 13,
+      "char_count": 473,
+      "chunk_sha256": "b5a38f317fa3b4818956127cb710e493fc2d14b3a39e6426cf34689c79dbea05",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0014",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 14,
+      "char_count": 464,
+      "chunk_sha256": "eecb5dae021fd641aefdf779fba15e19af03fbd75d2b68f547c5435fbe22eb8e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0015",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 15,
+      "char_count": 452,
+      "chunk_sha256": "ca64b7158120ae055786153044af0bd4648a7dec5b66aca0953676a94e6405f2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0016",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 16,
+      "char_count": 481,
+      "chunk_sha256": "892d91fcf9d16873d94694b888196c5dd3564a8f14158178f1cbaa31bc96b0f1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0017",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 17,
+      "char_count": 485,
+      "chunk_sha256": "252b47f1b26c470d21bacb3200a12d7638aba141ea77721a6f2f985d1bfaf619",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0018",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 18,
+      "char_count": 439,
+      "chunk_sha256": "2ff2aea56cf9058e7de8c036f64f824169d0eb0413142326a254e63d87c436a8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0019",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 19,
+      "char_count": 466,
+      "chunk_sha256": "f3ba11068bd64174c668ee7be81a544ad8e8d572285a8b58db07c06f105296f5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0020",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 20,
+      "char_count": 481,
+      "chunk_sha256": "018bb15e36f2edd733ef617ce7082873ae6177361080c8eaf0f33146692769cf",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0021",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 21,
+      "char_count": 477,
+      "chunk_sha256": "c50700642c8dcab0703b818edf5887839e689753f6b87b82619b9979d99ab809",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0022",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 22,
+      "char_count": 464,
+      "chunk_sha256": "f47c3d6328b35a6dcc86878687ef383a47bc7aad9716319c8632b72404d7ce8a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0023",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 23,
+      "char_count": 464,
+      "chunk_sha256": "2d2631cd4d332d885b6c951097670ac7c3807d89ea5be6c12db7731a02604a51",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0024",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 24,
+      "char_count": 461,
+      "chunk_sha256": "fee804eb0babedad6ae20a517e30ceed9704ab8172d3da87d530347a09637fa2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0025",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 25,
+      "char_count": 451,
+      "chunk_sha256": "5a8f60c9f952f1a4c348fc0e7756c20ca6e7c58f85256f963488cacb24abd818",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0026",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 26,
+      "char_count": 461,
+      "chunk_sha256": "2935d11540f51fc69bc1b026fd30951c521a69b72640d2e485f258e311e39492",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0027",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 27,
+      "char_count": 462,
+      "chunk_sha256": "18784d5f07b2fb452ab39aeb2716387975aa3b9758844a56454aba24e82258f4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0028",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 28,
+      "char_count": 461,
+      "chunk_sha256": "a112d04cf57483cb647815174cdb12d094a53285a30dc79c548ace52838b83ce",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0029",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 29,
+      "char_count": 441,
+      "chunk_sha256": "807af9b42db5cc9bf88c449b49dd441ab3d2d1f54660123ef6ff37e552d67f87",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0030",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 30,
+      "char_count": 486,
+      "chunk_sha256": "ab85bed42c161354b935cfde6f378b45647bc449b2e173da369fe4bd0afc2f90",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0031",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 31,
+      "char_count": 505,
+      "chunk_sha256": "d3a92fa3223938a8e7222c58ddd5503391e912ffdf21e1479d3200a11baf3c54",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0032",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 32,
+      "char_count": 557,
+      "chunk_sha256": "cc55dcc045b268d981fc7383a263dcb327b1da101461396f97ecdbc15bb2ab04",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0033",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 33,
+      "char_count": 517,
+      "chunk_sha256": "fdcb95ae0365b8d645e16d1f1d4d564c5dbaec42fed4b30de15d996efe5c34c3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0034",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 34,
+      "char_count": 480,
+      "chunk_sha256": "da06d6bc0fd51dedeed19b4b847ae553412e85ddbc42af1dae44a062fda3d63f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0035",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 35,
+      "char_count": 457,
+      "chunk_sha256": "f382ef5e756fcb462f07ee689f8da50a9586d37da763c36507fd98dc6bc34097",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0036",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 36,
+      "char_count": 458,
+      "chunk_sha256": "32d541a1d699d10bf6171342e3751fb7116a5c65f472227e62e4d03f3d1ca3ab",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0037",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 37,
+      "char_count": 437,
+      "chunk_sha256": "2b9222c3539e768546cca634877faefcd8197c418db90430c3966b8624fa2886",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0038",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 38,
+      "char_count": 406,
+      "chunk_sha256": "238738893aafd34182ceefff37039e4a16badeee8b52741a7073e35fe6f2da6f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0039",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 39,
+      "char_count": 471,
+      "chunk_sha256": "5056551477e76ed2084d41962c1bb4e7cefdd63a770ce4c7be409770eba37866",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0040",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 40,
+      "char_count": 447,
+      "chunk_sha256": "7c060cac9ecf80f87d6c3dbbb1c1fc9865b005990e46bb889f7856df516be1c0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0041",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 41,
+      "char_count": 453,
+      "chunk_sha256": "cd1c1df6cf9c44519e74897105c533784031be83042e525ba3a95793dc682701",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0042",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 42,
+      "char_count": 469,
+      "chunk_sha256": "7b2243357b574515002c7bf77ae3321b1fa02a1ec01d789cb8c0c006e74dde13",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0043",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 43,
+      "char_count": 490,
+      "chunk_sha256": "a14bd920148672a46605f6120829daf0dd8b7de5634e2d803c8370c1e1b3e71c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0044",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 44,
+      "char_count": 491,
+      "chunk_sha256": "65cae18dc68dcdd0d1e5bc71dda2c642597324d0a1fe61abcef865b662b14304",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0045",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 45,
+      "char_count": 493,
+      "chunk_sha256": "8809bd27fb153106d42b3e3b884e670a31ccdc1b194680817ee063de33998347",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0046",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 46,
+      "char_count": 483,
+      "chunk_sha256": "d1fc3f45c64db4a53dde9ca7912677968b4b5c8ccac07b9b11f328d464271097",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0047",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 47,
+      "char_count": 477,
+      "chunk_sha256": "af34a74712e5b659529640e428d77bc107875ba43e82f9d95294e5a5ec255190",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0048",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 48,
+      "char_count": 494,
+      "chunk_sha256": "5d94d24e41f4a2988383e7e3081a32a9d8f804ec497fd1d63ad8a534be6b77a4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0049",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 49,
+      "char_count": 490,
+      "chunk_sha256": "0f4118e82e345d245e77cd2d1250826ff1f7df755f18f0970846320f8d5e4517",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0050",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 50,
+      "char_count": 488,
+      "chunk_sha256": "917aebe9e68aca8750ec22e05e759327e0bc2c036b75462eb451df2a73585500",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0051",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 51,
+      "char_count": 478,
+      "chunk_sha256": "897e9f6b326e041528c66d32c5901dd0d586e6af65b058ff4e5439ad148b5ff3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0052",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 52,
+      "char_count": 464,
+      "chunk_sha256": "d771f8ef1687fc2b33fe467fda10c5cc52fd7e7b3a1d35e9f212df326bd62f4b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0053",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 53,
+      "char_count": 501,
+      "chunk_sha256": "fbb592a5c0fcb2fea05d081ec45ba80835d441b44fed78e1b571359797d62672",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0054",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 54,
+      "char_count": 455,
+      "chunk_sha256": "1c5e1c8639bd0d2518084c3c1743a1306094baa611f2a6bb2e62b31f6230af6a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0055",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 55,
+      "char_count": 487,
+      "chunk_sha256": "c5d844e37075825a380d154d74255fb327ca7ef13397697eaf7d37194f026f28",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0056",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 56,
+      "char_count": 486,
+      "chunk_sha256": "04e9ff925e81c0b74eeb34e59b4f5b1e29e75aeb0dd1366f1f9be75fc7aabfa1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0057",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 57,
+      "char_count": 488,
+      "chunk_sha256": "b21c96ad57ee0ca00a974df05ad3da7ffc21749f6dee85ec3ba9b732b54cacc1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0058",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 58,
+      "char_count": 466,
+      "chunk_sha256": "d0d40babc26ca3ed1bb4150068c11422e040e123943523c96c29bf85ee87c933",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0059",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 59,
+      "char_count": 467,
+      "chunk_sha256": "da9830e279ca2565d30f5f7f37db9f0fcb9599192fda4af1bfb5836f25459e21",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0060",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 60,
+      "char_count": 472,
+      "chunk_sha256": "5912c1be653c2648c8ad67594cf654ef70c53a7176931f13d88ed8f283de6fb6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0061",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 61,
+      "char_count": 492,
+      "chunk_sha256": "de945277e7954b538b9889edb57511ced74ebf4c48b374a6e0a713873edcc1f8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0062",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 62,
+      "char_count": 499,
+      "chunk_sha256": "3cac01aa1a2e4368c42c2749d83dc8815e5b9c957a88be7cc49937b942046504",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0063",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 63,
+      "char_count": 448,
+      "chunk_sha256": "54798fffa8b5ecdc0d20e5c49de91533f49eca978729d9d08b3c56efe1b8d814",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0064",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 64,
+      "char_count": 476,
+      "chunk_sha256": "45f80b831109eb0c0aa97027c9dd6baf34113a5a258207750fff549b237bcaa8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0065",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 65,
+      "char_count": 490,
+      "chunk_sha256": "f47525fcaaba3e3d585741c8e958810570480cc462f84bc565d065ff98591896",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0066",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 66,
+      "char_count": 511,
+      "chunk_sha256": "b7f8901792387551b2a6498b5151e612a7eb14fb5aa7b57c8010f466f7753b3c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0067",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 67,
+      "char_count": 473,
+      "chunk_sha256": "2ee004c10e2e0147f37c8e824395a9ecebd00e7ebb33eb99698bfd2cd1ff1345",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0068",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 68,
+      "char_count": 486,
+      "chunk_sha256": "62bfeea373dbc9fe27d169c9f3f54de1df48662f9b48030d38bb2e6218dede38",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0069",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 69,
+      "char_count": 459,
+      "chunk_sha256": "4130d5a0f82c345b4e538c25d37822ee1558b9af95ac2a65b1defec4ab96ff89",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0070",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 70,
+      "char_count": 457,
+      "chunk_sha256": "60bfd0e2d081636fca7807879e1d5616a3d8000835545ec5106cb17d56beb2d7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0071",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 71,
+      "char_count": 477,
+      "chunk_sha256": "6dd70154c057d4a5da9effa5e2e5c048caa9e3a7de0461cbedded9908012379f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0072",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 72,
+      "char_count": 439,
+      "chunk_sha256": "4556daa6613fd51f6b099d8d02d31a1d042277713bc1f121150e7e4dbebf31f7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0073",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 73,
+      "char_count": 444,
+      "chunk_sha256": "cb5a218fb29a449d44c765467bb979d72183b2ab195cf7171fea655af27ba365",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0074",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 74,
+      "char_count": 464,
+      "chunk_sha256": "a08a412ebd78ae3e65e29a9faea18d5c42292e2d5400922ab3614109ef620e92",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0075",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 75,
+      "char_count": 463,
+      "chunk_sha256": "066db98696fc06df85a3cec8be234453c30f21d26d3bbcf72a1f60e612d0a6f6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0076",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 76,
+      "char_count": 446,
+      "chunk_sha256": "11db409dca73e4df582e00f66a7927e1f763057919c05e80f3ea087ab3dd5ac7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0077",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 77,
+      "char_count": 438,
+      "chunk_sha256": "96efd9ea4de084243bca74942bf5dc2d63bb7b3fee5cf75b4e596da48f5b7b2b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0078",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 78,
+      "char_count": 440,
+      "chunk_sha256": "59a0c735ab93501817c74f7c05db0cd1a175dd05ccd1d3b01cc439fb138e188a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0079",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 79,
+      "char_count": 432,
+      "chunk_sha256": "fe4bc0fcc6bd355c5658e9bd8ddc01ce7e7098f9b3cc9d2e244cbd72f99b05d6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0080",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 80,
+      "char_count": 456,
+      "chunk_sha256": "112953ceee01c005c922fedeed8fe6c953e7650dea6acead3f42a6e4a05f7db3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0081",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 81,
+      "char_count": 451,
+      "chunk_sha256": "5fe61ed8f049d5029cd368e36c7f0be9906dd9235d787db119cb7808b841da1e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0082",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 82,
+      "char_count": 434,
+      "chunk_sha256": "393c68e27ce9f09d7a68eef8f2e4316bc6a5936c78d827112e4f71bbcaf85ac3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0083",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 83,
+      "char_count": 449,
+      "chunk_sha256": "73c33a17074aad0f37af6f6a079a8e50b730863281478daedc51b2e63ed2c1c3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0084",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 84,
+      "char_count": 440,
+      "chunk_sha256": "c7a3f2a17ca6434c5f697d112ab1ddd90be4dd71db2eed0f716f862fd7f97b1b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0085",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 85,
+      "char_count": 477,
+      "chunk_sha256": "021901f02988c3d21d2985b1108a6c4f0b0a340f5a8aea2e8a579081c5a1eecc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0086",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 86,
+      "char_count": 437,
+      "chunk_sha256": "bae14ca9cf03c2941223b3537c8227c5bc1765aedbab5b0dcb38038c3b24d8f2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0087",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 87,
+      "char_count": 443,
+      "chunk_sha256": "7f1de67714fc6d1a06c5bc030bf7144b82f9ee014691ae95adee9106b515804d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0088",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 88,
+      "char_count": 465,
+      "chunk_sha256": "6365249a8cd60dfe8ba12725c3896ad7e55fe9d94c44cb8be4ff37d4e32c2084",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0089",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 89,
+      "char_count": 468,
+      "chunk_sha256": "10a8a5fba70e43ddd15118fa50c0f3b38712a9d649033381f4f2883173d3f73a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0090",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 90,
+      "char_count": 483,
+      "chunk_sha256": "0a23eb0cc0e11ea6377274feef69e70a76b14f26b08a2522875f07fd6e973399",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0091",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 91,
+      "char_count": 453,
+      "chunk_sha256": "8da731df1cace8fe58607de4ca902c8a9f8b5b4c5b3c86457066ac5e602143fc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0092",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 92,
+      "char_count": 468,
+      "chunk_sha256": "d0a5f9df2186b2a5ba75d764c756846b1feb621761a68620a0a8e1057e003cec",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0093",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 93,
+      "char_count": 475,
+      "chunk_sha256": "0a3dd9ee208fabe18ba150491dd1aa2e79619ba6e7aa977ba64426970ec482ba",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0094",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 94,
+      "char_count": 503,
+      "chunk_sha256": "33d26071f58abd66d96974f3565e1227afb401f9b857cc490c1cf8ffdadb420c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0095",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 95,
+      "char_count": 462,
+      "chunk_sha256": "0e7e765f997f2c17a823c2112f79ce3d8fa9beea24addfb99c17a15d38712032",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0096",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 96,
+      "char_count": 481,
+      "chunk_sha256": "07f6cd7fed5d6392cf5c90973c3f0081e70824a6112c6a9c0d62c5199f41bf98",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0097",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 97,
+      "char_count": 498,
+      "chunk_sha256": "48ec558511b8608b7c2830c69bc90ce6f65baf46f2e24786af3e6104ccc681dc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0098",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 98,
+      "char_count": 472,
+      "chunk_sha256": "2f305f2cebc738ff950b5e68d9b940628f6607b1e73e3d1958f9d5464e4899e7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0099",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 99,
+      "char_count": 470,
+      "chunk_sha256": "5535b0165352adb1fe1a3fb55f8fe5f9bb627857197d7d61a7dbe6f35a037ff4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0100",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 100,
+      "char_count": 463,
+      "chunk_sha256": "6e73cf0329177d0ba4a08880d981e3d502a273bc6f9e4b97e6738766aa8b81a2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0101",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 101,
+      "char_count": 467,
+      "chunk_sha256": "ad279c336d24f4fed36098859e05e2570e91b9e735acff993134829cfb14861d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0102",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 102,
+      "char_count": 499,
+      "chunk_sha256": "41bf0788678861cf495659c999c665f514700765f5b25eef6031d1ec77dacd84",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0103",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 103,
+      "char_count": 507,
+      "chunk_sha256": "cd796b69e2c2d9e45cf73e806adeed29edcdd317223b27bc39f8d6ae0ba3d924",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0104",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 104,
+      "char_count": 506,
+      "chunk_sha256": "f065352958264cd0884cbc1e2da0b2b69225c920c4265be0938549ece1a3f5f0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0105",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 105,
+      "char_count": 506,
+      "chunk_sha256": "da8b6b7d01ec5ea7d5162e7e6749a323a47977124dd9fb9e9e7ed0f9a176ba64",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0106",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 106,
+      "char_count": 470,
+      "chunk_sha256": "09cc102501c0ebfc47a864475cdf2c998c9eb61016bd17db531aac9c35e96e12",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0107",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 107,
+      "char_count": 496,
+      "chunk_sha256": "ec2564811a0d357099b8295016f1bc1ae6c18e4c913f8f17c0c4b80bdca726da",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0108",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 108,
+      "char_count": 448,
+      "chunk_sha256": "8b13c1dcc91530b2031cc373bd6d1040670c5da47e157a1b69502b89ec468f05",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0109",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 109,
+      "char_count": 452,
+      "chunk_sha256": "8d462b98716bcacbdb4ebc7ca14b1d7bd614167306da736ad689a1240d7939aa",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0110",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 110,
+      "char_count": 498,
+      "chunk_sha256": "974ce948753ec88468556c02d3af0b0ba2c4d0e065417ad7338452dcb0ea2bdc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0111",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 111,
+      "char_count": 479,
+      "chunk_sha256": "e80c27c1fc91343775d107e172ea7ea50127a4ab08dd4a4a937f3110c662dad1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0112",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 112,
+      "char_count": 489,
+      "chunk_sha256": "2dcaa501f2a3d84c1587044312eab906630038722442ffd5e608e4295a6802ce",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0113",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 113,
+      "char_count": 436,
+      "chunk_sha256": "db8f9742365678d3015d110a3ec77cf723f45ae710015ac9c6a65fe12703c83e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0114",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 114,
+      "char_count": 452,
+      "chunk_sha256": "ba5ae70bcfe8d4ac5bfb75d6f2f578c4f52c8122bdfdc68f5cd5b91c5793c403",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0115",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 115,
+      "char_count": 474,
+      "chunk_sha256": "da58fb716985a014584f0b6d6e7d9defcdd61f2ed65d1d209c06fd3c000046d0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0116",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 116,
+      "char_count": 474,
+      "chunk_sha256": "96846c2eb1b5880b37880de5886b263174df2a3a157e7862d8ffbf2e28996b0f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0117",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 117,
+      "char_count": 470,
+      "chunk_sha256": "00ed56d0fcf028a8c63c8316e5c28a659a01d3b40655f36fc82d6a59afd1529e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0118",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 118,
+      "char_count": 470,
+      "chunk_sha256": "5e84e9f9398a9fa0375840272ff107a16c2fd0e381198fa81e208a7e730773cd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0119",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 119,
+      "char_count": 463,
+      "chunk_sha256": "c720297df124ff64208a5f4773010503038639621e35d785e0d453f510699cb7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0120",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 120,
+      "char_count": 487,
+      "chunk_sha256": "94aa5ef56814aa42bcc382c60be1cfcb21bf7331b4e52c568602757a51a14a88",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0121",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 121,
+      "char_count": 481,
+      "chunk_sha256": "3acff6695808bd9d804af0a9db066994ccacfe6f575018d3d845382d620eaaa9",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0122",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 122,
+      "char_count": 455,
+      "chunk_sha256": "3e0b17f9f7f0900221bc8a6f7fe730edbf212553d6f69abde2390858f80c2bdb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0123",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 123,
+      "char_count": 468,
+      "chunk_sha256": "d9aad9b128c3853706179b7dc1498c331320ba7b57478b71938b3ae9609b594d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0124",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 124,
+      "char_count": 483,
+      "chunk_sha256": "0e2becaecb5b88e43e4e725a87266b3e46bedc550cd63da67d09a13d12194cc2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0125",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 125,
+      "char_count": 477,
+      "chunk_sha256": "e7b68526c1380ff7d084c5e9cfdf821c25e9565d271f434ab8cc1a187adb6bfd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0126",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 126,
+      "char_count": 477,
+      "chunk_sha256": "c16b19ce7de24c26146a2c02b3dae2c182595b9ebf12be0b0ca72acd0c436200",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0127",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 127,
+      "char_count": 491,
+      "chunk_sha256": "ca6b768aaff0e0039e365697c92e345876017d46cfe852377801ae06563358f0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0128",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 128,
+      "char_count": 433,
+      "chunk_sha256": "77f30d256339c037d559d412345e840fee85e20238a1d969d9c54731e56f9ee5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0129",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 129,
+      "char_count": 485,
+      "chunk_sha256": "c744bf3982c396d4ace148b681adef0e27bb8a72441ad4df3812069b1af02a1f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0130",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 130,
+      "char_count": 492,
+      "chunk_sha256": "de61ead6c3bb7012d73955b24af408dce43dd572b0ca70bd6550e71ffb7490a2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0131",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 131,
+      "char_count": 463,
+      "chunk_sha256": "2ae99e3075513aaf3c7bc8562d84c9c2b96983c811d20738ec122945a8d74d30",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0132",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 132,
+      "char_count": 435,
+      "chunk_sha256": "ce5c10758d8d00ea92530699c2acab7ce7043cd2422f05bfbd235e2f6d3d5c04",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0133",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 133,
+      "char_count": 461,
+      "chunk_sha256": "784cdba54329b652bc9818588f1dbca761a6ddc9f47f33793a2ddd19fb94a319",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0134",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 134,
+      "char_count": 477,
+      "chunk_sha256": "2e294997b6ab0578601e0c129dd4d9f517a74c8a831fa412c0cdfc97d9d28d25",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0135",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 135,
+      "char_count": 473,
+      "chunk_sha256": "2ebd65dd17e8a27e6f8c81d0e5ec2cf3f07c6f28b6ee0600854a824dffb8fe0c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0136",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 136,
+      "char_count": 443,
+      "chunk_sha256": "47fee7675f64adb5e4ef369db156ab768e9a30bf8a107e24786a1328ee283fff",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0137",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 137,
+      "char_count": 444,
+      "chunk_sha256": "9a1f25434fff70acfe7a07e9d7ad5283f723b2dec24fc67a6972a291eb7bae91",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0138",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 138,
+      "char_count": 456,
+      "chunk_sha256": "00b36dd9a4e57429e4b769dfd17b10f449f779fafbb69ee9a2efab07f6d64589",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0139",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 139,
+      "char_count": 466,
+      "chunk_sha256": "8855b3631b0fba1de4e480d89c34903ec143975619e14d0bc95991410474610f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0140",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 140,
+      "char_count": 487,
+      "chunk_sha256": "cbc607f1fea6ebb55b914d623fa3eed57f26b0cc5afc2fb2f29ff49a23198748",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0141",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 141,
+      "char_count": 474,
+      "chunk_sha256": "c35a247fc6ed8626cedba7afcca99eda9cc95462efdddc37d8965bc6e34fefa6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0142",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 142,
+      "char_count": 472,
+      "chunk_sha256": "9f00a4594711c3fdc17c67c9a5cf8761c8d1fda5e6f943880d27353ce14fc7f3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0143",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 143,
+      "char_count": 473,
+      "chunk_sha256": "897865400f9c83537a61a559dbf684e44e989febafbb06816c34f7947277f3e5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0144",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 144,
+      "char_count": 474,
+      "chunk_sha256": "0f5affbf7cec10d77f8ddfd9734a41c1aba389a5f112a9a8d6b50bc63648c736",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0145",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 145,
+      "char_count": 493,
+      "chunk_sha256": "a89bd85162243484be82b0036fe5b414a6bbe88d75b45c2dd1e4b2aa0916cfa7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0146",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 146,
+      "char_count": 497,
+      "chunk_sha256": "2b8a8de5f14fa18063d26d1f96c70cde39cbe68465e34bb797cc6a6726a0b90a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0147",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 147,
+      "char_count": 481,
+      "chunk_sha256": "a69d58e667ba7ab977aa51631d47c716fac867de8f280241a39cc78684c73a14",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0148",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 148,
+      "char_count": 489,
+      "chunk_sha256": "4db910e304676a1912ecd8e16d6edfc61ea881367887578070a29b0b48af4405",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0149",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 149,
+      "char_count": 480,
+      "chunk_sha256": "de3237cc04eba6d1aa22c0f369ae45a60a3f83b45d93e6bb80a0dea874c33e93",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0150",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 150,
+      "char_count": 469,
+      "chunk_sha256": "b36afac901cf70ff0851787e38691eebdd70d0dff93e4581644b1338dcc0301c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0151",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 151,
+      "char_count": 461,
+      "chunk_sha256": "2f87ea22829c9838e45c2adb97ccd0bb9d71a0d1f629782e8d93307187343ced",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0152",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 152,
+      "char_count": 456,
+      "chunk_sha256": "b602f29c0a7a5265102a63ec7d192989e63b2a3da5dd051f83978dca03a5050e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0153",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 153,
+      "char_count": 502,
+      "chunk_sha256": "626879eb8010315e52eee3be3081c2a80d1bc22280ff8b7811eb742061397c95",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0154",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 154,
+      "char_count": 442,
+      "chunk_sha256": "c760d2d5f998fd34bb0b1339183abd3565bd47325175f6225c529a27a9003e82",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0155",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 155,
+      "char_count": 423,
+      "chunk_sha256": "140c53905bceb78d89625b6fd54e2d09f0a9a002c8726a6257cadb8851b9885e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0156",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 156,
+      "char_count": 476,
+      "chunk_sha256": "a0b8eea8a988d6bbb716efd7d9c9ae37de28aed1317a11a9f9c8d797b41ce661",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0157",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 157,
+      "char_count": 464,
+      "chunk_sha256": "7059613e8b9fe0eea878030a1d97166a485e1626b47991c7fb5b5787b803ac66",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0158",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 158,
+      "char_count": 472,
+      "chunk_sha256": "48492784560b21ad11130af13199c70068bd819de96378fac17a151df039a08f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0159",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 159,
+      "char_count": 462,
+      "chunk_sha256": "6722891fceb9cf397231e5e72eef61d18d807f7e2f869c1cd97e0c8f5140abc6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0160",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 160,
+      "char_count": 468,
+      "chunk_sha256": "f9c80f2d7c551a9beb69a42ee19fed843366fa453d0f5f923d08406dcc2086a7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0161",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 161,
+      "char_count": 481,
+      "chunk_sha256": "8bc98d4a63b5d36d6cc579af2a2f40079fd59718ef3b897a68928328b161927e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0162",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 162,
+      "char_count": 464,
+      "chunk_sha256": "8ea59d3b0d8cb5e13d3b462e389147d9b3b81ad949f87c66a84b487e1b32077e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0163",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 163,
+      "char_count": 470,
+      "chunk_sha256": "9997dc322dc793aa159d418382169c1b9694d19b63723a287916af40fabbddcf",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0164",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 164,
+      "char_count": 434,
+      "chunk_sha256": "8df75132e0f9740047eeaba7ed33fff510dee2bc35dc15535f9d7197aee1deca",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0165",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 165,
+      "char_count": 454,
+      "chunk_sha256": "0e1a48a04ab7cca5b258b8e83a101d3665841e11987a554bebe8c2e2f5fa0ffb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0166",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 166,
+      "char_count": 484,
+      "chunk_sha256": "97ff11ee328de8cb5f5d39dbe06c8c2fef6d052794f4b6b3c871db015a3042ac",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0167",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 167,
+      "char_count": 527,
+      "chunk_sha256": "7c9c6b3d5d223e14f26872fe9268318c68901354cc03cbecc0a16726f29ff4ad",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0168",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 168,
+      "char_count": 516,
+      "chunk_sha256": "e1b299a19d4ddb85e16d0fe47ccf203c31530b0da6e2c79a412d0f7fb3fbcb9d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0169",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 169,
+      "char_count": 434,
+      "chunk_sha256": "4e217a9a23a4e983e5e75d93826467cfae2b48b9757b35e557b2322605c29aca",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0170",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 170,
+      "char_count": 462,
+      "chunk_sha256": "b6e5065a694f861f05c1f3846ca0dcfa88dca4b4b93d8136583af45ca59c3130",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0171",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 171,
+      "char_count": 448,
+      "chunk_sha256": "9a9a045ef338a84b7bc70d82ae1fc899b6769b0f2d8be3da4e7769b77cf0624f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0172",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 172,
+      "char_count": 433,
+      "chunk_sha256": "244c555198e78f627751783a8c4063f01d959fc0af6876befb423b2a3f198bc3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0173",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 173,
+      "char_count": 485,
+      "chunk_sha256": "15955088f378bd96e9795b2668ad2c130c7778b81cf92f01ba3f6e637c1df074",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0174",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 174,
+      "char_count": 434,
+      "chunk_sha256": "d5ff68cb4945bf9e9e3fa522978b281cedf53886abb0b13c99a4678700e6729a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0175",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 175,
+      "char_count": 446,
+      "chunk_sha256": "6534b7cfefea4ce7fbe1cf1a9373708263999df354d434c6004fb7e4d49c5c34",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0176",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 176,
+      "char_count": 431,
+      "chunk_sha256": "5972733513bb301e2250fac2088008028577ad7db50225305e6214d8f4d740bf",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0177",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 177,
+      "char_count": 429,
+      "chunk_sha256": "87956dbdb6a5be74cd093dd0d5501d692eb1418782ffc05fe3075f8f86dfa8f4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0178",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 178,
+      "char_count": 427,
+      "chunk_sha256": "576fc8f30aed55103f7878548819e637a4198f19ac666bc5f310459ce6e26b2d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0179",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 179,
+      "char_count": 445,
+      "chunk_sha256": "c6dbc9e04a8cc80c26dd13844a5b3c903a63d1fa7788c77f0702323645bcd8e5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0180",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 180,
+      "char_count": 434,
+      "chunk_sha256": "bb6419489adeb6cfd6eb24e6c0eb19f94047b07b5303093f2c7e376ecee517ee",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0181",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 181,
+      "char_count": 428,
+      "chunk_sha256": "52a440f5e077e7dd1e71339a28e9b00a6fc5b0e80cc571d8941b8d4a23bc4fa7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0182",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 182,
+      "char_count": 451,
+      "chunk_sha256": "4b9ab091e7a09c54d82297c3a5b62204eecb332336ed41ea2e29040148d84227",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0183",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 183,
+      "char_count": 457,
+      "chunk_sha256": "c456373b7af64f98764d34335e0e850840f06f85f1a19571af313d882f456c3c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0184",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 184,
+      "char_count": 433,
+      "chunk_sha256": "809d0f2b7d941013342a9875e568aa39048ac7a3a1df4ca0597fcc87c1ec80d3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0185",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 185,
+      "char_count": 454,
+      "chunk_sha256": "ca1ed6deed5bd4d01d51cb62725790d2c5764085cb59f064e47b05fd0f49dd1c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0186",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 186,
+      "char_count": 459,
+      "chunk_sha256": "6d0170cd7fef0b60d75a3f713a9a2c9902de7b7cca550c2844611b2a7ccddac4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0187",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 187,
+      "char_count": 472,
+      "chunk_sha256": "4195a2eb7536c4eb194d7e3b42642b23fbeadfab1cbaa2f46206b0fc0c890dc0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0188",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 188,
+      "char_count": 467,
+      "chunk_sha256": "5c123891ad79e8ba6df14d269061d17616711c3d529b4e29b0568bea348a3053",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0189",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 189,
+      "char_count": 467,
+      "chunk_sha256": "aeafb53c4b33c1e9e84821a2f499054c4b95c18d080333cb6be72be36f32681e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0190",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 190,
+      "char_count": 451,
+      "chunk_sha256": "b116503df14160dedfac90491887de4faddfe433582726553b334ba08e486dec",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0191",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 191,
+      "char_count": 464,
+      "chunk_sha256": "f3ab20715f261ee606ebeee0f4d84b28cd15996b762127d774507048abae43b6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0192",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 192,
+      "char_count": 456,
+      "chunk_sha256": "2fb91be20393f7d8f2b8869b254144f03e99fe66f67a0103964125394e2cef8e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0193",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 193,
+      "char_count": 465,
+      "chunk_sha256": "4d28a4d7c29aa0aa6c7781d2497a7c1f257cb9a4936c53b3ebcee7ddb2461238",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0194",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 194,
+      "char_count": 431,
+      "chunk_sha256": "aaf1a085f39cf2f7545b79d64e817b39a238b7278ade5c104577f44f26e74bd8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0195",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 195,
+      "char_count": 436,
+      "chunk_sha256": "0bad7d09bd4cd19f989d5bb8fa3383f74b62f90baa6a8a1631ea659147aaeac5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "kyogyoshinsho::chunk_0196",
+      "text_id": "kyogyoshinsho",
+      "chunk_index": 196,
+      "char_count": 461,
+      "chunk_sha256": "ed344fe36b90498c9aedfc72d3fba26b64f749bb7aff4b1a4008bb0da01ab459",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0000",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 0,
+      "char_count": 417,
+      "chunk_sha256": "bb7681946ae9ccd3a5fc6306fa72aa22ef5dadb12f68948e77bdf5bfd268785b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0001",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 1,
+      "char_count": 411,
+      "chunk_sha256": "8852a828b73a1564112e3303b20381cbc47478d50df2f259f0ba351326dc62d5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0002",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 2,
+      "char_count": 410,
+      "chunk_sha256": "d229c8a9a6994f75cc3f61a307a9a743fe2536a25bd7d507b0f1870965c681fa",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0003",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 3,
+      "char_count": 449,
+      "chunk_sha256": "c022e56c7682f82a43ab3e3feb84d27810099660bbc4bc2f581a87523c45b99f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0004",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 4,
+      "char_count": 409,
+      "chunk_sha256": "1c98739d80f3d09cb7ef054c900bb89f921516d277b5dab87a321d1f64da63a9",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0005",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 5,
+      "char_count": 394,
+      "chunk_sha256": "8b37ee066584acb01a74730cb82a95bc0469decd3aede00ec14bee4ccae82dc9",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0006",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 6,
+      "char_count": 415,
+      "chunk_sha256": "db7aa17100db57c24d3e26af7dc77c656e6c50d685f95171eab241caecf50fc7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0007",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 7,
+      "char_count": 472,
+      "chunk_sha256": "1e283708f8af8ac156577deafc268238e167af1d0ca397fbadfe480732ae7300",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0008",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 8,
+      "char_count": 462,
+      "chunk_sha256": "9bcf900467292dd83434488b994ca0c5e2f96d51914caab7c010a39a1342f305",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0009",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 9,
+      "char_count": 448,
+      "chunk_sha256": "1e721196c9464aba24d573bc9d29366026b69c42940859c5c033fd51632f4237",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0010",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 10,
+      "char_count": 430,
+      "chunk_sha256": "3bd61813731f9709d28a95409be57c7911eb77e0826431c7351cc081ffc248ec",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0011",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 11,
+      "char_count": 427,
+      "chunk_sha256": "d62669ed633fb81e00b2929f4f2c4d146ad71eda00a0e8addf74008debcb7dc8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_lotus_sutra::chunk_0012",
+      "text_id": "t0262_lotus_sutra",
+      "chunk_index": 12,
+      "char_count": 328,
+      "chunk_sha256": "92ebd4a5d1a213de7255a6ad8f5f2db483e0e09d5a267465cfc9f88ee401cac1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0000",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 0,
+      "char_count": 435,
+      "chunk_sha256": "96a07f3865b29386736e34cf4eca0d424ca40063bdcf30864d57899920afdd98",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0001",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 1,
+      "char_count": 473,
+      "chunk_sha256": "158726620b9fe91c40274cd77a03c7f45c3d00781137a9e19a1b22103762c7d9",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0002",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 2,
+      "char_count": 441,
+      "chunk_sha256": "1bb59dbf0eb97870765e2894c13ebba2ff6bec35856ce27c057281a8db5602af",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0003",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 3,
+      "char_count": 425,
+      "chunk_sha256": "5a3ffd48c9f9425c2934471ffa79c640e022c1f0f116b9d06c79853555c8f114",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0004",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 4,
+      "char_count": 392,
+      "chunk_sha256": "f88cd0905de5cafcd67972ced0fbfd6958748a8dfaee9c354095fd5216289439",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0262_kannon_chapter::chunk_0005",
+      "text_id": "t0262_kannon_chapter",
+      "chunk_index": 5,
+      "char_count": 284,
+      "chunk_sha256": "9382705fe9348c6e3ea74f1f1a7f88b6ce306feb20ec3125333297523aee6568",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0000",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 0,
+      "char_count": 449,
+      "chunk_sha256": "ed6645316ee4bf5b759dc0fb407c3b5cf879dfbbcc29871230083440f4cda024",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0001",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 1,
+      "char_count": 454,
+      "chunk_sha256": "5ad05c3ca396bb57bee8b6a146e86a26dac82263968682c1aa5bde6ac6cfd9fb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0002",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 2,
+      "char_count": 486,
+      "chunk_sha256": "fba957dcfb90a166897f9f35ec0d242fe315367474318bb66fc60351e48d3f68",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0003",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 3,
+      "char_count": 488,
+      "chunk_sha256": "f3b9b82c7171995c822414c2c166a956507f0bd318e3bc577d68c2b5bf96302d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0004",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 4,
+      "char_count": 489,
+      "chunk_sha256": "55f2b869220b116bc3f09fec6a6d48b61b68beca3851ff357866dc649a43aff5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0005",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 5,
+      "char_count": 463,
+      "chunk_sha256": "beebae6624ebbf1e1aa26c72248ef079bd72325ebc051fd2184b9e6c3e11cfee",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0006",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 6,
+      "char_count": 476,
+      "chunk_sha256": "b4c7ff58db4bb5cbf59e596e642ade870edc1f0868030a4059c0bdedd1f5dc7d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0007",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 7,
+      "char_count": 444,
+      "chunk_sha256": "0b4536ca35a61b486c69f7bebd017bb04b7e9d8c7b6203913c95fd65fdd8befc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0008",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 8,
+      "char_count": 448,
+      "chunk_sha256": "362cf1b3c1a15ab16777223ea7afc6f72e94ec43aaad442d53dd648f3cfcd43e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0009",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 9,
+      "char_count": 476,
+      "chunk_sha256": "0469fe73cecc7895dd6140dfaabed34d5c104cd6227203f0d35a487836a5000f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0010",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 10,
+      "char_count": 472,
+      "chunk_sha256": "e460f7766dff2b3e90e969a8f52ebe4e78b7813e57cbf0a65ecf330a0ef6be29",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0011",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 11,
+      "char_count": 483,
+      "chunk_sha256": "68f5057bafc4873e7223833539bca2bc12ca83e1af929021122aa818b0ebbb90",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0012",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 12,
+      "char_count": 470,
+      "chunk_sha256": "4db65608a48738bc511453094f32846e4fc9a3547ec7090cac13e2877328725f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0013",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 13,
+      "char_count": 417,
+      "chunk_sha256": "8cad4cd2a5574e7969127048c0160f28e5dde59c24323bd43a041a4b930f1f06",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0014",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 14,
+      "char_count": 409,
+      "chunk_sha256": "6556fca5c556d9f05cc0a348b4c54939dd34550df30d0157493a2185a4b7d81a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0015",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 15,
+      "char_count": 446,
+      "chunk_sha256": "66c70916086a32e18da9ab14f5bd486c02dfcbe047776656899cc773ec498e4f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0016",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 16,
+      "char_count": 444,
+      "chunk_sha256": "e0d7324b7f94eadbdc61c125bc54a4173e319fc46cb72c384131e4a48f170174",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0017",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 17,
+      "char_count": 436,
+      "chunk_sha256": "d219fa44394386d88d3a4c6136998ed0c2244c7d5c528173628a22cde79080a8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0018",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 18,
+      "char_count": 432,
+      "chunk_sha256": "f7da5d74a304097e2f26f33bc3feb3e8fc0001daa844087a574173a2d0ed0dba",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0019",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 19,
+      "char_count": 455,
+      "chunk_sha256": "2221b16b1185de257090036f32f8a3dac355942898c4ee6fec9c954349d45a9f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0020",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 20,
+      "char_count": 398,
+      "chunk_sha256": "85169c3d255590d3ec97b1d1f094ee38ebe5e73a03c1a7c98fb375e62180f354",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0021",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 21,
+      "char_count": 416,
+      "chunk_sha256": "4ac88222071bd2e25bb85dbab042f7e0c585db0c6b806883f695c4e6fe5885ea",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0022",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 22,
+      "char_count": 421,
+      "chunk_sha256": "6233380f4f203ba608030450c98720ea87ca1403f59a651f3a5402b14f1003a3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0023",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 23,
+      "char_count": 410,
+      "chunk_sha256": "707b0116daf3ea9ab815c738d473e56dba84acf7a3d0989258bef290865467a1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0024",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 24,
+      "char_count": 423,
+      "chunk_sha256": "3f201aebafa515ccbc02ed09e9915f465631e5e3c9440b8c8fa815824da89c01",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0025",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 25,
+      "char_count": 450,
+      "chunk_sha256": "770ddd3613107b1f37f45b18ea482299d017b6fe39154d87e39b844e1f544e7b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0026",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 26,
+      "char_count": 434,
+      "chunk_sha256": "8daedec5608c4efeb7664dc67b24d082b113c7ec07d644c69ea82ca855a61b1f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0848_maha_vairocana::chunk_0027",
+      "text_id": "t0848_maha_vairocana",
+      "chunk_index": 27,
+      "char_count": 426,
+      "chunk_sha256": "ffa83153e6cbc662fba5f1285b7e7fab69bafb08f86caf84103f9355bb5da3e1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0000",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 0,
+      "char_count": 428,
+      "chunk_sha256": "fe453fe49920b8f7913ff1927b1a581a51e08c1abcf164a48149ec5ee502f7ef",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0001",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 1,
+      "char_count": 451,
+      "chunk_sha256": "e7143b57ece2ba3e906f22f9a720ea633bdb90e604ccc934676968ba7eddaea3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0002",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 2,
+      "char_count": 431,
+      "chunk_sha256": "2a682557cb31c26dcf10e60b885c6ad79ac3e203806d66a8b36b3da3737a5599",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0003",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 3,
+      "char_count": 472,
+      "chunk_sha256": "6ac50ffa6a40067d3b8bde3e64c8a245dd66a195335d17b5113f0d706e6898bf",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0004",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 4,
+      "char_count": 468,
+      "chunk_sha256": "9cf3e519d7b026fe56c615d037cff0cf293a03224082df608dbe81beae91b5f1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0005",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 5,
+      "char_count": 458,
+      "chunk_sha256": "e68f7a9593b5a0bd929bf1158325818a88714aa729670bb79b18d088ebda0b87",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0006",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 6,
+      "char_count": 441,
+      "chunk_sha256": "3dbf6a361155ec992b8ade1b5ae0c1caa628d95748dbccb7132e6d92eee24a25",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0007",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 7,
+      "char_count": 437,
+      "chunk_sha256": "ef2236e8da6628350d91267479769c924a6e78e973fcbf6631291b53ddd6d15b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0008",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 8,
+      "char_count": 436,
+      "chunk_sha256": "45434755971b5f643124d5ad09a3758100599122a73478b94cedaf25d5d8877a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0009",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 9,
+      "char_count": 434,
+      "chunk_sha256": "b5c125ba4aeffe4d286a446e4981a6e1e5689c0a77a8024b58f7258d0459a0ae",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0010",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 10,
+      "char_count": 451,
+      "chunk_sha256": "0bf4bae15160d6fd78098c53aa351e4cede32e2e1f0056fdaeefb9493ded4277",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0011",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 11,
+      "char_count": 442,
+      "chunk_sha256": "4829cab521f4c29781ee7c81328f47bca618329545dbe05764aff4af209a6ea6",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0012",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 12,
+      "char_count": 442,
+      "chunk_sha256": "fb5ec26e494a866819f8c505427fdf4d50cb17a281878c046d2b6de6db761984",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0013",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 13,
+      "char_count": 440,
+      "chunk_sha256": "94bd3d17e8186fa1d2856d731b004df3d7bd0a17b94e2259203e2e927d37fe77",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0014",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 14,
+      "char_count": 454,
+      "chunk_sha256": "23ed27c24931e7efcd7abb687ceac84345092c69f70c71d1eecba07a11df907d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0015",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 15,
+      "char_count": 455,
+      "chunk_sha256": "5781b5de2b79dc3c4d313d1d7ba14c069a79a38b52fd2249cd83756f4c93de48",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0016",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 16,
+      "char_count": 439,
+      "chunk_sha256": "4c55a83f38ef2481d24234aa9b27b59536667caf05aad9698070ec029dd3890a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0017",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 17,
+      "char_count": 432,
+      "chunk_sha256": "627933668d946c48ecac905b7ba1bed58eb35e04d769ad6adc90969a86b9171d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0018",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 18,
+      "char_count": 446,
+      "chunk_sha256": "c990b0f9f0db1dfcbfbed7a62ffe101b56e7d2fe5c05d5e9ed1f738c29885c2e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0019",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 19,
+      "char_count": 430,
+      "chunk_sha256": "2b672934983c0d2414f7a38d6e4855b8432f263b2ede0cf7ba5cf830d02e4114",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0020",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 20,
+      "char_count": 442,
+      "chunk_sha256": "0774a5828608a6701228498bb37d54bfb3f084cefe28356016eaa2e490580880",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0865_vajrasekhara::chunk_0021",
+      "text_id": "t0865_vajrasekhara",
+      "chunk_index": 21,
+      "char_count": 354,
+      "chunk_sha256": "f1640a64812e3dec9ccf13c9b615f7704d0facc0e8d45de9e8de34c93904328a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0000",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 0,
+      "char_count": 436,
+      "chunk_sha256": "af333109eee082afe188a5b795c7b0c3b493485f72f6031e6014c565d758525e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0001",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 1,
+      "char_count": 432,
+      "chunk_sha256": "5220d401db7ec059645bf4e025427049e639dd174b4246fc59030fea13bf46bb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0002",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 2,
+      "char_count": 459,
+      "chunk_sha256": "137fffe9c328263896fc19983c9c8e5f55279606bb93b5e89ff688f6afd7e881",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0003",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 3,
+      "char_count": 453,
+      "chunk_sha256": "d4c2f2c95ed172ce0eecdf6106f0d5ec367ce9639652edac0c8b2e28d1327bc4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0004",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 4,
+      "char_count": 452,
+      "chunk_sha256": "b85d3d4112df16a446408953baf40cb954bc28b7b5528ef65fda7818b4f6dd68",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0005",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 5,
+      "char_count": 435,
+      "chunk_sha256": "fd430e201813621f236bd1b140cd7ae8a74f7cb04557eb46d3c3bb20cbfd4074",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0006",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 6,
+      "char_count": 451,
+      "chunk_sha256": "029eb940ec28f61ded5c6b70ecbfcd45ad605046f0daf92fa6520e6e879519f2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0007",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 7,
+      "char_count": 437,
+      "chunk_sha256": "1c69ee38f61e803d979d02338c8e8b3e759604992e0350f87179eb41fbbbd38e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0243_rishu_kyo::chunk_0008",
+      "text_id": "t0243_rishu_kyo",
+      "chunk_index": 8,
+      "char_count": 263,
+      "chunk_sha256": "ae6f2b19bc7b0f5b97284a4f4e1824f9bd2cb9fe6b637adff8c975e70325f7e5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0251_heart_sutra::chunk_0000",
+      "text_id": "t0251_heart_sutra",
+      "chunk_index": 0,
+      "char_count": 519,
+      "chunk_sha256": "5f97fae8518fc87195de0abcb2df6e383863cbfaaec4dae831e68ac55c36fd4e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0251_heart_sutra::chunk_0001",
+      "text_id": "t0251_heart_sutra",
+      "chunk_index": 1,
+      "char_count": 471,
+      "chunk_sha256": "c9ab3c4fb6d619901740252765726b66fd3460b47dda512d115d499962f97cc1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0251_heart_sutra::chunk_0002",
+      "text_id": "t0251_heart_sutra",
+      "chunk_index": 2,
+      "char_count": 455,
+      "chunk_sha256": "cf921b7a953d03443a1b9af8ce86df7eb4346b4762dfb1a57a6933cd79a8caf7",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0000",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 0,
+      "char_count": 465,
+      "chunk_sha256": "a2176ee1540ac30f5f30a76cfa6c76430bd457477b3ec94d40241f7413d7466b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0001",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 1,
+      "char_count": 429,
+      "chunk_sha256": "1bd6e7272a1ab2cc58cad418cdc6333c198e838212852a7ac89748fc746522f2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0002",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 2,
+      "char_count": 482,
+      "chunk_sha256": "48cb23a072d60dc5ba49e42dbb0a34db9f3fe62ceff87dc0c85a4227c7e1d837",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0003",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 3,
+      "char_count": 441,
+      "chunk_sha256": "f8faa355d0fd9483cca9bfa03ae3a802a064b624ffabbca0997a442443787559",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0004",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 4,
+      "char_count": 455,
+      "chunk_sha256": "829281e51efeea5721e2cfa7e9cbf417f0addc1ea07859d0213770142af5e929",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0005",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 5,
+      "char_count": 455,
+      "chunk_sha256": "b1cb2e153c43fac100e10b7621f5a549b59a991ef560d01d3a58c0eff6ff2bc8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0006",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 6,
+      "char_count": 479,
+      "chunk_sha256": "9bed4f162b215da7b381bc83191f28408db8b07b322f32faab58c744e113ad31",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0007",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 7,
+      "char_count": 462,
+      "chunk_sha256": "44cb8305ea4b944f54ba4a70923cf09b232f1b64ecc6f5895c22ce13543fe7ab",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0008",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 8,
+      "char_count": 442,
+      "chunk_sha256": "587260e7cb8d2c04b22da66d1902294968cc08023f6dc31b96b344d14272a021",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0009",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 9,
+      "char_count": 463,
+      "chunk_sha256": "f3a5340826c922163624dd5701d4de16c36ec2edd09b964285d62bbd3d622f65",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0010",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 10,
+      "char_count": 481,
+      "chunk_sha256": "ad05ebc4ee430d8c37369dbd9a73a08a47b7910fb4feb891c896949f52964ce0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0011",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 11,
+      "char_count": 450,
+      "chunk_sha256": "1cc224445ec3cda843f2345f74925ea570f696323353cb3a6ed36b71b78d4bab",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0012",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 12,
+      "char_count": 468,
+      "chunk_sha256": "a998c1fef74ea0fa3b30ad256c80b027eef89dd1b569d01d9bb6468d584332d5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0013",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 13,
+      "char_count": 461,
+      "chunk_sha256": "39280c15131de243f9b82f2d567b9ea687708191f17eb5a33b55716f1ccb550e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0014",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 14,
+      "char_count": 453,
+      "chunk_sha256": "a1e62c18d9dc95b526d0d01e2c1361f05236ee344b0d9437529a107b8cbf1b4f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0015",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 15,
+      "char_count": 451,
+      "chunk_sha256": "68d885adba7be7701400417a0ee285c85cdc53879b17cafaf1c0e0b0253c16c2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0016",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 16,
+      "char_count": 466,
+      "chunk_sha256": "729788a45d0c7e5d764cbb82ee14ffd53b052a3d3fded7eb35bc91dd651b4aa8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0676_samdhinirmocana::chunk_0017",
+      "text_id": "t0676_samdhinirmocana",
+      "chunk_index": 17,
+      "char_count": 408,
+      "chunk_sha256": "e8072b922dd5dea45ab67364a00bc04b1e59862de6a08fbbf53b77b23f653959",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0000",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 0,
+      "char_count": 455,
+      "chunk_sha256": "dd7b9e5cfefde23bb6bd1e429d5e72ba87fab609ec47c77e12f51a2a308c7c2f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0001",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 1,
+      "char_count": 494,
+      "chunk_sha256": "f5e35894d3bcc4a73dddd6d4d201f5993199fca338eecbb268b0eb8b06b6444a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0002",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 2,
+      "char_count": 491,
+      "chunk_sha256": "7ab0b5aedb1271359e93546dad57d8146806e716abcefd19df54c0768ebbde4c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0003",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 3,
+      "char_count": 474,
+      "chunk_sha256": "dd55eec95bfacff8f4eca11ece7652c2e1bacdc325290c455ca7298610ee046b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0004",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 4,
+      "char_count": 475,
+      "chunk_sha256": "9950efce40f12e48337cdd7e52995e322661355b831216aa3529d8317e8c12c1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0005",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 5,
+      "char_count": 493,
+      "chunk_sha256": "7f630083929b1251d4e0640674d2f2773dbf8e6e39e9189f44005fd09aae97b0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0006",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 6,
+      "char_count": 471,
+      "chunk_sha256": "f2026acf4ccb7ff67eb33af5c17ab74717107a51976b92c92709045c2a9c1daf",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0007",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 7,
+      "char_count": 459,
+      "chunk_sha256": "6744358b6a0e80dd986435563f49681f17adc5d006edd5fe6240a1eb445e3efc",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0008",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 8,
+      "char_count": 467,
+      "chunk_sha256": "45c45a3703a0f8a47399cc58e10a0e7da22d8dcb6b07d4453bed42e14b745119",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0009",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 9,
+      "char_count": 475,
+      "chunk_sha256": "60e83c91582d3161e64c1778f5b6556e60efdc2df6f376d975e4b8dadf88654f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0010",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 10,
+      "char_count": 503,
+      "chunk_sha256": "928b9501a950ddf19c2d3b7015f5327050e48385d28975622c6aaf2f427bffa2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0011",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 11,
+      "char_count": 493,
+      "chunk_sha256": "76999d22d33fa681b213add8e23d9ccb8b2d23b63cda2138954e7d039b536f4d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0012",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 12,
+      "char_count": 476,
+      "chunk_sha256": "d9b526401a1f5ab401b6b6b9c4176ee64a21d42640bfc4e0d7033b0400a9fcfd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0013",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 13,
+      "char_count": 499,
+      "chunk_sha256": "693f5f7ee4b342931b524196fa0a254d5e9f318f2e7267cc947de0a3d565b734",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0235_diamond_sutra::chunk_0014",
+      "text_id": "t0235_diamond_sutra",
+      "chunk_index": 14,
+      "char_count": 149,
+      "chunk_sha256": "fb7125c721d87f12d07b8102d7bcaedbd9f618f8c402f2a3ff353c8fc41eec2b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0000",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 0,
+      "char_count": 467,
+      "chunk_sha256": "f447682436af97767ead21ce228f7ed406ff02904d7fb4aa7c4c040a66b3f825",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0001",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 1,
+      "char_count": 397,
+      "chunk_sha256": "ad8ed2fbdac511bbc986baa25eeb653c4edeb743adedce43088e298f1605d502",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0002",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 2,
+      "char_count": 420,
+      "chunk_sha256": "fbfbd8f97096db0865afa55027e3003c7830860d92a782a89d9948f640c32ecd",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0003",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 3,
+      "char_count": 450,
+      "chunk_sha256": "a85ac2589362df88c2ad7a9b28e4f21b77a6101ea4f7294cdd04b1750524de4e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0004",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 4,
+      "char_count": 447,
+      "chunk_sha256": "c14a58b42263f1102866377b30f62c68a7a7e0dc9ea483d11a800c5154f1815d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0005",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 5,
+      "char_count": 443,
+      "chunk_sha256": "ea1c2b5422bcdfc1abee084e3b4baee527710c8e686195de05da7164c0bd4c97",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0006",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 6,
+      "char_count": 456,
+      "chunk_sha256": "a0dc7afa4964bac4ababcd01d382522718b553b272c6c34c9af11c763047dbb8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0007",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 7,
+      "char_count": 447,
+      "chunk_sha256": "1ac9cabc5a2307190ebf02de7d883f959703e297065f01e4901838a61aabcb2e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0008",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 8,
+      "char_count": 424,
+      "chunk_sha256": "b2f432fe7c65c2d89171aaae8773ecb3e96a5260a31df1f6b23fc448c0c1d831",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0009",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 9,
+      "char_count": 451,
+      "chunk_sha256": "d5f8ff48b33c7d2503e0efc44ce0ade00c6bab7d36948778378a023da81b4358",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0010",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 10,
+      "char_count": 466,
+      "chunk_sha256": "009ce710c98251c77925f147baed8d9b90002f01a1a528e430c99900b2fbd443",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0011",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 11,
+      "char_count": 455,
+      "chunk_sha256": "afe1908fbf76daa62f720eda8f42b69c76439d5195f76bd6b2fb7b379e0cc7af",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0012",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 12,
+      "char_count": 467,
+      "chunk_sha256": "fb6b27a208787e8be895d8505506d286c4a621bc1e6e7445cb93eb5d0ddacf13",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0013",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 13,
+      "char_count": 455,
+      "chunk_sha256": "4235f418bb5c641034cb015eb87f0c4f2012a3ca7b85469b1e5e1141d961977f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0014",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 14,
+      "char_count": 458,
+      "chunk_sha256": "58f0b827e0347b760a86ecdabfc367981914200ead1ad78527c82220b1bccf1c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0015",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 15,
+      "char_count": 469,
+      "chunk_sha256": "70c60fdce0b0f5f64aba98a8c5678cd438c65cc651e6cabee882640d6a119db2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0016",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 16,
+      "char_count": 454,
+      "chunk_sha256": "a29e01d36a89b4b7dd9de7ba5f9415e689ef242cd633614c8880d1d4f2b084ff",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0017",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 17,
+      "char_count": 458,
+      "chunk_sha256": "482335ad7d458522faf9c9ae0850faa7c68fc48bf20b10982937358bb1274089",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0018",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 18,
+      "char_count": 476,
+      "chunk_sha256": "4021cb933ed4775616b9b0efc1b2becfef01024ba4361f65cd337530ce210b7e",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0019",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 19,
+      "char_count": 445,
+      "chunk_sha256": "5c4118d284672556de48f7a373b9cf10312f90f4693d585e776d7fffaf7ac5df",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0020",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 20,
+      "char_count": 439,
+      "chunk_sha256": "69ef91960e701805751dab61d218efba879320e7d6c431fb19c714124003276b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0021",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 21,
+      "char_count": 481,
+      "chunk_sha256": "26710394a187ce6b66c443a7e24ce071432f824e5d45ca853daeca99de80619d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0022",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 22,
+      "char_count": 474,
+      "chunk_sha256": "e1d290ffe01ef46a2e7d572e3e45378155b34991d46d0c50183269ab5a6bdeb5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0023",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 23,
+      "char_count": 466,
+      "chunk_sha256": "3cc1a0dfe2fdb71754e409229ecbbc8ea2357ad55dfe590476a7650bf4e2d008",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0024",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 24,
+      "char_count": 438,
+      "chunk_sha256": "1d07beede37bb5a04cc24fdd1cd502d7ce8e3423355db91d2961f8ea3f33a4f5",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0025",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 25,
+      "char_count": 426,
+      "chunk_sha256": "c40bfd158603782a5d75747796f87d8caa14436e67fba9c43553261f2451d6bb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0026",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 26,
+      "char_count": 454,
+      "chunk_sha256": "bea31b0311635e07ebedfe238baed0d062a854448b44bfa6bbc2b513da30399a",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0027",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 27,
+      "char_count": 477,
+      "chunk_sha256": "ac65ccd4d76438064fb83e39acc945cdf257faf6b41e39361ccb96b81c02ee7c",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0028",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 28,
+      "char_count": 437,
+      "chunk_sha256": "bf99c7cf3d1ffed51addd613577e2f69845e1a2293de0a01e33cb9b178c43e62",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0029",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 29,
+      "char_count": 468,
+      "chunk_sha256": "5ed2332c626ed1abfd3de256d6e7a48b062eb32a0dc30443d84caec8e27223bb",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0030",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 30,
+      "char_count": 453,
+      "chunk_sha256": "255d7abfc962b6ab62bd293b20247eddaa204843b3850609b3eb2d9559868128",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0475_vimalakirti::chunk_0031",
+      "text_id": "t0475_vimalakirti",
+      "chunk_index": 31,
+      "char_count": 128,
+      "chunk_sha256": "a0a18675a016f2e905986dc1d70ddff54e01cf3c1d5aa2a9756d5cba5e540cf3",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0000",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 0,
+      "char_count": 468,
+      "chunk_sha256": "56783a418a75df912d610861f2685c224fe812ae2ff9cfc5ebfac47aef92e996",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0001",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 1,
+      "char_count": 449,
+      "chunk_sha256": "b4bbf9356a5a4941b0f7c13ba32ff8887deae37f781c358491625ccf24b2bdd2",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0002",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 2,
+      "char_count": 433,
+      "chunk_sha256": "cd9908368fe57b221bfd3befb52653afbdf1bc5fe269ebc8cff1f1571cdef4e1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0003",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 3,
+      "char_count": 443,
+      "chunk_sha256": "92ff395b5174323aa5f356840cd5719455a2199c665616e09cb4d1a4ff5b44e8",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0004",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 4,
+      "char_count": 399,
+      "chunk_sha256": "efe15cc05ca516e5ea071219ee1333c124b2723707cbb053ab37f29d33887b89",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0005",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 5,
+      "char_count": 437,
+      "chunk_sha256": "e43b766bc1548fd5094a48aa49d521f1537f51a16999adf1660261618f27ebc0",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0006",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 6,
+      "char_count": 435,
+      "chunk_sha256": "9c2914753a3bf435e62f1e2317d5fc70f8efb1cee9634599a030de5d29db8736",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0007",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 7,
+      "char_count": 438,
+      "chunk_sha256": "3a05d6e5310129ccf0592e58a5aad607410812023293bd4698f8ff5ccebd0600",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0008",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 8,
+      "char_count": 445,
+      "chunk_sha256": "4aaaa792042e2652245f852974e2c535d582d6992326aa74d9a17acfb881c455",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0009",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 9,
+      "char_count": 439,
+      "chunk_sha256": "1ff7e7acbe21c6f1e7068f89ca3cc4bfcb1c2e320a498cab56035a50899a367b",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0010",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 10,
+      "char_count": 454,
+      "chunk_sha256": "4cb2480f2fd970b3c5d96a602789064717f6f546ad22aa63234133e14ddcbf49",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0011",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 11,
+      "char_count": 455,
+      "chunk_sha256": "eb2ad3d0eb0fb66e474b64030bba262a2d8730ab10b4028d62bc64bf617fca84",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0012",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 12,
+      "char_count": 406,
+      "chunk_sha256": "d8e887d1c7ee437c9c476688cdc87b0a8310eae481e5d18c3211abbfcd361994",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0013",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 13,
+      "char_count": 395,
+      "chunk_sha256": "a193c43e917ab8f7f6735d5f7e6f1f0e9dcba68fb042971f0e7a9f9708019a0f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0014",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 14,
+      "char_count": 399,
+      "chunk_sha256": "12a2bcb53cc39eb2b83ab19d13bd339a80c9173bf89e21c1ad13d69353f7a05d",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0015",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 15,
+      "char_count": 451,
+      "chunk_sha256": "6d2041c844839fba5dd046f5fd68cf9c1942f6cfe8044066aeb93fcf1159c0c4",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0016",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 16,
+      "char_count": 449,
+      "chunk_sha256": "65ad90b080567e7130ce0df318512b54dfb629bb845597e14f08c09d235e8c67",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0017",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 17,
+      "char_count": 453,
+      "chunk_sha256": "fd301f6fe1f816daefea2f39e81000bbf4a9ca7fb68fcf8ad26af343fb1b8f3f",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0018",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 18,
+      "char_count": 454,
+      "chunk_sha256": "d7951e3e61f7ac13aad71161948b728cdb47f99d7b59c1de6f22cf46184f25ae",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0019",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 19,
+      "char_count": 458,
+      "chunk_sha256": "d6bfcc7461873395feb4e7559e59c3bf8d3f9bb951c82056f5c56c975db03c61",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    },
+    {
+      "chunk_id": "t0279_flower_garland::chunk_0020",
+      "text_id": "t0279_flower_garland",
+      "chunk_index": 20,
+      "char_count": 241,
+      "chunk_sha256": "8068e27f9b28c09bae9f3b87f26f330aaaebf6861a5c6ee6e8cc010caa5ae1c1",
+      "preview": "Preview omitted from the public GitHub Pages data."
+    }
+  ],
+  "sect_centroids": [
+    {
+      "id": "sect::天台宗",
+      "title": "天台宗",
+      "sects": [
+        "天台宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0262_lotus_sutra"
+      ],
+      "x": -0.1608,
+      "y": 0.0049
+    },
+    {
+      "id": "sect::日蓮宗",
+      "title": "日蓮宗",
+      "sects": [
+        "日蓮宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0262_lotus_sutra"
+      ],
+      "x": -0.1608,
+      "y": 0.0049
+    },
+    {
+      "id": "sect::時宗",
+      "title": "時宗",
+      "sects": [
+        "時宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0360_larger_sukhavati",
+        "t0365_meditation_sutra",
+        "t0366_amida_sutra"
+      ],
+      "x": -0.1579,
+      "y": 0.1299
+    },
+    {
+      "id": "sect::曹洞宗",
+      "title": "曹洞宗",
+      "sects": [
+        "曹洞宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0235_diamond_sutra",
+        "t0475_vimalakirti"
+      ],
+      "x": 0.1527,
+      "y": 0.1082
+    },
+    {
+      "id": "sect::法相宗",
+      "title": "法相宗",
+      "sects": [
+        "法相宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0676_samdhinirmocana"
+      ],
+      "x": 0.2496,
+      "y": 0.0102
+    },
+    {
+      "id": "sect::浄土宗",
+      "title": "浄土宗",
+      "sects": [
+        "浄土宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0360_larger_sukhavati",
+        "t0365_meditation_sutra",
+        "t0366_amida_sutra"
+      ],
+      "x": -0.1579,
+      "y": 0.1299
+    },
+    {
+      "id": "sect::浄土真宗",
+      "title": "浄土真宗",
+      "sects": [
+        "浄土真宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0360_larger_sukhavati",
+        "t0365_meditation_sutra",
+        "t0366_amida_sutra",
+        "kyogyoshinsho"
+      ],
+      "x": -0.1022,
+      "y": 0.1108
+    },
+    {
+      "id": "sect::真言宗",
+      "title": "真言宗",
+      "sects": [
+        "真言宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0848_maha_vairocana",
+        "t0865_vajrasekhara"
+      ],
+      "x": 0.0195,
+      "y": -0.2341
+    },
+    {
+      "id": "sect::臨済宗",
+      "title": "臨済宗",
+      "sects": [
+        "臨済宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0235_diamond_sutra",
+        "t0475_vimalakirti"
+      ],
+      "x": 0.1527,
+      "y": 0.1082
+    },
+    {
+      "id": "sect::華厳宗",
+      "title": "華厳宗",
+      "sects": [
+        "華厳宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0279_flower_garland"
+      ],
+      "x": -0.2283,
+      "y": -0.1992
+    },
+    {
+      "id": "sect::黄檗宗",
+      "title": "黄檗宗",
+      "sects": [
+        "黄檗宗"
+      ],
+      "layer": "sect_centroid",
+      "member_text_ids": [
+        "t0235_diamond_sutra",
+        "t0475_vimalakirti"
+      ],
+      "x": 0.1527,
+      "y": 0.1082
+    }
+  ],
+  "translator_centroids": [
+    {
+      "id": "translator::不空",
+      "title": "不空",
+      "sects": [
+        "訳者"
+      ],
+      "layer": "translator_centroid",
+      "member_text_ids": [
+        "t0865_vajrasekhara",
+        "t0243_rishu_kyo"
+      ],
+      "x": 0.0579,
+      "y": -0.2895
+    },
+    {
+      "id": "translator::玄奘",
+      "title": "玄奘",
+      "sects": [
+        "訳者"
+      ],
+      "layer": "translator_centroid",
+      "member_text_ids": [
+        "t0367_praise_pure_land",
+        "t0251_heart_sutra",
+        "t0676_samdhinirmocana"
+      ],
+      "x": 0.1289,
+      "y": 0.024
+    },
+    {
+      "id": "translator::鳩摩羅什",
+      "title": "鳩摩羅什",
+      "sects": [
+        "訳者"
+      ],
+      "layer": "translator_centroid",
+      "member_text_ids": [
+        "t0366_amida_sutra",
+        "t0262_lotus_sutra",
+        "t0262_kannon_chapter",
+        "t0235_diamond_sutra",
+        "t0475_vimalakirti"
+      ],
+      "x": -0.0128,
+      "y": 0.0969
+    }
+  ],
+  "similarities": {
+    "labels": [
+      "t0360_larger_sukhavati",
+      "t0365_meditation_sutra",
+      "t0366_amida_sutra",
+      "t0367_praise_pure_land",
+      "kyogyoshinsho",
+      "t0262_lotus_sutra",
+      "t0262_kannon_chapter",
+      "t0848_maha_vairocana",
+      "t0865_vajrasekhara",
+      "t0243_rishu_kyo",
+      "t0251_heart_sutra",
+      "t0676_samdhinirmocana",
+      "t0235_diamond_sutra",
+      "t0475_vimalakirti",
+      "t0279_flower_garland"
+    ],
+    "matrix": [
+      [
+        1.0,
+        0.9102,
+        0.8694,
+        0.8798,
+        0.8797,
+        0.9111,
+        0.7878,
+        0.844,
+        0.7849,
+        0.7668,
+        0.6914,
+        0.7838,
+        0.8264,
+        0.8683,
+        0.8221
+      ],
+      [
+        0.9102,
+        1.0,
+        0.8446,
+        0.8412,
+        0.8375,
+        0.874,
+        0.823,
+        0.8205,
+        0.7445,
+        0.7437,
+        0.6757,
+        0.7556,
+        0.7891,
+        0.8462,
+        0.7635
+      ],
+      [
+        0.8694,
+        0.8446,
+        1.0,
+        0.8825,
+        0.8058,
+        0.8275,
+        0.7106,
+        0.7482,
+        0.6922,
+        0.6816,
+        0.6108,
+        0.6874,
+        0.7594,
+        0.7938,
+        0.7029
+      ],
+      [
+        0.8798,
+        0.8412,
+        0.8825,
+        1.0,
+        0.8152,
+        0.8469,
+        0.7334,
+        0.7862,
+        0.7574,
+        0.7392,
+        0.6287,
+        0.7331,
+        0.7647,
+        0.794,
+        0.7718
+      ],
+      [
+        0.8797,
+        0.8375,
+        0.8058,
+        0.8152,
+        1.0,
+        0.8573,
+        0.8005,
+        0.8874,
+        0.7603,
+        0.7933,
+        0.7683,
+        0.8548,
+        0.8625,
+        0.8982,
+        0.7598
+      ],
+      [
+        0.9111,
+        0.874,
+        0.8275,
+        0.8469,
+        0.8573,
+        1.0,
+        0.7828,
+        0.8488,
+        0.8033,
+        0.7696,
+        0.6961,
+        0.7591,
+        0.8023,
+        0.8677,
+        0.8293
+      ],
+      [
+        0.7878,
+        0.823,
+        0.7106,
+        0.7334,
+        0.8005,
+        0.7828,
+        1.0,
+        0.7852,
+        0.6874,
+        0.7466,
+        0.6614,
+        0.6996,
+        0.7706,
+        0.8073,
+        0.7014
+      ],
+      [
+        0.844,
+        0.8205,
+        0.7482,
+        0.7862,
+        0.8874,
+        0.8488,
+        0.7852,
+        1.0,
+        0.8323,
+        0.8512,
+        0.7511,
+        0.8478,
+        0.812,
+        0.857,
+        0.7886
+      ],
+      [
+        0.7849,
+        0.7445,
+        0.6922,
+        0.7574,
+        0.7603,
+        0.8033,
+        0.6874,
+        0.8323,
+        1.0,
+        0.8405,
+        0.6289,
+        0.7053,
+        0.7371,
+        0.7717,
+        0.7564
+      ],
+      [
+        0.7668,
+        0.7437,
+        0.6816,
+        0.7392,
+        0.7933,
+        0.7696,
+        0.7466,
+        0.8512,
+        0.8405,
+        1.0,
+        0.7289,
+        0.7751,
+        0.7799,
+        0.7996,
+        0.7007
+      ],
+      [
+        0.6914,
+        0.6757,
+        0.6108,
+        0.6287,
+        0.7683,
+        0.6961,
+        0.6614,
+        0.7511,
+        0.6289,
+        0.7289,
+        1.0,
+        0.7572,
+        0.7622,
+        0.7643,
+        0.6176
+      ],
+      [
+        0.7838,
+        0.7556,
+        0.6874,
+        0.7331,
+        0.8548,
+        0.7591,
+        0.6996,
+        0.8478,
+        0.7053,
+        0.7751,
+        0.7572,
+        1.0,
+        0.8308,
+        0.837,
+        0.68
+      ],
+      [
+        0.8264,
+        0.7891,
+        0.7594,
+        0.7647,
+        0.8625,
+        0.8023,
+        0.7706,
+        0.812,
+        0.7371,
+        0.7799,
+        0.7622,
+        0.8308,
+        1.0,
+        0.877,
+        0.6742
+      ],
+      [
+        0.8683,
+        0.8462,
+        0.7938,
+        0.794,
+        0.8982,
+        0.8677,
+        0.8073,
+        0.857,
+        0.7717,
+        0.7996,
+        0.7643,
+        0.837,
+        0.877,
+        1.0,
+        0.7176
+      ],
+      [
+        0.8221,
+        0.7635,
+        0.7029,
+        0.7718,
+        0.7598,
+        0.8293,
+        0.7014,
+        0.7886,
+        0.7564,
+        0.7007,
+        0.6176,
+        0.68,
+        0.6742,
+        0.7176,
+        1.0
+      ]
+    ]
+  },
+  "nearest_texts": {
+    "t0360_larger_sukhavati": [
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.9111
+      },
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.9102
+      },
+      {
+        "id": "t0367_praise_pure_land",
+        "title": "稱讃淨土佛攝受經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "variant_translation",
+        "score": 0.8798
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8797
+      },
+      {
+        "id": "t0366_amida_sutra",
+        "title": "佛説阿彌陀經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8694
+      }
+    ],
+    "t0365_meditation_sutra": [
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.9102
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.874
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8462
+      },
+      {
+        "id": "t0366_amida_sutra",
+        "title": "佛説阿彌陀經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8446
+      },
+      {
+        "id": "t0367_praise_pure_land",
+        "title": "稱讃淨土佛攝受經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "variant_translation",
+        "score": 0.8412
+      }
+    ],
+    "t0366_amida_sutra": [
+      {
+        "id": "t0367_praise_pure_land",
+        "title": "稱讃淨土佛攝受經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "variant_translation",
+        "score": 0.8825
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8694
+      },
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8446
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8275
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8058
+      }
+    ],
+    "t0367_praise_pure_land": [
+      {
+        "id": "t0366_amida_sutra",
+        "title": "佛説阿彌陀經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8825
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8798
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8469
+      },
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8412
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8152
+      }
+    ],
+    "kyogyoshinsho": [
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8982
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8874
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8797
+      },
+      {
+        "id": "t0235_diamond_sutra",
+        "title": "金剛般若波羅蜜經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8625
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8573
+      }
+    ],
+    "t0262_lotus_sutra": [
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.9111
+      },
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.874
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8677
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8573
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8488
+      }
+    ],
+    "t0262_kannon_chapter": [
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.823
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8073
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8005
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7878
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7852
+      }
+    ],
+    "t0848_maha_vairocana": [
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8874
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.857
+      },
+      {
+        "id": "t0243_rishu_kyo",
+        "title": "大樂金剛不空眞實三麼耶經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "chanting_sutra",
+        "score": 0.8512
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8488
+      },
+      {
+        "id": "t0676_samdhinirmocana",
+        "title": "解深密經",
+        "sects": [
+          "法相宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8478
+      }
+    ],
+    "t0865_vajrasekhara": [
+      {
+        "id": "t0243_rishu_kyo",
+        "title": "大樂金剛不空眞實三麼耶經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "chanting_sutra",
+        "score": 0.8405
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8323
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8033
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7849
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7717
+      }
+    ],
+    "t0243_rishu_kyo": [
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8512
+      },
+      {
+        "id": "t0865_vajrasekhara",
+        "title": "金剛頂一切如來眞實攝大乘現證大教王經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8405
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7996
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.7933
+      },
+      {
+        "id": "t0235_diamond_sutra",
+        "title": "金剛般若波羅蜜經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7799
+      }
+    ],
+    "t0251_heart_sutra": [
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.7683
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7643
+      },
+      {
+        "id": "t0235_diamond_sutra",
+        "title": "金剛般若波羅蜜經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7622
+      },
+      {
+        "id": "t0676_samdhinirmocana",
+        "title": "解深密經",
+        "sects": [
+          "法相宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7572
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7511
+      }
+    ],
+    "t0676_samdhinirmocana": [
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8548
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8478
+      },
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.837
+      },
+      {
+        "id": "t0235_diamond_sutra",
+        "title": "金剛般若波羅蜜經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8308
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7838
+      }
+    ],
+    "t0235_diamond_sutra": [
+      {
+        "id": "t0475_vimalakirti",
+        "title": "維摩詰所説經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.877
+      },
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8625
+      },
+      {
+        "id": "t0676_samdhinirmocana",
+        "title": "解深密經",
+        "sects": [
+          "法相宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8308
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8264
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.812
+      }
+    ],
+    "t0475_vimalakirti": [
+      {
+        "id": "kyogyoshinsho",
+        "title": "顯淨土眞實教行證文類",
+        "sects": [
+          "浄土真宗"
+        ],
+        "layer": "founder_text",
+        "score": 0.8982
+      },
+      {
+        "id": "t0235_diamond_sutra",
+        "title": "金剛般若波羅蜜經",
+        "sects": [
+          "臨済宗",
+          "黄檗宗",
+          "曹洞宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.877
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8683
+      },
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8677
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.857
+      }
+    ],
+    "t0279_flower_garland": [
+      {
+        "id": "t0262_lotus_sutra",
+        "title": "妙法蓮華經",
+        "sects": [
+          "天台宗",
+          "日蓮宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8293
+      },
+      {
+        "id": "t0360_larger_sukhavati",
+        "title": "佛説無量壽經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.8221
+      },
+      {
+        "id": "t0848_maha_vairocana",
+        "title": "大毘盧遮那成佛神變加持經",
+        "sects": [
+          "真言宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7886
+      },
+      {
+        "id": "t0367_praise_pure_land",
+        "title": "稱讃淨土佛攝受經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "variant_translation",
+        "score": 0.7718
+      },
+      {
+        "id": "t0365_meditation_sutra",
+        "title": "佛説觀無量壽佛經",
+        "sects": [
+          "浄土宗",
+          "浄土真宗",
+          "時宗"
+        ],
+        "layer": "core_sutra",
+        "score": 0.7635
+      }
+    ]
+  },
+  "nearest_chunks": {
+    "t0360_larger_sukhavati": [
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0008",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 8,
+        "score": 0.8168,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0011",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 11,
+        "score": 0.8101,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0004",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 4,
+        "score": 0.7977,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0279_flower_garland::chunk_0002",
+        "text_id": "t0279_flower_garland",
+        "chunk_index": 2,
+        "score": 0.7962,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0135",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 135,
+        "score": 0.7947,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0365_meditation_sutra": [
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0011",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 11,
+        "score": 0.7702,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0279_flower_garland::chunk_0002",
+        "text_id": "t0279_flower_garland",
+        "chunk_index": 2,
+        "score": 0.7626,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0136",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 136,
+        "score": 0.7618,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0360_larger_sukhavati::chunk_0003",
+        "text_id": "t0360_larger_sukhavati",
+        "chunk_index": 3,
+        "score": 0.7597,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0360_larger_sukhavati::chunk_0023",
+        "text_id": "t0360_larger_sukhavati",
+        "chunk_index": 23,
+        "score": 0.7569,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0366_amida_sutra": [
+      {
+        "chunk_id": "t0367_praise_pure_land::chunk_0005",
+        "text_id": "t0367_praise_pure_land",
+        "chunk_index": 5,
+        "score": 0.777,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0367_praise_pure_land::chunk_0009",
+        "text_id": "t0367_praise_pure_land",
+        "chunk_index": 9,
+        "score": 0.7688,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0008",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 8,
+        "score": 0.7604,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0004",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 4,
+        "score": 0.7594,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0367_praise_pure_land::chunk_0006",
+        "text_id": "t0367_praise_pure_land",
+        "chunk_index": 6,
+        "score": 0.756,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0367_praise_pure_land": [
+      {
+        "chunk_id": "t0366_amida_sutra::chunk_0003",
+        "text_id": "t0366_amida_sutra",
+        "chunk_index": 3,
+        "score": 0.7907,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0000",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 0,
+        "score": 0.7821,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0366_amida_sutra::chunk_0002",
+        "text_id": "t0366_amida_sutra",
+        "chunk_index": 2,
+        "score": 0.778,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0366_amida_sutra::chunk_0005",
+        "text_id": "t0366_amida_sutra",
+        "chunk_index": 5,
+        "score": 0.7724,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0008",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 8,
+        "score": 0.7711,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "kyogyoshinsho": [
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7938,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0013",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 13,
+        "score": 0.7813,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0010",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 10,
+        "score": 0.7773,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0011",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 11,
+        "score": 0.7734,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0006",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 6,
+        "score": 0.7722,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0262_lotus_sutra": [
+      {
+        "chunk_id": "t0360_larger_sukhavati::chunk_0003",
+        "text_id": "t0360_larger_sukhavati",
+        "chunk_index": 3,
+        "score": 0.8185,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0279_flower_garland::chunk_0002",
+        "text_id": "t0279_flower_garland",
+        "chunk_index": 2,
+        "score": 0.7918,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0475_vimalakirti::chunk_0002",
+        "text_id": "t0475_vimalakirti",
+        "chunk_index": 2,
+        "score": 0.7892,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0360_larger_sukhavati::chunk_0005",
+        "text_id": "t0360_larger_sukhavati",
+        "chunk_index": 5,
+        "score": 0.7859,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7855,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0262_kannon_chapter": [
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0022",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 22,
+        "score": 0.7465,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0018",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 18,
+        "score": 0.7388,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0008",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 8,
+        "score": 0.7281,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0365_meditation_sutra::chunk_0015",
+        "text_id": "t0365_meditation_sutra",
+        "chunk_index": 15,
+        "score": 0.7279,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0010",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 10,
+        "score": 0.7241,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0848_maha_vairocana": [
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.8303,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0360_larger_sukhavati::chunk_0003",
+        "text_id": "t0360_larger_sukhavati",
+        "chunk_index": 3,
+        "score": 0.8006,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0019",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 19,
+        "score": 0.7839,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0033",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 33,
+        "score": 0.776,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0011",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 11,
+        "score": 0.7755,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0865_vajrasekhara": [
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0026",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 26,
+        "score": 0.769,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0279_flower_garland::chunk_0005",
+        "text_id": "t0279_flower_garland",
+        "chunk_index": 5,
+        "score": 0.7628,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0243_rishu_kyo::chunk_0006",
+        "text_id": "t0243_rishu_kyo",
+        "chunk_index": 6,
+        "score": 0.7595,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0243_rishu_kyo::chunk_0000",
+        "text_id": "t0243_rishu_kyo",
+        "chunk_index": 0,
+        "score": 0.7512,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0000",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 0,
+        "score": 0.7508,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0243_rishu_kyo": [
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0006",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 6,
+        "score": 0.7883,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7846,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0026",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 26,
+        "score": 0.7763,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0010",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 10,
+        "score": 0.7552,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0019",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 19,
+        "score": 0.7549,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0251_heart_sutra": [
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0004",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 4,
+        "score": 0.7312,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0013",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 13,
+        "score": 0.6965,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0005",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 5,
+        "score": 0.6937,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0279_flower_garland::chunk_0000",
+        "text_id": "t0279_flower_garland",
+        "chunk_index": 0,
+        "score": 0.6883,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0006",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 6,
+        "score": 0.6842,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0676_samdhinirmocana": [
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0033",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 33,
+        "score": 0.8029,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0010",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 10,
+        "score": 0.7897,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0032",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 32,
+        "score": 0.769,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0848_maha_vairocana::chunk_0002",
+        "text_id": "t0848_maha_vairocana",
+        "chunk_index": 2,
+        "score": 0.7669,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0005",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 5,
+        "score": 0.764,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0235_diamond_sutra": [
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7852,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0087",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 87,
+        "score": 0.7815,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0033",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 33,
+        "score": 0.76,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0475_vimalakirti::chunk_0022",
+        "text_id": "t0475_vimalakirti",
+        "chunk_index": 22,
+        "score": 0.7559,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0251_heart_sutra::chunk_0002",
+        "text_id": "t0251_heart_sutra",
+        "chunk_index": 2,
+        "score": 0.7548,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0475_vimalakirti": [
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0006",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 6,
+        "score": 0.8017,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7957,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0235_diamond_sutra::chunk_0013",
+        "text_id": "t0235_diamond_sutra",
+        "chunk_index": 13,
+        "score": 0.7911,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0033",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 33,
+        "score": 0.7878,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "kyogyoshinsho::chunk_0006",
+        "text_id": "kyogyoshinsho",
+        "chunk_index": 6,
+        "score": 0.7853,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ],
+    "t0279_flower_garland": [
+      {
+        "chunk_id": "t0262_lotus_sutra::chunk_0001",
+        "text_id": "t0262_lotus_sutra",
+        "chunk_index": 1,
+        "score": 0.8214,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0475_vimalakirti::chunk_0001",
+        "text_id": "t0475_vimalakirti",
+        "chunk_index": 1,
+        "score": 0.7859,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0000",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 0,
+        "score": 0.776,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0001",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 1,
+        "score": 0.7731,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      },
+      {
+        "chunk_id": "t0865_vajrasekhara::chunk_0002",
+        "text_id": "t0865_vajrasekhara",
+        "chunk_index": 2,
+        "score": 0.7545,
+        "preview": "Preview omitted from the public GitHub Pages data."
+      }
+    ]
+  },
+  "publication_note": "This public dataset omits raw source text and chunk previews. Use source_url fields and local rebuild scripts to reproduce corpus text."
+}

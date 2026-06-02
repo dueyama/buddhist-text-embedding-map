@@ -477,3 +477,26 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Compared `sect-sutra-map-paper-5.tex` and `.pdf` with the canonical source files using `cmp -s`.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `20d5ff666e4b24b466600410824286bd53c2bf21`
+
+## 2026-06-02 10:26 JST
+
+- Summary: Prepared the sect sutra map repository for GitHub and GitHub Pages publication, including a README, citation metadata, publication checklist, Pages landing page, public viewer, and sanitized public viewer data.
+- Files:
+  - `.gitignore`
+  - `README.md`
+  - `CITATION.cff`
+  - `docs/.nojekyll`
+  - `docs/PUBLICATION.md`
+  - `docs/index.html`
+  - `docs/results.md`
+  - `docs/viewer/index.html`
+  - `docs/viewer/viewer_data.json`
+  - `experiments/sect_sutra_map/make_public_viewer_data.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_public_viewer_data.py` and confirmed 15 texts / 433 chunks.
+  - Checked public viewer data for missing `source_path`, `body_path`, `line_path`, local `お経/` paths, and non-placeholder chunk previews.
+  - Served `docs/` locally with `python3 -m http.server 8766 --directory docs` and verified the Pages landing page and public viewer in the in-app browser.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

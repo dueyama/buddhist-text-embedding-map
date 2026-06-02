@@ -529,3 +529,27 @@ Query: `toh106_samdhinirmocana_en`
 
 - 参考文献全体の句読点、アクセス日、DOI表記、URL改行は、投稿先スタイルに合わせて最終調整する。
 - `Kumārajīva`、`Gaṇḍavyūha`、`Pāli` などの特殊文字はPDF上の表示を確認する。投稿先のPDFテキスト抽出仕様によっては追加調整が必要になる可能性がある。
+
+## 2026-06-02: GitHub / GitHub Pages 公開準備
+
+### 主要対応
+
+- ルートに `README.md` と `CITATION.cff` を追加し、公開対象、再現手順、GitHub Pages 設定、未選択ライセンスを明記した。
+- `docs/index.html` を追加し、論文PDF、公開版ビューア、結果ログ、主要図へリンクする GitHub Pages 用トップページを作成した。
+- `docs/viewer/index.html` と `docs/viewer/viewer_data.json` を追加し、GitHub Pages 上で動く公開版ビューアを作成した。
+- `experiments/sect_sutra_map/make_public_viewer_data.py` を追加し、本文プレビューとローカル本文パスを除いた公開用 viewer data を生成できるようにした。
+- `docs/PUBLICATION.md` と `docs/.nojekyll` を追加し、公開前チェックリストと Pages 用設定を記録した。
+- `.gitignore` に legacy local corpus folders を追加し、未整理本文・探索フォルダを誤って公開しないようにした。
+
+### 検証
+
+- `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py` を実行。
+- `python3 experiments/sect_sutra_map/make_public_viewer_data.py` を実行し、公開版 viewer data が 15 texts / 433 chunks で生成されることを確認。
+- `docs/viewer/viewer_data.json` に `source_path`、`body_path`、`line_path`、本文冒頭断片、ローカル `お経/` パスが残っていないことを確認。
+- ローカル `http.server` で `docs/` を配信し、ブラウザでトップページと公開版ビューアを確認。ビューアは `15 texts / 433 chunks` を読み込み、Nearest chunks では本文プレビュー省略文を表示した。
+
+### 残る公開前確認
+
+- GitHub repository 名と owner が確定したら、`CITATION.cff` の `repository-code` を実URLに更新する。
+- コード・論文・図のライセンス方針を決める。
+- remote 作成、push、GitHub Pages 有効化は未実施。

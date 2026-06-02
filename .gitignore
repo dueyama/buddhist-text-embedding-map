@@ -19,6 +19,12 @@ experiments/**/data/raw/
 experiments/**/data/processed/
 experiments/**/outputs/
 
+# Legacy local corpora / exploratory folders. Do not publish raw text dumps.
+お経/
+埋め込みお経/
+埋め込みテスト/
+experiments/amida_compare/
+
 # Legacy exploratory files known to contain hardcoded API keys.
 お経/embedding.py
 お経/embedding2.py

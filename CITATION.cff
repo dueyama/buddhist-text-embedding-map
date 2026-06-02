@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper or this software record."
+title: "意味埋め込みによる仏教文献の探索地図：宗派別参照群・異訳比較・多言語対応の予備的分析"
+authors:
+  - family-names: "上山"
+    given-names: "大信"
+date-released: "2026-06-02"
+version: "0.1"
+repository-code: "https://github.com/OWNER/REPOSITORY"
+keywords:
+  - "Buddhist texts"
+  - "embeddings"
+  - "digital humanities"
+  - "漢訳仏典"
+  - "宗派比較"
+license: "NOASSERTION"
