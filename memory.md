@@ -973,7 +973,7 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Confirmed `git status --short` was clean before the audit started.
   - Confirmed ignored LaTeX intermediates and `.DS_Store` exist locally but are not tracked by `git ls-files`.
-  - Ran current-file and all-history searches for API keys, real local paths, and Tailscale preview IPs; no matches found.
+  - Ran current-file and all-history searches for API keys, real local paths, and hard-coded private preview addresses; no matches found.
   - Ran `git ls-files` checks for legacy folders, notebooks, `.env`, raw/processed data, outputs, `.DS_Store`, and LaTeX intermediates; no tracked matches found.
   - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py`.
   - Regenerated public viewer data, Japanese/English paper figures, Japanese/English three-layer figures, and Japanese/English Shinran-source figures.
@@ -1032,7 +1032,7 @@ This file records local project changes for the Okyou experiments. Times are JST
 
 ## 2026-06-02 17:43 JST
 
-- Summary: Added a small Tailscale/GitHub Pages preview helper to avoid repeatedly debugging localhost, IPv6, Tailscale IP, and port confusion. The helper serves `docs/` on the detected Tailscale IPv4 address by default, can force local or all-interface binding, and supports `--check` to verify an already running preview server.
+- Summary: Added a small Tailscale/GitHub Pages preview helper to avoid repeatedly debugging localhost, IPv6, preview address, and port confusion. The helper serves `docs/` on the detected Tailscale preview address by default, can force local or all-interface binding, and supports `--check` to verify an already running preview server.
 - Files:
   - `README.md`
   - `docs/PUBLICATION.md`
@@ -1043,8 +1043,8 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 scripts/serve_pages_preview.py --bind tailscale --port 8768 --check`; it returned `OK 200` for the Tailscale preview URL.
   - Ran `python3 scripts/serve_pages_preview.py --bind tailscale --port 8768`; it detected the already running server and returned `Already running 200`.
   - Ran `git diff --check`.
-  - Ran current searches for hard-coded Tailscale IPs and OpenAI API key patterns over public docs, scripts, experiments, memory, license files, and citation metadata; no matches found.
-  - Confirmed staged files were limited to the helper script, README, and publication checklist, and `git grep --cached` found no hard-coded Tailscale IP or API key pattern.
+  - Ran current searches for hard-coded private preview addresses and OpenAI API key patterns over public docs, scripts, experiments, memory, license files, and citation metadata; no matches found.
+  - Confirmed staged files were limited to the helper script, README, and publication checklist, and `git grep --cached` found no hard-coded private preview address or API key pattern.
 - Commit: `fb3d794f747fdf6080009c68113160d82ac29709`
 
 ## 2026-06-02 17:54 JST
@@ -1059,6 +1059,26 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed `AI_RESEARCHER_GUIDE.md` is linked from `README.md` and listed in `docs/PUBLICATION.md`.
   - Ran `python3 -m py_compile scripts/serve_pages_preview.py`.
   - Ran `git diff --check`.
-  - Ran current searches for hard-coded Tailscale IPs, OpenAI API key patterns, and local absolute path strings in the new guide and public entry documents; only the intentional local-path check-command examples in `docs/PUBLICATION.md` matched.
-  - Confirmed staged files were limited to `AI_RESEARCHER_GUIDE.md`, `README.md`, and `docs/PUBLICATION.md`, and `git grep --cached` found no hard-coded Tailscale IP or API key pattern.
+  - Ran current searches for hard-coded private preview addresses, OpenAI API key patterns, and local absolute path strings in the new guide and public entry documents; only the intentional local-path check-command examples in `docs/PUBLICATION.md` matched.
+  - Confirmed staged files were limited to `AI_RESEARCHER_GUIDE.md`, `README.md`, and `docs/PUBLICATION.md`, and `git grep --cached` found no hard-coded private preview address or API key pattern.
 - Commit: `6f5441319494fc66c95179c16f0b30e40ad6dc8d`
+
+## 2026-06-02 18:02 JST
+
+- Summary: Ran a final pre-publication audit after adding the AI researcher guide and Tailscale preview helper. No content fixes were required. The audit confirmed the tracked repository is clean, generated public artifacts are reproducible, public viewer data remains stripped of source/body/path fields, PDF license notices are present, HTML links and anchors resolve, and the Tailscale preview responds for the main pages.
+- Files:
+  - `memory.md`
+- Verification:
+  - Confirmed `git status --short` was clean before recording the audit.
+  - Confirmed tracked files do not include `.env`, `.DS_Store`, legacy exploratory folders, raw/processed data, outputs, or LaTeX intermediate files.
+  - Confirmed `.env`, local data/outputs, `__pycache__`, and legacy folders are ignored rather than tracked.
+  - Ran current and all-history checks for OpenAI API key patterns, the local absolute project path, and hard-coded private network addresses; no tracked/history matches found.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py scripts/*.py`.
+  - Regenerated public viewer data and confirmed `docs/viewer/viewer_data.json` has 15 texts / 433 chunks, no source/body/path fields, and only the public preview-omission placeholder.
+  - Regenerated Japanese/English paper HTML and Japanese/English process HTML.
+  - Confirmed Japanese PDF has 24 pages and English PDF has 25 pages, and both contain `CC BY 4.0`, `MIT`, and `Creative Commons`.
+  - Ran the HTML link/anchor checker for 7 public HTML files; all passed.
+  - Confirmed Tailscale preview returned `200 OK` for top, Japanese/English paper, Japanese PDF, and viewer pages.
+  - Used the in-app browser on the Tailscale preview to verify top, Japanese/English paper, Japanese/English process, and viewer pages load with content and no console warnings/errors.
+  - Confirmed the viewer loads `15 texts / 433 chunks` and renders 15 SVG points.
+- Commit: pending
