@@ -65,6 +65,7 @@ python3 experiments/sect_sutra_map/make_paper_html.py
 python3 experiments/sect_sutra_map/make_paper_html.py --input docs/paper/en/sect-sutra-map-paper-en.tex --output docs/paper/en/index.html --lang en --pdf-name sect-sutra-map-paper-en.pdf
 python3 experiments/sect_sutra_map/make_process_html.py
 python3 experiments/sect_sutra_map/make_process_html.py --input docs/repo-launch-process-report-en.md --output docs/process/en/index.html --lang en
+python3 scripts/serve_pages_preview.py --bind tailscale --check
 ```
 
 追跡対象ファイルとして、次が出ないことを確認する。

@@ -96,6 +96,20 @@ HTML pages use a language switch between Japanese and English pages; PDF links r
 The English AI-assisted translation is available under `docs/paper/en/`.
 The English process report is available under `docs/process/en/`.
 
+## Local / Tailscale Preview
+
+To preview the GitHub Pages output from the local machine or over Tailscale:
+
+```bash
+python3 scripts/serve_pages_preview.py --bind tailscale
+```
+
+The default port is `8768`, and the script serves `docs/`. It prints the exact preview URL. To only check an existing preview server:
+
+```bash
+python3 scripts/serve_pages_preview.py --bind tailscale --check
+```
+
 ## License
 
 This repository uses a split license.
