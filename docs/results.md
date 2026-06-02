@@ -768,7 +768,7 @@ Query: `toh106_samdhinirmocana_en`
 - `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`
 - `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` を2回実行。
 - `dvipdfmx sect-sutra-map-paper.dvi`
-- in-app browser で `http://localhost:8767/paper/` を確認し、旧タイトル `意味・文体・引用・参照` が消え、新タイトル、図13、表9が表示されることを確認した。
+- ローカルプレビューで論文HTMLを確認し、旧タイトル `意味・文体・引用・参照` が消え、新タイトル、図13、表9が表示されることを確認した。
 
 ### 未検証点
 

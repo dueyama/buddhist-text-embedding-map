@@ -957,3 +957,30 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed Tailscale preview returned `200 OK` for `/en/` and `/paper/en/`; browser verification confirmed `/process/en/`.
   - Ran `git diff --check`, secret searches, and public local-path search; no issues found.
 - Commit: `31cdcedf75db2ba3c9a38d09406637a7f39c37a7`
+
+## 2026-06-02 16:44 JST
+
+- Summary: Ran a final pre-publication audit. Fixed two issues found during the audit: English paper glossary links that pointed to missing appendix anchors, and hard-coded `/private/tmp` Matplotlib config paths in figure scripts. Also replaced a localhost preview URL in `docs/results.md` with a generic local-preview description. Rebuilt the English HTML/PDF paper after adding the missing English glossary items.
+- Files:
+  - `docs/paper/en/index.html`
+  - `docs/paper/en/sect-sutra-map-paper-en.pdf`
+  - `docs/paper/en/sect-sutra-map-paper-en.tex`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_paper_figures.py`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Confirmed `git status --short` was clean before the audit started.
+  - Confirmed ignored LaTeX intermediates and `.DS_Store` exist locally but are not tracked by `git ls-files`.
+  - Ran current-file and all-history searches for API keys, real local paths, and Tailscale preview IPs; no matches found.
+  - Ran `git ls-files` checks for legacy folders, notebooks, `.env`, raw/processed data, outputs, `.DS_Store`, and LaTeX intermediates; no tracked matches found.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py`.
+  - Regenerated public viewer data, Japanese/English paper figures, Japanese/English three-layer figures, and Japanese/English Shinran-source figures.
+  - Regenerated Japanese/English paper HTML and Japanese/English process HTML.
+  - Confirmed all 7 public HTML files have no missing local files or broken internal anchors.
+  - Confirmed public `docs/viewer/viewer_data.json` has 15 texts, 433 chunks, no source/body/path fields, and only the public preview omission placeholder.
+  - Confirmed Japanese PDF has 24 pages and English PDF has 25 pages with expected metadata.
+  - Used the in-app browser on the Tailscale preview to check top, English top, Japanese/English paper, Japanese/English process, and viewer pages; all loaded with content and no console warnings/errors.
+  - Ran `git diff --check`, current secret/local-path searches, and tracked forbidden-file checks after fixes; no issues found.
+- Commit: `pending`

@@ -7,10 +7,11 @@ import json
 import os
 import argparse
 import re
+import tempfile
 from pathlib import Path
 from typing import Any
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/okyou-matplotlib")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "okyou-matplotlib"))
 
 import matplotlib.pyplot as plt
 import numpy as np

@@ -6,9 +6,10 @@ from __future__ import annotations
 import json
 import os
 import argparse
+import tempfile
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/okyou-matplotlib")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "okyou-matplotlib"))
 
 import matplotlib.pyplot as plt
 import numpy as np
