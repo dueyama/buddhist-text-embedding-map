@@ -1008,3 +1008,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `git diff --check`, `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`, and a small `CITATION.cff` license-string check.
   - Confirmed staged files were limited to the license and public-documentation updates, and `git grep --cached -n "sk[-][A-Za-z0-9]"` returned no matches.
 - Commit: `55242e8ff6969adad59e6992588d12b3bb70115a`
+
+## 2026-06-02 17:31 JST
+
+- Summary: Added a short license notice directly to the Japanese and English paper bodies so the PDF/HTML paper can stand alone. The notice states that the paper text and figures are CC BY 4.0, the accompanying analysis code is MIT licensed, and source texts from SAT, Seikyo DB, 84000, and other providers are not redistributed and remain governed by each provider's terms.
+- Files:
+  - `docs/PUBLICATION.md`
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/en/index.html`
+  - `docs/paper/en/sect-sutra-map-paper-en.pdf`
+  - `docs/paper/en/sect-sutra-map-paper-en.tex`
+- Verification:
+  - Regenerated Japanese and English paper HTML with `python3 experiments/sect_sutra_map/make_paper_html.py` and the English `--input/--output/--lang en` command.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py`.
+  - Rebuilt Japanese and English PDFs with `uplatex -interaction=nonstopmode` twice and `dvipdfmx`.
+  - Confirmed PDF text extraction with bundled `pypdf`: Japanese PDF has 24 pages and English PDF has 25 pages, and both contain `CC BY 4.0`, `MIT`, and `Creative Commons`.
+  - Confirmed the generated HTML pages contain the Japanese `ライセンス` section and English `License` section.
+  - Confirmed TeX logs have no unresolved citation/reference rerun warnings.
+  - Ran `git diff --check`, current secret search, and tracked forbidden-file checks; no issues found. Browser verification of `file://` paper pages was not used because the in-app browser blocked direct local-file navigation by policy.
+- Commit: `b7ece8ef651564d712d77d4e7038c78cad6ae583`
