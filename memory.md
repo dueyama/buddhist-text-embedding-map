@@ -674,4 +674,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Used bundled Python `pypdf` to confirm PDF Title, Author, and Keywords metadata.
   - Confirmed HTML glossary links have no missing anchor targets, MathJax remains enabled, and 33 SAT text links are generated.
   - Visually inspected the regenerated Amida difference and Kyogyoshinsho source-mixture figures.
-- Commit: pending
+- Commit: `8f394bc94f69527eaff5ff96d20d16db1c7f3e99`
