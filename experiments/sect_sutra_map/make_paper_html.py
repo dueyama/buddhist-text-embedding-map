@@ -556,7 +556,7 @@ def bibliography_html(entries: list[tuple[str, str]], citation_numbers: dict[str
 
 
 def build_html(source: str) -> str:
-    title = find_braced(source, "title")
+    title = re.sub(r"\\\\(?:\[[^]]+\])?", " ", find_braced(source, "title")).strip()
     author = find_braced(source, "author")
     date = find_braced(source, "date")
     body = document_body(source)

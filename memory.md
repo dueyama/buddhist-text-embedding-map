@@ -754,3 +754,28 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Searched public pages and process sources for stale `宗派別お経マップ`, `宗派別意味マップ`, and `宗派重心` uses.
   - Checked the top page, public viewer, process page, and HTML paper in the in-app browser. None uses `宗派別お経マップ` as the page title or H1.
 - Commit: `eba8e6780923d27e746f75c219de4fe1a96014e9`
+
+## 2026-06-02 13:48 JST
+
+- Summary: Added a preliminary volume-level reading of `教行信証` to the three-layer source-mixture analysis. Detected the volume headings for 総序, 教巻, 行巻, 信巻, 証巻, 真仏土巻, and 化身土巻, assigned chunks by center-token position, added volume boundary labels to the three-layer figure, added a new volume-average figure/table, and retitled the paper from `意味・文体・引用・参照の三層地図` to `意味・文体・典拠マーカーの三層地図` so the three layers are not read as four. Forced the PDF title page to break after the colon while keeping the HTML title cleaned.
+- Files:
+  - `docs/figures/three-layer-concept-map.png`
+  - `docs/figures/kyogyoshinsho-three-layer-source-mixture.png`
+  - `docs/figures/kyogyoshinsho-volume-source-means.png`
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked `http://localhost:8767/paper/` in the in-app browser. Confirmed the title uses `意味・文体・典拠マーカーの三層地図`, the old `意味・文体・引用・参照` title phrase is absent, and the new volume figure/table are visible.
+  - Checked the generated PDF title page in the in-app browser. Confirmed the title breaks after `：` into two lines.
+  - Observed that semantic and lexical layers have 無量寿経 as the dominant source for all `教行信証` volumes, while the explicit marker layer is dominated by 未検出 in 信巻, 真仏土巻, and 化身土巻.
+- Commit: `pending`

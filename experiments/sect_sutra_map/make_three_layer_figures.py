@@ -57,6 +57,16 @@ SOURCE_COLORS = {
     "unmarked": "#cbd5e1",
 }
 
+KYOGYOSHINSHO_VOLUMES = [
+    {"id": "preface", "label": "総序", "marker": "総序"},
+    {"id": "teaching", "label": "教巻", "short_label": "教", "marker": "顕浄土真実教文類一"},
+    {"id": "practice", "label": "行巻", "short_label": "行", "marker": "顕浄土真実行文類二"},
+    {"id": "faith", "label": "信巻", "short_label": "信", "marker": "顕浄土真実信文類三"},
+    {"id": "realization", "label": "証巻", "short_label": "証", "marker": "顕浄土真実証文類四"},
+    {"id": "true_buddha_land", "label": "真仏土巻", "short_label": "真仏土", "marker": "顕浄土真仏土文類五"},
+    {"id": "transformed_land", "label": "化身土巻", "short_label": "化身土", "marker": "顕浄土方便化身土文類六"},
+]
+
 VARIANTS = str.maketrans(
     {
         "仏": "佛",
@@ -174,6 +184,72 @@ def load_chunk_texts(max_tokens: int, overlap: int) -> dict[str, list[str]]:
         text_id: token_chunks(body, max_tokens=max_tokens, overlap=overlap)
         for text_id, body in bodies.items()
     }
+
+
+def volume_annotations(body: str, max_tokens: int, overlap: int, chunk_count: int) -> dict[str, Any]:
+    import tiktoken
+
+    encoder = tiktoken.get_encoding("cl100k_base")
+    tokens = encoder.encode(body)
+    step = max_tokens - overlap
+    markers = []
+    for volume in KYOGYOSHINSHO_VOLUMES:
+        position = body.find(volume["marker"])
+        if position < 0:
+            continue
+        markers.append(
+            {
+                **volume,
+                "short_label": volume.get("short_label", volume["label"]),
+                "char_start": position,
+                "token_start": len(encoder.encode(body[:position])),
+            }
+        )
+    markers.sort(key=lambda item: item["token_start"])
+    if not markers:
+        raise ValueError("Could not find Kyogyoshinsho volume markers.")
+
+    chunks = []
+    for index in range(chunk_count):
+        start = index * step
+        end = min(start + max_tokens, len(tokens))
+        center = (start + end) // 2
+        current = markers[0]
+        for marker in markers:
+            if marker["token_start"] <= center:
+                current = marker
+            else:
+                break
+        chunks.append(
+            {
+                "chunk_index": index,
+                "center_token": center,
+                "volume_id": current["id"],
+                "volume_label": current["label"],
+                "volume_short_label": current["short_label"],
+            }
+        )
+
+    segments = []
+    start = 0
+    while start < len(chunks):
+        current = chunks[start]
+        end = start
+        while end + 1 < len(chunks) and chunks[end + 1]["volume_id"] == current["volume_id"]:
+            end += 1
+        segments.append(
+            {
+                "volume_id": current["volume_id"],
+                "volume_label": current["volume_label"],
+                "volume_short_label": current["volume_short_label"],
+                "start_chunk": start,
+                "end_chunk": end,
+                "chunk_count": end - start + 1,
+            }
+        )
+        start = end + 1
+
+    return {"markers": markers, "chunks": chunks, "segments": segments}
 
 
 def chunks_by_text(embeddings: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
@@ -389,7 +465,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
             "label": "C",
             "title": "明示マーカー層",
             "method": "経名・訳者名・固定句",
-            "reads": "引用・参照の proxy",
+            "reads": "典拠マーカー",
             "note": "明示的参照を拾う",
         },
     ]
@@ -509,6 +585,7 @@ def figure_source_mixture(
     lexical_weights: np.ndarray,
     citation_weights: np.ndarray,
     font: font_manager.FontProperties,
+    volumes: dict[str, Any],
 ) -> Path:
     fig, axes = plt.subplots(3, 1, figsize=(10.2, 7.0), sharex=True)
     x = np.arange(semantic_weights.shape[0])
@@ -529,11 +606,111 @@ def figure_source_mixture(
         ax.set_ylabel("重み", fontproperties=font)
         ax.set_title(title, fontproperties=font, fontsize=11, loc="left", pad=6)
         ax.grid(axis="y", color="#e2e8f0", linewidth=0.6)
-    axes[-1].set_xlabel("『教行信証』 chunk index", fontproperties=font)
+        for segment in volumes["segments"][1:]:
+            ax.axvline(segment["start_chunk"] - 0.5, color="#334155", linewidth=0.7, alpha=0.45)
+    for segment in volumes["segments"]:
+        midpoint = (segment["start_chunk"] + segment["end_chunk"]) / 2
+        axes[0].text(
+            midpoint,
+            0.985,
+            segment["volume_short_label"],
+            ha="center",
+            va="top",
+            fontsize=8.5,
+            fontproperties=font,
+            color="#334155",
+            bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "#cbd5e1", "alpha": 0.86},
+            transform=axes[0].get_xaxis_transform(),
+        )
+    axes[-1].set_xlabel("『教行信証』 chunk index（巻区分はチャンク中心位置による推定）", fontproperties=font)
     handles, labels = axes[-1].get_legend_handles_labels()
     fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, prop=font, bbox_to_anchor=(0.5, 1.01))
     fig.suptitle("『教行信証』の三層参照源混合地図", fontproperties=font, fontsize=16, y=1.06)
     out = FIGURE_DIR / "kyogyoshinsho-three-layer-source-mixture.png"
+    fig.tight_layout()
+    fig.savefig(out, bbox_inches="tight")
+    plt.close(fig)
+    return out
+
+
+def volume_layer_means(weights: np.ndarray, ids: list[str], volumes: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = []
+    assignments = volumes["chunks"]
+    for segment in volumes["segments"]:
+        indices = [
+            item["chunk_index"]
+            for item in assignments
+            if item["volume_id"] == segment["volume_id"]
+        ]
+        subset = weights[indices, :]
+        values = {
+            source_id: round(float(subset[:, index].mean()), 4)
+            for index, source_id in enumerate(ids)
+        }
+        dominant_source = max(values, key=values.get)
+        rows.append(
+            {
+                **segment,
+                "chunk_range": f"{segment['start_chunk']:04d}-{segment['end_chunk']:04d}",
+                "weights": values,
+                "dominant_source": dominant_source,
+                "dominant_source_label": SOURCE_LABELS[dominant_source],
+                "dominant_weight": values[dominant_source],
+            }
+        )
+    return rows
+
+
+def figure_volume_source_means(
+    semantic_by_volume: list[dict[str, Any]],
+    lexical_by_volume: list[dict[str, Any]],
+    citation_by_volume: list[dict[str, Any]],
+    font: font_manager.FontProperties,
+) -> Path:
+    fig, axes = plt.subplots(3, 1, figsize=(10.4, 7.6), sharex=True)
+    layers = [
+        ("意味層 S: 巻別平均", semantic_by_volume, SOURCE_IDS),
+        ("文体・語彙層 T: 巻別平均", lexical_by_volume, SOURCE_IDS),
+        ("明示マーカー層 C: 巻別平均", citation_by_volume, SOURCE_IDS + ["unmarked"]),
+    ]
+    for ax, (title, rows, ids) in zip(axes, layers):
+        y = np.arange(len(rows))
+        left = np.zeros(len(rows))
+        for source_id in ids:
+            values = np.array([row["weights"].get(source_id, 0.0) for row in rows])
+            ax.barh(
+                y,
+                values,
+                left=left,
+                color=SOURCE_COLORS[source_id],
+                edgecolor="white",
+                linewidth=0.5,
+                label=SOURCE_LABELS[source_id],
+                height=0.72,
+            )
+            left += values
+        ax.set_yticks(y)
+        ax.set_yticklabels([row["volume_label"] for row in rows], fontproperties=font)
+        ax.invert_yaxis()
+        ax.set_xlim(0, 1)
+        ax.set_title(title, fontproperties=font, fontsize=11, loc="left", pad=6)
+        ax.grid(axis="x", color="#e2e8f0", linewidth=0.6)
+        for row_index, row in enumerate(rows):
+            ax.text(
+                1.012,
+                row_index,
+                f"{row['dominant_source_label']} {row['dominant_weight']:.2f}",
+                va="center",
+                ha="left",
+                fontsize=8.2,
+                fontproperties=font,
+                color="#334155",
+            )
+    axes[-1].set_xlabel("巻内チャンクの平均重み", fontproperties=font)
+    handles, labels = axes[-1].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, prop=font, bbox_to_anchor=(0.5, 1.01))
+    fig.suptitle("『教行信証』巻別の参照源傾向", fontproperties=font, fontsize=16, y=1.055)
+    out = FIGURE_DIR / "kyogyoshinsho-volume-source-means.png"
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
@@ -552,6 +729,7 @@ def main() -> None:
     embeddings = read_json(EMBEDDINGS_DATA)
     max_tokens = int(embeddings.get("max_tokens", 700))
     overlap = int(embeddings.get("overlap", 100))
+    bodies = load_bodies()
     chunk_texts = load_chunk_texts(max_tokens=max_tokens, overlap=overlap)
 
     semantic_scores = semantic_source_scores(embeddings)
@@ -575,10 +753,20 @@ def main() -> None:
     }
 
     font = setup_font()
+    volumes = volume_annotations(
+        bodies[TARGET_ID],
+        max_tokens=max_tokens,
+        overlap=overlap,
+        chunk_count=int(semantic_weights.shape[0]),
+    )
+    semantic_by_volume = volume_layer_means(semantic_weights, SOURCE_IDS, volumes)
+    lexical_by_volume = volume_layer_means(lexical_weights, SOURCE_IDS, volumes)
+    citation_by_volume = volume_layer_means(citation_weights, SOURCE_IDS + ["unmarked"], volumes)
     figures = [
         figure_three_layer_concept(font),
         figure_amida_three_layer(metrics, font),
-        figure_source_mixture(semantic_weights, lexical_weights, citation_weights, font),
+        figure_source_mixture(semantic_weights, lexical_weights, citation_weights, font, volumes),
+        figure_volume_source_means(semantic_by_volume, lexical_by_volume, citation_by_volume, font),
     ]
     summary = {
         "model": embeddings.get("model"),
@@ -598,9 +786,14 @@ def main() -> None:
         "amida_three_layer": metrics,
         "kyogyoshinsho_source_mixture": {
             "chunk_count": int(semantic_weights.shape[0]),
+            "volume_annotation_method": "chunk assigned by center token to the latest detected Kyogyoshinsho volume marker",
+            "volume_segments": volumes["segments"],
             "semantic_layer_mean_weights": layer_means(semantic_weights, SOURCE_IDS),
             "lexical_layer_mean_weights": layer_means(lexical_weights, SOURCE_IDS),
             "citation_layer_mean_weights": layer_means(citation_weights, SOURCE_IDS + ["unmarked"]),
+            "semantic_layer_mean_weights_by_volume": semantic_by_volume,
+            "lexical_layer_mean_weights_by_volume": lexical_by_volume,
+            "citation_layer_mean_weights_by_volume": citation_by_volume,
         },
         "figures": [str(path.relative_to(PROJECT_ROOT)) for path in figures],
     }
@@ -613,6 +806,18 @@ def main() -> None:
     for layer_key, values in summary["kyogyoshinsho_source_mixture"].items():
         if isinstance(values, dict):
             print(layer_key, values)
+    print("Kyogyoshinsho volume dominant sources")
+    for layer_key in [
+        "semantic_layer_mean_weights_by_volume",
+        "lexical_layer_mean_weights_by_volume",
+        "citation_layer_mean_weights_by_volume",
+    ]:
+        print(layer_key)
+        for row in summary["kyogyoshinsho_source_mixture"][layer_key]:
+            print(
+                f"  {row['volume_label']}\t{row['chunk_range']}\t"
+                f"{row['dominant_source_label']}\t{row['dominant_weight']:.4f}"
+            )
     print("Figures")
     for path in figures:
         print(path.relative_to(PROJECT_ROOT))
