@@ -277,60 +277,184 @@ def top5_mixing(embeddings: dict[str, Any]) -> float:
 
 
 def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
-    fig, ax = plt.subplots(figsize=(9.2, 4.7))
+    fig, ax = plt.subplots(figsize=(10.4, 6.0))
     ax.set_axis_off()
-    boxes = [
-        ("意味層 S", "埋め込み cosine\n主題・内容の近さ", "#dbeafe", "#2563eb", (0.06, 0.54)),
-        ("文体層 T", "文字 n-gram TF-IDF\n訳語・表記の近さ", "#dcfce7", "#16a34a", (0.37, 0.54)),
-        ("引用参照層 C", "経名・訳者名・固定句\n典拠経路の手がかり", "#fee2e2", "#dc2626", (0.68, 0.54)),
-    ]
-    for title, body, face, edge, (x, y) in boxes:
-        patch = FancyBboxPatch(
-            (x, y),
-            0.25,
-            0.25,
-            boxstyle="round,pad=0.018,rounding_size=0.02",
-            linewidth=1.6,
-            edgecolor=edge,
-            facecolor=face,
-        )
-        ax.add_patch(patch)
-        ax.text(x + 0.125, y + 0.17, title, ha="center", va="center", fontsize=14, fontproperties=font, color=edge)
-        ax.text(x + 0.125, y + 0.07, body, ha="center", va="center", fontsize=10, fontproperties=font, color="#0f172a")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
 
-    center = FancyBboxPatch(
-        (0.27, 0.12),
-        0.46,
-        0.17,
-        boxstyle="round,pad=0.02,rounding_size=0.02",
-        linewidth=1.5,
-        edgecolor="#334155",
-        facecolor="#f8fafc",
-    )
-    ax.add_patch(center)
+    def rounded_box(
+        xy: tuple[float, float],
+        width: float,
+        height: float,
+        face: str,
+        edge: str,
+        lw: float = 1.4,
+        radius: float = 0.018,
+    ) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                xy,
+                width,
+                height,
+                boxstyle=f"round,pad=0.012,rounding_size={radius}",
+                linewidth=lw,
+                edgecolor=edge,
+                facecolor=face,
+            )
+        )
+
+    def arrow(start: tuple[float, float], end: tuple[float, float], color: str = "#64748b") -> None:
+        ax.add_patch(
+            FancyArrowPatch(
+                start,
+                end,
+                arrowstyle="-|>",
+                mutation_scale=13,
+                linewidth=1.3,
+                color=color,
+                shrinkA=1,
+                shrinkB=1,
+            )
+        )
+
     ax.text(
         0.5,
-        0.205,
-        "三層 source-mixture map",
+        0.955,
+        "同じチャンク列を三つの層で読み分ける",
         ha="center",
         va="center",
-        fontsize=14,
+        fontsize=15,
+        fontproperties=font,
+        color="#0f172a",
+        weight="bold",
+    )
+
+    rounded_box((0.08, 0.80), 0.84, 0.105, "#f8fafc", "#334155", lw=1.3)
+    ax.text(0.17, 0.852, "入力", ha="center", va="center", fontsize=11, fontproperties=font, color="#334155", weight="bold")
+    ax.text(
+        0.36,
+        0.852,
+        "対象: 『教行信証』の各チャンク",
+        ha="center",
+        va="center",
+        fontsize=10.2,
         fontproperties=font,
         color="#0f172a",
     )
     ax.text(
-        0.5,
-        0.145,
-        "意味的に近いこと、文体的に近いこと、引用・学習経路として近いことのズレを読む",
+        0.69,
+        0.852,
+        "参照源: 浄土三部経 + 阿弥陀経二訳",
         ha="center",
         va="center",
-        fontsize=9.5,
+        fontsize=10.2,
+        fontproperties=font,
+        color="#0f172a",
+    )
+    ax.plot([0.225, 0.225], [0.815, 0.89], color="#cbd5e1", linewidth=1)
+    ax.plot([0.52, 0.52], [0.815, 0.89], color="#cbd5e1", linewidth=1)
+
+    layers = [
+        {
+            "x": 0.06,
+            "color": "#2563eb",
+            "face": "#dbeafe",
+            "label": "S",
+            "title": "意味層",
+            "method": "埋め込み cosine",
+            "reads": "主題・内容の近さ",
+            "note": "原内容の近さを拾う",
+        },
+        {
+            "x": 0.37,
+            "color": "#16a34a",
+            "face": "#dcfce7",
+            "label": "T",
+            "title": "文体・語彙層",
+            "method": "文字 n-gram TF-IDF",
+            "reads": "訳語・表記の近さ",
+            "note": "翻訳の癖を拾う",
+        },
+        {
+            "x": 0.68,
+            "color": "#dc2626",
+            "face": "#fee2e2",
+            "label": "C",
+            "title": "引用参照層",
+            "method": "経名・訳者名・固定句",
+            "reads": "典拠経路の手がかり",
+            "note": "明示的参照を拾う",
+        },
+    ]
+
+    for layer in layers:
+        x = layer["x"]
+        rounded_box((x, 0.44), 0.26, 0.29, layer["face"], layer["color"], lw=1.6)
+        ax.text(
+            x + 0.13,
+            0.685,
+            f"{layer['label']}  {layer['title']}",
+            ha="center",
+            va="center",
+            fontsize=12.2,
+            fontproperties=font,
+            color=layer["color"],
+            weight="bold",
+        )
+        ax.text(x + 0.13, 0.615, layer["method"], ha="center", va="center", fontsize=9.7, fontproperties=font, color="#0f172a")
+        ax.text(x + 0.13, 0.565, layer["reads"], ha="center", va="center", fontsize=9.7, fontproperties=font, color="#0f172a")
+        ax.plot([x + 0.04, x + 0.22], [0.525, 0.525], color=layer["color"], alpha=0.35, linewidth=1.2)
+        ax.text(x + 0.13, 0.485, layer["note"], ha="center", va="center", fontsize=8.8, fontproperties=font, color="#475569")
+        arrow((0.5, 0.80), (x + 0.13, 0.735))
+        arrow((x + 0.13, 0.44), (x + 0.13, 0.335), layer["color"])
+
+    rounded_box((0.16, 0.12), 0.68, 0.21, "#ffffff", "#334155", lw=1.5)
+    ax.text(
+        0.5,
+        0.285,
+        "三層 source-mixture map",
+        ha="center",
+        va="center",
+        fontsize=13.2,
+        fontproperties=font,
+        color="#0f172a",
+        weight="bold",
+    )
+    bar_y = [0.235, 0.195, 0.155]
+    bar_labels = ["S", "T", "C"]
+    bar_values = [
+        [0.37, 0.26, 0.21, 0.16],
+        [0.29, 0.24, 0.24, 0.23],
+        [0.47, 0.03, 0.00, 0.00, 0.50],
+    ]
+    bar_colors = ["#2563eb", "#60a5fa", "#0f766e", "#dc2626", "#cbd5e1"]
+    for y, label, values in zip(bar_y, bar_labels, bar_values):
+        ax.text(0.25, y, label, ha="right", va="center", fontsize=9.5, fontproperties=font, color="#334155", weight="bold")
+        left = 0.27
+        width = 0.30
+        for value, color in zip(values, bar_colors):
+            ax.barh(y, width * value, left=left, height=0.018, color=color, edgecolor="white", linewidth=0.5)
+            left += width * value
+    ax.text(
+        0.665,
+        0.195,
+        "層ごとの重み差を比較し、\n意味・文体・参照経路の\nズレを読む",
+        ha="left",
+        va="center",
+        fontsize=8.8,
         fontproperties=font,
         color="#475569",
     )
-    for x in [0.185, 0.495, 0.805]:
-        ax.add_patch(FancyArrowPatch((x, 0.53), (0.5, 0.31), arrowstyle="->", mutation_scale=13, color="#64748b"))
-    ax.set_title("意味・文体・引用参照の三層地図", fontproperties=font, fontsize=16, pad=10)
+    ax.text(
+        0.5,
+        0.060,
+        "近さの種類を混同しないための探索図。低い引用参照スコアは、典拠関係の不在そのものを意味しない。",
+        ha="center",
+        va="center",
+        fontsize=8.5,
+        fontproperties=font,
+        color="#64748b",
+    )
     out = FIGURE_DIR / "three-layer-concept-map.png"
     fig.tight_layout()
     fig.savefig(out, bbox_inches="tight")

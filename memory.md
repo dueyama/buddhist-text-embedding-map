@@ -573,3 +573,24 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the bibliography block no longer contains Japanese full stops and the generated HTML references use comma-separated entries with access dates.
   - Checked generated paper files for old development-note style wording.
 - Commit: `940403826fbb6735bc01a5afe4c9685f328aae5a`
+
+## 2026-06-02 11:48 JST
+
+- Summary: Redrew Figure 1 of the paper so the three-layer concept diagram is more careful, with clear input, layer, and output sections; fixed text overlap and arrow targeting; updated the figure caption, HTML paper, and PDF.
+- Files:
+  - `docs/figures/three-layer-concept-map.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/paper/index.html`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Visually inspected `docs/figures/three-layer-concept-map.png` and confirmed the previous text overlap and ambiguous arrows were fixed.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used the generated image, HTML source, and rebuilt PDF instead.
+- Commit: pending
