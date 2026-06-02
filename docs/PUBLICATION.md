@@ -86,3 +86,5 @@ git ls-files | rg '^お経/|^埋め込みお経/|^埋め込みテスト/|^experi
 HTMLページの日本語・英語導線は、個別メニュー項目を増やすのではなく、ページごとの言語スイッチで切り替える。PDFは版の違いが明確なため、`PDF JP` と `PDF EN` の別リンクとして残す。
 
 ライセンス方針は、コードを MIT License、論文・図・公開文書・制作プロセス・citation metadata・公開用派生データを Creative Commons Attribution 4.0 International (CC BY 4.0) とする。SAT、J-SOKEN、84000 などから取得した元本文は本リポジトリでは再配布せず、各提供元の利用条件に従う。
+
+論文HTML/PDFにも短いライセンス注記を入れ、PDF単体で読まれても本文・図表が CC BY 4.0、解析コードが MIT License、元本文が各提供元の利用条件に従うことが分かる状態にする。
