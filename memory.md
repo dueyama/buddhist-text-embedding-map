@@ -572,4 +572,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed `sect-sutra-map-paper.tex` and `sect-sutra-map-paper-5.tex` are identical, and copied the regenerated PDF to `sect-sutra-map-paper-5.pdf`.
   - Confirmed the bibliography block no longer contains Japanese full stops and the generated HTML references use comma-separated entries with access dates.
   - Checked generated paper files for old development-note style wording.
-- Commit: pending
+- Commit: `940403826fbb6735bc01a5afe4c9685f328aae5a`
