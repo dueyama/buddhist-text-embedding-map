@@ -1116,3 +1116,23 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the public top page, Japanese/English paper pages, Japanese/English process pages, viewer page, Japanese PDF, and English PDF all return `200`.
   - Confirmed the public top page title is `意味埋め込みによる仏教文献の探索地図`.
 - Commits: main `d303660c8dba58a6ce962819cf08311502e1f216`, main `8d8bb457faa7342feedcf123d0ab379c3ef5deae`, gh-pages `691b38126140944dfc4526f42eb19668303dad69`
+
+## 2026-06-02 20:28 JST
+
+- Summary: Added a visible GitHub repository link to the public top pages so readers can move from the paper/process/viewer surface to the source repository and reproduction materials.
+- Files:
+  - `docs/index.html`
+  - `docs/en/index.html`
+  - `memory.md`
+  - `gh-pages` branch contents generated from current `docs/`
+- Verification:
+  - Added `GitHub` to the Japanese and English top-page nav tools.
+  - Added inline repository links to the Japanese `コード` card and English `Code` card.
+  - Ran HTML parsing for `docs/index.html` and `docs/en/index.html`.
+  - Ran `git diff --check`.
+  - Confirmed staged/public files contain no OpenAI API key pattern, local absolute project path, or hard-coded private preview address.
+  - Pushed main commit `56370761566b558220e9eb0f5619d8b33541973f`.
+  - Published `gh-pages` commit `5dbc6313b9f4ee7cde984cc9cee89dc5d6fe7f4e` with `.DS_Store` and LaTeX intermediate files excluded.
+  - Confirmed the Japanese and English public top pages include the GitHub repository link using cache-busting query URLs.
+  - Confirmed the remote `gh-pages` tree has no `.DS_Store` or LaTeX intermediate files.
+- Commits: main `56370761566b558220e9eb0f5619d8b33541973f`, gh-pages `5dbc6313b9f4ee7cde984cc9cee89dc5d6fe7f4e`
