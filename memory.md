@@ -523,4 +523,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked that the process HTML records OpenAI API, ChatGPT Pro, Codex/Git, BasicTeX/upLaTeX/dvipdfmx, browser verification, and GitHub Pages publication preparation.
   - Verified `paper/` and `process/` in the local browser: author homepage link present, PDF link present, process tooling/publication sections present, and no real local filesystem paths visible.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `1ad259cde5f644a202f82491b7c801e60cbb9e31`
