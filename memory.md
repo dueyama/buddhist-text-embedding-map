@@ -646,4 +646,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
   - Checked README and process Markdown/HTML for the legacy folder names and absence of absolute local filesystem paths or API key patterns.
-- Commit: pending
+- Commit: `bf83e866367569e13a28e3ef0fa7be48c993e2c7`
