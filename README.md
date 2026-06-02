@@ -39,7 +39,7 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - 論文TeX: `docs/paper/sect-sutra-map-paper.tex`
 - GitHub Pages entry point: `docs/index.html`
 - Public viewer: `docs/viewer/index.html`
-- Results log: `docs/results.md`
+- Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
 
 ## Repository Layout

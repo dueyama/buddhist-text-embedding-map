@@ -713,3 +713,25 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the shared navigation order is `トップ / 論文 / PDF / ビューア / 制作プロセス / 結果ログ` on the top page, paper page, process page, and viewer page.
   - Checked the process and viewer pages in the in-app browser; current-page state is shown with a subtle background rather than a filled primary button.
 - Commit: `da3c43e547d57572a05fe2be2496185b2f04399b`
+
+## 2026-06-02 13:26 JST
+
+- Summary: Removed the ambiguous `結果ログ` item from the shared public site navigation and renamed public-facing references to `docs/results.md` as `実験結果メモ`. Kept `docs/results.md` as a supplemental Markdown record rather than a top-level Pages navigation item.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/index.html`
+  - `docs/paper/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `docs/results.md`
+  - `docs/viewer/index.html`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Confirmed with text search that public files no longer contain `結果ログ`, `Results log`, or `実験実験結果メモ`.
+  - Checked the top page and process page in the in-app browser. The shared navigation is now `トップ / 論文 / PDF / ビューア / 制作プロセス`, and the process page uses `実験結果メモ` only in body text.
+- Commit: `pending`

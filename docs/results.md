@@ -534,7 +534,7 @@ Query: `toh106_samdhinirmocana_en`
 ### 主要対応
 
 - ルートに `README.md` と `CITATION.cff` を追加し、公開対象、再現手順、GitHub Pages 設定、未選択ライセンスを明記した。
-- `docs/index.html` を追加し、論文PDF、公開版ビューア、結果ログ、主要図へリンクする GitHub Pages 用トップページを作成した。
+- `docs/index.html` を追加し、論文PDF、公開版ビューア、主要図へリンクする GitHub Pages 用トップページを作成した。
 - `docs/viewer/index.html` と `docs/viewer/viewer_data.json` を追加し、GitHub Pages 上で動く公開版ビューアを作成した。
 - `experiments/sect_sutra_map/make_public_viewer_data.py` を追加し、本文プレビューとローカル本文パスを除いた公開用 viewer data を生成できるようにした。
 - `docs/PUBLICATION.md` と `docs/.nojekyll` を追加し、公開前チェックリストと Pages 用設定を記録した。

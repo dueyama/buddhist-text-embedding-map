@@ -139,7 +139,6 @@ def page(content: str) -> str:
         <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
         <a class="nav-link" href="../viewer/">ビューア</a>
         <a class="nav-link" href="./" aria-current="page">制作プロセス</a>
-        <a class="nav-link" href="../results.md">結果ログ</a>
       </nav>
     </div>
   </header>

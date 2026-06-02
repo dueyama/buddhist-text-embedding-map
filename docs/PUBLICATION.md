@@ -9,7 +9,7 @@
 - 公開版ビューア: `docs/viewer/index.html`, `docs/viewer/viewer_data.json`
 - 制作プロセス: `docs/process/index.html`, `docs/repo-launch-process-report.md`
 - 再現用コード: `experiments/sect_sutra_map/`, `experiments/multilingual_sutra_map/`, `experiments/shinran_amida_sources/`
-- 結果ログ・計画書: `docs/*.md`
+- 実験結果メモ・計画書: `docs/*.md`
 
 ## 公開しないもの
 

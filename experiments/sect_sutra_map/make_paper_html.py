@@ -656,7 +656,6 @@ def build_html(source: str) -> str:
         <a class="nav-link" href="sect-sutra-map-paper.pdf">PDF</a>
         <a class="nav-link" href="../viewer/">ビューア</a>
         <a class="nav-link" href="../process/">制作プロセス</a>
-        <a class="nav-link" href="../results.md">結果ログ</a>
       </nav>
     </div>
   </header>
