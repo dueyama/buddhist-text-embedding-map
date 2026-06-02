@@ -896,4 +896,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked `http://localhost:8767/paper/en/?v=en-translation`, `http://localhost:8767/?v=en-link`, and `http://localhost:8767/process/?v=en-process` in the in-app browser; confirmed English navigation, translation note, glossary anchors, Figure labels, top-page link, process-phase link, and no console errors.
   - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
   - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
-- Commit: `pending`
+- Commit: `d790a2292cfefddec84105cdee6000bba9321ca2`
