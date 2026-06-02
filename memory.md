@@ -753,4 +753,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
   - Searched public pages and process sources for stale `宗派別お経マップ`, `宗派別意味マップ`, and `宗派重心` uses.
   - Checked the top page, public viewer, process page, and HTML paper in the in-app browser. None uses `宗派別お経マップ` as the page title or H1.
-- Commit: `pending`
+- Commit: `eba8e6780923d27e746f75c219de4fe1a96014e9`
