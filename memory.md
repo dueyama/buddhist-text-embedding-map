@@ -826,4 +826,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked the HTML paper and generated PDF in the in-app browser. Confirmed the disclosure section begins with `本稿の著者は上山大信である` and that `上山さん` does not appear.
-- Commit: `pending`
+- Commit: `051a3e330a1e08e2bff9373084dd35f201c90ec6`
