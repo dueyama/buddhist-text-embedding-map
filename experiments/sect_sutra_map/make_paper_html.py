@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = PROJECT_ROOT / "docs/paper/sect-sutra-map-paper-5.tex"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs/paper/index.html"
 AUTHOR_URL = "https://sites.google.com/site/dueyama/"
+SAT_TEXT_URL = "https://21dzk.l.u-tokyo.ac.jp/SAT2018/{text_id}.html"
 GLOSSARY_SECTION_MARKER = '<h2 id="付録-用語-モデル-ツール">'
 GLOSSARY_DEFINITIONS = [
     ("<strong>コーパス：</strong>", "glossary-corpus"),
@@ -419,6 +420,39 @@ def add_glossary_anchors_and_links(body_html: str, seen_terms: set[str]) -> str:
     return add_glossary_links(before, seen_terms) + marker + after
 
 
+def add_sat_text_links(fragment: str) -> str:
+    output: list[str] = []
+    blocked_tags: list[str] = []
+    blocked = {"a", "code", "pre", "script", "style"}
+
+    def link_ids(text: str) -> str:
+        def repl(match: re.Match[str]) -> str:
+            text_id = match.group(0)
+            url = SAT_TEXT_URL.format(text_id=text_id)
+            return f'<a class="source-link" href="{url}">{text_id}</a>'
+
+        return re.sub(r"\bT\d{4}\b", repl, text)
+
+    for token in re.split(r"(<[^>]+>)", fragment):
+        if not token:
+            continue
+        if token.startswith("<"):
+            end_tag = re.match(r"</([a-zA-Z0-9]+)>", token)
+            start_tag = re.match(r"<([a-zA-Z0-9]+)(?:\s|>|/)", token)
+            if end_tag:
+                tag = end_tag.group(1).lower()
+                if tag in blocked_tags:
+                    blocked_tags.remove(tag)
+            elif start_tag and not token.endswith("/>"):
+                tag = start_tag.group(1).lower()
+                if tag in blocked:
+                    blocked_tags.append(tag)
+            output.append(token)
+            continue
+        output.append(token if blocked_tags else link_ids(token))
+    return "".join(output)
+
+
 def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
     body = body.replace(r"\maketitle", "")
     output: list[str] = []
@@ -539,6 +573,8 @@ def build_html(source: str) -> str:
     )
     abstract_html = add_glossary_links(abstract_html, seen_glossary_terms)
     body_html = add_glossary_anchors_and_links(body_html, seen_glossary_terms)
+    abstract_html = add_sat_text_links(abstract_html)
+    body_html = add_sat_text_links(body_html)
     references = bibliography_html(entries, citation_numbers, label_numbers)
     return f"""<!doctype html>
 <html lang="ja">
@@ -561,6 +597,7 @@ def build_html(source: str) -> str:
     * {{ box-sizing: border-box; }}
     body {{ margin: 0; background: var(--bg); color: var(--ink); line-height: 1.82; }}
     a {{ color: var(--accent); text-underline-offset: 3px; }}
+    .source-link {{ font-weight: 650; }}
     .page {{ width: min(980px, calc(100% - 32px)); margin: 0 auto; }}
     header {{ padding: 36px 0 22px; border-bottom: 1px solid var(--line); background: var(--paper); }}
     main {{ background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 34px 44px; }}

@@ -647,3 +647,31 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
   - Checked README and process Markdown/HTML for the legacy folder names and absence of absolute local filesystem paths or API key patterns.
 - Commit: `bf83e866367569e13a28e3ef0fa7be48c993e2c7`
+
+## 2026-06-02 12:35 JST
+
+- Summary: Applied the final-stage review corrections: added PDF metadata, clarified that the citation/reference layer is operationalized as an explicit-marker layer, normalized lexical/style terminology, added variant marker spellings for Xuanzang's Praise Pure Land Sutra, linked Taisho IDs such as `T0360` in the HTML paper to SAT text pages, and regenerated three-layer figures, HTML, PDF, results notes, and the public process report.
+- Files:
+  - `docs/figures/amida-three-layer-difference.png`
+  - `docs/figures/kyogyoshinsho-three-layer-source-mixture.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/paper/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_three_layer_figures.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Copied regenerated PDF to `sect-sutra-map-paper-5.pdf` and confirmed `sect-sutra-map-paper.tex` matches `sect-sutra-map-paper-5.tex`.
+  - Used bundled Python `pypdf` to confirm PDF Title, Author, and Keywords metadata.
+  - Confirmed HTML glossary links have no missing anchor targets, MathJax remains enabled, and 33 SAT text links are generated.
+  - Visually inspected the regenerated Amida difference and Kyogyoshinsho source-mixture figures.
+- Commit: pending

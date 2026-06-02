@@ -688,3 +688,42 @@ Query: `toh106_samdhinirmocana_en`
 
 - in-app browser での `file://` 直接検証は、ブラウザ安全ポリシーにより実行できなかった。代替としてHTMLソース、生成図、PDF生成ログを確認した。
 - `dvipdfmx` はCMap警告を1件出すが、PDF生成は完了している。PDF本文の実表示は今後の目視確認で必要に応じて調整する。
+
+## 2026-06-02: 最終段階査読への対応
+
+### 査読判定
+
+- `sect-sutra-map-final-stage-review.md` では、内容面は「ほぼ投稿可能。内容面では最終盤。再査読不要相当」と評価された。
+- 残る修正は、用語統一、表2の字形・表記確認、PDFメタデータ、参考文献体裁などの最終校正項目とされた。
+
+### 主要対応
+
+- PDFメタデータとして `pdftitle`、`pdfauthor`、`pdfkeywords` を `hyperref` に追加した。
+- 4.3節に、タイトルおよび問題設定でいう引用・参照層は、現段階では経名・訳者名・固定句辞書による明示マーカー層として操作化する、という定義文を追加した。
+- 表2の玄奘訳称讃浄土経マーカー例を、`稱讃淨土／稱讚淨土`、`稱讃淨土經／稱讚淨土經`、`恒河沙／殑伽沙` のように表記揺れを併記する形へ改めた。
+- 図生成スクリプトの明示マーカー辞書にも `稱讃淨土`、`稱讃淨土經`、`恒河沙` を追加した。
+- 阿弥陀経二訳差分図の図中表記とキャプションを `文体・語彙` に寄せた。
+- マーカー辞書更新により、『教行信証』明示マーカー層の平均重みを更新した。
+  - 未検出 `0.4958`
+  - 無量寿経 `0.4659`
+  - 観無量寿経 `0.0303`
+  - 羅什訳阿弥陀経 `0.0025`
+  - 玄奘訳称讃浄土経 `0.0054`
+- HTML論文では、`T0360/SAT` のような大正蔵IDを `https://21dzk.l.u-tokyo.ac.jp/SAT2018/T0360.html` 形式のSAT個別ページへリンクするようにした。
+
+### 検証
+
+- `python3 experiments/sect_sutra_map/make_three_layer_figures.py`
+- `python3 experiments/sect_sutra_map/make_paper_html.py`
+- `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_three_layer_figures.py`
+- `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` を2回実行。
+- `dvipdfmx sect-sutra-map-paper.dvi`
+- bundled Python の `pypdf` でPDFメタデータを確認し、Title、Author、Keywords が入っていることを確認した。
+- HTML用語リンクに欠けたアンカーがなく、MathJax読み込みが残っていることを確認した。
+- HTML論文にSAT個別ページへのリンクが33件生成され、`T0360` リンクがSAT2018の該当URLを指すことを確認した。
+- 阿弥陀経二訳差分図を目視し、`文体・語彙` 表記が反映されていることを確認した。
+
+### 未検証点
+
+- `dvipdfmx` のCMap警告は残っている。
+- `pypdf` による日本語本文抽出では、固有名を含む日本語テキスト抽出が十分に機能しなかった。PDFの視覚表示は生成図・PDFで確認する必要がある。

@@ -121,10 +121,13 @@ REFERENCE_MARKERS = {
         "極樂",
     ],
     "t0367_praise_pure_land": [
+        "稱讃淨土",
+        "稱讃淨土經",
         "稱讚淨土",
         "稱讚淨土經",
         "玄奘",
         "舍利子",
+        "恒河沙",
         "殑伽沙",
         "慈悲加祐",
         "攝受法門",
@@ -467,7 +470,7 @@ def figure_three_layer_concept(font: font_manager.FontProperties) -> Path:
 
 
 def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontProperties) -> Path:
-    labels = ["意味 S\n本文平均", "文体 T\n文字n-gram", "分布 M\ntop-5混合"]
+    labels = ["意味 S\n本文平均", "文体・語彙 T\n文字n-gram", "分布 M\ntop-5混合"]
     values = [
         metrics["semantic_text_cosine"],
         metrics["lexical_tfidf_text_cosine"],
@@ -478,7 +481,7 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
     bars = ax.bar(labels, values, color=colors, width=0.58)
     ax.set_ylim(0, 1)
     ax.set_ylabel("スコア", fontproperties=font)
-    ax.set_title("阿弥陀経二訳の意味・文体・分布差分", fontproperties=font, fontsize=15, pad=12)
+    ax.set_title("阿弥陀経二訳の意味・文体・語彙・分布差分", fontproperties=font, fontsize=15, pad=12)
     ax.grid(axis="y", color="#e2e8f0", linewidth=0.7)
     for tick in ax.get_xticklabels():
         tick.set_fontproperties(font)
@@ -486,7 +489,7 @@ def figure_amida_three_layer(metrics: dict[str, float], font: font_manager.FontP
     ax.text(
         0.5,
         -0.22,
-        "引用参照層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
+        "明示マーカー層 C は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句で評価する。",
         transform=ax.transAxes,
         ha="center",
         va="center",
