@@ -851,4 +851,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked the HTML paper at `http://localhost:8767/paper/?v=final-polish`; confirmed `典拠マーカー層`, updated keywords, Figure 12 caption, and absence of old layer names.
   - Checked PDF pages 1 and 16 in the in-app browser; confirmed the short abstract/keywords and Figure 12 display correctly.
   - Ran `git diff --check`, old-term/文字化け searches, proper-name checks, secret search, and public local-path search.
-- Commit: pending
+- Commit: `b06bd3c59fd94a55311a7666ff8d0aaa46a98366`
