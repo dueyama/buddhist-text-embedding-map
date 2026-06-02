@@ -37,10 +37,16 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - 論文HTML: `docs/paper/index.html`
 - 論文PDF: `docs/paper/sect-sutra-map-paper.pdf`
 - 論文TeX: `docs/paper/sect-sutra-map-paper.tex`
+- English AI-assisted translation HTML: `docs/paper/en/index.html`
+- English AI-assisted translation PDF: `docs/paper/en/sect-sutra-map-paper-en.pdf`
 - GitHub Pages entry point: `docs/index.html`
 - Public viewer: `docs/viewer/index.html`
 - Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
+
+The Japanese paper is the authoritative print/book edition. The English paper is provided as an AI-assisted translation for access by English-language readers; when citing or checking nuance, use the Japanese edition as the primary text.
+
+日本語論文を正式な製本版とし、英語版は英語読者のためのAI支援翻訳版として公開します。引用や細かなニュアンス確認では、日本語版を主たる本文として扱ってください。
 
 ## Repository Layout
 
@@ -81,6 +87,7 @@ Use GitHub Pages with:
 
 Then open the generated Pages URL and confirm that the landing page, paper PDF, figures, and public viewer load correctly.
 The landing page links primarily to the HTML paper, while the PDF version remains in `docs/paper/` for citation and offline reading.
+The English AI-assisted translation is available under `docs/paper/en/`.
 
 ## License
 

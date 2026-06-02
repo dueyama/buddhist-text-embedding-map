@@ -4,6 +4,7 @@
 
 - 論文HTML: `docs/paper/index.html`
 - 論文PDF・TeX: `docs/paper/sect-sutra-map-paper.pdf`, `docs/paper/sect-sutra-map-paper.tex`
+- 英語AI支援翻訳版HTML・PDF・TeX: `docs/paper/en/index.html`, `docs/paper/en/sect-sutra-map-paper-en.pdf`, `docs/paper/en/sect-sutra-map-paper-en.tex`
 - 図: `docs/figures/*.png`
 - 静的サイト: `docs/index.html`
 - 公開版ビューア: `docs/viewer/index.html`, `docs/viewer/viewer_data.json`
@@ -36,6 +37,8 @@
    - `index.html` が表示される。
    - `paper/` でHTML論文が表示される。
    - `paper/sect-sutra-map-paper.pdf` が開く。
+   - `paper/en/` で英語AI支援翻訳版HTMLが表示される。
+   - `paper/en/sect-sutra-map-paper-en.pdf` が開く。
    - `process/` で制作プロセス文書が表示される。
    - `viewer/index.html` が `viewer_data.json` を自動読み込みする。
    - 主要図が表示される。
@@ -52,6 +55,7 @@ git log --all --oneline -G'/Users|Documents/Codex'
 python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py
 python3 experiments/sect_sutra_map/make_public_viewer_data.py
 python3 experiments/sect_sutra_map/make_paper_html.py
+python3 experiments/sect_sutra_map/make_paper_html.py --input docs/paper/en/sect-sutra-map-paper-en.tex --output docs/paper/en/index.html --lang en --pdf-name sect-sutra-map-paper-en.pdf
 python3 experiments/sect_sutra_map/make_process_html.py
 ```
 
@@ -68,5 +72,7 @@ git ls-files | rg '^お経/|^埋め込みお経/|^埋め込みテスト/|^experi
 公開版 `docs/viewer/viewer_data.json` は、本文プレビューとローカル本文パスを除いた派生データである。本文の再取得・再利用は各提供元の利用条件に従うこと。
 
 論文はWebで読みやすい `docs/paper/index.html` を主表示とし、PDF版も同じディレクトリに保持する。PDFはページ固定の引用・印刷・オフライン閲覧用として扱う。
+
+日本語論文を正式な製本版とし、英語版は `docs/paper/en/` のAI支援翻訳版として扱う。英語版には、引用や細かなニュアンス確認では日本語版を主たる本文とする旨を明記する。
 
 ライセンスは未選択。コード再利用を許可したい場合は MIT、論文・図を再利用可能にしたい場合は CC BY 4.0 など、公開方針に合わせて別途決める。

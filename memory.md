@@ -870,3 +870,30 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the HTML table row also reads `恒河沙、慈悲加祐...`.
   - Ran `git diff --check`, bad-glyph/old-term searches, secret search, and public local-path search.
 - Commit: `ca5eb482439e52c588fcdc5b8ed97fd2c37869b9`
+
+## 2026-06-02 14:54 JST
+
+- Summary: Added an English AI-assisted translation edition of the paper while keeping the Japanese paper as the authoritative print/book edition. Created the English TeX, HTML, and PDF under `docs/paper/en/`, updated the paper HTML generator for bilingual output, added English navigation links, and recorded the English-edition phase in the public process report and publication checklist.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/index.html`
+  - `docs/paper/en/index.html`
+  - `docs/paper/en/sect-sutra-map-paper-en.pdf`
+  - `docs/paper/en/sect-sutra-map-paper-en.tex`
+  - `docs/paper/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py --input docs/paper/en/sect-sutra-map-paper-en.tex --output docs/paper/en/index.html --lang en --pdf-name sect-sutra-map-paper-en.pdf`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper-en.tex` twice and `dvipdfmx sect-sutra-map-paper-en.dvi`; removed ignored LaTeX intermediate files afterward.
+  - Confirmed with bundled `pypdf` that `docs/paper/en/sect-sutra-map-paper-en.pdf` has 24 pages and English title/author/keyword metadata.
+  - Checked `http://localhost:8767/paper/en/?v=en-translation`, `http://localhost:8767/?v=en-link`, and `http://localhost:8767/process/?v=en-process` in the in-app browser; confirmed English navigation, translation note, glossary anchors, Figure labels, top-page link, process-phase link, and no console errors.
+  - Ran secret searches with `git grep -n 'sk[-][A-Za-z0-9]'` and `rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources memory.md`; both returned no matches.
+  - Ran public local-path search on `README.md` and `docs`; no `/Users` or `Documents/Codex` paths appeared in public documents.
+- Commit: `pending`

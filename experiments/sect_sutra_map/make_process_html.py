@@ -136,6 +136,7 @@ def page(content: str) -> str:
       <nav class="site-nav" aria-label="サイト内ナビゲーション">
         <a class="nav-link" href="../">トップ</a>
         <a class="nav-link" href="../paper/">論文</a>
+        <a class="nav-link" href="../paper/en/">English</a>
         <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
         <a class="nav-link" href="../viewer/">ビューア</a>
         <a class="nav-link" href="./" aria-current="page">制作プロセス</a>

@@ -16,26 +16,42 @@ SAT_TEXT_URL = "https://21dzk.l.u-tokyo.ac.jp/SAT2018/{text_id}.html"
 GLOSSARY_SECTION_MARKER = '<h2 id="付録-用語-モデル-ツール">'
 GLOSSARY_DEFINITIONS = [
     ("<strong>コーパス：</strong>", "glossary-corpus"),
+    ("<strong>Corpus:</strong>", "glossary-corpus"),
     ("<strong>前処理と正規化：</strong>", "glossary-preprocess"),
+    ("<strong>Preprocessing and normalization:</strong>", "glossary-preprocess"),
     ("<strong>トークン：</strong>", "glossary-token"),
+    ("<strong>Token:</strong>", "glossary-token"),
     ("<strong><code>tiktoken</code> と <code>cl100k_base</code>：</strong>", "glossary-tiktoken"),
+    ("<strong><code>tiktoken</code> and <code>cl100k_base</code>:</strong>", "glossary-tiktoken"),
     ("<strong>チャンクとオーバーラップ：</strong>", "glossary-chunk"),
+    ("<strong>Chunks and overlap:</strong>", "glossary-chunk"),
     ("<strong>埋め込みと <code>text-embedding-3-large</code>：</strong>", "glossary-embedding"),
+    ("<strong>Embeddings and <code>text-embedding-3-large</code>:</strong>", "glossary-embedding"),
     ("<strong>埋め込み空間：</strong>", "glossary-embedding-space"),
+    ("<strong>Embedding space:</strong>", "glossary-embedding-space"),
     ("<strong>OpenAI API、APIキー、SDK：</strong>", "glossary-openai-api"),
     ("<strong>APIトークンとキャッシュ：</strong>", "glossary-api-cache"),
     ("<strong>コサイン類似度：</strong>", "glossary-cosine"),
+    ("<strong>Cosine similarity:</strong>", "glossary-cosine"),
     ("<strong>L2正規化：</strong>", "glossary-l2"),
     ("<strong>重心：</strong>", "glossary-centroid"),
+    ("<strong>Centroid:</strong>", "glossary-centroid"),
     ("<strong>PCA：</strong>", "glossary-pca"),
+    ("<strong>PCA:</strong>", "glossary-pca"),
     ("<strong>寄与率：</strong>", "glossary-explained-variance"),
     ("<strong>1標準偏差楕円：</strong>", "glossary-ellipse"),
     ("<strong>TF-IDF と文字n-gram：</strong>", "glossary-tfidf"),
+    ("<strong>TF-IDF and character n-grams:</strong>", "glossary-tfidf"),
     ("<strong>stylometry（計量文体論）：</strong>", "glossary-stylometry"),
+    ("<strong>Stylometry:</strong>", "glossary-stylometry"),
     ("<strong>top-k近傍とチャンク近傍混合率：</strong>", "glossary-top-k"),
+    ("<strong>Top-k neighbors and chunk-neighbor mixing rate:</strong>", "glossary-top-k"),
     ("<strong>三層参照源混合地図（source-mixture map）：</strong>", "glossary-source-mixture"),
+    ("<strong>Three-layer source-mixture map:</strong>", "glossary-source-mixture"),
     ("<strong>softmax：</strong>", "glossary-softmax"),
+    ("<strong>Softmax:</strong>", "glossary-softmax"),
     ("<strong>optimal transport と unbalanced optimal transport：</strong>", "glossary-optimal-transport"),
+    ("<strong>Optimal transport and unbalanced optimal transport:</strong>", "glossary-optimal-transport"),
     ("<strong>ラベルランダム化と完全混合参照：</strong>", "glossary-randomization"),
     ("<strong>top-1 accuracy、MRR、ROC-AUC：</strong>", "glossary-retrieval-metrics"),
     (
@@ -45,6 +61,7 @@ GLOSSARY_DEFINITIONS = [
     ("<strong>manifest、JSON、HTML：</strong>", "glossary-formats"),
     ("<strong>静的ビューアとGitHub Pages：</strong>", "glossary-static-viewer"),
     ("<strong>SAT、聖教DB、84000：</strong>", "glossary-sources"),
+    ("<strong>SAT, Seikyo DB, and 84000:</strong>", "glossary-sources"),
 ]
 GLOSSARY_TERMS = [
     ("cross-linguistic semantic textual similarity", "glossary-parallel-intertextuality"),
@@ -58,6 +75,10 @@ GLOSSARY_TERMS = [
     ("intertextuality", "glossary-parallel-intertextuality"),
     ("OpenAI API", "glossary-openai-api"),
     ("OpenAI SDK", "glossary-openai-api"),
+    ("embedding space", "glossary-embedding-space"),
+    ("cosine similarity", "glossary-cosine"),
+    ("semantic embeddings", "glossary-embedding"),
+    ("chunk-neighbor mixing rate", "glossary-top-k"),
     ("APIトークン", "glossary-api-cache"),
     ("APIキー", "glossary-openai-api"),
     ("オーバーラップ", "glossary-chunk"),
@@ -106,6 +127,8 @@ def find_braced(source: str, command: str) -> str:
 
 def linked_author(author: str) -> str:
     escaped = html.escape(author)
+    if "Daishin Ueyama" in escaped and "上山大信" in escaped:
+        return f'<a href="{AUTHOR_URL}">{escaped}</a>'
     author_link = f'<a href="{AUTHOR_URL}">上山大信</a>'
     return escaped.replace("上山大信", author_link)
 
@@ -310,13 +333,18 @@ def split_rows(block: str) -> list[list[str]]:
     return rows
 
 
-def table_html(block: str, citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
+def table_html(
+    block: str,
+    citation_numbers: dict[str, int],
+    label_numbers: dict[str, str],
+    table_label: str = "表",
+) -> str:
     caption_match = re.search(r"\\caption\{(.+?)\}", block, flags=re.DOTALL)
     caption = inline_tex(caption_match.group(1), citation_numbers, label_numbers) if caption_match else ""
     label_match = re.search(r"\\label\{([^}]+)\}", block)
     table_id = f' id="{html.escape(label_match.group(1))}"' if label_match else ""
     if label_match and label_match.group(1) in label_numbers:
-        caption = f"表{label_numbers[label_match.group(1)]}. {caption}"
+        caption = f"{table_label}{label_numbers[label_match.group(1)]}. {caption}"
     rows = split_rows(block)
     if not rows:
         return ""
@@ -334,7 +362,12 @@ def table_html(block: str, citation_numbers: dict[str, int], label_numbers: dict
     )
 
 
-def figure_html(block: str, citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
+def figure_html(
+    block: str,
+    citation_numbers: dict[str, int],
+    label_numbers: dict[str, str],
+    figure_label: str = "図",
+) -> str:
     image_match = re.search(r"\\includegraphics(?:\[[^]]+\])?\{([^}]+)\}", block)
     caption_match = re.search(r"\\caption\{(.+?)\}", block, flags=re.DOTALL)
     label_match = re.search(r"\\label\{([^}]+)\}", block)
@@ -344,7 +377,7 @@ def figure_html(block: str, citation_numbers: dict[str, int], label_numbers: dic
     label = label_match.group(1) if label_match else ""
     caption = inline_tex(caption_match.group(1), citation_numbers, label_numbers) if caption_match else ""
     number = label_numbers.get(label, "")
-    caption_prefix = f"図{number}. " if number else ""
+    caption_prefix = f"{figure_label}{number}. " if number else ""
     figure_id = f' id="{html.escape(label)}"' if label else ""
     return (
         f'<figure{figure_id}><img src="{html.escape(src, quote=True)}" alt="{caption}">'
@@ -453,7 +486,13 @@ def add_sat_text_links(fragment: str) -> str:
     return "".join(output)
 
 
-def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
+def content_html(
+    body: str,
+    citation_numbers: dict[str, int],
+    label_numbers: dict[str, str],
+    figure_label: str = "図",
+    table_label: str = "表",
+) -> str:
     body = body.replace(r"\maketitle", "")
     output: list[str] = []
     paragraph: list[str] = []
@@ -518,7 +557,7 @@ def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dic
             if index < len(lines):
                 block_lines.append(lines[index].strip())
                 index += 1
-            output.append(figure_html("\n".join(block_lines), citation_numbers, label_numbers))
+            output.append(figure_html("\n".join(block_lines), citation_numbers, label_numbers, figure_label))
             continue
         if line.startswith(r"\begin{table}") or line.startswith(r"\begin{longtable}"):
             flush_paragraph(paragraph, output)
@@ -531,7 +570,7 @@ def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dic
             if index < len(lines):
                 block_lines.append(lines[index].strip())
                 index += 1
-            html_table = table_html("\n".join(block_lines), citation_numbers, label_numbers)
+            html_table = table_html("\n".join(block_lines), citation_numbers, label_numbers, table_label)
             if html_table:
                 output.append(html_table)
             continue
@@ -544,7 +583,12 @@ def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dic
     return "\n".join(output)
 
 
-def bibliography_html(entries: list[tuple[str, str]], citation_numbers: dict[str, int], label_numbers: dict[str, str]) -> str:
+def bibliography_html(
+    entries: list[tuple[str, str]],
+    citation_numbers: dict[str, int],
+    label_numbers: dict[str, str],
+    heading: str = "参考文献",
+) -> str:
     items = []
     for key, value in entries:
         number = citation_numbers[key]
@@ -552,10 +596,36 @@ def bibliography_html(entries: list[tuple[str, str]], citation_numbers: dict[str
             f'<li id="ref-{html.escape(key)}" value="{number}">'
             f"{inline_tex(value, citation_numbers, label_numbers)}</li>"
         )
-    return '<section class="references"><h2 id="references">参考文献</h2><ol>' + "\n".join(items) + "</ol></section>"
+    return (
+        f'<section class="references"><h2 id="references">{html.escape(heading)}</h2><ol>'
+        + "\n".join(items)
+        + "</ol></section>"
+    )
 
 
-def build_html(source: str) -> str:
+def build_html(source: str, lang: str = "ja", pdf_name: str = "sect-sutra-map-paper.pdf") -> str:
+    is_en = lang == "en"
+    figure_label = "Figure " if is_en else "図"
+    table_label = "Table " if is_en else "表"
+    references_heading = "References" if is_en else "参考文献"
+    abstract_heading = "Abstract" if is_en else "要旨"
+    nav_label = "Site navigation" if is_en else "サイト内ナビゲーション"
+    if is_en:
+        nav_links = f"""
+        <a class="nav-link" href="../../">Top</a>
+        <a class="nav-link" href="../">Japanese Edition</a>
+        <a class="nav-link" href="./" aria-current="page">AI Translation</a>
+        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF</a>
+        <a class="nav-link" href="../../viewer/">Viewer</a>
+        <a class="nav-link" href="../../process/">Process</a>"""
+    else:
+        nav_links = f"""
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="./" aria-current="page">論文</a>
+        <a class="nav-link" href="en/">English</a>
+        <a class="nav-link" href="{html.escape(pdf_name, quote=True)}">PDF</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>
+        <a class="nav-link" href="../process/">制作プロセス</a>"""
     title = re.sub(r"\\\\(?:\[[^]]+\])?", " ", find_braced(source, "title")).strip()
     author = find_braced(source, "author")
     date = find_braced(source, "date")
@@ -565,7 +635,7 @@ def build_html(source: str) -> str:
     citation_numbers, entries = parse_bibliography(bibliography)
     label_numbers = collect_label_numbers(main_body)
     seen_glossary_terms: set[str] = set()
-    body_html = content_html(main_body, citation_numbers, label_numbers)
+    body_html = content_html(main_body, citation_numbers, label_numbers, figure_label, table_label)
     abstract_html = "\n".join(
         f"<p>{inline_tex(part, citation_numbers, label_numbers)}</p>"
         for part in re.split(r"\n\s*\n", abstract)
@@ -575,9 +645,9 @@ def build_html(source: str) -> str:
     body_html = add_glossary_anchors_and_links(body_html, seen_glossary_terms)
     abstract_html = add_sat_text_links(abstract_html)
     body_html = add_sat_text_links(body_html)
-    references = bibliography_html(entries, citation_numbers, label_numbers)
+    references = bibliography_html(entries, citation_numbers, label_numbers, references_heading)
     return f"""<!doctype html>
-<html lang="ja">
+<html lang="{html.escape(lang)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -650,18 +720,14 @@ def build_html(source: str) -> str:
     <div class="page">
       <h1>{html.escape(title)}</h1>
       <div class="meta">{linked_author(author)} / {html.escape(date)}</div>
-      <nav class="site-nav" aria-label="サイト内ナビゲーション">
-        <a class="nav-link" href="../">トップ</a>
-        <a class="nav-link" href="./" aria-current="page">論文</a>
-        <a class="nav-link" href="sect-sutra-map-paper.pdf">PDF</a>
-        <a class="nav-link" href="../viewer/">ビューア</a>
-        <a class="nav-link" href="../process/">制作プロセス</a>
+      <nav class="site-nav" aria-label="{html.escape(nav_label)}">
+{nav_links}
       </nav>
     </div>
   </header>
   <main class="page">
     <section class="abstract">
-      <h2>要旨</h2>
+      <h2>{html.escape(abstract_heading)}</h2>
       {abstract_html}
     </section>
     {body_html}
@@ -676,6 +742,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default=str(DEFAULT_INPUT))
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
+    parser.add_argument("--lang", choices=["ja", "en"], default="ja")
+    parser.add_argument("--pdf-name", default="sect-sutra-map-paper.pdf")
     args = parser.parse_args()
     input_path = Path(args.input)
     output_path = Path(args.output)
@@ -684,7 +752,10 @@ def main() -> None:
     if not output_path.is_absolute():
         output_path = PROJECT_ROOT / output_path
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(build_html(input_path.read_text(encoding="utf-8")), encoding="utf-8")
+    output_path.write_text(
+        build_html(input_path.read_text(encoding="utf-8"), lang=args.lang, pdf_name=args.pdf_name),
+        encoding="utf-8",
+    )
     print(f"Wrote {output_path.relative_to(PROJECT_ROOT)}")
 
 
