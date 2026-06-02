@@ -576,6 +576,16 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 \noindent\textbf{SAT、聖教DB、84000：} SATは大正新脩大藏經テキストデータベース、聖教DBは浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース、84000はチベット仏典英訳を公開するReading Roomである。本稿ではこれらを本文・対照資料の取得元として利用し、原本文そのものは公開版データに転載しない。
 
+\section*{著者責任とAI支援の範囲}
+
+本稿の著者は上山大信である。本稿は、AI支援を用いた人文系データ解析論文制作のプロトタイプでもあるため、通常の謝辞とは別に、著者責任とAI支援の範囲を明示する。近年の出版倫理指針では、AIツールや大規模言語モデルは、内容の正確性、完全性、独創性、最終承認に責任を負うことができないため、著者として扱わず、使用したツール名、用途、人間による確認責任を明記することが求められている\cite{icmje-ai,elsevier-ai,springer-ai}。また、研究への寄与を透明化するための語彙として CRediT などの貢献役割分類も広く用いられている\cite{credit-taxonomy}。
+
+本研究において、上山大信は、研究全体の構想、研究課題の設定、対象文献の選定、仏教学的解釈の方向づけ、結果の読み方に関する判断、公開方針、最終的な内容確認を担った。CRediT 的にいえば、主として Conceptualization、Resources、Supervision、Validation、Writing--review \& editing、Project administration に相当する役割である。したがって、本稿の最終的な責任は上山大信に属する。
+
+Codex GPT-5.5 xhigh は、上山大信の指示と確認のもとで、実験スクリプトの実装、本文取得・前処理の補助、埋め込み生成パイプライン、計算実行と解析結果の整理、可視化、HTML/PDF生成、Gitによる変更記録、草稿作成、改稿、検証手順の実行を支援した。CRediT 的な作業内容に対応させれば、Software、Data curation、Formal analysis、Visualization、Writing--original draft、Writing--review \& editing の一部に関わる支援である。ただし、Codex は著者または共同著者ではなく、研究判断および最終責任を負う主体ではない。
+
+ChatGPT 5.5 Pro xhigh は、査読者役として、問題設定、先行研究との位置づけ、独自性の表現、限界の記述、三層地図の説明、公開向けの表現について助言を与えた。これらの助言は、Codexによる改稿作業および上山大信による判断を通じて取捨選択され、本稿に反映された。なお、AI支援によって生成・改稿された文章、図表、コード、参考文献記述については、人間が確認すべき対象であり、AI出力を一次情報源として扱わない。
+
 \section*{謝辞}
 
 本稿の改稿過程では、ChatGPT 5.5 Pro xhigh を査読者役として用い、問題設定、先行研究との位置づけ、再現性、限界の記述について有益な指摘を得た。ここに謝意を記す。
@@ -647,6 +657,26 @@ OpenAI,
 OpenAI,
 \newblock tiktoken,
 \newblock \url{https://github.com/openai/tiktoken}（2026年6月2日閲覧）
+
+\bibitem{icmje-ai}
+International Committee of Medical Journal Editors,
+\newblock ``Use of AI by Authors,''
+\newblock \url{https://www.icmje.org/recommendations/browse/artificial-intelligence/ai-use-by-authors.html}（2026年6月2日閲覧）
+
+\bibitem{elsevier-ai}
+Elsevier,
+\newblock ``The use of AI and AI-assisted technologies in writing for Elsevier,''
+\newblock \url{https://www.elsevier.com/about/policies-and-standards/the-use-of-generative-ai-and-ai-assisted-technologies-in-writing-for-elsevier}（2026年6月2日閲覧）
+
+\bibitem{springer-ai}
+Springer Nature,
+\newblock ``Artificial Intelligence (AI),''
+\newblock \url{https://link.springer.com/brands/springer/journal-policies}（2026年6月2日閲覧）
+
+\bibitem{credit-taxonomy}
+National Information Standards Organization,
+\newblock ``CRediT: Contributor Role Taxonomy,''
+\newblock \url{https://credit.niso.org/}（2026年6月2日閲覧）
 
 \bibitem{salton1988}
 Gerard Salton and Christopher Buckley,

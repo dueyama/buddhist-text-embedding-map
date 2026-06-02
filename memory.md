@@ -810,3 +810,20 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked page 3 of the generated PDF in the in-app browser at 90% and 125% zoom. Confirmed Table 1 fits the page and the short metadata columns wrap less often.
 - Commit: `23b6e00dcedf5727f46cd7cafde863c39e0495a6`
+
+## 2026-06-02 14:02 JST
+
+- Summary: Added an explicit AI-use and author-responsibility disclosure to the paper. Framed the author as `上山大信` and treated Codex GPT-5.5 xhigh and ChatGPT 5.5 Pro xhigh as disclosed AI-support tools rather than authors. Added references for current AI authorship/disclosure norms and CRediT-style role terminology.
+- Files:
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `memory.md`
+- Verification:
+  - Checked current publisher guidance by looking up ICMJE, Elsevier, Springer Nature, and CRediT sources.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
+  - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Checked the HTML paper and generated PDF in the in-app browser. Confirmed the disclosure section begins with `本稿の著者は上山大信である` and that `上山さん` does not appear.
+- Commit: `pending`
