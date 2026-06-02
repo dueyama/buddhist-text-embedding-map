@@ -87,8 +87,7 @@ This file records experiment results worth keeping outside generated caches.
   - `T0365` 佛説觀無量壽佛經: `23` chunks, `9003` chars
   - `T0366` 佛説阿彌陀經: `7` chunks, `2368` chars
   - 教行信証: `197` chunks, `78978` chars
-    - 出典確認先: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース
-    - 利用規定: 成果公表時は同データベースを利用した旨を明記する必要がある
+    - 出典: 浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース
 - 法華系
   - 妙法蓮華經 抜粋本文: `13` chunks, `4718` chars
   - 觀世音菩薩普門品 SAT range: `6` chunks, `2134` chars
@@ -579,3 +578,27 @@ Query: `toh106_samdhinirmocana_en`
 
 - GitHub Pages 公開後、`paper/`、PDF、公開版ビューアのリンクを実URLで再確認する。
 - READMEのAI支援制作プロセス記述は、公開時のクレジット方針に合わせて必要ならさらに調整する。
+
+## 2026-06-02: 論文の出典表現と用語付録の調整
+
+### 主要対応
+
+- 『顯淨土眞實教行證文類』の出典説明から、規定確認の手続き自体を本文で説明するような不自然な書き方を外し、本文では聖教DBを利用したこと、参考文献では同データベースを掲げる形に整理した。
+- 謝辞に、査読者役として用いた `ChatGPT 5.5 Pro xhigh` から有益な指摘を得た旨を追記した。
+- 付録「用語・モデル・ツール」を追加し、`tiktoken`、`cl100k_base`、`text-embedding-3-large`、OpenAI API、APIキー、SDK、キャッシュ、コサイン類似度、PCA、TF-IDF、GitHub Pages などを説明した。
+- さらに読者がつまずきやすい語として、コーパス、前処理、正規化、埋め込み空間、L2正規化、寄与率、1標準偏差楕円、stylometry、ラベルランダム化、MRR、ROC-AUC、parallel句、intertextuality、manifest、JSON、HTML を付録に追加した。
+- `docs/paper/index.html`、`docs/paper/sect-sutra-map-paper-5.pdf`、公開版 `docs/viewer/viewer_data.json` を再生成した。
+
+### 検証
+
+- `python3 experiments/sect_sutra_map/make_paper_html.py` を実行し、HTML論文を再生成した。
+- `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_public_viewer_data.py experiments/sect_sutra_map/build_corpus.py experiments/sect_sutra_map/embed_texts.py experiments/sect_sutra_map/make_viewer_data.py` を実行した。
+- `python3 -m json.tool experiments/sect_sutra_map/manifest.json` と `python3 -m json.tool docs/viewer/viewer_data.json` を実行した。
+- `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` を2回実行し、`dvipdfmx sect-sutra-map-paper.dvi` で18ページのPDFを生成した。
+- 生成HTMLに、付録、追加用語、謝辞、著者リンク、聖教DBの自然な出典表現が入っていることを確認した。
+- 旧文言、実ローカルパス、APIキー形式の文字列、未変換LaTeX断片が公開対象ファイルに残っていないことを確認した。
+
+### 残る公開前確認
+
+- GitHub Pages 公開後、`paper/` とPDFリンクを実URLで再確認する。
+- 用語付録は読者反応に応じて、今後さらに短い脚注版と詳細付録版に分けてもよい。

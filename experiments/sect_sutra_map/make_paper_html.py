@@ -279,8 +279,8 @@ def content_html(body: str, citation_numbers: dict[str, int], label_numbers: dic
         if line in {"{\\small", "{", "}"} or line.startswith(r"\setlength"):
             index += 1
             continue
-        section = re.match(r"\\section\{(.+?)\}", line)
-        subsection = re.match(r"\\subsection\{(.+?)\}", line)
+        section = re.match(r"\\section\*?\{(.+?)\}", line)
+        subsection = re.match(r"\\subsection\*?\{(.+?)\}", line)
         if section or subsection:
             flush_paragraph(paragraph, output)
             title = (section or subsection).group(1)

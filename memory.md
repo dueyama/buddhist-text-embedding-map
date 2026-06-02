@@ -524,3 +524,26 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Verified `paper/` and `process/` in the local browser: author homepage link present, PDF link present, process tooling/publication sections present, and no real local filesystem paths visible.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `1ad259cde5f644a202f82491b7c801e60cbb9e31`
+
+## 2026-06-02 11:08 JST
+
+- Summary: Refined the paper's source-credit wording for the Kyogyoshinsho text, added an acknowledgement for ChatGPT 5.5 Pro xhigh review feedback, expanded the paper appendix into a glossary for implementation, visualization, evaluation, and publication terms, and regenerated the HTML paper, PDF, and public viewer data.
+- Files:
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/paper/index.html`
+  - `docs/viewer/viewer_data.json`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/manifest.json`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_public_viewer_data.py experiments/sect_sutra_map/build_corpus.py experiments/sect_sutra_map/embed_texts.py experiments/sect_sutra_map/make_viewer_data.py`.
+  - Ran `python3 -m json.tool experiments/sect_sutra_map/manifest.json` and `python3 -m json.tool docs/viewer/viewer_data.json`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Confirmed the generated HTML includes the glossary appendix, added terms, source wording, author link, and ChatGPT 5.5 Pro xhigh acknowledgement.
+  - Checked public/tracked files for obsolete source-wording phrases, real local paths, hardcoded API key patterns, and leftover LaTeX commands in the generated HTML.
+- Commit: `pending`
