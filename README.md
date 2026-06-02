@@ -98,4 +98,14 @@ The English process report is available under `docs/process/en/`.
 
 ## License
 
-No repository-wide license has been selected yet. Choose a license before encouraging reuse beyond viewing the public repository.
+This repository uses a split license.
+
+- Code is licensed under the MIT License. See `LICENSE-CODE`.
+- The paper, figures, documentation, process reports, citation metadata, and public derived data are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). See `LICENSE-CONTENT`.
+- Source texts retrieved from SAT, J-SOKEN, 84000, or other providers are not redistributed here and are not covered by this repository's licenses.
+
+本リポジトリは分割ライセンスを採用しています。
+
+- コードは MIT License です。`LICENSE-CODE` を参照してください。
+- 論文、図、公開文書、制作プロセス、citation metadata、公開用派生データは Creative Commons Attribution 4.0 International (CC BY 4.0) です。`LICENSE-CONTENT` を参照してください。
+- SAT、J-SOKEN、84000 などから取得した元本文は本リポジトリでは再配布しておらず、本リポジトリのライセンス対象外です。

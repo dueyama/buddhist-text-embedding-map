@@ -94,7 +94,7 @@ The reusable pattern is simple.
 ## Remaining Tasks
 
 - Update citation metadata after the GitHub repository URL is fixed.
-- Decide the license for code, paper, figures, and derived data.
+- The license policy is now fixed: code is MIT licensed, while the paper, figures, public documents, process reports, and public derived data are released under CC BY 4.0. After publication, confirm the repository URL and credit wording.
 - Recheck source-provider terms of use before public release.
 - Test chunk-size dependency, natural-unit chunking, character normalization, and variant forms.
 - Extend the method to stronger style features and source-marker dictionaries.

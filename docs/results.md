@@ -533,7 +533,7 @@ Query: `toh106_samdhinirmocana_en`
 
 ### 主要対応
 
-- ルートに `README.md` と `CITATION.cff` を追加し、公開対象、再現手順、GitHub Pages 設定、未選択ライセンスを明記した。
+- ルートに `README.md` と `CITATION.cff` を追加し、公開対象、再現手順、GitHub Pages 設定、ライセンス方針を明記した。
 - `docs/index.html` を追加し、論文PDF、公開版ビューア、主要図へリンクする GitHub Pages 用トップページを作成した。
 - `docs/viewer/index.html` と `docs/viewer/viewer_data.json` を追加し、GitHub Pages 上で動く公開版ビューアを作成した。
 - `experiments/sect_sutra_map/make_public_viewer_data.py` を追加し、本文プレビューとローカル本文パスを除いた公開用 viewer data を生成できるようにした。
@@ -550,7 +550,7 @@ Query: `toh106_samdhinirmocana_en`
 ### 残る公開前確認
 
 - GitHub repository 名と owner が確定したら、`CITATION.cff` の `repository-code` を実URLに更新する。
-- コード・論文・図のライセンス方針を決める。
+- ライセンス方針は、コードを MIT、論文・図・公開文書・制作プロセス・公開用派生データを CC BY 4.0 として決定済み。公開後は repository URL とクレジット表記を確認する。
 - remote 作成、push、GitHub Pages 有効化は未実施。
 
 ## 2026-06-02: HTML論文ページとREADME制作経緯
