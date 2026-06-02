@@ -1082,3 +1082,19 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Used the in-app browser on the Tailscale preview to verify top, Japanese/English paper, Japanese/English process, and viewer pages load with content and no console warnings/errors.
   - Confirmed the viewer loads `15 texts / 433 chunks` and renders 15 SVG points.
 - Commit: `1f48f80534cc9ccc0f8661315084e7ed17a6b1c0`
+
+## 2026-06-02 18:14 JST
+
+- Summary: Connected the local repository to the newly created GitHub repository and performed the first push to `main`. Before pushing, updated `CITATION.cff` so `repository-code` points to the public repository URL instead of the placeholder.
+- Files:
+  - `CITATION.cff`
+  - `memory.md`
+- Verification:
+  - Confirmed `git status --short` was clean before adding the remote.
+  - Confirmed tracked files do not include `.env`, `.DS_Store`, legacy exploratory folders, raw/processed data, outputs, or LaTeX intermediate files.
+  - Ran current and all-history checks for OpenAI API key patterns, the local absolute project path, and hard-coded private preview addresses; no tracked/history matches found.
+  - Confirmed `git@github.com:dueyama/buddhist-text-embedding-map.git` was reachable over SSH before adding it as `origin`.
+  - Added `origin` as `git@github.com:dueyama/buddhist-text-embedding-map.git`.
+  - Ran `git push -u origin main`; push succeeded and `main` now tracks `origin/main`.
+  - Confirmed `git ls-remote --heads origin main` reports `6bba0c2e4adfbb3d014d76388ada244f0faea439`.
+- Commit: pending
