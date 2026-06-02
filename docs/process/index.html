@@ -21,10 +21,10 @@
     header { background: var(--paper); border-bottom: 1px solid var(--line); padding: 28px 0 18px; }
     main { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 32px 44px; }
     .wrap { width: min(980px, calc(100% - 40px)); margin: 0 auto; }
-    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    .button { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }
-    .button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .nav-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }
+    .nav-link[aria-current="page"] { border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }
     h1 { margin: 0; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.2; letter-spacing: 0; }
     h2 { margin: 34px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 24px; line-height: 1.35; letter-spacing: 0; }
     h3 { margin: 24px 0 8px; font-size: 19px; line-height: 1.35; letter-spacing: 0; }
@@ -46,12 +46,13 @@
     <div class="wrap">
       <h1>制作プロセス</h1>
       <p class="lead">Okyouリポジトリの立ち上げから、実験、査読対応、PDF/HTML論文、GitHub Pages公開準備までの流れをまとめた記録です。</p>
-      <nav>
-        <a class="button primary" href="../paper/">HTML論文</a>
-        <a class="button" href="../paper/sect-sutra-map-paper-5.pdf">PDF版</a>
-        <a class="button" href="../viewer/">公開版ビューア</a>
-        <a class="button" href="../">トップ</a>
-        <a class="button" href="../repo-launch-process-report.md">Markdown版</a>
+      <nav class="site-nav" aria-label="サイト内ナビゲーション">
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="../paper/">論文</a>
+        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>
+        <a class="nav-link" href="./" aria-current="page">制作プロセス</a>
+        <a class="nav-link" href="../results.md">結果ログ</a>
       </nav>
     </div>
   </header>
@@ -189,7 +190,7 @@
 <li>先行研究レビューを追加し、Buddhist NLP、Buddhist DH、stylometry、parallel passage detection、cross-lingual semantic textual similarity との関係を明記した。</li>
 <li>本稿の新規性を「仏教文献にembeddingを初めて適用した」ことではなく、「日本仏教の宗派別参照群、異訳、親鸞文献、チャンク分布、多言語パイロットを統合した探索地図」として再定義した。</li>
 </ul>
-<p>この査読対応を通じて、論文は第2稿、第3稿、第4稿、第5稿へ進み、<code>docs/paper/sect-sutra-map-paper-5.tex</code> と <code>docs/paper/sect-sutra-map-paper-5.pdf</code> が公開準備版になった。</p>
+<p>この査読対応を通じて、論文は第2稿、第3稿、第4稿、第5稿相当へ進んだ。公開準備版のファイル名は番号付き稿ではなく、<code>docs/paper/sect-sutra-map-paper.tex</code> と <code>docs/paper/sect-sutra-map-paper.pdf</code> に統一した。</p>
 <h2>フェーズ10: GitHub / GitHub Pages 公開準備</h2>
 <p>最終段階では、研究成果をGitHubおよびGitHub Pagesで公開できるように整えた。</p>
 <p>追加された主なファイルは次の通りである。</p>
@@ -204,7 +205,7 @@
 <li><code>experiments/sect_sutra_map/make_public_viewer_data.py</code></li>
 </ul>
 <p>公開版ビューアでは、本文プレビュー、ローカル本文パス、raw/processed本文を含めず、座標、類似度、近傍ID、メタデータを中心にした派生データだけを公開するようにした。</p>
-<p>その後、PDFだけではなくWeb上で普通に読めるHTML論文が必要になったため、<code>experiments/sect_sutra_map/make_paper_html.py</code> を追加し、<code>docs/paper/sect-sutra-map-paper-5.tex</code> から <code>docs/paper/index.html</code> を生成した。GitHub PagesのトップページではHTML論文を主導線にし、PDF版も同じディレクトリに残す構成へ変更した。</p>
+<p>その後、PDFだけではなくWeb上で普通に読めるHTML論文が必要になったため、<code>experiments/sect_sutra_map/make_paper_html.py</code> を追加し、<code>docs/paper/sect-sutra-map-paper.tex</code> から <code>docs/paper/index.html</code> を生成した。GitHub PagesのトップページではHTML論文を主導線にし、PDF版も同じディレクトリに残す構成へ変更した。</p>
 <p>READMEには、<a href="https://sites.google.com/site/dueyama/">上山大信</a>の指示、Codex GPT-5.5 xhighとの反復作業、ChatGPT 5.5 Proとの査読形式のやり取りを経たプロジェクトであることを、英語と日本語で明記した。</p>
 <p>この公開準備もCodexが担当した。具体的には、公開用README、CITATION.cff、GitHub Pagesトップ、公開版ビューア、公開版viewer data、HTML論文、PDF版への導線、制作プロセスHTML、公開チェックリストを作成・更新し、ローカルHTTPサーバとブラウザで表示確認した。なお、GitHub上のrepository作成、remote追加、push、Pages有効化はこの時点ではまだ未実施であり、実URLが確定した後に行う作業として残した。</p>
 <h2>フェーズ11: 直近のやり取りを公開可能な制作記録へ整理</h2>

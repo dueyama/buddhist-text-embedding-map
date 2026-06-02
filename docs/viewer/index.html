@@ -56,6 +56,33 @@
       line-height: 1.6;
     }
 
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav-link[aria-current="page"] {
+      border-color: #bccbc8;
+      background: #f4f7f5;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
     .controls {
       display: flex;
       gap: 10px;
@@ -265,6 +292,14 @@
     <div>
       <h1>宗派別お経マップ</h1>
       <div class="subhead" id="summary">公開版 viewer_data.json を読み込み中</div>
+      <nav class="site-nav" aria-label="サイト内ナビゲーション">
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="../paper/">論文</a>
+        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
+        <a class="nav-link" href="./" aria-current="page">ビューア</a>
+        <a class="nav-link" href="../process/">制作プロセス</a>
+        <a class="nav-link" href="../results.md">結果ログ</a>
+      </nav>
     </div>
     <div class="controls">
       <select id="sectFilter" aria-label="宗派"></select>

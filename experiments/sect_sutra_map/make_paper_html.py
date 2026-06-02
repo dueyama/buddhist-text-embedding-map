@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = PROJECT_ROOT / "docs/paper/sect-sutra-map-paper-5.tex"
+DEFAULT_INPUT = PROJECT_ROOT / "docs/paper/sect-sutra-map-paper.tex"
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs/paper/index.html"
 AUTHOR_URL = "https://sites.google.com/site/dueyama/"
 SAT_TEXT_URL = "https://21dzk.l.u-tokyo.ac.jp/SAT2018/{text_id}.html"
@@ -603,9 +603,9 @@ def build_html(source: str) -> str:
     main {{ background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 34px 44px; }}
     h1 {{ margin: 0 0 12px; font-size: clamp(28px, 4vw, 42px); line-height: 1.22; letter-spacing: 0; }}
     .meta {{ color: var(--muted); font-size: 14px; }}
-    .actions {{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }}
-    .button {{ display: inline-flex; min-height: 36px; align-items: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); text-decoration: none; background: #fff; font-size: 14px; }}
-    .button.primary {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
+    .site-nav {{ display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }}
+    .nav-link {{ display: inline-flex; min-height: 36px; align-items: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); text-decoration: none; background: #fff; font-size: 14px; }}
+    .nav-link[aria-current="page"] {{ border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }}
     .abstract {{ border-left: 5px solid var(--accent); background: #f4f7f5; padding: 18px; margin: 0 0 24px; }}
     .abstract h2 {{ margin-top: 0; }}
     h2 {{ margin: 34px 0 12px; font-size: 25px; line-height: 1.35; letter-spacing: 0; }}
@@ -650,12 +650,14 @@ def build_html(source: str) -> str:
     <div class="page">
       <h1>{html.escape(title)}</h1>
       <div class="meta">{linked_author(author)} / {html.escape(date)}</div>
-      <div class="actions">
-        <a class="button primary" href="./">HTMLで読む</a>
-        <a class="button" href="sect-sutra-map-paper-5.pdf">PDF版</a>
-        <a class="button" href="../viewer/">公開版ビューア</a>
-        <a class="button" href="../">プロジェクト概要</a>
-      </div>
+      <nav class="site-nav" aria-label="サイト内ナビゲーション">
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="./" aria-current="page">論文</a>
+        <a class="nav-link" href="sect-sutra-map-paper.pdf">PDF</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>
+        <a class="nav-link" href="../process/">制作プロセス</a>
+        <a class="nav-link" href="../results.md">結果ログ</a>
+      </nav>
     </div>
   </header>
   <main class="page">

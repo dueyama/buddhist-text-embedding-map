@@ -175,7 +175,7 @@ v0では、浄土系、法華系、真言系、禅系、華厳系の参照テキ
 - 先行研究レビューを追加し、Buddhist NLP、Buddhist DH、stylometry、parallel passage detection、cross-lingual semantic textual similarity との関係を明記した。
 - 本稿の新規性を「仏教文献にembeddingを初めて適用した」ことではなく、「日本仏教の宗派別参照群、異訳、親鸞文献、チャンク分布、多言語パイロットを統合した探索地図」として再定義した。
 
-この査読対応を通じて、論文は第2稿、第3稿、第4稿、第5稿へ進み、`docs/paper/sect-sutra-map-paper-5.tex` と `docs/paper/sect-sutra-map-paper-5.pdf` が公開準備版になった。
+この査読対応を通じて、論文は第2稿、第3稿、第4稿、第5稿相当へ進んだ。公開準備版のファイル名は番号付き稿ではなく、`docs/paper/sect-sutra-map-paper.tex` と `docs/paper/sect-sutra-map-paper.pdf` に統一した。
 
 ## フェーズ10: GitHub / GitHub Pages 公開準備
 
@@ -194,7 +194,7 @@ v0では、浄土系、法華系、真言系、禅系、華厳系の参照テキ
 
 公開版ビューアでは、本文プレビュー、ローカル本文パス、raw/processed本文を含めず、座標、類似度、近傍ID、メタデータを中心にした派生データだけを公開するようにした。
 
-その後、PDFだけではなくWeb上で普通に読めるHTML論文が必要になったため、`experiments/sect_sutra_map/make_paper_html.py` を追加し、`docs/paper/sect-sutra-map-paper-5.tex` から `docs/paper/index.html` を生成した。GitHub PagesのトップページではHTML論文を主導線にし、PDF版も同じディレクトリに残す構成へ変更した。
+その後、PDFだけではなくWeb上で普通に読めるHTML論文が必要になったため、`experiments/sect_sutra_map/make_paper_html.py` を追加し、`docs/paper/sect-sutra-map-paper.tex` から `docs/paper/index.html` を生成した。GitHub PagesのトップページではHTML論文を主導線にし、PDF版も同じディレクトリに残す構成へ変更した。
 
 READMEには、[上山大信](https://sites.google.com/site/dueyama/)の指示、Codex GPT-5.5 xhighとの反復作業、ChatGPT 5.5 Proとの査読形式のやり取りを経たプロジェクトであることを、英語と日本語で明記した。
 

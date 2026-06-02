@@ -66,14 +66,14 @@
       font-size: 16px;
     }
 
-    .actions {
+    .site-nav {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 22px;
     }
 
-    .button {
+    .nav-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -87,10 +87,11 @@
       text-decoration: none;
     }
 
-    .button.primary {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #fff;
+    .nav-link[aria-current="page"] {
+      border-color: #bccbc8;
+      background: #f4f7f5;
+      color: var(--accent);
+      font-weight: 700;
     }
 
     figure {
@@ -223,13 +224,14 @@
       <div>
         <h1>意味埋め込みによる仏教文献の探索地図</h1>
         <p class="lead">宗派別参照群、阿弥陀経二訳、親鸞文献、多言語パイロットを、意味埋め込みとチャンク分布で見るための予備的研究ノートです。</p>
-        <div class="actions">
-          <a class="button primary" href="paper/">HTML論文</a>
-          <a class="button" href="paper/sect-sutra-map-paper-5.pdf">PDF版</a>
-          <a class="button" href="viewer/">公開版ビューア</a>
-          <a class="button" href="process/">制作プロセス</a>
-          <a class="button" href="results.md">結果ログ</a>
-        </div>
+        <nav class="site-nav" aria-label="サイト内ナビゲーション">
+          <a class="nav-link" href="./" aria-current="page">トップ</a>
+          <a class="nav-link" href="paper/">論文</a>
+          <a class="nav-link" href="paper/sect-sutra-map-paper.pdf">PDF</a>
+          <a class="nav-link" href="viewer/">ビューア</a>
+          <a class="nav-link" href="process/">制作プロセス</a>
+          <a class="nav-link" href="results.md">結果ログ</a>
+        </nav>
       </div>
       <figure>
         <img src="figures/sect-sutra-semantic-map.png" alt="宗派別参照テキスト群の意味配置図">
@@ -242,7 +244,7 @@
     <section class="grid" aria-label="公開資料">
       <article class="card">
         <h2>論文</h2>
-        <p>HTML論文を主表示にし、第5稿PDFとTeXソースも公開対象にします。先行研究レビュー追加後の微修正まで反映済みです。</p>
+        <p>Web版の論文を主表示にし、最終版PDFとTeXソースも公開対象にします。先行研究レビュー追加後の微修正まで反映済みです。</p>
       </article>
       <article class="card">
         <h2>コード</h2>

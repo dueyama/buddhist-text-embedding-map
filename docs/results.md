@@ -557,7 +557,7 @@ Query: `toh106_samdhinirmocana_en`
 
 ### 主要対応
 
-- `docs/paper/sect-sutra-map-paper-5.tex` から `docs/paper/index.html` を生成する `experiments/sect_sutra_map/make_paper_html.py` を追加した。
+- `docs/paper/sect-sutra-map-paper.tex` から `docs/paper/index.html` を生成する `experiments/sect_sutra_map/make_paper_html.py` を追加した。
 - GitHub Pages のトップページでは、主導線をPDFからHTML論文へ変更し、PDF版も同じ `docs/paper/` 配下に保持する構成にした。
 - READMEに、上山大信の指示、Codex GPT-5.5 xhigh との反復作業、ChatGPT 5.5 Pro との査読形式のやり取りを経た、人文系データ解析論文制作プロトタイプとしての位置づけを日英で追記した。
 - `docs/PUBLICATION.md` に、HTML論文、PDF版、公開版ビューアの確認項目を追加した。
@@ -587,7 +587,7 @@ Query: `toh106_samdhinirmocana_en`
 - 謝辞に、査読者役として用いた `ChatGPT 5.5 Pro xhigh` から有益な指摘を得た旨を追記した。
 - 付録「用語・モデル・ツール」を追加し、`tiktoken`、`cl100k_base`、`text-embedding-3-large`、OpenAI API、APIキー、SDK、キャッシュ、コサイン類似度、PCA、TF-IDF、GitHub Pages などを説明した。
 - さらに読者がつまずきやすい語として、コーパス、前処理、正規化、埋め込み空間、L2正規化、寄与率、1標準偏差楕円、stylometry、ラベルランダム化、MRR、ROC-AUC、parallel句、intertextuality、manifest、JSON、HTML を付録に追加した。
-- `docs/paper/index.html`、`docs/paper/sect-sutra-map-paper-5.pdf`、公開版 `docs/viewer/viewer_data.json` を再生成した。
+- `docs/paper/index.html`、`docs/paper/sect-sutra-map-paper.pdf`、公開版 `docs/viewer/viewer_data.json` を再生成した。
 
 ### 検証
 

@@ -3,7 +3,7 @@
 ## 公開するもの
 
 - 論文HTML: `docs/paper/index.html`
-- 論文PDF・TeX: `docs/paper/sect-sutra-map-paper-5.pdf`, `docs/paper/sect-sutra-map-paper-5.tex`
+- 論文PDF・TeX: `docs/paper/sect-sutra-map-paper.pdf`, `docs/paper/sect-sutra-map-paper.tex`
 - 図: `docs/figures/*.png`
 - 静的サイト: `docs/index.html`
 - 公開版ビューア: `docs/viewer/index.html`, `docs/viewer/viewer_data.json`
@@ -20,6 +20,12 @@
 - legacy local corpus and exploratory folders
 - older exploratory notebooks/scripts that may contain API keys
 
+## 公開用履歴の考え方
+
+このローカル作業リポジトリでは、`memory.md` をgit管理して作業ごとの日時、検証、commit hashを記録している。これは研究制作の作業台帳であり、AI支援研究制作のプロセスを示す公開可能な記録として扱う。
+
+初回公開前には、最新状態だけでなくgit履歴も含めて、実際のAPIキー、raw/processed本文、embedding cache、ローカル絶対パス、legacy exploratory folders が追跡されていないことを確認する。
+
 ## GitHub Pages 設定
 
 1. GitHub に repository を作成する。
@@ -29,7 +35,7 @@
 5. 公開URLで次を確認する。
    - `index.html` が表示される。
    - `paper/` でHTML論文が表示される。
-   - `paper/sect-sutra-map-paper-5.pdf` が開く。
+   - `paper/sect-sutra-map-paper.pdf` が開く。
    - `process/` で制作プロセス文書が表示される。
    - `viewer/index.html` が `viewer_data.json` を自動読み込みする。
    - 主要図が表示される。
@@ -38,13 +44,24 @@
 
 ```bash
 git status --short
-rg -n 'sk[-]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources
-git grep --cached -n 'sk[-]'
+rg -n 'sk[-][A-Za-z0-9]' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources
+rg -n '/Users|Documents/Codex' README.md docs experiments/sect_sutra_map experiments/multilingual_sutra_map experiments/shinran_amida_sources --glob '!docs/PUBLICATION.md'
+git grep --cached -n 'sk[-][A-Za-z0-9]'
+git log --all --oneline -G'sk[-][A-Za-z0-9]'
+git log --all --oneline -G'/Users|Documents/Codex'
 python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py
 python3 experiments/sect_sutra_map/make_public_viewer_data.py
 python3 experiments/sect_sutra_map/make_paper_html.py
 python3 experiments/sect_sutra_map/make_process_html.py
 ```
+
+追跡対象ファイルとして、次が出ないことを確認する。
+
+```bash
+git ls-files | rg '^お経/|^埋め込みお経/|^埋め込みテスト/|^experiments/.*/data/|^experiments/.*/outputs/|^\.env$'
+```
+
+このコマンドが何も出ない状態にしてから公開する。
 
 ## 注意
 

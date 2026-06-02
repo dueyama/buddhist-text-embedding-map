@@ -12,7 +12,7 @@ This file records local project changes for the Okyou experiments. Times are JST
 - Verification:
   - Confirmed this directory was not previously a git repository.
   - Confirmed `.env` exists and must remain untracked.
-  - Confirmed legacy notebooks/scripts contain hardcoded API keys and must not be staged.
+  - Confirmed legacy notebooks/scripts may contain secrets and must not be staged.
 - Commit: `183a5f88e30101fc28a63aee37895715876eb02d`
 
 ## 2026-06-01 17:35 JST
@@ -675,3 +675,41 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed HTML glossary links have no missing anchor targets, MathJax remains enabled, and 33 SAT text links are generated.
   - Visually inspected the regenerated Amida difference and Kyogyoshinsho source-mixture figures.
 - Commit: `8f394bc94f69527eaff5ff96d20d16db1c7f3e99`
+
+## 2026-06-02 12:55 JST
+
+- Summary: Reworked publication hygiene for a first GitHub push from `main`. Treated `memory.md` as a public process ledger rather than a private file, removed the public `.gitignore` block that named specific sensitive legacy exploratory files, audited git history for actual API keys and local absolute paths, normalized the final paper filenames to `sect-sutra-map-paper.pdf` and `sect-sutra-map-paper.tex` without numbered draft suffixes, and unified the public site navigation across the top page, paper, viewer, and process pages.
+- Files:
+  - `.gitignore`
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/index.html`
+  - `docs/paper/index.html`
+  - `docs/paper/sect-sutra-map-paper-2.pdf` (removed)
+  - `docs/paper/sect-sutra-map-paper-2.tex` (removed)
+  - `docs/paper/sect-sutra-map-paper-3.pdf` (removed)
+  - `docs/paper/sect-sutra-map-paper-3.tex` (removed)
+  - `docs/paper/sect-sutra-map-paper-4.pdf` (removed)
+  - `docs/paper/sect-sutra-map-paper-4.tex` (removed)
+  - `docs/paper/sect-sutra-map-paper-5.pdf` (removed)
+  - `docs/paper/sect-sutra-map-paper-5.tex` (removed)
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `docs/results.md`
+  - `docs/viewer/index.html`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `memory.md`
+- Verification:
+  - Confirmed `.gitignore` no longer contains the specific sensitive legacy file block.
+  - Confirmed the legacy exploratory folders remain ignored through folder-level patterns.
+  - Confirmed current tracked files contain no actual OpenAI API key prefix pattern.
+  - Confirmed git history has no OpenAI API key prefix additions/removals and no local absolute path additions.
+  - Confirmed git history has no tracked entries for the legacy exploratory folders or `experiments/amida_compare`.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_process_html.py`.
+  - Confirmed public-facing links no longer refer to `sect-sutra-map-paper-5.pdf` or other numbered paper draft filenames.
+  - Confirmed the shared navigation order is `トップ / 論文 / PDF / ビューア / 制作プロセス / 結果ログ` on the top page, paper page, process page, and viewer page.
+  - Checked the process and viewer pages in the in-app browser; current-page state is shown with a subtle background rather than a filled primary button.
+- Commit: pending

@@ -24,10 +24,3 @@ experiments/**/outputs/
 埋め込みお経/
 埋め込みテスト/
 experiments/amida_compare/
-
-# Legacy exploratory files known to contain hardcoded API keys.
-お経/embedding.py
-お経/embedding2.py
-お経/embedding.ipynb
-埋め込みテスト/embedding.ipynb
-埋め込みお経/embedding.ipynb

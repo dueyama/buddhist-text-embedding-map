@@ -12,6 +12,10 @@ At the start of this Codex workflow, the local workspace also contained three le
 
 このCodex作業の開始時点では、ローカル作業環境に `お経`、`埋め込みお経`、`埋め込みテスト` という三つの過去実験フォルダがありました。これらは上山大信が数年前に少し試した埋め込み実験の痕跡であり、今回の研究の前提・背景として参照されました。ただし、公開・再現用の成果物ではないため、gitでは追跡せず、現在の公開用コードと文書は `experiments/` と `docs/` に整理し直しています。
 
+The local development repository also uses `memory.md` as a project ledger. It records timestamps, change summaries, verification steps, and commit hashes for the Codex-assisted workflow. This practice is documented here because it is useful for reproducing the process and understanding how the research artifact was assembled.
+
+また、ローカル開発用リポジトリでは、作業台帳として `memory.md` をgit管理しています。ここにはJST日時、変更概要、検証内容、commit hashを記録し、Codex支援による研究制作の流れを追跡できるようにしました。この記録方法自体も、再現可能なワークフローの一部として参考になることを意図しています。
+
 ## Replication Assumptions / 再現の前提
 
 - OpenAI API key for generating embeddings.
@@ -31,8 +35,8 @@ At the start of this Codex workflow, the local workspace also contained three le
 ## Public Artifacts
 
 - 論文HTML: `docs/paper/index.html`
-- 論文PDF: `docs/paper/sect-sutra-map-paper-5.pdf`
-- 論文TeX: `docs/paper/sect-sutra-map-paper-5.tex`
+- 論文PDF: `docs/paper/sect-sutra-map-paper.pdf`
+- 論文TeX: `docs/paper/sect-sutra-map-paper.tex`
 - GitHub Pages entry point: `docs/index.html`
 - Public viewer: `docs/viewer/index.html`
 - Results log: `docs/results.md`
@@ -63,6 +67,8 @@ python3 experiments/sect_sutra_map/make_public_viewer_data.py
 ## Publication Policy
 
 This repository is prepared for public GitHub/GitHub Pages use, but it does not redistribute raw source texts from SAT, J-SOKEN, 84000, or other providers. Public Pages data omits chunk text previews and local source paths. Re-run the build scripts locally after confirming each source's terms of use.
+
+Before the first public push, verify that the tracked history does not contain actual API keys, raw/processed text data, embedding caches, local absolute paths, or legacy exploratory folders. The `memory.md` ledger is intentionally tracked as a process record.
 
 See `docs/PUBLICATION.md` for the publication checklist.
 

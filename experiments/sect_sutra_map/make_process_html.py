@@ -108,10 +108,10 @@ def page(content: str) -> str:
     header {{ background: var(--paper); border-bottom: 1px solid var(--line); padding: 28px 0 18px; }}
     main {{ background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 32px 44px; }}
     .wrap {{ width: min(980px, calc(100% - 40px)); margin: 0 auto; }}
-    nav {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }}
     a {{ color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }}
-    .button {{ display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }}
-    .button.primary {{ background: var(--accent); border-color: var(--accent); color: #fff; }}
+    .site-nav {{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }}
+    .nav-link {{ display: inline-flex; align-items: center; min-height: 36px; padding: 0 13px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }}
+    .nav-link[aria-current="page"] {{ border-color: #bccbc8; background: #f4f7f5; color: var(--accent); font-weight: 700; }}
     h1 {{ margin: 0; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.2; letter-spacing: 0; }}
     h2 {{ margin: 34px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 24px; line-height: 1.35; letter-spacing: 0; }}
     h3 {{ margin: 24px 0 8px; font-size: 19px; line-height: 1.35; letter-spacing: 0; }}
@@ -133,12 +133,13 @@ def page(content: str) -> str:
     <div class="wrap">
       <h1>制作プロセス</h1>
       <p class="lead">Okyouリポジトリの立ち上げから、実験、査読対応、PDF/HTML論文、GitHub Pages公開準備までの流れをまとめた記録です。</p>
-      <nav>
-        <a class="button primary" href="../paper/">HTML論文</a>
-        <a class="button" href="../paper/sect-sutra-map-paper-5.pdf">PDF版</a>
-        <a class="button" href="../viewer/">公開版ビューア</a>
-        <a class="button" href="../">トップ</a>
-        <a class="button" href="../repo-launch-process-report.md">Markdown版</a>
+      <nav class="site-nav" aria-label="サイト内ナビゲーション">
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="../paper/">論文</a>
+        <a class="nav-link" href="../paper/sect-sutra-map-paper.pdf">PDF</a>
+        <a class="nav-link" href="../viewer/">ビューア</a>
+        <a class="nav-link" href="./" aria-current="page">制作プロセス</a>
+        <a class="nav-link" href="../results.md">結果ログ</a>
       </nav>
     </div>
   </header>
