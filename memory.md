@@ -869,4 +869,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Rendered PDF page 5 to `/private/tmp/okyou-table2-page5-upright.png` with macOS CoreGraphics via Swift and inspected it; confirmed Table 2 now reads `恒河沙、慈悲加祐...` without a missing glyph.
   - Confirmed the HTML table row also reads `恒河沙、慈悲加祐...`.
   - Ran `git diff --check`, bad-glyph/old-term searches, secret search, and public local-path search.
-- Commit: pending
+- Commit: `ca5eb482439e52c588fcdc5b8ed97fd2c37869b9`
