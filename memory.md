@@ -734,4 +734,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
   - Confirmed with text search that public files no longer contain `結果ログ`, `Results log`, or `実験実験結果メモ`.
   - Checked the top page and process page in the in-app browser. The shared navigation is now `トップ / 論文 / PDF / ビューア / 制作プロセス`, and the process page uses `実験結果メモ` only in body text.
-- Commit: `pending`
+- Commit: `d1c12e428ff4f9a39c5ba6ea2bed9a43e36e900e`
