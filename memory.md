@@ -619,4 +619,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the generated HTML includes MathJax, 23 inline math spans, and 2 display math blocks.
   - Visually inspected Figure 1 and Figure 12 after regeneration.
   - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used generated images, HTML source, and rebuilt PDF instead.
-- Commit: pending
+- Commit: `546ab6757257a1c9d25786e19101e7b9059941cc`
