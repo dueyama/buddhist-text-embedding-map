@@ -119,7 +119,7 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `403` cache hits, `0` misses.
   - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py`.
   - Ran `python3 -m json.tool experiments/sect_sutra_map/outputs/viewer_data.json`.
-  - Served the viewer locally and captured `/private/tmp/okyou-sect-map.png` with headless Chrome.
+  - Served the viewer locally and captured a headless Chrome screenshot for visual checking.
 - Commit: `d015b7cbe9f5a951284b53357d0714a86e905a4b`
 
 ## 2026-06-01 17:58 JST
@@ -155,7 +155,7 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 experiments/sect_sutra_map/embed_texts.py --no-api` and confirmed `433` cache hits, `0` misses.
   - Ran `python3 experiments/sect_sutra_map/make_viewer_data.py` and confirmed `3` translator centroids.
   - Validated `experiments/sect_sutra_map/outputs/viewer_data.json` with `python3 -m json.tool`.
-  - Captured `/private/tmp/okyou-translator-map.png` with headless Chrome.
+  - Captured a headless Chrome screenshot for visual checking.
 - Commit: `433e5e75974581d0e9e2a6f8665781a1ce1c1368`
 
 ## 2026-06-01 18:23 JST
@@ -198,7 +198,7 @@ This file records local project changes for the Okyou experiments. Times are JST
   - `docs/paper/sect-sutra-map-paper.tex`
   - `docs/paper/sect-sutra-map-paper.pdf`
 - Verification:
-  - Confirmed `uplatex`, `dvipdfmx`, `latexmk`, and `tlmgr` under `/Library/TeX/texbin`.
+  - Confirmed `uplatex`, `dvipdfmx`, `latexmk`, and `tlmgr` were available in the local TeX path.
   - Compiled a minimal `jsarticle` Japanese smoke test with `uplatex` and `dvipdfmx`.
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
@@ -500,3 +500,27 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Served `docs/` locally with `python3 -m http.server 8766 --directory docs` and verified the Pages landing page and public viewer in the in-app browser.
   - Checked the planned commit files for hardcoded API key patterns.
 - Commit: `4b53cbd562bf3477192a03262a6fb08c30e89dda`
+
+## 2026-06-02 10:52 JST
+
+- Summary: Added an HTML paper as the primary GitHub Pages reading surface while retaining the PDF, expanded the README and process report with bilingual production provenance for the Codex/ChatGPT-assisted humanities data-analysis prototype, linked the author name to the author's website, and sanitized public pages to avoid real local paths.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `docs/index.html`
+  - `docs/paper/index.html`
+  - `docs/process/index.html`
+  - `docs/repo-launch-process-report.md`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_paper_html.py`
+  - `experiments/sect_sutra_map/make_process_html.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py experiments/sect_sutra_map/make_process_html.py`.
+  - Checked the generated HTML paper for leftover LaTeX commands and confirmed bibliography URLs render as links.
+  - Checked that the process HTML records OpenAI API, ChatGPT Pro, Codex/Git, BasicTeX/upLaTeX/dvipdfmx, browser verification, and GitHub Pages publication preparation.
+  - Verified `paper/` and `process/` in the local browser: author homepage link present, PDF link present, process tooling/publication sections present, and no real local filesystem paths visible.
+  - Checked the planned commit files for hardcoded API key patterns.
+- Commit: `pending`

@@ -213,7 +213,7 @@ Generated corpus/output files are not committed. The viewer is served locally fr
 
 - Viewer data: `experiments/sect_sutra_map/outputs/viewer_data.json`
 - Static viewer: `experiments/sect_sutra_map/viewer/index.html`
-- Visual check: `/private/tmp/okyou-translator-map.png`
+- Visual check: headless Chrome で訳者比較マップを確認。
 
 ### 未検証点
 
@@ -545,7 +545,7 @@ Query: `toh106_samdhinirmocana_en`
 
 - `python3 -m py_compile experiments/sect_sutra_map/*.py experiments/multilingual_sutra_map/*.py experiments/shinran_amida_sources/*.py` を実行。
 - `python3 experiments/sect_sutra_map/make_public_viewer_data.py` を実行し、公開版 viewer data が 15 texts / 433 chunks で生成されることを確認。
-- `docs/viewer/viewer_data.json` に `source_path`、`body_path`、`line_path`、本文冒頭断片、ローカル `お経/` パスが残っていないことを確認。
+- `docs/viewer/viewer_data.json` に local source path、本文冒頭断片、legacy local corpus path が残っていないことを確認。
 - ローカル `http.server` で `docs/` を配信し、ブラウザでトップページと公開版ビューアを確認。ビューアは `15 texts / 433 chunks` を読み込み、Nearest chunks では本文プレビュー省略文を表示した。
 
 ### 残る公開前確認
@@ -553,3 +553,29 @@ Query: `toh106_samdhinirmocana_en`
 - GitHub repository 名と owner が確定したら、`CITATION.cff` の `repository-code` を実URLに更新する。
 - コード・論文・図のライセンス方針を決める。
 - remote 作成、push、GitHub Pages 有効化は未実施。
+
+## 2026-06-02: HTML論文ページとREADME制作経緯
+
+### 主要対応
+
+- `docs/paper/sect-sutra-map-paper-5.tex` から `docs/paper/index.html` を生成する `experiments/sect_sutra_map/make_paper_html.py` を追加した。
+- GitHub Pages のトップページでは、主導線をPDFからHTML論文へ変更し、PDF版も同じ `docs/paper/` 配下に保持する構成にした。
+- READMEに、上山大信の指示、Codex GPT-5.5 xhigh との反復作業、ChatGPT 5.5 Pro との査読形式のやり取りを経た、人文系データ解析論文制作プロトタイプとしての位置づけを日英で追記した。
+- `docs/PUBLICATION.md` に、HTML論文、PDF版、公開版ビューアの確認項目を追加した。
+- リポジトリ立ち上げから公開準備までをまとめた制作プロセス文書とHTML版を追加し、AI支援で道具準備・検証・公開物整備まで行う半自動ワークフローとして記録した。
+- HTML論文と制作プロセス文書の上山大信表記を、本人Webサイトへのリンクにした。
+- 公開ページから実ローカルパスを除き、プロジェクトルート表記を `Okyou/` に抽象化した。
+
+### 検証
+
+- `python3 experiments/sect_sutra_map/make_paper_html.py` を実行し、HTML論文を再生成した。
+- `python3 experiments/sect_sutra_map/make_process_html.py` を実行し、制作プロセスHTMLを生成した。
+- `python3 -m py_compile experiments/sect_sutra_map/make_paper_html.py` を実行した。
+- 生成HTMLに `\begin{...}`、`\cite{...}`、`\ref{...}` などの主要な未変換LaTeX断片が残っていないことを確認した。
+- 参考文献URLがHTMLリンクとして出力されることを確認した。
+- ローカルブラウザで `paper/` と `process/` を確認し、著者リンク、PDFリンク、制作プロセスの道具準備・公開準備節、実ローカルパス非表示を確認した。
+
+### 残る公開前確認
+
+- GitHub Pages 公開後、`paper/`、PDF、公開版ビューアのリンクを実URLで再確認する。
+- READMEのAI支援制作プロセス記述は、公開時のクレジット方針に合わせて必要ならさらに調整する。

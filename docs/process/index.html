@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>制作プロセス | 宗派別お経マップ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f2;
+      --paper: #ffffff;
+      --ink: #202723;
+      --muted: #66706a;
+      --line: #d9ded6;
+      --accent: #2f6f73;
+      --warm: #9a5b3f;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.82; }
+    header { background: var(--paper); border-bottom: 1px solid var(--line); padding: 28px 0 18px; }
+    main { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 22px auto 44px; padding: 32px 44px; }
+    .wrap { width: min(980px, calc(100% - 40px)); margin: 0 auto; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .button { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font-size: 14px; text-decoration: none; }
+    .button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    h1 { margin: 0; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.2; letter-spacing: 0; }
+    h2 { margin: 34px 0 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 24px; line-height: 1.35; letter-spacing: 0; }
+    h3 { margin: 24px 0 8px; font-size: 19px; line-height: 1.35; letter-spacing: 0; }
+    h4 { margin: 20px 0 8px; font-size: 16px; line-height: 1.35; letter-spacing: 0; }
+    p { margin: 0 0 14px; }
+    ul, ol { padding-left: 1.5em; margin: 8px 0 18px; }
+    li { margin: 4px 0; }
+    code { background: #f0f3ed; border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+    .lead { color: var(--muted); margin-top: 10px; max-width: 760px; }
+    .note { border-left: 5px solid var(--warm); background: #fffaf5; padding: 14px 16px; margin: 20px 0; color: var(--ink); }
+    footer { border-top: 1px solid var(--line); padding: 18px 0; color: var(--muted); font-size: 12px; background: var(--paper); }
+    @media (max-width: 720px) {
+      main { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>制作プロセス</h1>
+      <p class="lead">Okyouリポジトリの立ち上げから、実験、査読対応、PDF/HTML論文、GitHub Pages公開準備までの流れをまとめた記録です。</p>
+      <nav>
+        <a class="button primary" href="../paper/">HTML論文</a>
+        <a class="button" href="../paper/sect-sutra-map-paper-5.pdf">PDF版</a>
+        <a class="button" href="../viewer/">公開版ビューア</a>
+        <a class="button" href="../">トップ</a>
+        <a class="button" href="../repo-launch-process-report.md">Markdown版</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="note">
+      OpenAI APIキー、ChatGPT Proアカウント、ローカルCodex/Git環境を前提に、人文学系データ解析研究をAI支援で半自動的に進めるための実例として読めるように整理しています。
+    </section>
+<h1>Okyouリポジトリ立ち上げから論文公開準備までの制作プロセス</h1>
+<p>対象期間: 2026-06-01 17:33 JST から 2026-06-02 10:38 JST 対象リポジトリ: <code>Okyou/</code>（ローカルのプロジェクトルート）</p>
+<h2>位置づけ</h2>
+<p>本ドキュメントは、宗派別お経マップのリポジトリを立ち上げてから、実験コード、可視化、論文PDF、HTML論文、GitHub Pages公開準備に至るまでの制作プロセスをまとめるものである。</p>
+<p>このプロジェクトは、<a href="https://sites.google.com/site/dueyama/">上山大信</a>の指示にもとづき、Codex GPT-5.5 xhigh と反復的に実装・分析・文書化を進め、ChatGPT 5.5 Pro との査読形式のやり取りを通じて論文構成、先行研究整理、限界の記述を調整した、人文系データ解析論文制作のプロトタイプである。特に、OpenAI APIキーとChatGPT Proアカウントを持つ研究者が、この種の探索的研究をAI支援で半自動的に進めるための手順例として読めるようにすることを意図している。</p>
+<p>ここでの主眼は、AIが単独で研究を行ったということではない。むしろ、人間が問い、資料選択、解釈、公開方針を決め、AIがコード実装、可視化、草稿化、レビュー対応、ローカル検証を高速に補助することで、人文学研究の探索的サイクルをどのように短時間で回せるかを試した点にある。したがって本ドキュメントは、完成物の報告であると同時に、他の研究者が真似できる作業手順の記録でもある。</p>
+<h2>再現の前提</h2>
+<p>同種のプロジェクトを再現する場合、少なくとも次の環境を前提とする。</p>
+<ul>
+<li>OpenAI APIキー: 埋め込み生成に使う。</li>
+<li>ChatGPT Proアカウント: 査読形式の相談、論文批評、改稿方針の検討に使う。</li>
+<li>Codex環境: ローカルファイル編集、スクリプト実装、検証、git管理に使う。</li>
+<li>git: 小さなコミット単位で研究過程を残す。</li>
+<li>Python 3: コーパス構築、embedding cache、図生成、viewer data生成に使う。</li>
+<li>日本語TeX環境: PDFを再生成する場合に使う。HTML論文だけなら必須ではない。</li>
+<li>対象本文の利用条件確認: SAT、J-SOKEN、84000など、本文提供元ごとの条件を確認する。</li>
+</ul>
+<p>このプロジェクトでは、OpenAI APIで埋め込みを生成し、ChatGPT Proとの査読形式の往復で論文の問題設定、先行研究レビュー、限界の記述を鍛え、Codexでコード・図・文書・git管理を進めた。</p>
+<h2>道具準備も含めたAI支援</h2>
+<p>このプロジェクトで重要だったのは、AI支援が文章生成やコード生成に限られなかった点である。研究を進めるために必要な道具そのものも、対話しながら整えた。</p>
+<p>実際に行った道具準備は次の通りである。</p>
+<ul>
+<li>OpenAI APIキーを <code>.env</code> から読む形にし、埋め込み生成スクリプトで使えるようにした。</li>
+<li>APIキーをgitに入れないため、<code>.env</code> と既存のAPIキー入りファイルを追跡対象から外した。</li>
+<li>embedding cache を導入し、同じ本文・同じモデルでは再課金しないようにした。</li>
+<li>SAT、J-SOKEN、84000などから取得したraw/processed本文を公開対象外にし、派生データだけを公開する方針にした。</li>
+<li>Pythonでコーパス構築、本文整形、チャンク化、埋め込み、図生成、viewer data生成を行うパイプラインを作った。</li>
+<li>ローカル静的ビューアを作り、<code>http.server</code> で配信してブラウザ確認できるようにした。</li>
+<li>図入り論文PDFを作るため、ローカルに日本語TeX環境を準備した。</li>
+<li>当初は軽量なTeX実行環境や大きなTeX配布の選択肢を検討し、最終的にBasicTeX + upLaTeX + dvipdfmx の構成で日本語PDFを生成した。</li>
+<li>PDFの日本語表示、図、表、参考文献、特殊文字をQuick Lookやブラウザで確認した。</li>
+<li>PDFだけでなくGitHub Pages上で読みやすいHTML論文を生成するため、TeXからHTMLへ変換するスクリプトを追加した。</li>
+<li>GitHub Pages向けに、トップページ、公開版ビューア、HTML論文、PDF、制作プロセスHTMLを配置した。</li>
+<li>公開用README、引用メタデータ、公開チェックリスト、<code>.nojekyll</code>、公開版データを整え、GitHub Pagesでそのまま読める構成にした。</li>
+<li>公開版viewer dataから本文プレビューとローカルパスを除き、公開してよい派生情報だけにした。</li>
+<li>変更ごとにgit commitし、<code>memory.md</code> に日時、検証、commit hashを記録した。</li>
+</ul>
+<p>したがって、このプロジェクトの半自動性は「AIが論文本文を出力した」という意味ではない。むしろ、研究者が問いと判断を出し、AIが必要な道具をその場で作り、足りない環境を整え、検証し、成果物を公開可能な形へまとめるという、研究制作環境全体の半自動化である。最終的な公開準備、すなわちGitHub Pagesで読むためのHTML論文、公開版ビューア、プロセス文書、README、公開チェックリストの整備もCodexが実施した。</p>
+<h2>初期の問い</h2>
+<p>出発点は、「お経を埋め込みで比較したら、分類的な差が見えるのか」という問いだった。最初に検討したのは阿弥陀経の漢訳異本であり、同一または近い原文を異なる訳者が漢訳した場合、意味埋め込みでは近く出るはずだが、訳者や文体の癖はどのように見えるのか、という問題意識があった。</p>
+<p>そこから問いは次のように拡張された。</p>
+<ul>
+<li>阿弥陀経二訳は意味的に近く出るか。</li>
+<li>訳者が同じ複数テキストは、意味以外のまとまりを示すか。</li>
+<li>日本の代表的宗派が参照する経典群を地図化できるか。</li>
+<li>教行信証のような日本撰述文献は、根拠となる浄土三部経とどのように重なるか。</li>
+<li>点としての平均ベクトルだけでなく、チャンク分布の広がりや重なりを見られるか。</li>
+<li>漢訳とチベット系英訳など、多言語でも「意味の同一性」が近傍として出るか。</li>
+<li>こうした作業を、Codexを用いた人文系データ解析論文制作の実験として記録できるか。</li>
+</ul>
+<h2>フェーズ1: ローカル研究リポジトリの立ち上げ</h2>
+<p>最初に行ったのは、研究作業をローカルgitで管理できる形にすることだった。<code>AGENTS.md</code>、<code>.gitignore</code>、<code>memory.md</code> を作成し、作業ごとにJST日時、変更概要、検証、コミットhashを記録する方針を決めた。</p>
+<p>この段階で重要だったのは、既存フォルダにAPIキーを含む可能性のあるnotebookやscriptがあったため、<code>git add .</code> を避け、安全な新規ファイルだけを明示的にstageする運用にしたことである。<code>.env</code>、raw text、embedding cache、legacy exploratory folders は公開・追跡対象から外すことにした。</p>
+<p>同時に、以下の計画文書を作成した。</p>
+<ul>
+<li><code>docs/kanbun-style-map-plan.md</code></li>
+<li><code>docs/sect-sutra-map-plan.md</code></li>
+<li><code>docs/results.md</code></li>
+</ul>
+<p>この時点で、阿弥陀経二訳比較の既存結果を <code>docs/results.md</code> に整理し、以後の実験結果を同じ場所へ追記していく流れができた。</p>
+<h2>フェーズ2: 宗派別お経マップ v0 の実装</h2>
+<p>次に、<code>experiments/sect_sutra_map/</code> を新設し、宗派別お経マップのパイプラインを作成した。</p>
+<p>基本構成は次の通りである。</p>
+<ul>
+<li><code>manifest.json</code>: 対象テキストのメタデータ</li>
+<li><code>common.py</code>: SAT/local text処理の共通関数</li>
+<li><code>build_corpus.py</code>: 本文取得・整形</li>
+<li><code>embed_texts.py</code>: OpenAI embeddings生成とcache</li>
+<li><code>make_viewer_data.py</code>: 座標、類似度、重心、近傍データの生成</li>
+<li><code>viewer/index.html</code>: ローカル静的ビューア</li>
+</ul>
+<p>v0では、浄土系、法華系、真言系、禅系、華厳系の参照テキストを扱い、経典単位の平均ベクトル、宗派重心、チャンク近傍を表示できるようにした。初期結果では13 texts / 403 chunks、その後、訳者比較用の玄奘訳テキストを追加して15 texts / 433 chunksとなった。</p>
+<p>この段階で、宗派分類を「正解ラベル」として当てるのではなく、「宗派が参照するテキスト群の配置を見る」ものとして位置づけたことが重要である。</p>
+<h2>フェーズ3: 訳者比較と可視化の拡張</h2>
+<p>ユーザーから「同じ訳者の複数テキストはあるのか」という問いが出たため、訳者重心を追加した。鳩摩羅什、玄奘、不空など、複数テキストを持つ訳者について、宗派重心とは別に訳者重心を計算し、ビューアで表示できるようにした。</p>
+<p>ここで見えてきたのは、単純な意味空間では、宗派、経典ジャンル、訳者文体が混ざりうるという点だった。つまり、埋め込み地図はただちに宗派分類器になるのではなく、意味、典拠、訳者、文体、宗派的受容が重なる探索空間として読む必要がある。</p>
+<h2>フェーズ4: 論文形式への移行とPDF生成</h2>
+<p>可視化結果をもとに、日本語の論文草稿 <code>docs/sect-sutra-map-paper-draft.md</code> を作成した。その後、図入りPDFにするため、<code>docs/paper/sect-sutra-map-paper.tex</code> と図生成スクリプト <code>experiments/sect_sutra_map/make_paper_figures.py</code> を作成した。</p>
+<p>日本語PDF生成では、最初に軽量なTeX環境を試し、その後 BasicTeX + upLaTeX + dvipdfmx の構成へ移行した。これにより、日本語本文、図、表、参考文献を含むPDFをローカルで生成できるようになった。</p>
+<p>この段階で作成・更新された主な成果物は次の通りである。</p>
+<ul>
+<li><code>docs/paper/sect-sutra-map-paper.tex</code></li>
+<li><code>docs/paper/sect-sutra-map-paper.pdf</code></li>
+<li><code>docs/figures/sect-sutra-semantic-map.png</code></li>
+<li><code>docs/figures/sect-sutra-similarity-heatmap.png</code></li>
+<li><code>docs/figures/amida-two-translation-comparison.png</code></li>
+</ul>
+<h2>フェーズ5: 出典クレジットと公開倫理の調整</h2>
+<p>教行信証本文について、ローカル由来の表示ではなく、浄土真宗本願寺派総合研究所の『浄土真宗聖典』聖教データベース由来であることを明示するように修正した。あわせて、<code>local</code> というユーザー向け表示を外し、出典URLと本文取得元の扱いを整理した。</p>
+<p>この修正は、単なる表示の問題ではなく、公開時に本文提供元のクレジットと利用条件を尊重するための重要な工程だった。以後の公開準備でも、SAT、J-SOKEN、84000などのraw本文を再配布せず、派生的な座標、類似度、図、論文、コードを中心に公開する方針が維持された。</p>
+<h2>フェーズ6: 点から分布へ</h2>
+<p>平均ベクトルを1点として描くだけでは、経典内部の広がりが見えないという問題意識から、チャンク分布の可視化を追加した。</p>
+<p>追加された観点は次の通りである。</p>
+<ul>
+<li>テキスト平均ベクトルの2次元配置</li>
+<li>各テキストのチャンク分布</li>
+<li>テキスト間チャンク近傍の混合</li>
+<li>overlap heatmap</li>
+<li>centroid similarity と chunk overlap の比較</li>
+</ul>
+<p>この拡張により、教行信証が浄土三部経と完全に一致するわけではないが、部分的に重なりや橋渡しを持つという読みが可能になった。ユーザーの「教行信証は三部経を根拠にしているから、重なるはず」という解釈を、点の近さだけでなく、チャンク分布の重なりとして検討できるようになった。</p>
+<h2>フェーズ7: 多言語パイロット</h2>
+<p>「チベットなど他言語のお経で比較可能なのか」という問いから、多言語比較のv0計画を作成した。その後、SATの漢訳『解深密経』T0676と、84000 Reading Room の Toh 106 英訳を用いたパイロットを実装した。</p>
+<p>対照群として、金剛経、維摩経、般若心経、阿弥陀経などの漢訳を加え、84000英訳から見た最近傍の漢訳テキストが対応するT0676になるかを検証した。結果として、対応テキストが最近傍に出ることを確認し、埋め込みによる多言語意味対応の探索可能性が見えた。</p>
+<p>ただし、この段階ではチベット語原文そのものではなく、チベット系英訳と漢訳の比較であるため、多言語比較としてはパイロットに留まる。</p>
+<h2>フェーズ8: 親鸞と阿弥陀経二訳の典拠分析</h2>
+<p>親鸞がどの阿弥陀経をもとにしているのかという研究があるという話から、<code>experiments/shinran_amida_sources/</code> を新設し、親鸞文献と阿弥陀経二訳の参照関係を探索するパイロットを作成した。</p>
+<p>ここでは、単純な意味類似度だけでなく、次の三つを分けて扱った。</p>
+<ul>
+<li>明示的な引用・経名ラベル</li>
+<li>康僧鎧訳・玄奘訳を示しうる訳語マーカー</li>
+<li>チャンク単位の意味的近傍</li>
+</ul>
+<p>この分析により、親鸞文献と浄土三部経の関係を、宗派重心や平均ベクトルだけではなく、引用・語彙・意味チャンクの複数層で見る方向が加わった。</p>
+<h2>フェーズ9: 査読形式の往復と論文改稿</h2>
+<p>論文草稿に対して、複数のレビュー文書が添付され、それぞれに対応した。</p>
+<p>主な対応は次の通りである。</p>
+<ul>
+<li>主張の過度な一般化を避け、予備的・探索的研究として表現を調整した。</li>
+<li>コーパス統計、PCA寄与率、top-k sensitivity、完全混合参照など、再現性と頑健性の説明を追加した。</li>
+<li>図表ラベル、凡例、訳者名、法華経抜粋の説明を修正した。</li>
+<li>著者名を最終的に<a href="https://sites.google.com/site/dueyama/">上山大信</a>へ置換した。</li>
+<li>先行研究レビューを追加し、Buddhist NLP、Buddhist DH、stylometry、parallel passage detection、cross-lingual semantic textual similarity との関係を明記した。</li>
+<li>本稿の新規性を「仏教文献にembeddingを初めて適用した」ことではなく、「日本仏教の宗派別参照群、異訳、親鸞文献、チャンク分布、多言語パイロットを統合した探索地図」として再定義した。</li>
+</ul>
+<p>この査読対応を通じて、論文は第2稿、第3稿、第4稿、第5稿へ進み、<code>docs/paper/sect-sutra-map-paper-5.tex</code> と <code>docs/paper/sect-sutra-map-paper-5.pdf</code> が公開準備版になった。</p>
+<h2>フェーズ10: GitHub / GitHub Pages 公開準備</h2>
+<p>最終段階では、研究成果をGitHubおよびGitHub Pagesで公開できるように整えた。</p>
+<p>追加された主なファイルは次の通りである。</p>
+<ul>
+<li><code>README.md</code></li>
+<li><code>CITATION.cff</code></li>
+<li><code>docs/.nojekyll</code></li>
+<li><code>docs/PUBLICATION.md</code></li>
+<li><code>docs/index.html</code></li>
+<li><code>docs/viewer/index.html</code></li>
+<li><code>docs/viewer/viewer_data.json</code></li>
+<li><code>experiments/sect_sutra_map/make_public_viewer_data.py</code></li>
+</ul>
+<p>公開版ビューアでは、本文プレビュー、ローカル本文パス、raw/processed本文を含めず、座標、類似度、近傍ID、メタデータを中心にした派生データだけを公開するようにした。</p>
+<p>その後、PDFだけではなくWeb上で普通に読めるHTML論文が必要になったため、<code>experiments/sect_sutra_map/make_paper_html.py</code> を追加し、<code>docs/paper/sect-sutra-map-paper-5.tex</code> から <code>docs/paper/index.html</code> を生成した。GitHub PagesのトップページではHTML論文を主導線にし、PDF版も同じディレクトリに残す構成へ変更した。</p>
+<p>READMEには、<a href="https://sites.google.com/site/dueyama/">上山大信</a>の指示、Codex GPT-5.5 xhighとの反復作業、ChatGPT 5.5 Proとの査読形式のやり取りを経たプロジェクトであることを、英語と日本語で明記した。</p>
+<p>この公開準備もCodexが担当した。具体的には、公開用README、CITATION.cff、GitHub Pagesトップ、公開版ビューア、公開版viewer data、HTML論文、PDF版への導線、制作プロセスHTML、公開チェックリストを作成・更新し、ローカルHTTPサーバとブラウザで表示確認した。なお、GitHub上のrepository作成、remote追加、push、Pages有効化はこの時点ではまだ未実施であり、実URLが確定した後に行う作業として残した。</p>
+<h2>生成された成果物</h2>
+<h3>研究・実験コード</h3>
+<ul>
+<li>宗派別お経マップの本文構築・埋め込み・ビューア生成パイプライン</li>
+<li>訳者重心・宗派重心・近傍計算</li>
+<li>チャンク分布・重なり・ブリッジ分析</li>
+<li>多言語パイロット</li>
+<li>親鸞文献と阿弥陀経二訳の参照指標分析</li>
+<li>公開版viewer data生成</li>
+<li>TeXからHTML論文への変換</li>
+</ul>
+<h3>可視化</h3>
+<ul>
+<li>宗派別意味マップ</li>
+<li>類似度ヒートマップ</li>
+<li>阿弥陀経二訳比較</li>
+<li>チャンク分布図</li>
+<li>チャンク重なりヒートマップ</li>
+<li>overlap vs centroid scatter</li>
+<li>親鸞文献の参照指標図</li>
+</ul>
+<h3>文書</h3>
+<ul>
+<li>研究計画</li>
+<li>実験結果ログ</li>
+<li>多言語比較計画</li>
+<li>親鸞・阿弥陀経典拠分析メモ</li>
+<li>論文TeX</li>
+<li>論文PDF</li>
+<li>論文HTML</li>
+<li>査読対応メモ</li>
+<li>GitHub Pages公開チェックリスト</li>
+<li>本プロセスレポート</li>
+</ul>
+<h2>半自動ワークフローとして真似できる点</h2>
+<p>このプロジェクトから、同種の人文系データ解析研究で真似しやすい手順は次のように整理できる。</p>
+<ol>
+<li>まず、研究の問いを粗く置く。</li>
+</ol>
+<p>例: 異訳は埋め込み上で近く出るか、宗派の参照経典群は地図化できるか。</p>
+<ol>
+<li>対象テキストをmanifestにする。</li>
+</ol>
+<p>id、title、source、source_url、分類ラベル、訳者、時代、注記を構造化しておく。</p>
+<ol>
+<li>本文取得・整形・チャンク化をスクリプト化する。</li>
+</ol>
+<p>raw本文は公開しない前提でcacheし、公開物には派生結果だけを残す。</p>
+<ol>
+<li>OpenAI APIで埋め込みを作り、cacheする。</li>
+</ol>
+<p>同じ本文・同じモデルでは再課金しないようにする。</p>
+<ol>
+<li>平均ベクトルだけでなく、チャンク分布も見る。</li>
+</ol>
+<p>テキストを一点に潰すと見えない広がりや重なりが、解釈上の手がかりになる。</p>
+<ol>
+<li>静的ビューアを作る。</li>
+</ol>
+<p>研究者が結果を眺めながら問いを変えられるようにする。</p>
+<ol>
+<li>結果ログを残す。</li>
+</ol>
+<p>入力、モデル、チャンク数、主要数値、解釈、未検証点を <code>docs/results.md</code> に記録する。</p>
+<ol>
+<li>論文草稿を作り、ChatGPT Proで査読形式のコメントを得る。</li>
+</ol>
+<p>Codexでコメント対応、図表修正、追試、PDF/HTML生成を行う。</p>
+<ol>
+<li>公開前に出典と秘密情報を確認する。</li>
+</ol>
+<p>APIキー、raw本文、ローカルパス、利用条件に問題がないか確認する。</p>
+<ol>
+<li>GitHub PagesでHTML論文とビューアを公開する。</li>
+</ol>
+<p>PDFも残しつつ、WebではHTMLを主導線にする。 公開前には、AI支援で生成した公開版データからraw本文、ローカルパス、APIキーが除外されていることを確認する。</p>
+<p>この一連の流れは、対象が仏教文献でなくても、古典文学、歴史資料、思想文献、法令、書簡、日記、翻訳比較などに応用できる。</p>
+<h2>このプロトタイプが示したこと</h2>
+<p>第一に、CodexとOpenAI APIを使うことで、問いの変更に応じて、実験コード、可視化、論文草稿、査読対応、公開準備を連続的に進められることが示された。特に、人文学の探索的研究では、最初から固定された仮説検証ではなく、可視化を見ながら問いを変えていくことが多い。このプロジェクトでは、その変化が <code>memory.md</code> とgit履歴に残る形で進んだ。</p>
+<p>第二に、意味埋め込みは、宗派分類そのものの正解を与えるものではないが、参照テキスト群、異訳、訳者、チャンク分布、多言語対応を同じ画面で探索するための地図として有効である可能性がある。</p>
+<p>第三に、論文制作においては、AIが文章を整えるだけでは不十分であり、出典クレジット、本文再配布の制限、査読コメントへの応答、過度な主張の抑制、再現性の記述が必要である。このプロジェクトでは、それらを短い反復で追加・修正していった。</p>
+<p>第四に、ChatGPT 5.5 Proとの査読形式の往復は、Codexによる実装・改稿作業に対して、外部レビューに近い圧力を与える役割を果たした。これにより、単なる実験メモから、先行研究と限界を備えた予備論文へ近づいた。</p>
+<h2>残る課題</h2>
+<ul>
+<li>GitHub repository URLが確定したら、<code>CITATION.cff</code> の <code>repository-code</code> を更新する。</li>
+<li>コード、論文、図のライセンス方針を決める。</li>
+<li>SAT、J-SOKEN、84000など各提供元の利用条件を再確認し、公開ページ上のクレジットを必要に応じて増補する。</li>
+<li>チャンクサイズ依存性、自然単位チャンク化、本文正規化、異体字・句読点処理を検証する。</li>
+<li>意味マップ、文体マップ、引用参照マップを分離し、それぞれの特徴量で比較する。</li>
+<li>チベット語原文・サンスクリット・パーリを含む多言語比較へ拡張する。</li>
+<li>親鸞文献と浄土三部経の関係について、既存研究の典拠論と照合する。</li>
+<li>HTML論文とPDF論文を、公開後のGitHub Pages上で再確認する。</li>
+</ul>
+<h2>まとめ</h2>
+<p>このリポジトリの立ち上げから公開準備までの作業は、仏教文献の意味埋め込み分析であると同時に、AI支援による人文学研究制作の実験だった。<a href="https://sites.google.com/site/dueyama/">上山大信</a>が問いと判断を与え、Codex GPT-5.5 xhigh がコード、図、文書、検証、git管理を伴走し、ChatGPT 5.5 Pro との査読形式のやり取りが論文の構成と位置づけを鍛えた。</p>
+<p>その結果、単発の分析メモではなく、再現用コード、可視化、論文、査読対応、公開チェックリスト、GitHub Pages向けHTMLを含む、小さな研究リポジトリとしてまとまった。OpenAI APIとChatGPT Proを持つ研究者であれば、この構成をひな型として、別の人文学資料にも応用できる。</p>
+  </main>
+  <footer>
+    <div class="wrap">宗派別お経マップ v0.1。制作プロセス文書は研究用の予備的記録です。</div>
+  </footer>
+</body>
+</html>
