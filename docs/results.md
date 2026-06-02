@@ -602,3 +602,52 @@ Query: `toh106_samdhinirmocana_en`
 
 - GitHub Pages 公開後、`paper/` とPDFリンクを実URLで再確認する。
 - 用語付録は読者反応に応じて、今後さらに短い脚注版と詳細付録版に分けてもよい。
+
+## 2026-06-02: 三層 source-mixture map と参考文献スタイル調整
+
+### 主要対応
+
+- ユーザー提供の新規性改善メモを踏まえ、論文の中心を「意味・文体・引用参照の三層地図」に寄せた。
+- `make_three_layer_figures.py` を追加し、既存の埋め込みキャッシュと処理済み本文から三つの図を生成した。
+  - `three-layer-concept-map.png`
+  - `amida-three-layer-difference.png`
+  - `kyogyoshinsho-three-layer-source-mixture.png`
+- 阿弥陀経二訳について、意味層、文字n-gram文体層、チャンク分布層の差分を明示した。
+- 『教行信証』197チャンクについて、無量寿経、観無量寿経、羅什訳阿弥陀経、玄奘訳称讃浄土経への source-mixture を意味層・文体層・引用参照層で可視化した。
+- 付録の用語見出しを `コーパス：` 形式に統一した。
+- 論文本文の開発メモ風の語を、`試験的な枠組み`、`プロトタイプ`、`基礎的な前処理` などに改めた。
+- 参考文献の `著者。題名。` 形式をやめ、著者・資料名・URL・閲覧日をカンマ区切りで示す形式に整えた。
+
+### 主要数値
+
+- Model: `text-embedding-3-large`
+- 阿弥陀経二訳:
+  - 意味層の本文平均ベクトル類似度: `0.8825`
+  - 文体層の文字n-gram TF-IDF 類似度: `0.1833`
+  - top-5チャンク近傍混合率: `0.3684`
+- 『教行信証』source-mixture 平均重み:
+  - 意味層: 無量寿経 `0.3705`、観無量寿経 `0.2642`、羅什訳阿弥陀経 `0.2135`、玄奘訳称讃浄土経 `0.1517`
+  - 文体層: 無量寿経 `0.2942`、観無量寿経 `0.2402`、羅什訳阿弥陀経 `0.2369`、玄奘訳称讃浄土経 `0.2288`
+  - 引用参照層: 未検出 `0.4958`、無量寿経 `0.4682`、観無量寿経 `0.0306`、羅什訳阿弥陀経 `0.0034`、玄奘訳称讃浄土経 `0.0020`
+
+### 解釈
+
+- 阿弥陀経二訳は、意味層では高く近接する一方、文字n-gram文体層では大きく離れる。これは、原内容の近さと訳語・表記の差を分けて読む必要を示す。
+- 『教行信証』は、意味層では浄土三部経、とくに無量寿経へ強く寄る。一方、文体層では四参照源がより均され、引用参照層では小規模マーカー辞書で拾える明示的手がかりが断続的に現れる。
+- この結果は、『教行信証』が三部経を根拠とするという文献学的理解と矛盾せず、むしろ「意味的近さ」「文体的近さ」「引用・学習経路としての近さ」を分けて可視化する必要を示す。
+
+### 検証
+
+- `python3 experiments/sect_sutra_map/make_three_layer_figures.py`
+- `python3 experiments/sect_sutra_map/make_paper_html.py`
+- `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`
+- `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` を2回実行。
+- `dvipdfmx sect-sutra-map-paper.dvi`
+- 参考文献ブロックに `。` が残っていないことを確認した。
+- HTML論文に開発メモ風の旧表現が残っていないことを確認した。
+
+### 未検証点
+
+- 引用参照層は小規模なマーカー辞書に依存するため、典拠関係の有無を判定する指標ではない。
+- 文体層は文字n-gram TF-IDF による初期的な操作化であり、助字、虚詞、句法、固有訳語対応はまだ組み込んでいない。
+- source-mixture は softmax による重み付けであり、今後は章・巻・品の位置情報や unbalanced optimal transport などとの比較が必要である。

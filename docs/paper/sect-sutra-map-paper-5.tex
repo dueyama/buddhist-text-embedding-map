@@ -23,7 +23,7 @@
 \renewcommand{\refname}{参考文献}
 \renewcommand{\abstractname}{要旨}
 
-\title{意味埋め込みによる仏教文献の探索地図：宗派別参照群・異訳比較・多言語対応の予備的分析}
+\title{意味・文体・引用参照の三層地図による仏教文献探索：宗派別参照群・阿弥陀経二訳・親鸞文献の予備的分析}
 \author{上山大信}
 \date{2026年6月2日}
 
@@ -32,9 +32,9 @@
 \maketitle
 
 \begin{abstract}
-本稿は、漢訳仏典および日本撰述仏教文献を対象に、意味埋め込みを用いて仏教文献群を探索するための意味地図を構築する予備的研究である。仏教文献に対する word embedding、並行句検出、多言語意味類似度、stylometry の既存研究を踏まえ、本稿は日本仏教の宗派別参照テキスト群を対象とする探索的意味地図として位置づける。対象には、浄土系、法華系、真言系、禅系、華厳系、法相系に関係する15テキスト、433チャンクを用いた。各本文を \texttt{text-embedding-3-large} で埋め込み、本文単位のベクトルはチャンクベクトルの平均として得た。さらに、宗派別参照群重心と訳者重心を計算し、平均点の2次元配置、チャンク分布、類似度ヒートマップ、近傍テキストを確認した。加えて、漢訳『解深密経』と84000英訳 \textit{The Teaching Explaining the Thought}（Toh 106）を用い、言語を越えて同一経典性が近傍関係として現れるかを小規模に検証した。
+本稿は、漢訳仏典および日本撰述仏教文献を対象に、文献間の近接を意味的近接、文体・語彙的近接、引用・参照的近接の三層に分けて可視化する探索的枠組みを提案する予備的研究である。仏教文献に対する word embedding、並行句検出、多言語意味類似度、stylometry の既存研究を踏まえ、本稿は日本仏教の宗派別参照テキスト群を対象とする探索的地図として位置づける。対象には、浄土系、法華系、真言系、禅系、華厳系、法相系に関係する15テキスト、433チャンクを用いた。各本文を \texttt{text-embedding-3-large} で埋め込み、本文単位のベクトルはチャンクベクトルの平均として得た。さらに、宗派別参照群重心、訳者重心、チャンク分布、チャンク近傍混合率を計算したうえで、阿弥陀経二訳と『教行信証』を対象に、意味層、文字n-gramによる文体層、経名・訳者名・固定句辞書による引用参照層からなる source-mixture map を試作した。加えて、漢訳『解深密経』と84000英訳 \textit{The Teaching Explaining the Thought}（Toh 106）を用い、言語を越えて同一経典性が近傍関係として現れるかを小規模に検証した。
 
-結果として、阿弥陀経とその玄奘訳別訳である『稱讃淨土佛攝受經』は、意味埋め込みでは高い類似度を示し、文字単位TF-IDFでは低い類似度を示した。この対照は、意味埋め込みが内容・主題の近さを主に捉え、訳語選択や表記上の差は別の特徴量として扱う必要があることを示唆する。チャンク分布では、本文平均点だけでは見えにくい各経典内部の広がりと重なりが確認でき、とくに阿弥陀経二訳は比較対象ペアのなかで一貫して高いチャンク近傍混合率を示した。親鸞文献側の小実験では、『入出二門偈』に玄奘訳『称讃浄土経』の明示的参照が確認され、『教行信証』では阿弥陀経二訳のどちらか一方だけに還元しにくい重層的な近さが見られた。浄土三部経や真言系密教経典には、投入した参照テキスト群の範囲で一定の主題的まとまりが見られたが、禅系については経典のみでは宗派的伝統の差を十分に表現できなかった。多言語パイロットでは、Toh 106英訳の最近傍が漢訳『解深密経』となった。ただし、これは英訳1本による最小実験であり、同一経典判定の性能評価には対応ペアの拡張が必要である。
+結果として、阿弥陀経とその玄奘訳別訳である『稱讃淨土佛攝受經』は、意味埋め込みでは高い類似度を示し、文字単位TF-IDFでは低い類似度を示した。この対照は、意味的に近いことと文体・語彙的に近いことが同じではないことを示す。チャンク分布では、本文平均点だけでは見えにくい各経典内部の広がりと重なりが確認でき、とくに阿弥陀経二訳は比較対象ペアのなかで一貫して高いチャンク近傍混合率を示した。親鸞文献側のパイロット分析では、『入出二門偈』に玄奘訳『称讃浄土経』の明示的参照が確認され、『教行信証』では阿弥陀経二訳のどちらか一方だけに還元しにくい重層的な近さが見られた。三層 source-mixture map では、『教行信証』の意味層は無量寿経・観無量寿経・阿弥陀経二訳への近さを連続的に示す一方、文体層はより均された分布を示し、引用参照層は未検出区間を多く含みつつ無量寿経系マーカーが目立った。これは、意味的近さ、文体的近さ、引用・学習経路としての近さを別レイヤーとして読む必要を示す。浄土三部経や真言系密教経典には、投入した参照テキスト群の範囲で一定の主題的まとまりが見られたが、禅系については経典のみでは宗派的伝統の差を十分に表現できなかった。多言語パイロットでは、Toh 106英訳の最近傍が漢訳『解深密経』となった。ただし、これは英訳1本によるパイロット検証であり、同一経典判定の性能評価には対応ペアの拡張が必要である。
 \end{abstract}
 
 \noindent\textbf{キーワード:} 漢訳仏典、宗派比較、意味埋め込み、阿弥陀経、玄奘、鳩摩羅什、多言語比較、仏教文献情報学
@@ -45,7 +45,7 @@
 
 日本仏教の各宗派は、それぞれ特定の経典、祖師文献、儀礼的読誦テキストを重視してきた。たとえば浄土系では浄土三部経および祖師文献が重要であり、真言宗では大日経、金剛頂経、理趣経などの密教経典が中心的な位置を占める。一方、禅宗では般若心経、金剛経、維摩経などが参照されるが、宗派的特徴は経典そのものよりも語録、清規、祖師文献に強く現れる可能性がある。
 
-近年の大規模言語モデルおよび埋め込みモデルは、テキストの意味的近さを高次元ベクトルとして表現できる。本研究では、この手法を仏教文献に適用し、宗派ごとの参照テキスト群の配置を可視化できるかを検討する。あわせて、阿弥陀経の異訳や同一訳者の複数テキストを用い、意味的近さと翻訳文体の差がどのように現れるかを予備的に確認する。さらに、漢訳仏典と84000 Reading Roomで公開されている英訳を対照し、意味埋め込みが言語を越えた同一経典性をどの程度拾えるかを試験的に確認する。
+近年の大規模言語モデルおよび埋め込みモデルは、テキストの意味的近さを高次元ベクトルとして表現できる。本研究では、この手法を仏教文献に適用し、宗派ごとの参照テキスト群の配置を可視化できるかを検討する。あわせて、阿弥陀経の異訳や同一訳者の複数テキストを用い、意味的近さと翻訳文体の差がどのように現れるかを予備的に確認する。さらに、親鸞文献を対象に、意味的に近いこと、文体的に近いこと、引用・学習経路として近いことが同じではない点をチャンク単位で可視化する。漢訳仏典と84000 Reading Roomで公開されている英訳も対照し、意味埋め込みが言語を越えた同一経典性をどの程度拾えるかを試験的に確認する。
 
 \subsection{関連研究と本稿の位置づけ}
 
@@ -57,7 +57,7 @@
 
 多言語研究においても、漢訳仏典と古典チベット語仏典の cross-linguistic semantic textual similarity が検討されており\cite{felbur2022}、近年のプレプリントではPāli、Sanskrit、Buddhist Chinese、Tibetan を対象とする多言語検索・機械翻訳・意味検索の基盤も提案されている\cite{mitra2026}。したがって、本稿の84000英訳と漢訳『解深密経』の比較は、多言語対応の初提示ではなく、既存の多言語 Buddhist NLP の流れに接続する小規模パイロットである。
 
-以上を踏まえると、本稿の貢献は、埋め込み手法そのものの初適用ではない。本稿の特色は、日本仏教の宗派別参照テキスト群を、分類対象ではなく探索地図として意味空間上に配置し、本文平均ベクトル、チャンク分布、チャンク近傍混合率、異訳比較、親鸞文献の引用・参照指標を一つの予備的枠組みに統合する点にある。ただし現段階では、特定の訳者判定モデルや宗派分類器を提示するものではない。中心命題は、意味埋め込みは内容・主題的近接を探索するには有効だが、宗派的伝統、訳者差、引用経路を精密に判定するには、文体特徴量および引用・参照情報を別レイヤーとして導入する必要がある、という点にある。
+以上を踏まえると、本稿の貢献は、埋め込み手法そのものの初適用ではない。本稿の特色は、日本仏教の宗派別参照テキスト群を、分類対象ではなく探索地図として意味空間上に配置し、本文平均ベクトル、チャンク分布、チャンク近傍混合率、異訳比較、親鸞文献の引用・参照指標を一つの予備的枠組みに統合する点にある。さらに本稿では、意味的近接、文体・語彙的近接、引用・参照的近接を同じチャンク列上で分離し、そのズレを解釈対象とする三層 source-mixture map を試験的に構築する。ただし現段階では、特定の訳者判定モデルや宗派分類器を提示するものではない。中心命題は、意味埋め込みは内容・主題的近接を探索するには有効だが、宗派的伝統、訳者差、引用経路を精密に判定するには、文体特徴量および引用・参照情報を別レイヤーとして導入する必要がある、という点にある。
 
 本稿の目的は、宗派分類の正解モデルを作ることではない。むしろ、各宗派が参照するテキスト群を意味空間上に置いたとき、どのような近接関係や解釈上の問題が現れるかを把握することである。
 
@@ -69,6 +69,7 @@
   \item 意味埋め込みによって、浄土三部経や真言系密教経典のような主題的まとまりを確認できるか。
   \item 宗派ごとの参照テキスト群を重心として可視化した場合、投入テキスト群の主題的近接をどの程度表現できるか。
   \item 阿弥陀経の異訳および同一訳者の複数テキストを比較したとき、意味の近さと翻訳文体の差を区別できるか。
+  \item 『教行信証』の各チャンクは、意味層、文体層、引用参照層で、浄土三部経および阿弥陀経二訳へどのように異なる近さを示すか。
   \item 漢訳仏典と84000英訳を比較したとき、同一経典性は言語差を越えて近傍関係として現れるか。
 \end{enumerate}
 
@@ -117,7 +118,7 @@
 
 \subsection{チャンク化と埋め込み}
 
-SAT由来本文はHTMLから本文行を抽出し、表示用ボタン、画像参照、余分な空白を除いたうえで行本文を連結した。既存取得本文および聖教DB由来本文については、非空行を連結し、空白を除去した。句読点・異体字・校訂記号の厳密な正規化はまだ行っていない。したがって、今回の処理は意味埋め込み用の最小前処理であり、文体分析用の正規化とは別に設計し直す必要がある。
+SAT由来本文はHTMLから本文行を抽出し、表示用ボタン、画像参照、余分な空白を除いたうえで行本文を連結した。既存取得本文および聖教DB由来本文については、非空行を連結し、空白を除去した。句読点・異体字・校訂記号の厳密な正規化はまだ行っていない。したがって、今回の処理は意味埋め込み用の基礎的な前処理であり、文体分析用の正規化とは別に設計し直す必要がある。
 
 本文は \texttt{tiktoken} の \texttt{cl100k\_base} でトークン化し、既定で700トークン、100トークンの重なりによりチャンク化した。巻・品・段落などの自然境界はv0では考慮していない。各チャンクに対して \texttt{text-embedding-3-large} による埋め込みを作成した。同一モデル・同一本文のチャンクについてはキャッシュを利用し、再実行時にAPIを呼び直さないようにした。モデル名、トークン化、チャンク化、類似度指標などの実装用語は、付録「用語・モデル・ツール」にまとめる。
 
@@ -127,9 +128,24 @@ SAT由来本文はHTMLから本文行を抽出し、表示用ボタン、画像�
 
 本文間の類似度はコサイン類似度によって計算した。宗派別参照群重心は、当該宗派に属する \texttt{core\_sutra} および \texttt{founder\_text} の本文ベクトルの平均として定義した。ここで \texttt{core\_sutra} は中心経典、\texttt{founder\_text} は祖師文献を表す作業用ラベルである。訳者重心は、同一訳者に属する複数テキストの本文ベクトルの平均として定義した。ただし、今回の訳者重心はサンプル数が少ないため、可視化上の補助線として扱う。
 
+\subsection{三層スコアとsource-mixture map}
+
+本稿では、阿弥陀経二訳および親鸞文献を読むための試験的な枠組みとして、意味層、文体層、引用参照層の三層を分ける（図\ref{fig:three-layer-concept}）。中心命題は、意味的に近いこと、文体・語彙的に近いこと、引用・学習経路として近いことは同じではない、という点である。
+
+チャンク $a_i$ とチャンク $b_j$ の間に、三種類のスコアを定義する。意味スコア $S_{ij}$ は、\texttt{text-embedding-3-large} によるチャンク埋め込みのコサイン類似度である。文体・語彙スコア $T_{ij}$ は、2から5文字の文字n-gram TF-IDF によるコサイン類似度である。引用参照スコア $C_{ij}$ は、経名、訳者名、固定句、阿弥陀経二訳に特徴的な語句、浄土三部経に関わる語句を辞書として用い、対象チャンク内のマーカー出現を数えた予備的指標である。
+
+『教行信証』の source-mixture map では、参照源を無量寿経、観無量寿経、羅什訳阿弥陀経、玄奘訳『稱讃淨土佛攝受經』の四つに限定した。各『教行信証』チャンクについて、意味層と文体層では、各参照源のチャンク群に対する最大類似度を求め、softmax によって四参照源の重みに変換した。引用参照層では、辞書マーカーの出現数を参照源別に正規化し、マーカーが検出されないチャンクは「未検出」とした。この図は、チャンク単位の source-mixture を観察するためのプロトタイプであり、将来的な optimal transport 型の対応推定へ拡張できる。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{../figures/three-layer-concept-map.png}
+  \caption{意味・文体・引用参照の三層地図の概念図。意味層は埋め込み類似度、文体層は文字n-gram特徴、引用参照層は経名・訳者名・固定句などの明示的マーカーを用いる。}
+  \label{fig:three-layer-concept}
+\end{figure}
+
 \subsection{可視化と対照実験}
 
-本文ベクトル、宗派別参照群重心、訳者重心を同一空間に配置し、2次元表示にはPCAを用いた。PCAの乱数シードは \texttt{random\_state=0} とした。本文平均点マップにおける第1軸・第2軸の寄与率は、それぞれ23.3\%、18.7\%であり、2軸合計で42.0\%である。阿弥陀経二訳については、意味埋め込みに加えて文字単位TF-IDFも計算した。文字単位TF-IDFでは2から5文字のn-gramを用いた。これは、意味的近さではなく、語彙選択や表記の差を捉えるための簡易的な対照実験である。
+本文ベクトル、宗派別参照群重心、訳者重心を同一空間に配置し、2次元表示にはPCAを用いた。PCAの乱数シードは \texttt{random\_state=0} とした。本文平均点マップにおける第1軸・第2軸の寄与率は、それぞれ23.3\%、18.7\%であり、2軸合計で42.0\%である。阿弥陀経二訳については、意味埋め込みに加えて文字単位TF-IDFも計算した。文字単位TF-IDFでは2から5文字のn-gramを用いた。これは、意味的近さではなく、語彙選択や表記の差を捉えるための対照分析である。
 
 平均ベクトルだけでは、長い経典や複数主題を含む文献の内部的な広がりが見えなくなる。そこで、主要テキストについてはチャンク単位の埋め込みをPCAで2次元表示し、各テキストのチャンク群に対して1標準偏差楕円を重ねた。主要チャンク分布図における第1軸・第2軸の寄与率は、それぞれ6.9\%、4.4\%であり、2軸合計で11.4\%である。
 
@@ -243,7 +259,16 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 \subsection{阿弥陀経二訳}
 
-鳩摩羅什訳『佛説阿彌陀經』と玄奘訳『稱讃淨土佛攝受經』を比較したところ、意味埋め込みでは高い類似度を示した。一方、文字単位TF-IDFでは低い類似度となった（図\ref{fig:amida-comparison}）。
+鳩摩羅什訳『佛説阿彌陀經』と玄奘訳『稱讃淨土佛攝受經』を比較したところ、意味埋め込みでは高い類似度を示した。一方、文字単位TF-IDFでは低い類似度となった（図\ref{fig:amida-comparison}）。三層地図の観点から見ると、阿弥陀経二訳は、意味層では強く対応するが、文体・語彙層では距離を持つ基準ケースである。
+
+図\ref{fig:amida-three-layer}に、宗派別参照群コーパス上で再計算した阿弥陀経二訳の三つの指標を示す。本文平均ベクトルの意味類似度は0.8825と高い。一方、同じ本文に対する文字n-gram TF-IDF 類似度は0.1833にとどまる。チャンク近傍混合率は0.3684であり、比較対象ペアのなかでは最大である。したがって、阿弥陀経二訳は、同内容性が意味層と分布層に現れる一方、訳語・表記の差が文体層に残る例として読める。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.78\linewidth]{../figures/amida-three-layer-difference.png}
+  \caption{阿弥陀経二訳の意味・文体・分布差分。意味スコアは本文平均ベクトル類似度、文体スコアは文字n-gram TF-IDF 類似度、分布スコアはtop-5チャンク近傍混合率を表す。引用参照層は二訳本文内ではなく、親鸞文献側の経名・訳者名・固定句により評価する。}
+  \label{fig:amida-three-layer}
+\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -252,7 +277,7 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
   \label{fig:amida-comparison}
 \end{figure}
 
-図\ref{fig:amida-comparison}の「全文直接埋め込み」値0.8943は、阿弥陀経二訳をそれぞれ一つの入力として直接埋め込んだ先行小実験の値である。一方、表\ref{tab:amida-metric-consistency}のチャンク平均ベクトル類似度0.8825は、本稿の宗派別参照群コーパスで用いたチャンク平均方式による値である。両者は前処理単位が異なるため完全には一致しないが、いずれも意味的近接が高いことを示している。
+図\ref{fig:amida-comparison}の「全文直接埋め込み」値0.8943は、阿弥陀経二訳をそれぞれ一つの入力として直接埋め込んだ先行小実験の値である。一方、表\ref{tab:amida-metric-consistency}のチャンク平均ベクトル類似度0.8825は、本稿の宗派別参照群コーパスで用いたチャンク平均方式による値である。両者は前処理単位が異なるため完全には一致しないが、いずれも意味的近接が高いことを示している。図\ref{fig:amida-three-layer}の文字n-gram TF-IDF 類似度0.1833も、処理済みコーパス上で再計算した値であり、先行小実験の0.1928とは前処理単位が異なる。
 
 \begin{table}[H]
 \centering
@@ -328,6 +353,17 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 この小実験の要点は、阿弥陀経二訳の問題を「意味的にどちらに近いか」だけで解かないことである。意味埋め込みは、阿弥陀経二訳の同内容性をうまく捉える反面、訳語選択や引用経路の違いを薄める。親鸞文献のソース分析では、埋め込み近傍を探索の入口としつつ、経名・訳者名、固定句、注釈書の引文を別レイヤーとして重ねる必要がある。
 
+図\ref{fig:kyogyoshinsho-three-layer}は、『教行信証』197チャンクについて、無量寿経、観無量寿経、羅什訳阿弥陀経、玄奘訳『稱讃淨土佛攝受經』への source-mixture を三層で表示したものである。意味層の平均重みは、無量寿経0.3705、観無量寿経0.2642、羅什訳阿弥陀経0.2135、玄奘訳称讃浄土経0.1517であった。文体層では、無量寿経0.2942、観無量寿経0.2402、羅什訳阿弥陀経0.2369、玄奘訳称讃浄土経0.2288となり、意味層より均された分布を示した。引用参照層では、未検出0.4958、無量寿経0.4682、観無量寿経0.0306、羅什訳阿弥陀経0.0034、玄奘訳称讃浄土経0.0020であった。
+
+この結果は、『教行信証』が三部経を根拠とするため意味層では浄土三部経、とくに無量寿経へ近く出る一方、文体層では引用・論述・祖師文献が混ざるため参照源が均され、引用参照層では辞書で拾える明示的マーカーだけが断続的に現れることを示している。ただし、引用参照層は小規模なマーカー辞書に依存するため、低い値は典拠関係の不在を意味しない。むしろ、意味層・文体層・引用参照層が一致しない箇所を、精査すべき候補として浮かび上がらせるための探索図である。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/kyogyoshinsho-three-layer-source-mixture.png}
+  \caption{『教行信証』の三層 source-mixture map。上段は埋め込み類似度に基づく意味層、中段は文字n-gram TF-IDF に基づく文体層、下段は経名・訳者名・固定句辞書に基づく引用参照層を表す。下段の「未検出」は、辞書マーカーが検出されなかったチャンクを示す。}
+  \label{fig:kyogyoshinsho-three-layer}
+\end{figure}
+
 \subsection{訳者重心}
 
 訳者重心は、不空、玄奘、鳩摩羅什の3種を作成した。玄奘訳『稱讃淨土佛攝受經』の近傍は、同じ玄奘訳の般若心経や解深密経ではなく、鳩摩羅什訳『阿弥陀経』および浄土系経典であった。今回の小規模コーパスでは、意味埋め込み上の近接は訳者よりも主題・内容に強く支配される傾向が見られた。ただし、訳者差の検出には、同一または近接主題の異訳ペアを増やしたうえで、文体特徴量と併用する必要がある。
@@ -383,9 +419,9 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 翻訳癖を扱うには、意味ベクトルとは別に、文字n-gram、助字や虚詞の頻度、文長・句構造、固有訳語の対応関係、音写語と意訳語の選択、同一サンスクリット語に対する漢訳語の揺れを特徴量として導入する必要がある。
 
-以上を踏まえると、今後の分析単位は三層に分けるのがよい。第一に、内容・主題・教義的近接を捉える意味マップである。第二に、訳語、助字、句法、音写語、表記、文長などを捉える文体マップである。第三に、経名、訳者名、固定句、注釈引文、祖師文献引用を捉える引用・参照マップである。本稿の結果は、この三層のうち、意味マップを先に構築し、その限界から文体マップと引用・参照マップの必要性を確認したものと位置づけられる。
+以上を踏まえると、分析単位は三層に分けるのがよい。第一に、内容・主題・教義的近接を捉える意味マップである。第二に、訳語、助字、句法、音写語、表記、文長などを捉える文体マップである。第三に、経名、訳者名、固定句、注釈引文、祖師文献引用を捉える引用・参照マップである。本稿は、この三層の必要性を述べるだけでなく、『教行信証』に対する source-mixture map のプロトタイプとして操作化した。これにより、同じチャンク列であっても、意味層では浄土三部経への近さ、文体層では表現上の拡散、引用参照層では明示的マーカーの断続性が異なる形で現れることを確認した。
 
-親鸞文献における阿弥陀経二訳の参照分析も、同じ問題を示している。『入出二門偈』のように玄奘訳『称讃浄土経』を明示する資料では、経名・訳者名そのものが強い証拠となる。一方、『教行信証』のような総合的文献では、意味ベクトルは二訳の近接を反映するものの、引用経路や注釈伝統までは自動的に分解しない。したがって、今後の分析では、意味マップとは別に、引用・参照ソースマップを作り、経文本文、注釈引文、祖師文献引用を分けて扱うことが重要である。
+親鸞文献における阿弥陀経二訳の参照分析も、同じ問題を示している。『入出二門偈』のように玄奘訳『称讃浄土経』を明示する資料では、経名・訳者名そのものが強い証拠となる。一方、『教行信証』のような総合的文献では、意味ベクトルは二訳の近接を反映するものの、引用経路や注釈伝統までは自動的に分解しない。三層 source-mixture map は、この分解不能性を失敗として扱うのではなく、層間差分として可視化する。今後の分析では、経文本文、注釈引文、祖師文献引用を分け、意味層・文体層・引用参照層のズレがどの箇所で大きくなるかを精査することが重要である。
 
 この引用・参照ソースマップは、並行句検出や intertextuality 探索の先行研究\cite{nehrdich2020,dharmanexus}と接続しうる。ただし、本稿は大規模な並行句検出を直接実装したものではなく、平均ベクトルとチャンク分布から、どの文献間に詳細な引用・並行句探索を行うべきかを見つける入口として位置づけられる。
 
@@ -393,9 +429,9 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 \section{限界と今後の課題}
 
-本研究には、コーパスが小さいこと、大部経典の一部が全文比較ではないこと、宗派別参照群重心が単純平均であること、訳者重心のサンプル数が少ないこと、PCAによる2次元配置が可視化用に過ぎないこと、文体ベクトルが未実装であること、といった限界がある。チャンク分布の楕円も2次元投影上の近似であり、厳密な分布重なりの判定には高次元空間での近傍検索や分布間距離を併用する必要がある。多言語比較についても、現段階では英訳1本と漢訳対照群による最小実験であり、チベット語本文、章単位対応、複数経典ファミリーでの検証は未実施である。
+本研究には、コーパスが小さいこと、大部経典の一部が全文比較ではないこと、宗派別参照群重心が単純平均であること、訳者重心のサンプル数が少ないこと、PCAによる2次元配置が可視化用に過ぎないこと、といった限界がある。チャンク分布の楕円も2次元投影上の近似であり、厳密な分布重なりの判定には高次元空間での近傍検索や分布間距離を併用する必要がある。三層 source-mixture map についても、文体層は文字n-gram TF-IDF による初期的な操作化であり、助字、虚詞、文長、句法、固有訳語の対応をまだ十分に入れていない。引用参照層も小規模な辞書に依存するため、マーカー未検出は典拠関係の不在を意味しない。多言語比較についても、現段階では英訳1本と漢訳対照群によるパイロット実験であり、チベット語本文、章単位対応、複数経典ファミリーでの検証は未実施である。
 
-今後は、SATから各経典の全文を安定して取得し、各宗派について祖師文献、語録、儀礼文、注釈書を追加する。また、意味ベクトルとは別に文体ベクトルを作成し、翻訳者、時代、日本撰述漢文の特徴を可視化する。チャンク化については、固定長チャンクだけでなく、巻・品・段落などの自然単位によるチャンク化との比較を行う。宗派別参照群重心には重み付けを導入し、中心経典、勤行テキスト、祖師文献を区別する必要がある。多言語比較では、BDRC等で確認できるチベット語本文を加え、必要に応じて Buddhist Sanskrit embedding、DharmaNexus、MITRA などの仏教文献向け検索・埋め込み基盤との比較を行う。
+今後は、SATから各経典の全文を安定して取得し、各宗派について祖師文献、語録、儀礼文、注釈書を追加する。また、意味ベクトルとは別に文体ベクトルを作成し、翻訳者、時代、日本撰述漢文の特徴を可視化する。チャンク化については、固定長チャンクだけでなく、巻・品・段落などの自然単位によるチャンク化との比較を行う。宗派別参照群重心には重み付けを導入し、中心経典、勤行テキスト、祖師文献を区別する必要がある。三層 source-mixture は、現段階では softmax による重み付けを用いたプロトタイプであるが、将来的には未対応チャンクを許す unbalanced optimal transport や、章・巻・品の位置ペナルティを含むチャンク輸送地図へ拡張できる。多言語比較では、BDRC等で確認できるチベット語本文を加え、必要に応じて Buddhist Sanskrit embedding、DharmaNexus、MITRA などの仏教文献向け検索・埋め込み基盤との比較を行う。
 
 親鸞の阿弥陀経理解を追う次段階では、『阿弥陀経集註』を重点資料とする。本文を単に一つのテキストとして埋め込むのではなく、経文本文、行間註、紙背・裏書、引用元と推定される注釈書を分けてデータ化する必要がある。そのうえで、羅什訳、玄奘訳、元照『阿弥陀経義疏』、善導系文献、法照系文献を参照源として並べることで、親鸞文献の「意味的近さ」と「引用・学習経路」の差をより精密に扱える可能性がある。
 
@@ -403,59 +439,65 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 
 本予備実験では、意味埋め込みを用いることで、阿弥陀経二訳のような同内容・近内容テキストの近接、および浄土系・真言系経典群の一定の主題的まとまりを確認できた。さらに、本文を平均点だけでなくチャンク分布として表示することで、各経典の内部的な広がりや部分的な重なりを観察できた。平均ベクトル類似度とチャンク近傍混合率を併用することで、本文全体の主題的近接と部分単位の分布重なりを区別して読めることも確認された。また、解深密経の多言語パイロットでは、84000英訳の最近傍が対応する漢訳となった。一方で、訳者差や宗派的伝統差を精密に捉えるには、意味埋め込みだけでは不十分である。特に訳者の癖を分析するには、文字n-gram、訳語対応、助字、句法などを用いた文体特徴量を別レイヤーとして導入する必要がある。
 
-したがって、本研究の現段階の成果は、宗派分類器の完成ではなく、仏教文献群を探索するための意味地図の基盤を構築した点にある。既存研究における word embedding、並行句検出、cross-lingual semantic textual similarity、stylometry を踏まえると、本稿の独自性は、これらを置き換えることではなく、日本仏教の宗派別参照群、阿弥陀経二訳、親鸞文献、チャンク分布、多言語パイロットを一つの探索枠組みに接続した点にある。今後、データを拡張し、意味マップ、文体マップ、引用・参照マップを分離して重ねることで、宗派、訳者、時代、日本撰述漢文の差異をより精密に検討できると考えられる。
+したがって、本研究の現段階の成果は、宗派分類器の完成ではなく、仏教文献群を探索するための三層地図の基盤を構築した点にある。既存研究における word embedding、並行句検出、cross-lingual semantic textual similarity、stylometry を踏まえると、本稿の独自性は、これらを置き換えることではなく、日本仏教の宗派別参照群、阿弥陀経二訳、親鸞文献、チャンク分布、多言語パイロットを一つの探索枠組みに接続し、意味的近接、文体的近接、引用・参照的近接の層間差分を解釈対象にした点にある。今後、データを拡張し、意味マップ、文体マップ、引用・参照マップを分離して重ねることで、宗派、訳者、時代、日本撰述漢文の差異をより精密に検討できると考えられる。
 
 \section*{付録: 用語・モデル・ツール}
 
 本付録では、本稿の実験を読むために必要な実装用語を簡潔にまとめる。ここでの説明は、本実験における使用法を示すものであり、各ツールやモデルの仕様、提供状況、料金は将来変更される可能性がある。
 
-\noindent\textbf{コーパス。} コーパスは、分析対象として集めた本文集合である。本稿では、SAT由来の漢訳仏典、聖教DB由来の親鸞文献、84000英訳などを、実験目的に応じて小さなコーパスとして扱った。
+\noindent\textbf{コーパス：} コーパスは、分析対象として集めた本文集合である。本稿では、SAT由来の漢訳仏典、聖教DB由来の親鸞文献、84000英訳などを、実験目的に応じて小さなコーパスとして扱った。
 
-\noindent\textbf{前処理と正規化。} 前処理は、HTMLから本文を取り出す、余分な空白やボタン表示を除く、といった分析前の整形である。正規化は、異体字、句読点、校訂記号、表記ゆれなどを一定の規則で揃える処理である。本稿では意味埋め込み用の最小前処理にとどめ、文体分析向けの厳密な正規化は今後の課題とした。
+\noindent\textbf{前処理と正規化：} 前処理は、HTMLから本文を取り出す、余分な空白やボタン表示を除く、といった分析前の整形である。正規化は、異体字、句読点、校訂記号、表記ゆれなどを一定の規則で揃える処理である。本稿では意味埋め込み用の基礎的な前処理にとどめ、文体分析向けの厳密な正規化は今後の課題とした。
 
-\noindent\textbf{トークン。} トークンは、モデルやトークナイザが内部処理のために本文を分割する単位であり、文字、単語、形態素と同一ではない。本稿では、チャンク長を揃えるための機械的な単位として用いた。
+\noindent\textbf{トークン：} トークンは、モデルやトークナイザが内部処理のために本文を分割する単位であり、文字、単語、形態素と同一ではない。本稿では、チャンク長を揃えるための機械的な単位として用いた。
 
-\noindent\textbf{\texttt{tiktoken} と \texttt{cl100k\_base}。} \texttt{tiktoken} はOpenAIが公開しているPython用トークナイザであり、\texttt{cl100k\_base} はOpenAI系モデルで用いられるエンコーディングの一つである\cite{openai-tiktoken}。本稿では、漢文本文を700トークン程度のチャンクへ分けるために利用した。Python環境では通常、\texttt{pip install tiktoken} によって導入できる。
+\noindent\textbf{\texttt{tiktoken} と \texttt{cl100k\_base}：} \texttt{tiktoken} はOpenAIが公開しているPython用トークナイザであり、\texttt{cl100k\_base} はOpenAI系モデルで用いられるエンコーディングの一つである\cite{openai-tiktoken}。本稿では、漢文本文を700トークン程度のチャンクへ分けるために利用した。Python環境では通常、\texttt{pip install tiktoken} によって導入できる。
 
-\noindent\textbf{チャンクとオーバーラップ。} チャンクは、長い本文を埋め込みモデルに入力できる長さへ分割した断片である。本稿では既定で700トークンごとに分割し、隣接チャンクの間に100トークンの重なりを持たせた。オーバーラップは、境界付近の文脈が切れすぎないようにするための処理である。
+\noindent\textbf{チャンクとオーバーラップ：} チャンクは、長い本文を埋め込みモデルに入力できる長さへ分割した断片である。本稿では既定で700トークンごとに分割し、隣接チャンクの間に100トークンの重なりを持たせた。オーバーラップは、境界付近の文脈が切れすぎないようにするための処理である。
 
-\noindent\textbf{埋め込みと \texttt{text-embedding-3-large}。} 埋め込みとは、テキストを高次元の数値ベクトルに変換したものである。本稿ではOpenAI APIの \texttt{text-embedding-3-large} を用いた\cite{openai-embeddings}。利用にはOpenAI APIキーとPython用OpenAI SDKが必要であり、モデル名は実行時引数で変更できるようにした。
+\noindent\textbf{埋め込みと \texttt{text-embedding-3-large}：} 埋め込みとは、テキストを高次元の数値ベクトルに変換したものである。本稿ではOpenAI APIの \texttt{text-embedding-3-large} を用いた\cite{openai-embeddings}。利用にはOpenAI APIキーとPython用OpenAI SDKが必要であり、モデル名は実行時引数で変更できるようにした。
 
-\noindent\textbf{埋め込み空間。} 埋め込み空間は、各テキストやチャンクのベクトルが置かれる高次元の数値空間である。近くに置かれるものは、モデル上では意味や主題が近いとみなされる。ただし、近さはモデルと入力データに依存するため、文献学的な同一性や引用関係を直接証明するものではない。
+\noindent\textbf{埋め込み空間：} 埋め込み空間は、各テキストやチャンクのベクトルが置かれる高次元の数値空間である。近くに置かれるものは、モデル上では意味や主題が近いとみなされる。ただし、近さはモデルと入力データに依存するため、文献学的な同一性や引用関係を直接証明するものではない。
 
-\noindent\textbf{OpenAI API、APIキー、SDK。} OpenAI APIは、OpenAIのモデルをプログラムから呼び出すためのサービスである。APIキーは利用者の認証情報であり、公開リポジトリに含めてはならない。SDKは、PythonなどからAPIを呼び出しやすくするための公式ライブラリである。
+\noindent\textbf{OpenAI API、APIキー、SDK：} OpenAI APIは、OpenAIのモデルをプログラムから呼び出すためのサービスである。APIキーは利用者の認証情報であり、公開リポジトリに含めてはならない。SDKは、PythonなどからAPIを呼び出しやすくするための公式ライブラリである。
 
-\noindent\textbf{APIトークンとキャッシュ。} APIトークンは、OpenAI APIが入力処理や課金計算に用いる単位である。本稿のスクリプトでは、同じモデルと同じ本文チャンクの埋め込みを再利用できるようにローカルキャッシュを作成し、再実行時に不要なAPI呼び出しを避けた。
+\noindent\textbf{APIトークンとキャッシュ：} APIトークンは、OpenAI APIが入力処理や課金計算に用いる単位である。本稿のスクリプトでは、同じモデルと同じ本文チャンクの埋め込みを再利用できるようにローカルキャッシュを作成し、再実行時に不要なAPI呼び出しを避けた。
 
-\noindent\textbf{コサイン類似度。} コサイン類似度は、二つのベクトルが同じ方向を向いている度合いを測る指標である。値が大きいほど、埋め込み空間上で近い意味領域にあると解釈する。ただし、これは引用関係や文体一致を直接示すものではない。
+\noindent\textbf{コサイン類似度：} コサイン類似度は、二つのベクトルが同じ方向を向いている度合いを測る指標である。値が大きいほど、埋め込み空間上で近い意味領域にあると解釈する。ただし、これは引用関係や文体一致を直接示すものではない。
 
-\noindent\textbf{L2正規化。} L2正規化は、ベクトルの長さを1に揃える処理である。本稿では平均ベクトル作成時には明示的なL2正規化を行わず、類似度計算時にコサイン類似度を用いて方向の近さを比較した。
+\noindent\textbf{L2正規化：} L2正規化は、ベクトルの長さを1に揃える処理である。本稿では平均ベクトル作成時には明示的なL2正規化を行わず、類似度計算時にコサイン類似度を用いて方向の近さを比較した。
 
-\noindent\textbf{重心。} 本稿の重心は、複数テキストのベクトルを平均した作業上の代表点である。宗派別参照群重心は、その宗派が参照する中心経典や祖師文献の平均であり、宗派の教義的中心そのものを意味しない。
+\noindent\textbf{重心：} 本稿の重心は、複数テキストのベクトルを平均した作業上の代表点である。宗派別参照群重心は、その宗派が参照する中心経典や祖師文献の平均であり、宗派の教義的中心そのものを意味しない。
 
-\noindent\textbf{PCA。} PCAはPrincipal Component Analysis（主成分分析）の略で、高次元ベクトルを少数の軸へ射影する可視化手法である\cite{jolliffe2002,pedregosa2011}。本稿では2次元図を作るために用いた。PCA図の軸は可視化用の軸であり、そのまま教義的・文献学的な軸を意味しない。
+\noindent\textbf{PCA：} PCAはPrincipal Component Analysis（主成分分析）の略で、高次元ベクトルを少数の軸へ射影する可視化手法である\cite{jolliffe2002,pedregosa2011}。本稿では2次元図を作るために用いた。PCA図の軸は可視化用の軸であり、そのまま教義的・文献学的な軸を意味しない。
 
-\noindent\textbf{寄与率。} PCA図の寄与率は、元の高次元データのばらつきのうち、その軸がどれだけを説明しているかを示す割合である。2軸合計の寄与率が低い場合、図は全体構造の一部だけを見せているため、高次元空間での類似度や近傍指標と併読する必要がある。
+\noindent\textbf{寄与率：} PCA図の寄与率は、元の高次元データのばらつきのうち、その軸がどれだけを説明しているかを示す割合である。2軸合計の寄与率が低い場合、図は全体構造の一部だけを見せているため、高次元空間での類似度や近傍指標と併読する必要がある。
 
-\noindent\textbf{1標準偏差楕円。} 1標準偏差楕円は、2次元図上でチャンク群のおおまかな広がりを示す補助線である。楕円が重なることは、可視化上の分布が近いことを示すが、高次元空間で完全に重なっていることを意味しない。
+\noindent\textbf{1標準偏差楕円：} 1標準偏差楕円は、2次元図上でチャンク群のおおまかな広がりを示す補助線である。楕円が重なることは、可視化上の分布が近いことを示すが、高次元空間で完全に重なっていることを意味しない。
 
-\noindent\textbf{TF-IDF と文字n-gram。} TF-IDFは、語や文字列の出現頻度を文書間比較に使う古典的な重み付け手法である\cite{salton1988}。本稿では、阿弥陀経二訳の意味的近さとは別に、文字列・語彙・表記の近さを見るため、2から5文字の文字n-gramを用いた。
+\noindent\textbf{TF-IDF と文字n-gram：} TF-IDFは、語や文字列の出現頻度を文書間比較に使う古典的な重み付け手法である\cite{salton1988}。本稿では、阿弥陀経二訳の意味的近さとは別に、文字列・語彙・表記の近さを見るため、2から5文字の文字n-gramを用いた。
 
-\noindent\textbf{stylometry（計量文体論）。} stylometryは、文字、語、助字、文長、句法などの統計的特徴から、著者、訳者、時代、文体差を調べる方法である。本稿では、意味埋め込みだけでは訳者差を捉えにくいため、今後導入すべき別レイヤーとして位置づけた。
+\noindent\textbf{stylometry（計量文体論）：} stylometryは、文字、語、助字、文長、句法などの統計的特徴から、著者、訳者、時代、文体差を調べる方法である。本稿では、意味埋め込みだけでは訳者差を捉えにくいため、今後導入すべき別レイヤーとして位置づけた。
 
-\noindent\textbf{top-k近傍とチャンク近傍混合率。} top-k近傍は、あるチャンクから見て類似度が高い上位k個のチャンクである。本稿のチャンク近傍混合率は、二つのテキストのチャンクを合わせたとき、各チャンクのtop-k近傍に相手テキストのチャンクがどれだけ混ざるかを平均した値である。
+\noindent\textbf{top-k近傍とチャンク近傍混合率：} top-k近傍は、あるチャンクから見て類似度が高い上位k個のチャンクである。本稿のチャンク近傍混合率は、二つのテキストのチャンクを合わせたとき、各チャンクのtop-k近傍に相手テキストのチャンクがどれだけ混ざるかを平均した値である。
 
-\noindent\textbf{ラベルランダム化と完全混合参照。} ラベルランダム化は、チャンクの位置関係はそのままに、どのテキストに属するかというラベルだけを入れ替える対照実験である。本稿では、意味構造とラベルが独立だった場合の「完全に混ざった状態」の目安として使い、通常の有意差検定としては読まない。
+\noindent\textbf{source-mixture map：} source-mixture map は、ある対象チャンクが複数の参照源のどれにどの程度近いかを、重みの混合として表示する図である。本稿では『教行信証』の各チャンクについて、無量寿経、観無量寿経、羅什訳阿弥陀経、玄奘訳称讃浄土経への近さを、意味層、文体層、引用参照層に分けて表示した。
 
-\noindent\textbf{top-1 accuracy、MRR、ROC-AUC。} top-1 accuracyは、検索結果の1位が正解だった割合である。MRRは正解が何位に出たかを平均的に評価する指標である。ROC-AUCは、正例と負例をどれだけ分けられるかをしきい値全体で見る指標である。本稿では、将来の多言語対応ペア評価に必要な指標として挙げた。
+\noindent\textbf{softmax：} softmax は、複数のスコアを合計1の重みに変換する関数である。本稿では、各『教行信証』チャンクから複数参照源への類似度を、source-mixture 表示用の重みに変換するために用いた。温度パラメータが小さいほど、最も高いスコアの参照源へ重みが集中しやすい。
 
-\noindent\textbf{parallel句、intertextuality、cross-linguistic semantic textual similarity。} parallel句は、別文献に現れる対応句・並行句である。intertextualityは、引用、参照、共有句などを含む文献間関係を指す。cross-linguistic semantic textual similarityは、異なる言語のテキスト同士が意味的にどれだけ近いかを測る課題である。
+\noindent\textbf{optimal transport と unbalanced optimal transport：} optimal transport は、一方の分布を他方の分布へ移す対応関係を、コストが小さくなるように求める方法である。unbalanced optimal transport は、分布の総量や対応しない部分が完全には一致しない場合にも使える拡張である。本稿では将来のチャンク輸送地図への拡張候補として位置づけた。
 
-\noindent\textbf{manifest、JSON、HTML。} manifestは、実験対象テキストのID、題名、出典、宗派ラベルなどをまとめた目録ファイルである。JSONは、プログラムが読み書きしやすい構造化データ形式である。HTMLは、ブラウザで論文やビューアを表示するための文書形式である。
+\noindent\textbf{ラベルランダム化と完全混合参照：} ラベルランダム化は、チャンクの位置関係はそのままに、どのテキストに属するかというラベルだけを入れ替える対照実験である。本稿では、意味構造とラベルが独立だった場合の「完全に混ざった状態」の目安として使い、通常の有意差検定としては読まない。
 
-\noindent\textbf{静的ビューアとGitHub Pages。} 静的ビューアは、HTML、JavaScript、JSONだけで動く可視化ページである。GitHub Pagesに置けるよう、公開版データでは本文プレビューやローカルパスを除き、座標、類似度、近傍ID、出典メタデータなどの派生情報だけを残した。
+\noindent\textbf{top-1 accuracy、MRR、ROC-AUC：} top-1 accuracyは、検索結果の1位が正解だった割合である。MRRは正解が何位に出たかを平均的に評価する指標である。ROC-AUCは、正例と負例をどれだけ分けられるかをしきい値全体で見る指標である。本稿では、将来の多言語対応ペア評価に必要な指標として挙げた。
 
-\noindent\textbf{SAT、聖教DB、84000。} SATは大正新脩大藏經テキストデータベース、聖教DBは浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース、84000はチベット仏典英訳を公開するReading Roomである。本稿ではこれらを本文・対照資料の取得元として利用し、原本文そのものは公開版データに転載しない。
+\noindent\textbf{parallel句、intertextuality、cross-linguistic semantic textual similarity：} parallel句は、別文献に現れる対応句・並行句である。intertextualityは、引用、参照、共有句などを含む文献間関係を指す。cross-linguistic semantic textual similarityは、異なる言語のテキスト同士が意味的にどれだけ近いかを測る課題である。
+
+\noindent\textbf{manifest、JSON、HTML：} manifestは、実験対象テキストのID、題名、出典、宗派ラベルなどをまとめた目録ファイルである。JSONは、プログラムが読み書きしやすい構造化データ形式である。HTMLは、ブラウザで論文やビューアを表示するための文書形式である。
+
+\noindent\textbf{静的ビューアとGitHub Pages：} 静的ビューアは、HTML、JavaScript、JSONだけで動く可視化ページである。GitHub Pagesに置けるよう、公開版データでは本文プレビューやローカルパスを除き、座標、類似度、近傍ID、出典メタデータなどの派生情報だけを残した。
+
+\noindent\textbf{SAT、聖教DB、84000：} SATは大正新脩大藏經テキストデータベース、聖教DBは浄土真宗本願寺派総合研究所『浄土真宗聖典』聖教データベース、84000はチベット仏典英訳を公開するReading Roomである。本稿ではこれらを本文・対照資料の取得元として利用し、原本文そのものは公開版データに転載しない。
 
 \section*{謝辞}
 
@@ -464,155 +506,154 @@ top-k & 観測混合率 & 55ペア中順位 & 完全混合参照平均 & 完全�
 \begin{thebibliography}{99}
 
 \bibitem{sat}
-SAT大正新脩大藏經テキストデータベース研究会。
-\newblock SAT大正新脩大藏經テキストデータベース。
-\newblock \url{https://21dzk.l.u-tokyo.ac.jp/SAT/}
+SAT大正新脩大藏經テキストデータベース研究会,
+\newblock 『SAT大正新脩大藏經テキストデータベース』,
+\newblock \url{https://21dzk.l.u-tokyo.ac.jp/SAT/}（2026年6月2日閲覧）
 
 \bibitem{cbeta}
-CBETA 電子佛典基金會。
-\newblock CBETA Online。
-\newblock \url{https://cbeta.org/}
+CBETA 電子佛典基金會,
+\newblock CBETA Online,
+\newblock \url{https://cbeta.org/}（2026年6月2日閲覧）
 
 \bibitem{bdrc}
-Buddhist Digital Resource Center。
-\newblock Buddhist Digital Resource Center。
-\newblock \url{https://www.bdrc.io/}
+Buddhist Digital Resource Center,
+\newblock Buddhist Digital Resource Center,
+\newblock \url{https://www.bdrc.io/}（2026年6月2日閲覧）
 
 \bibitem{jsoken-seiten}
-浄土真宗本願寺派総合研究所。
-\newblock 『浄土真宗聖典』聖教データベース。
-\newblock \url{https://j-soken.jp/ask/10831}
+浄土真宗本願寺派総合研究所,
+\newblock 『浄土真宗聖典』聖教データベース,
+\newblock \url{https://j-soken.jp/ask/10831}（2026年6月2日閲覧）
 
 \bibitem{jsoken-usage}
-浄土真宗本願寺派総合研究所。
-\newblock 『浄土真宗聖典』聖教データベース（必ずお読みください）。
-\newblock \url{https://j-soken.jp/ask/ask_5/640}
+浄土真宗本願寺派総合研究所,
+\newblock 『浄土真宗聖典』聖教データベース（必ずお読みください）,
+\newblock \url{https://j-soken.jp/ask/ask_5/640}（2026年6月2日閲覧）
 
 \bibitem{shinshuseiten-nimonge}
-真宗大谷派（東本願寺）。
-\newblock 真宗聖典検索サイト『入出二門偈』。
-\newblock \url{https://shinshuseiten.higashihonganji.or.jp/contents.html?id=2&page=543}
+真宗大谷派（東本願寺）,
+\newblock 真宗聖典検索サイト『入出二門偈』,
+\newblock \url{https://shinshuseiten.higashihonganji.or.jp/contents.html?id=2&page=543}（2026年6月2日閲覧）
 
 \bibitem{nagoya-amidakyo-shitchu}
-名古屋大学デジタルアーカイブ。
-\newblock 観無量寿経集註附阿弥陀経集註。
-\newblock \url{https://da.adm.thers.ac.jp/item/n004-20230901-00882}
+名古屋大学デジタルアーカイブ,
+\newblock 『観無量寿経集註附阿弥陀経集註』,
+\newblock \url{https://da.adm.thers.ac.jp/item/n004-20230901-00882}（2026年6月2日閲覧）
 
 \bibitem{chiba2014}
-千葉隆誓。
-\newblock 親鸞『阿弥陀経集註』における元照『阿弥陀経義疏』引文について。
-\newblock 2014。
-\newblock \url{https://buddhism.lib.ntu.edu.tw/jp/search/search_detail.jsp?seq=546211}
+千葉隆誓,
+\newblock 「親鸞『阿弥陀経集註』における元照『阿弥陀経義疏』引文について」,
+\newblock 2014,
+\newblock \url{https://buddhism.lib.ntu.edu.tw/jp/search/search_detail.jsp?seq=546211}（2026年6月2日閲覧）
 
 \bibitem{jodoshu-shosan}
-浄土宗。
-\newblock 新纂浄土宗大辞典「称讃浄土仏摂受経」。
-\newblock \url{https://jodoshuzensho.jp/daijiten/index.php/%E7%A7%B0%E8%AE%83%E6%B5%84%E5%9C%9F%E4%BB%8F%E6%91%82%E5%8F%97%E7%B5%8C}
+浄土宗,
+\newblock 『新纂浄土宗大辞典』「称讃浄土仏摂受経」,
+\newblock \url{https://jodoshuzensho.jp/daijiten/index.php/%E7%A7%B0%E8%AE%83%E6%B5%84%E5%9C%9F%E4%BB%8F%E6%91%82%E5%8F%97%E7%B5%8C}（2026年6月2日閲覧）
 
 \bibitem{84000-toh106}
-84000: Translating the Words of the Buddha。
-\newblock The Teaching Explaining the Thought, Toh 106。
-\newblock \url{https://read.84000.co/translation/toh106.html}
+84000: Translating the Words of the Buddha,
+\newblock \textit{The Teaching Explaining the Thought}, Toh 106,
+\newblock \url{https://read.84000.co/translation/toh106.html}（2026年6月2日閲覧）
 
 \bibitem{84000-terms}
-84000: Translating the Words of the Buddha。
-\newblock Terms of Use。
-\newblock \url{https://www.84000.co/documents/terms-of-use}
+84000: Translating the Words of the Buddha,
+\newblock Terms of Use,
+\newblock \url{https://www.84000.co/documents/terms-of-use}（2026年6月2日閲覧）
 
 \bibitem{openai-embeddings}
-OpenAI。
-\newblock Embeddings。
-\newblock OpenAI Platform Documentation。
-\newblock \url{https://platform.openai.com/docs/guides/embeddings}
+OpenAI,
+\newblock Embeddings, OpenAI Platform Documentation,
+\newblock \url{https://platform.openai.com/docs/guides/embeddings}（2026年6月2日閲覧）
 
 \bibitem{openai-tiktoken}
-OpenAI。
-\newblock tiktoken。
-\newblock \url{https://github.com/openai/tiktoken}
+OpenAI,
+\newblock tiktoken,
+\newblock \url{https://github.com/openai/tiktoken}（2026年6月2日閲覧）
 
 \bibitem{salton1988}
-Gerard Salton and Christopher Buckley。
-\newblock Term-weighting approaches in automatic text retrieval。
-\newblock \textit{Information Processing \& Management}, 24(5):513--523, 1988。
+Gerard Salton and Christopher Buckley,
+\newblock ``Term-weighting approaches in automatic text retrieval,''
+\newblock \textit{Information Processing \& Management}, 24(5):513--523, 1988
 
 \bibitem{jolliffe2002}
-I. T. Jolliffe。
-\newblock \textit{Principal Component Analysis}。
-\newblock Springer, 2nd edition, 2002。
+I. T. Jolliffe,
+\newblock \textit{Principal Component Analysis},
+\newblock Springer, 2nd edition, 2002
 
 \bibitem{pedregosa2011}
-Fabian Pedregosa et al.。
-\newblock Scikit-learn: Machine Learning in Python。
-\newblock \textit{Journal of Machine Learning Research}, 12:2825--2830, 2011。
+Fabian Pedregosa et al.,
+\newblock ``Scikit-learn: Machine Learning in Python,''
+\newblock \textit{Journal of Machine Learning Research}, 12:2825--2830, 2011
 
 \bibitem{devlin2019}
-Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova。
-\newblock BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding。
-\newblock \textit{Proceedings of NAACL-HLT}, 2019。
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova,
+\newblock ``BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding,''
+\newblock \textit{Proceedings of NAACL-HLT}, 2019
 
 \bibitem{burrows2002}
-John F. Burrows。
-\newblock ``Delta'': a Measure of Stylistic Difference and a Guide to Likely Authorship。
-\newblock \textit{Literary and Linguistic Computing}, 17(3):267--287, 2002。
+John F. Burrows,
+\newblock ``Delta'': a Measure of Stylistic Difference and a Guide to Likely Authorship,
+\newblock \textit{Literary and Linguistic Computing}, 17(3):267--287, 2002,
 \newblock \url{https://doi.org/10.1093/llc/17.3.267}
 
 \bibitem{koppel2009}
-Moshe Koppel, Jonathan Schler, and Shlomo Argamon。
-\newblock Computational Methods in Authorship Attribution。
-\newblock \textit{Journal of the American Society for Information Science and Technology}, 60(1):9--26, 2009。
+Moshe Koppel, Jonathan Schler, and Shlomo Argamon,
+\newblock ``Computational Methods in Authorship Attribution,''
+\newblock \textit{Journal of the American Society for Information Science and Technology}, 60(1):9--26, 2009,
 \newblock \url{https://doi.org/10.1002/asi.20961}
 
 \bibitem{karashima2001}
-Seishi Karashima。
-\newblock \textit{A Glossary of Kumārajīva's Translation of the Lotus Sutra}。
-\newblock The International Research Institute for Advanced Buddhology, Soka University, 2001。
-\newblock \url{https://glossaries.dila.edu.tw/glossaries/KKJ?locale=en}
+Seishi Karashima,
+\newblock \textit{A Glossary of Kumārajīva's Translation of the Lotus Sutra},
+\newblock The International Research Institute for Advanced Buddhology, Soka University, 2001,
+\newblock \url{https://glossaries.dila.edu.tw/glossaries/KKJ?locale=en}（2026年6月2日閲覧）
 
 \bibitem{hung2010}
-Jen-Jou Hung, Marcus Bingenheimer, and Simon Wiles。
-\newblock Quantitative Evidence for a Hypothesis regarding the Attribution of Early Buddhist Translations。
-\newblock \textit{Literary and Linguistic Computing}, 25(1):119--134, 2010。
+Jen-Jou Hung, Marcus Bingenheimer, and Simon Wiles,
+\newblock ``Quantitative Evidence for a Hypothesis regarding the Attribution of Early Buddhist Translations,''
+\newblock \textit{Literary and Linguistic Computing}, 25(1):119--134, 2010,
 \newblock \url{https://doi.org/10.1093/llc/fqp036}
 
 \bibitem{bingenheimer2017}
-Marcus Bingenheimer, Jen-Jou Hung, and Cheng-en Hsieh。
-\newblock Stylometric Analysis of Chinese Buddhist Texts: Do Different Chinese Translations of the Gaṇḍavyūha Reflect Stylistic Features that are Typical for their Age?
-\newblock \textit{Journal of the Japanese Association for Digital Humanities}, 2(1):1--30, 2017。
+Marcus Bingenheimer, Jen-Jou Hung, and Cheng-en Hsieh,
+\newblock ``Stylometric Analysis of Chinese Buddhist Texts: Do Different Chinese Translations of the Gaṇḍavyūha Reflect Stylistic Features that are Typical for their Age?''
+\newblock \textit{Journal of the Japanese Association for Digital Humanities}, 2(1):1--30, 2017,
 \newblock \url{https://doi.org/10.17928/jjadh.2.1_1}
 
 \bibitem{huang2023}
-Shu-Ling Huang and Yu-Chun Wang。
-\newblock Word Embedding in Buddhist Studies: On the Basis of Evaluation of Word Embedding Models。
-\newblock \textit{Journal of Digital Archives and Digital Humanities}, 12:43--82, 2023。
+Shu-Ling Huang and Yu-Chun Wang,
+\newblock ``Word Embedding in Buddhist Studies: On the Basis of Evaluation of Word Embedding Models,''
+\newblock \textit{Journal of Digital Archives and Digital Humanities}, 12:43--82, 2023,
 \newblock \url{https://doi.org/10.6853/DADH.202310_(12).0003}
 
 \bibitem{nehrdich2020}
-Sebastian Nehrdich。
-\newblock A Method for the Calculation of Parallel Passages for Buddhist Chinese Sources Based on Million-scale Nearest Neighbor Search。
-\newblock \textit{Journal of the Japanese Association for Digital Humanities}, 5(2):132--153, 2020。
+Sebastian Nehrdich,
+\newblock ``A Method for the Calculation of Parallel Passages for Buddhist Chinese Sources Based on Million-scale Nearest Neighbor Search,''
+\newblock \textit{Journal of the Japanese Association for Digital Humanities}, 5(2):132--153, 2020,
 \newblock \url{https://doi.org/10.17928/jjadh.5.2_132}
 
 \bibitem{felbur2022}
-Rafal Felbur, Marieke Meelen, and Paul Vierthaler。
-\newblock Crosslinguistic Semantic Textual Similarity of Buddhist Chinese and Classical Tibetan。
-\newblock \textit{Journal of Open Humanities Data}, 8:23, 2022。
+Rafal Felbur, Marieke Meelen, and Paul Vierthaler,
+\newblock ``Crosslinguistic Semantic Textual Similarity of Buddhist Chinese and Classical Tibetan,''
+\newblock \textit{Journal of Open Humanities Data}, 8:23, 2022,
 \newblock \url{https://doi.org/10.5334/johd.86}
 
 \bibitem{lugli2022}
-Ligeia Lugli, Matej Martinc, Andraž Pelicon, and Senja Pollak。
-\newblock Embeddings Models for Buddhist Sanskrit。
-\newblock In \textit{Proceedings of the Thirteenth Language Resources and Evaluation Conference}, pages 3861--3871, 2022。
+Ligeia Lugli, Matej Martinc, Andraž Pelicon, and Senja Pollak,
+\newblock ``Embeddings Models for Buddhist Sanskrit,''
+\newblock In \textit{Proceedings of the Thirteenth Language Resources and Evaluation Conference}, pages 3861--3871, 2022,
 \newblock \url{https://aclanthology.org/2022.lrec-1.411/}
 
 \bibitem{dharmanexus}
-Dharmamitra。
-\newblock DharmaNexus。
-\newblock \url{https://dharmamitra.org/nexus}
+Dharmamitra,
+\newblock DharmaNexus,
+\newblock \url{https://dharmamitra.org/nexus}（2026年6月2日閲覧）
 
 \bibitem{mitra2026}
-Sebastian Nehrdich et al.。
-\newblock MITRA: A Large-Scale Parallel Corpus and Multilingual Pretrained Language Model for Machine Translation and Semantic Retrieval for Pāli, Sanskrit, Buddhist Chinese, and Tibetan。
-\newblock arXiv preprint arXiv:2601.06400, 2026。
+Sebastian Nehrdich et al.,
+\newblock ``MITRA: A Large-Scale Parallel Corpus and Multilingual Pretrained Language Model for Machine Translation and Semantic Retrieval for Pāli, Sanskrit, Buddhist Chinese, and Tibetan,''
+\newblock arXiv preprint arXiv:2601.06400, 2026,
 \newblock \url{https://arxiv.org/abs/2601.06400}
 
 \end{thebibliography}

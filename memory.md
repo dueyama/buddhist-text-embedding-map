@@ -547,3 +547,29 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the generated HTML includes the glossary appendix, added terms, source wording, author link, and ChatGPT 5.5 Pro xhigh acknowledgement.
   - Checked public/tracked files for obsolete source-wording phrases, real local paths, hardcoded API key patterns, and leftover LaTeX commands in the generated HTML.
 - Commit: `7e93635125564a59fc9d1f0d7595dc899d65d574`
+
+## 2026-06-02 11:35 JST
+
+- Summary: Added a three-layer source-mixture analysis to the paper, including semantic, lexical/style, and citation/reference layers for Amida translations and Kyogyoshinsho; regenerated figures, HTML, and PDF; and normalized bibliography entries away from Japanese full-stop-separated reference formatting.
+- Files:
+  - `docs/figures/three-layer-concept-map.png`
+  - `docs/figures/amida-three-layer-difference.png`
+  - `docs/figures/kyogyoshinsho-three-layer-source-mixture.png`
+  - `docs/paper/sect-sutra-map-paper.tex`
+  - `docs/paper/sect-sutra-map-paper.pdf`
+  - `docs/paper/sect-sutra-map-paper-5.tex`
+  - `docs/paper/sect-sutra-map-paper-5.pdf`
+  - `docs/paper/index.html`
+  - `docs/results.md`
+  - `experiments/sect_sutra_map/make_three_layer_figures.py`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_three_layer_figures.py` and confirmed Amida metrics: semantic cosine `0.8825`, lexical TF-IDF cosine `0.1833`, top-5 chunk mixing `0.3684`.
+  - Confirmed Kyogyoshinsho source-mixture mean weights for semantic, lexical/style, and citation/reference layers.
+  - Ran `python3 experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_three_layer_figures.py experiments/sect_sutra_map/make_paper_html.py`.
+  - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice and `dvipdfmx sect-sutra-map-paper.dvi`.
+  - Confirmed `sect-sutra-map-paper.tex` and `sect-sutra-map-paper-5.tex` are identical, and copied the regenerated PDF to `sect-sutra-map-paper-5.pdf`.
+  - Confirmed the bibliography block no longer contains Japanese full stops and the generated HTML references use comma-separated entries with access dates.
+  - Checked generated paper files for old development-note style wording.
+- Commit: pending
