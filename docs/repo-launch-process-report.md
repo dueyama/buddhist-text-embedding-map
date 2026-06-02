@@ -336,14 +336,15 @@ READMEには、[上山大信](https://sites.google.com/site/dueyama/)の指示�
 
 ## 残る課題
 
-- GitHub repository URLが確定したら、`CITATION.cff` の `repository-code` を更新する。
-- ライセンス方針は、コードを MIT、論文・図・公開文書・制作プロセス・公開用派生データを CC BY 4.0 として決定済みである。公開後は repository URL とクレジット表記を確認する。
+- GitHub repository URL と `CITATION.cff` の `repository-code` は確定済みである。
+- GitHub Pages は、現在 `main` branch の `/docs` folder を source として公開している。初期公開時に一時的に使った `gh-pages` branch は、`main/docs` 公開への切り替え後に削除した。
+- ライセンス方針は、コードを MIT、論文・図・公開文書・制作プロセス・公開用派生データを CC BY 4.0 として決定済みであり、repository URL とクレジット表記も確認済みである。
 - SAT、J-SOKEN、84000など各提供元の利用条件を再確認し、公開ページ上のクレジットを必要に応じて増補する。
 - チャンクサイズ依存性、自然単位チャンク化、本文正規化、異体字・句読点処理を検証する。
 - 意味マップ、文体マップ、引用参照マップを分離し、それぞれの特徴量で比較する。
 - チベット語原文・サンスクリット・パーリを含む多言語比較へ拡張する。
 - 親鸞文献と浄土三部経の関係について、既存研究の典拠論と照合する。
-- HTML論文とPDF論文を、公開後のGitHub Pages上で再確認する。
+- HTML論文とPDF論文は、公開後のGitHub Pages上で再確認済みである。今後は公開物を更新するたびに再確認する。
 
 ## まとめ
 

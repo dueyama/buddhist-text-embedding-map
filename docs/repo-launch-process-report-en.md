@@ -93,14 +93,15 @@ The reusable pattern is simple.
 
 ## Remaining Tasks
 
-- Update citation metadata after the GitHub repository URL is fixed.
-- The license policy is now fixed: code is MIT licensed, while the paper, figures, public documents, process reports, and public derived data are released under CC BY 4.0. After publication, confirm the repository URL and credit wording.
-- Recheck source-provider terms of use before public release.
+- The GitHub repository URL and `repository-code` value in `CITATION.cff` are fixed.
+- GitHub Pages is now published from the `/docs` folder on the `main` branch. The temporary `gh-pages` branch used during the initial publication workaround has been removed.
+- The license policy is fixed: code is MIT licensed, while the paper, figures, public documents, process reports, and public derived data are released under CC BY 4.0. The repository URL and credit wording have been checked.
+- Recheck source-provider terms of use before further source or credit changes.
 - Test chunk-size dependency, natural-unit chunking, character normalization, and variant forms.
 - Extend the method to stronger style features and source-marker dictionaries.
 - Compare Tibetan, Sanskrit, or Pali sources directly where possible.
 - Compare Shinran-related results with existing source-critical research.
-- Verify the final GitHub Pages deployment after the first push.
+- Re-verify the GitHub Pages site whenever public artifacts are updated.
 
 ## Summary
 

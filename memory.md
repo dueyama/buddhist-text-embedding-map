@@ -1136,3 +1136,22 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed the Japanese and English public top pages include the GitHub repository link using cache-busting query URLs.
   - Confirmed the remote `gh-pages` tree has no `.DS_Store` or LaTeX intermediate files.
 - Commits: main `56370761566b558220e9eb0f5619d8b33541973f`, gh-pages `5dbc6313b9f4ee7cde984cc9cee89dc5d6fe7f4e`
+
+## 2026-06-02 21:01 JST
+
+- Summary: Removed the temporary GitHub Pages publication branch after the repository Pages setting was switched to publish directly from `main` branch `/docs`. Updated public process/result documents so current publication information no longer conflicts with the earlier workaround.
+- Files:
+  - `docs/results.md`
+  - `docs/repo-launch-process-report.md`
+  - `docs/repo-launch-process-report-en.md`
+  - `docs/process/index.html`
+  - `docs/process/en/index.html`
+  - `memory.md`
+- Verification:
+  - Ran `git push origin --delete gh-pages`; remote deletion succeeded.
+  - Confirmed local remote-tracking branches list only `origin/main`.
+  - Ran `git ls-remote --heads origin gh-pages`; it returned no remote head.
+  - Confirmed `README.md` and `docs/PUBLICATION.md` already specify GitHub Pages source as `main` branch `/docs`.
+  - Updated stale public wording that described repository URL, remote push, Pages enablement, and post-publication link checks as still pending.
+  - Regenerated Japanese/English process HTML with `python3 experiments/sect_sutra_map/make_process_html.py` and the English `--input/--output/--lang en` command.
+  - Confirmed public GitHub Pages top, paper, and viewer URLs all returned `HTTP/2 200` after deleting `gh-pages`.

@@ -547,11 +547,11 @@ Query: `toh106_samdhinirmocana_en`
 - `docs/viewer/viewer_data.json` に local source path、本文冒頭断片、legacy local corpus path が残っていないことを確認。
 - ローカル `http.server` で `docs/` を配信し、ブラウザでトップページと公開版ビューアを確認。ビューアは `15 texts / 433 chunks` を読み込み、Nearest chunks では本文プレビュー省略文を表示した。
 
-### 残る公開前確認
+### この時点で残っていた公開前確認
 
-- GitHub repository 名と owner が確定したら、`CITATION.cff` の `repository-code` を実URLに更新する。
-- ライセンス方針は、コードを MIT、論文・図・公開文書・制作プロセス・公開用派生データを CC BY 4.0 として決定済み。公開後は repository URL とクレジット表記を確認する。
-- remote 作成、push、GitHub Pages 有効化は未実施。
+- GitHub repository 名と owner が確定したら、`CITATION.cff` の `repository-code` を実URLに更新する必要があった。これは後続作業で実施済み。
+- ライセンス方針は、コードを MIT、論文・図・公開文書・制作プロセス・公開用派生データを CC BY 4.0 として決定済みだった。repository URL とクレジット表記は後続作業で確認済み。
+- remote 作成、push、GitHub Pages 有効化は、この時点では未実施だった。
 
 ## 2026-06-02: HTML論文ページとREADME制作経緯
 
@@ -574,9 +574,9 @@ Query: `toh106_samdhinirmocana_en`
 - 参考文献URLがHTMLリンクとして出力されることを確認した。
 - ローカルブラウザで `paper/` と `process/` を確認し、著者リンク、PDFリンク、制作プロセスの道具準備・公開準備節、実ローカルパス非表示を確認した。
 
-### 残る公開前確認
+### この時点で残っていた公開前確認
 
-- GitHub Pages 公開後、`paper/`、PDF、公開版ビューアのリンクを実URLで再確認する。
+- GitHub Pages 公開後、`paper/`、PDF、公開版ビューアのリンクを実URLで再確認する必要があった。これは後続作業で実施済み。
 - READMEのAI支援制作プロセス記述は、公開時のクレジット方針に合わせて必要ならさらに調整する。
 
 ## 2026-06-02: 論文の出典表現と用語付録の調整
@@ -598,9 +598,9 @@ Query: `toh106_samdhinirmocana_en`
 - 生成HTMLに、付録、追加用語、謝辞、著者リンク、聖教DBの自然な出典表現が入っていることを確認した。
 - 旧文言、実ローカルパス、APIキー形式の文字列、未変換LaTeX断片が公開対象ファイルに残っていないことを確認した。
 
-### 残る公開前確認
+### この時点で残っていた公開前確認
 
-- GitHub Pages 公開後、`paper/` とPDFリンクを実URLで再確認する。
+- GitHub Pages 公開後、`paper/` とPDFリンクを実URLで再確認する必要があった。これは後続作業で実施済み。
 - 用語付録は読者反応に応じて、今後さらに短い脚注版と詳細付録版に分けてもよい。
 
 ## 2026-06-02: 三層 source-mixture map と参考文献スタイル調整
