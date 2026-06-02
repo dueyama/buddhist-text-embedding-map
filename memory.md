@@ -499,4 +499,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked public viewer data for missing `source_path`, `body_path`, `line_path`, local `お経/` paths, and non-placeholder chunk previews.
   - Served `docs/` locally with `python3 -m http.server 8766 --directory docs` and verified the Pages landing page and public viewer in the in-app browser.
   - Checked the planned commit files for hardcoded API key patterns.
-- Commit: `pending`
+- Commit: `4b53cbd562bf3477192a03262a6fb08c30e89dda`
