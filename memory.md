@@ -1081,4 +1081,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed Tailscale preview returned `200 OK` for top, Japanese/English paper, Japanese PDF, and viewer pages.
   - Used the in-app browser on the Tailscale preview to verify top, Japanese/English paper, Japanese/English process, and viewer pages load with content and no console warnings/errors.
   - Confirmed the viewer loads `15 texts / 433 chunks` and renders 15 SVG points.
-- Commit: pending
+- Commit: `1f48f80534cc9ccc0f8661315084e7ed17a6b1c0`
