@@ -6,7 +6,7 @@ authors:
     given-names: "大信"
 date-released: "2026-06-02"
 version: "0.1"
-repository-code: "https://github.com/OWNER/REPOSITORY"
+repository-code: "https://github.com/dueyama/buddhist-text-embedding-map"
 keywords:
   - "Buddhist texts"
   - "embeddings"
