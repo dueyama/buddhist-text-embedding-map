@@ -778,4 +778,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Checked `http://localhost:8767/paper/` in the in-app browser. Confirmed the title uses `意味・文体・典拠マーカーの三層地図`, the old `意味・文体・引用・参照` title phrase is absent, and the new volume figure/table are visible.
   - Checked the generated PDF title page in the in-app browser. Confirmed the title breaks after `：` into two lines.
   - Observed that semantic and lexical layers have 無量寿経 as the dominant source for all `教行信証` volumes, while the explicit marker layer is dominated by 未検出 in 信巻, 真仏土巻, and 化身土巻.
-- Commit: `pending`
+- Commit: `746b6c80fb61e5f4ac1bb46fd786b44c0f3b2112`
