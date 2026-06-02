@@ -809,4 +809,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `uplatex -interaction=nonstopmode sect-sutra-map-paper.tex` twice.
   - Ran `dvipdfmx sect-sutra-map-paper.dvi`.
   - Checked page 3 of the generated PDF in the in-app browser at 90% and 125% zoom. Confirmed Table 1 fits the page and the short metadata columns wrap less often.
-- Commit: `pending`
+- Commit: `23b6e00dcedf5727f46cd7cafde863c39e0495a6`
