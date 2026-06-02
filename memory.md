@@ -983,4 +983,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed Japanese PDF has 24 pages and English PDF has 25 pages with expected metadata.
   - Used the in-app browser on the Tailscale preview to check top, English top, Japanese/English paper, Japanese/English process, and viewer pages; all loaded with content and no console warnings/errors.
   - Ran `git diff --check`, current secret/local-path searches, and tracked forbidden-file checks after fixes; no issues found.
-- Commit: `pending`
+- Commit: `22b3baf5a3b6caab4932de465aa7b1cacb0e7071`
