@@ -10,6 +10,7 @@
 - 公開版ビューア: `docs/viewer/index.html`, `docs/viewer/viewer_data.json`
 - 制作プロセス: `docs/process/index.html`, `docs/repo-launch-process-report.md`
 - 英語制作プロセス: `docs/process/en/index.html`, `docs/repo-launch-process-report-en.md`
+- AI向け再現・発展ガイド: `AI_RESEARCHER_GUIDE.md`
 - 再現用コード: `experiments/sect_sutra_map/`, `experiments/multilingual_sutra_map/`, `experiments/shinran_amida_sources/`
 - 実験結果メモ・計画書: `docs/*.md`
 

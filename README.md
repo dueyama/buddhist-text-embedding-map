@@ -46,6 +46,7 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
 - English process report: `docs/process/en/index.html`, `docs/repo-launch-process-report-en.md`
+- AI researcher guide: `AI_RESEARCHER_GUIDE.md`
 
 The Japanese paper is the authoritative print/book edition. The English paper is provided as an AI-assisted translation for access by English-language readers; when citing or checking nuance, use the Japanese edition as the primary text.
 
@@ -53,6 +54,7 @@ The Japanese paper is the authoritative print/book edition. The English paper is
 
 ## Repository Layout
 
+- `AI_RESEARCHER_GUIDE.md`: AIエージェントに読ませるための再現・発展ガイド
 - `experiments/sect_sutra_map/`: 宗派別参照テキスト群分析の主要パイプライン
 - `experiments/multilingual_sutra_map/`: 解深密経の漢訳・英訳パイロット
 - `experiments/shinran_amida_sources/`: 親鸞文献と阿弥陀経二訳の参照指標分析
