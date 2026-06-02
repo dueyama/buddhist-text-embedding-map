@@ -620,3 +620,16 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Visually inspected Figure 1 and Figure 12 after regeneration.
   - Browser verification against the currently open `file://` page was blocked by the in-app browser URL policy, so verification used generated images, HTML source, and rebuilt PDF instead.
 - Commit: `546ab6757257a1c9d25786e19101e7b9059941cc`
+
+## 2026-06-02 12:24 JST
+
+- Summary: Extended the public process report to record the recent interactive revision phase, including post-three-layer review handling, glossary links, MathJax formula rendering, user-preserved acknowledgement wording, and the plan to create an English version after the Japanese paper is finalized.
+- Files:
+  - `docs/repo-launch-process-report.md`
+  - `docs/process/index.html`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
+  - Checked the generated process Markdown/HTML for the new phase, MathJax mention, English-version plan, and absence of absolute local filesystem paths.
+- Commit: pending
