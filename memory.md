@@ -712,4 +712,4 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed public-facing links no longer refer to `sect-sutra-map-paper-5.pdf` or other numbered paper draft filenames.
   - Confirmed the shared navigation order is `トップ / 論文 / PDF / ビューア / 制作プロセス / 結果ログ` on the top page, paper page, process page, and viewer page.
   - Checked the process and viewer pages in the in-app browser; current-page state is shown with a subtle background rather than a filled primary button.
-- Commit: pending
+- Commit: `da3c43e547d57572a05fe2be2496185b2f04399b`
