@@ -633,3 +633,17 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
   - Checked the generated process Markdown/HTML for the new phase, MathJax mention, English-version plan, and absence of absolute local filesystem paths.
 - Commit: `db003ff156761407466eb2d841415266858f3bac`
+
+## 2026-06-02 12:27 JST
+
+- Summary: Added the pre-Codex background that three legacy local exploratory folders existed at project start, reflecting Daishin Ueyama's small embedding experiments from several years earlier, while clarifying that those folders are ignored and not part of the public/reproducible repository.
+- Files:
+  - `README.md`
+  - `docs/repo-launch-process-report.md`
+  - `docs/process/index.html`
+  - `memory.md`
+- Verification:
+  - Ran `python3 experiments/sect_sutra_map/make_process_html.py`.
+  - Ran `python3 -m py_compile experiments/sect_sutra_map/make_process_html.py`.
+  - Checked README and process Markdown/HTML for the legacy folder names and absence of absolute local filesystem paths or API key patterns.
+- Commit: pending

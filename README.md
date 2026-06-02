@@ -8,6 +8,10 @@ This repository is a prototype and experiment in producing a humanities data-ana
 
 本リポジトリは、Codexを用いた人文系データ解析型の論文制作プロトタイプであり、実験的な制作記録でもあります。単なる仏教文献の意味埋め込み分析としてだけでなく、「OpenAI APIキー、ChatGPT Proアカウント、ローカルのCodex/Git環境があれば、この種の探索的研究をAI支援で半自動的に進められる」という再現可能なワークフロー例として読めることを意図しています。研究上の問い、対象文献の選定、解釈、公開方針は[上山大信](https://sites.google.com/site/dueyama/)の指示にもとづき、コード、図、論文草稿、改稿作業は Codex GPT-5.5 xhigh との反復的な作業を通じて作成しました。また、ChatGPT 5.5 Pro との査読形式のやり取りを反映しながら、論文としての構成、先行研究整理、限界の記述を調整しています。
 
+At the start of this Codex workflow, the local workspace also contained three legacy exploratory folders, `お経`, `埋め込みお経`, and `埋め込みテスト`, reflecting small embedding experiments previously conducted by Daishin Ueyama several years earlier. They served as background context for the renewed project, but they are not part of the public/reproducible repository and are intentionally ignored by git.
+
+このCodex作業の開始時点では、ローカル作業環境に `お経`、`埋め込みお経`、`埋め込みテスト` という三つの過去実験フォルダがありました。これらは上山大信が数年前に少し試した埋め込み実験の痕跡であり、今回の研究の前提・背景として参照されました。ただし、公開・再現用の成果物ではないため、gitでは追跡せず、現在の公開用コードと文書は `experiments/` と `docs/` に整理し直しています。
+
 ## Replication Assumptions / 再現の前提
 
 - OpenAI API key for generating embeddings.
