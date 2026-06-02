@@ -1029,3 +1029,20 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Confirmed TeX logs have no unresolved citation/reference rerun warnings.
   - Ran `git diff --check`, current secret search, and tracked forbidden-file checks; no issues found. Browser verification of `file://` paper pages was not used because the in-app browser blocked direct local-file navigation by policy.
 - Commit: `b7ece8ef651564d712d77d4e7038c78cad6ae583`
+
+## 2026-06-02 17:43 JST
+
+- Summary: Added a small Tailscale/GitHub Pages preview helper to avoid repeatedly debugging localhost, IPv6, Tailscale IP, and port confusion. The helper serves `docs/` on the detected Tailscale IPv4 address by default, can force local or all-interface binding, and supports `--check` to verify an already running preview server.
+- Files:
+  - `README.md`
+  - `docs/PUBLICATION.md`
+  - `scripts/serve_pages_preview.py`
+- Verification:
+  - Ran `python3 scripts/serve_pages_preview.py --help`.
+  - Ran `python3 -m py_compile scripts/serve_pages_preview.py`.
+  - Ran `python3 scripts/serve_pages_preview.py --bind tailscale --port 8768 --check`; it returned `OK 200` for the Tailscale preview URL.
+  - Ran `python3 scripts/serve_pages_preview.py --bind tailscale --port 8768`; it detected the already running server and returned `Already running 200`.
+  - Ran `git diff --check`.
+  - Ran current searches for hard-coded Tailscale IPs and OpenAI API key patterns over public docs, scripts, experiments, memory, license files, and citation metadata; no matches found.
+  - Confirmed staged files were limited to the helper script, README, and publication checklist, and `git grep --cached` found no hard-coded Tailscale IP or API key pattern.
+- Commit: `fb3d794f747fdf6080009c68113160d82ac29709`
