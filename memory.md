@@ -1098,3 +1098,21 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Ran `git push -u origin main`; push succeeded and `main` now tracks `origin/main`.
   - Confirmed `git ls-remote --heads origin main` reports `6bba0c2e4adfbb3d014d76388ada244f0faea439`.
 - Commit: `a2cf4a1d0c906f65b12ee29050924246b56481e9`
+
+## 2026-06-02 18:31 JST
+
+- Summary: Enabled the public GitHub Pages site for the repository. The authenticated GitHub settings screen was not accessible from Chrome without sign-in, and an initial GitHub Actions Pages workflow failed at the `Configure Pages` step, so the failed workflow was removed from `main`. Published the current `docs/` site as a clean `gh-pages` branch instead, then verified the public Pages URL.
+- Files:
+  - `.github/workflows/pages.yml` (temporarily added, then removed from `main`)
+  - `memory.md`
+  - `gh-pages` branch contents generated from current `docs/`
+- Verification:
+  - Pushed `Add GitHub Pages deployment workflow` as `d303660c8dba58a6ce962819cf08311502e1f216`; the GitHub Actions run completed with failure at `Configure Pages`.
+  - Removed the failed workflow from `main` in `8d8bb457faa7342feedcf123d0ab379c3ef5deae` and pushed `main`.
+  - Published `gh-pages` commit `691b38126140944dfc4526f42eb19668303dad69` from the current `docs/` contents.
+  - Excluded `.DS_Store` and LaTeX intermediate files (`*.aux`, `*.dvi`, `*.log`, `*.out`) from the published branch; confirmed zero matches in the remote `gh-pages` tree.
+  - Confirmed `gh-pages` contains 53 files and includes `.nojekyll`.
+  - Confirmed `https://dueyama.github.io/buddhist-text-embedding-map/` returns `200 OK`.
+  - Confirmed the public top page, Japanese/English paper pages, Japanese/English process pages, viewer page, Japanese PDF, and English PDF all return `200`.
+  - Confirmed the public top page title is `意味埋め込みによる仏教文献の探索地図`.
+- Commits: main `d303660c8dba58a6ce962819cf08311502e1f216`, main `8d8bb457faa7342feedcf123d0ab379c3ef5deae`, gh-pages `691b38126140944dfc4526f42eb19668303dad69`
