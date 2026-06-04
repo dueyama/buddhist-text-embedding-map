@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Errata: Unicode文字境界を保つチャンク化</title>
+  <style>
+    body { margin: 0; color: #202723; background: #f6f7f2; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.75; }
+    main { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 52px; }
+    a { color: #2f6f73; text-underline-offset: 3px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); line-height: 1.18; }
+    h2 { margin-top: 30px; font-size: 22px; }
+    .meta, .note { color: #66706a; }
+    .notice { padding: 16px 18px; border-left: 5px solid #9a5b3f; background: #fff; border: 1px solid #d9ded6; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; background: #fff; }
+    th, td { border: 1px solid #d9ded6; padding: 8px 10px; text-align: left; font-size: 14px; }
+    th { background: #eef2ee; }
+    img { max-width: 100%; border: 1px solid #d9ded6; background: #fff; }
+  </style>
+</head>
+<body>
+<main>
+  <p><a href="../">トップへ戻る</a> / <a href="en/">English</a></p>
+  <h1>Errata: Unicode文字境界を保つチャンク化の採用</h1>
+  <p class="meta">v1.0.1 追補。2026年6月4日。</p>
+  <p class="notice">v1.0.0 の広域的な意味地図を差し替えるものではない。ただし旧方式では、トークン列を一定の長さで切ってから文字列に戻していたため、一部のチャンク（本文断片）で文字の途中が切れ、置換文字 U+FFFD が本文に入ることがあった。以後は、文字の途中で切らないようにチャンク境界を調整する改訂方式を基準とする。</p>
+  <h2>比較方法</h2>
+  <p>本論で用いた宗派別参照群 15 本文 / 433 チャンクを対象に、700 トークン幅・100 トークン重なりという条件を保ったまま、旧方式と改訂方式を比較した。旧方式は、トークン列を固定幅で切った後、その断片をそのまま文字列へ戻す。改訂方式は、元の本文中の文字位置とトークン位置の対応を確認し、開始位置と終了位置を Unicode 文字の境界に合わせてから本文断片を作る。これにより、文字の一部だけを切り出してしまうことを避ける。</p>
+  <p>U+FFFD が発生する理由は、tiktoken のトークンが Unicode 文字そのものではなく、UTF-8 バイト列を分割した単位であるためである。漢字などの1文字は複数バイトで表され、場合によっては複数トークンにまたがる。固定長のトークン断片だけを復号すると、断片の先頭または末尾が不完全な UTF-8 バイト列になり、復号時に置換文字 U+FFFD として現れることがある。</p>
+  <p>本コーパスでは、700 トークンに達した改訂方式チャンク 265 件の文字数中央値は 458 字であり、p10-p90 は 432-489 字であった。したがって、本稿の 700 トークン窓は、漢字を中心とする本文でおおむね 460 字前後に相当する。ここでの文字数は Python 文字列上の文字数であり、句読点や記号も含む。</p>
+  <p>100 トークン重なりにより、境界付近の本文は隣接チャンクにも部分的に含まれる。そのため、境界差の影響は本文重心や巻単位の集計では平均化されやすく、今回の大局的安定性を支える要因の一つと考えられる。ただし、この重なりはチャンク単位の1位参照源判定の揺れを完全に抑えるものではない。</p>
+  <p class="note">技術注: 実装では tiktoken の offsets を用いてトークン位置を Python 文字列の文字位置へ対応させた。旧方式の再現確認では、v1.0.0 と同じ固定長トークン列の復号を用いた。</p>
+  <h2>文字列品質</h2>
+  <table>
+<tr><th>方式</th><th>チャンク数</th><th>置換文字を含むチャンク</th><th>置換文字数</th><th>トークン数中央値</th><th>トークン数平均</th></tr>
+<tr><td>旧方式</td><td>433</td><td>256</td><td>326</td><td>700</td><td>692.935</td></tr>
+<tr><td>改訂方式</td><td>433</td><td>0</td><td>0</td><td>700</td><td>692.679</td></tr>
+</table>
+  <h2>数値評価</h2>
+  <p>埋め込みモデルは <code>text-embedding-3-large</code>。旧方式の埋め込みは既存の埋め込みキャッシュを用い、改訂方式の本文断片だけを同じモデルで新規に埋め込んだ。公開成果物には、生本文やチャンク本文そのものは含めない。</p>
+  <table>
+<tr><th>比較対象</th><th>件数</th><th>最小</th><th>p10</th><th>中央値</th><th>平均</th><th>p90</th><th>最大</th></tr>
+<tr><td>同一位置チャンク</td><td>433</td><td>0.89001</td><td>0.966485</td><td>0.997813</td><td>0.98916</td><td>1</td><td>1</td></tr>
+<tr><td>本文ごとの重心</td><td>15</td><td>0.995906</td><td>0.996709</td><td>0.998511</td><td>0.99809</td><td>0.998773</td><td>0.999538</td></tr>
+<tr><td>宗派ごとの重心</td><td>11</td><td>0.997908</td><td>0.997908</td><td>0.998751</td><td>0.998713</td><td>0.999069</td><td>0.999086</td></tr>
+</table>
+  <p>同じ本文ごとに旧方式と改訂方式の重心を比較すると、最小値でも 0.995906 であり、全体として高い一致を示した。</p>
+  <table>
+<tr><th>本文</th><th>ID</th><th>旧方式/改訂方式の重心類似度</th></tr>
+<tr><td>佛説阿彌陀經</td><td>t0366_amida_sutra</td><td>0.995906</td></tr>
+<tr><td>大樂金剛不空眞實三麼耶經</td><td>t0243_rishu_kyo</td><td>0.996541</td></tr>
+<tr><td>般若波羅蜜多心經</td><td>t0251_heart_sutra</td><td>0.996961</td></tr>
+<tr><td>觀世音菩薩普門品</td><td>t0262_kannon_chapter</td><td>0.997215</td></tr>
+<tr><td>妙法蓮華經</td><td>t0262_lotus_sutra</td><td>0.997908</td></tr>
+<tr><td>稱讃淨土佛攝受經</td><td>t0367_praise_pure_land</td><td>0.998081</td></tr>
+<tr><td>佛説觀無量壽佛經</td><td>t0365_meditation_sutra</td><td>0.998349</td></tr>
+<tr><td>佛説無量壽經</td><td>t0360_larger_sukhavati</td><td>0.998511</td></tr>
+<tr><td>金剛般若波羅蜜經</td><td>t0235_diamond_sutra</td><td>0.998672</td></tr>
+<tr><td>大毘盧遮那成佛神變加持經</td><td>t0848_maha_vairocana</td><td>0.998693</td></tr>
+<tr><td>大方廣佛華嚴經</td><td>t0279_flower_garland</td><td>0.998707</td></tr>
+<tr><td>維摩詰所説經</td><td>t0475_vimalakirti</td><td>0.998728</td></tr>
+<tr><td>解深密經</td><td>t0676_samdhinirmocana</td><td>0.998751</td></tr>
+<tr><td>金剛頂一切如來眞實攝大乘現證大教王經</td><td>t0865_vajrasekhara</td><td>0.998787</td></tr>
+<tr><td>顯淨土眞實教行證文類</td><td>kyogyoshinsho</td><td>0.999538</td></tr>
+</table>
+  <h2>三層別の確認</h2>
+  <p>ここでいう意味層は、ターゲットチャンクと参照源チャンクの埋め込み cosine に基づく参照源混合である。したがって、意味層の入れ替わりは埋め込み空間全体の崩れではなく、埋め込みを用いた局所的な参照源順位が境界処理差に反応したものとして読む。</p>
+  <p>三層参照源混合地図についても、旧方式と改訂方式を同じ条件で比較した。意味層の参照源混合では、チャンク単位の支配的参照源が 33 / 197 で入れ替わった。一方、巻別の支配的参照源は変化せず、文体・語彙層の入れ替わりは 1 / 197、典拠マーカー層は 0 / 197 であった。</p>
+  <table>
+<tr><th>層</th><th>チャンク</th><th>重みcos中央値</th><th>L1平均</th><th>支配参照源の変化</th><th>巻別支配参照源の変化</th></tr>
+<tr><td>意味層（参照源混合）</td><td>197</td><td>0.992013</td><td>0.123899</td><td>33 / 197</td><td>0 / 7</td></tr>
+<tr><td>文体・語彙層</td><td>197</td><td>1</td><td>0.000657</td><td>1 / 197</td><td>0 / 7</td></tr>
+<tr><td>典拠マーカー層</td><td>197</td><td>1</td><td>0</td><td>0 / 197</td><td>0 / 7</td></tr>
+</table>
+  <p>典拠マーカー層では、マーカー検出チャンク数と総マーカー検出数も一致した。</p>
+  <table>
+<tr><th>指標</th><th>旧方式</th><th>改訂方式</th></tr>
+<tr><td>マーカー検出チャンク</td><td>99</td><td>99</td></tr>
+<tr><td>総マーカー検出数</td><td>170</td><td>170</td></tr>
+<tr><td>検出ベクトル完全一致率</td><td>1</td><td></td></tr>
+<tr><td>検出ベクトルが変化したチャンク</td><td>0</td><td></td></tr>
+</table>
+  <figure>
+    <img src="../figures/unicode-safe-chunking-centroids.png" alt="旧方式と改訂方式の本文重心">
+    <figcaption>旧方式と改訂方式の本文重心。線は同じ本文の対応を示す。</figcaption>
+  </figure>
+  <h2>解釈</h2>
+  <p>旧方式で発生した U+FFFD は、本文品質と再現性の問題として明確に避けるべきである。一方、同じ位置にあるチャンク同士の埋め込み類似度は平均 0.98916、中央値 0.997813 であり、本文ごとの重心と宗派ごとの重心も高い一致を示した。したがって、v1.0.0 の大局的な意味地図をただちに否定するものではない。</p>
+  <p>ただし、意味層の参照源混合は、チャンク単位の1位参照源判定において Unicode 境界処理の差に一定の感度を示した。これは、参照源候補同士が近い局所箇所では入力ノイズにより順位が入れ替わり得ることを示す。一方で、100 トークン重なりは境界付近の差異を隣接チャンクへ部分的に分散させ、本文重心や巻単位の傾向を安定させる方向に働いたと考えられる。巻別の支配的参照源、文体・語彙層、典拠マーカー層は大きく崩れなかった。三層に分けることにより、どの層が揺れ、どの層が安定しているかを分離して確認できた点も、本稿の方法上の利点である。</p>
+  <p>本文断片の表示、SAT 行範囲との対応、個別チャンク近傍、引用候補の精査では、旧方式を基準にしない。今後は、文字境界を保つ改訂方式を基準処理とする。</p>
+  <p><a href="unicode-safe-chunking-errata-ja.pdf">日本語PDF</a> / <a href="en/unicode-safe-chunking-errata-en.pdf">English PDF</a></p>
+</main>
+</body>
+</html>

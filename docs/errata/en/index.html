@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Errata and Supplement: Unicode-aware chunking</title>
+  <style>
+    body { margin: 0; color: #202723; background: #f6f7f2; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; line-height: 1.7; }
+    main { width: min(920px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 52px; }
+    a { color: #2f6f73; text-underline-offset: 3px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); line-height: 1.18; }
+    h2 { margin-top: 30px; font-size: 22px; }
+    .meta, .note { color: #66706a; }
+    .notice { padding: 16px 18px; border-left: 5px solid #9a5b3f; background: #fff; border: 1px solid #d9ded6; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; background: #fff; }
+    th, td { border: 1px solid #d9ded6; padding: 8px 10px; text-align: left; font-size: 14px; }
+    th { background: #eef2ee; }
+    img { max-width: 100%; border: 1px solid #d9ded6; background: #fff; }
+  </style>
+</head>
+<body>
+<main>
+  <p><a href="../../en/">Back to top</a> / <a href="../">日本語</a></p>
+  <h1>Errata and Supplement: adopting Unicode-aware chunking</h1>
+  <p class="meta">v1.0.1 supplement. June 4, 2026.</p>
+  <p class="notice">This erratum does not replace the broad semantic map in the v1.0.0 release. In the old method, the token stream was split into fixed-length windows and each window was converted back to text on its own. Some chunk boundaries therefore cut through a character representation, producing the replacement character U+FFFD in the chunk text. Future work adopts a revised method that adjusts chunk boundaries so they fall on Unicode character boundaries.</p>
+  <h2>Method</h2>
+  <p>The comparison uses the sect-sutra corpus used in the paper: 15 texts and 433 chunks. Both methods keep the same 700-token windows and 100-token overlap. The old method takes a fixed-width slice of the token sequence and converts that slice directly back into text. The revised method first relates token positions to character positions in the original Python string, then rounds each chunk start and end to Unicode character boundaries. This prevents a chunk from containing only part of a character representation.</p>
+  <p>U+FFFD appears because tiktoken tokens are not Unicode characters themselves; they are units over UTF-8 byte sequences. A CJK character is represented by multiple bytes and can, in some cases, span multiple tokens. When a fixed-length token slice is decoded by itself, the start or end of the slice may contain an incomplete UTF-8 sequence, which is then emitted as the replacement character U+FFFD.</p>
+  <p>In this corpus, the 265 revised chunks that reach 700 tokens have a median length of 458 characters, with a p10-p90 range of 432-489 characters. The 700-token window therefore corresponds roughly to about 460 CJK text characters in these classical Chinese-based materials. Character counts are Python string characters and include punctuation and symbols.</p>
+  <p>The 100-token overlap means that text near a boundary is also partly present in adjacent chunks. Boundary-level differences are therefore more likely to be averaged out in text centroids and volume-level summaries, which is one plausible reason for the broad stability observed here. The overlap does not, however, eliminate all chunk-level first-place source changes.</p>
+  <p class="note">Technical note: the implementation uses tiktoken offsets to map token positions to Python string positions. The old behavior was reproduced with the same fixed-token decoding used in v1.0.0.</p>
+  <h2>String Quality</h2>
+  <table>
+<tr><th>method</th><th>chunks</th><th>chunks with replacement characters</th><th>replacement characters</th><th>median tokens</th><th>mean tokens</th></tr>
+<tr><td>old method</td><td>433</td><td>256</td><td>326</td><td>700</td><td>692.935</td></tr>
+<tr><td>revised method</td><td>433</td><td>0</td><td>0</td><td>700</td><td>692.679</td></tr>
+</table>
+  <h2>Quantitative Evaluation</h2>
+  <p>The embedding model is <code>text-embedding-3-large</code>. The old-method embeddings use the existing embedding cache. Only the revised chunks were newly embedded with the same model. Public outputs do not include raw text or chunk text.</p>
+  <table>
+<tr><th>comparison</th><th>count</th><th>min</th><th>p10</th><th>median</th><th>mean</th><th>p90</th><th>max</th></tr>
+<tr><td>same-position chunks</td><td>433</td><td>0.89001</td><td>0.966485</td><td>0.997813</td><td>0.98916</td><td>1</td><td>1</td></tr>
+<tr><td>text centroids</td><td>15</td><td>0.995906</td><td>0.996709</td><td>0.998511</td><td>0.99809</td><td>0.998773</td><td>0.999538</td></tr>
+<tr><td>sect centroids</td><td>11</td><td>0.997908</td><td>0.997908</td><td>0.998751</td><td>0.998713</td><td>0.999069</td><td>0.999086</td></tr>
+</table>
+  <p>At the text level, the old and revised centroids remain closely aligned. The lowest text-centroid cosine is 0.995906.</p>
+  <table>
+<tr><th>text</th><th>ID</th><th>old/revised centroid cosine</th></tr>
+<tr><td>佛説阿彌陀經</td><td>t0366_amida_sutra</td><td>0.995906</td></tr>
+<tr><td>大樂金剛不空眞實三麼耶經</td><td>t0243_rishu_kyo</td><td>0.996541</td></tr>
+<tr><td>般若波羅蜜多心經</td><td>t0251_heart_sutra</td><td>0.996961</td></tr>
+<tr><td>觀世音菩薩普門品</td><td>t0262_kannon_chapter</td><td>0.997215</td></tr>
+<tr><td>妙法蓮華經</td><td>t0262_lotus_sutra</td><td>0.997908</td></tr>
+<tr><td>稱讃淨土佛攝受經</td><td>t0367_praise_pure_land</td><td>0.998081</td></tr>
+<tr><td>佛説觀無量壽佛經</td><td>t0365_meditation_sutra</td><td>0.998349</td></tr>
+<tr><td>佛説無量壽經</td><td>t0360_larger_sukhavati</td><td>0.998511</td></tr>
+<tr><td>金剛般若波羅蜜經</td><td>t0235_diamond_sutra</td><td>0.998672</td></tr>
+<tr><td>大毘盧遮那成佛神變加持經</td><td>t0848_maha_vairocana</td><td>0.998693</td></tr>
+<tr><td>大方廣佛華嚴經</td><td>t0279_flower_garland</td><td>0.998707</td></tr>
+<tr><td>維摩詰所説經</td><td>t0475_vimalakirti</td><td>0.998728</td></tr>
+<tr><td>解深密經</td><td>t0676_samdhinirmocana</td><td>0.998751</td></tr>
+<tr><td>金剛頂一切如來眞實攝大乘現證大教王經</td><td>t0865_vajrasekhara</td><td>0.998787</td></tr>
+<tr><td>顯淨土眞實教行證文類</td><td>kyogyoshinsho</td><td>0.999538</td></tr>
+</table>
+  <h2>Three-Layer Check</h2>
+  <p>The semantic layer here is an embedding-based source mixture: it uses cosine similarity between target chunks and source chunks. The source changes in this layer should therefore be read as changes in local source rankings derived from embeddings, not as a collapse of the embedding space as a whole.</p>
+  <p>The three-layer source-mixture map was also recomputed under the old and revised chunking methods. In the semantic source-mixture layer, the dominant source changes for 33 / 197 chunks. However, the dominant source by volume does not change. In the style/lexical layer, the dominant source changes for 1 / 197 chunks. In the source-marker layer, it changes for 0 / 197 chunks.</p>
+  <table>
+<tr><th>layer</th><th>chunks</th><th>median weight cosine</th><th>mean L1 distance</th><th>dominant-source changes</th><th>volume-dominant changes</th></tr>
+<tr><td>semantic source-mixture layer</td><td>197</td><td>0.992013</td><td>0.123899</td><td>33 / 197</td><td>0 / 7</td></tr>
+<tr><td>style/lexical layer</td><td>197</td><td>1</td><td>0.000657</td><td>1 / 197</td><td>0 / 7</td></tr>
+<tr><td>source-marker layer</td><td>197</td><td>1</td><td>0</td><td>0 / 197</td><td>0 / 7</td></tr>
+</table>
+  <p>For the source-marker layer, the number of chunks with detected markers and the total number of marker hits are unchanged.</p>
+  <table>
+<tr><th>metric</th><th>old method</th><th>revised method</th></tr>
+<tr><td>chunks with markers</td><td>99</td><td>99</td></tr>
+<tr><td>total marker hits</td><td>170</td><td>170</td></tr>
+<tr><td>exact marker-vector match rate</td><td>1</td><td></td></tr>
+<tr><td>chunks with changed marker vector</td><td>0</td><td></td></tr>
+</table>
+  <figure>
+    <img src="../../figures/en/unicode-safe-chunking-centroids.png" alt="Text centroids for the old and revised methods">
+    <figcaption>Text centroids for the old and revised methods. Lines connect the same text.</figcaption>
+  </figure>
+  <h2>Interpretation</h2>
+  <p>The U+FFFD issue in the old method is a real text-quality and reproducibility problem. At the same time, embedding cosine for chunks at the same position remains high: mean 0.98916 and median 0.997813. Text and sect centroids also remain closely aligned. The broad semantic map in v1.0.0 is therefore not immediately invalidated.</p>
+  <p>The semantic source-mixture layer nevertheless shows measurable sensitivity in chunk-level first-place source assignments. This suggests that local source rankings can change under input noise when candidate sources are close. At the same time, the 100-token overlap plausibly spreads boundary-level differences into adjacent chunks and helps stabilize text centroids and volume-level tendencies. By contrast, volume-level dominant sources, the style/lexical layer, and the source-marker layer remain stable. This is also a methodological advantage of the three-layer design: it separates where the analysis is sensitive from where it is stable.</p>
+  <p>Displaying chunk excerpts, SAT line-range correspondence, individual-neighbor inspection, and future citation-level analysis should not use the old method as the baseline. Future work should use the revised Unicode-aware method.</p>
+  <p><a href="../unicode-safe-chunking-errata-ja.pdf">Japanese PDF</a> / <a href="unicode-safe-chunking-errata-en.pdf">English PDF</a></p>
+</main>
+</body>
+</html>

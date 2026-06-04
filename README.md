@@ -34,11 +34,13 @@ The local development repository also uses `memory.md` as a project ledger. It r
 
 ## Public Artifacts
 
+- Current public release: v1.0.1, adding the Unicode-aware chunking errata and validation.
 - 論文HTML: `docs/paper/index.html`
 - 論文PDF: `docs/paper/sect-sutra-map-paper.pdf`
 - 論文TeX: `docs/paper/sect-sutra-map-paper.tex`
 - English AI-assisted translation HTML: `docs/paper/en/index.html`
 - English AI-assisted translation PDF: `docs/paper/en/sect-sutra-map-paper-en.pdf`
+- Errata / post-release validation for Unicode-aware chunk boundaries: `docs/errata/index.html`, `docs/errata/unicode-safe-chunking-errata-ja.pdf`, `docs/errata/en/index.html`, `docs/errata/en/unicode-safe-chunking-errata-en.pdf`
 - English figure variants: `docs/figures/en/*.png`
 - GitHub Pages entry point: `docs/index.html`
 - English GitHub Pages entry point: `docs/en/index.html`
