@@ -16,6 +16,20 @@ The local development repository also uses `memory.md` as a project ledger. It r
 
 また、ローカル開発用リポジトリでは、作業台帳として `memory.md` をgit管理しています。ここにはJST日時、変更概要、検証内容、commit hashを記録し、Codex支援による研究制作の流れを追跡できるようにしました。この記録方法自体も、再現可能なワークフローの一部として参考になることを意図しています。
 
+## Methodological Note / 方法上の立場
+
+このリポジトリは、仏教文献の意味や思想史的関係を AI に最終判定させることを目的としたものではありません。ここで行っているのは、本文をチャンク化し、意味埋め込みによる近傍関係を作り、そこに語彙・典拠・文献単位の情報を重ねることで、研究者が読み直すべき領域を探すための探索地図を作る試みです。
+
+人文学的解釈には、問いの立て方、対象範囲、先行研究の系譜、研究者ごとの重みづけが必ず入ります。本プロジェクトが期待しているのは、それらを消すことではなく、解釈が分岐する前に共有できる本文側の意味的地形を、できるだけ再現可能な形で示すことです。
+
+したがって、本リポジトリの図や数値は、教義・影響関係・文献史の結論ではなく、精査候補を抽出するための補助線として読まれるべきものです。結果は、埋め込みモデル、チャンク化、対象文献、投影法によって変わりえます。今後は、複数のモデル・複数の前処理条件・既存の文献学的知見との照合を通じて、どの近傍構造が安定して残るのかを確認していく必要があります。
+
+This repository does not aim to let AI make final judgments about the meaning of Buddhist texts or their historical relationships. Its more modest aim is to divide texts into chunks, represent them in an embedding space, and overlay lexical, bibliographic, and source-marker information in order to build exploratory maps for close reading.
+
+Humanistic interpretation inevitably depends on research questions, corpus boundaries, scholarly traditions, and the reader's own weighting of passages. The hope of this project is not to remove such interpretation, but to provide a reproducible semantic terrain of the texts before interpretations diverge.
+
+The figures and statistics in this repository should therefore be read as guides to passages worth inspecting, not as proofs of doctrinal meaning, historical influence, or textual genealogy. Results may vary with the embedding model, chunking scheme, projection method, and corpus selection. A major task for future work is to test which neighborhood structures remain stable across models and preprocessing choices, and how they correspond to established philological and doctrinal scholarship.
+
 ## Replication Assumptions / 再現の前提
 
 - OpenAI API key for generating embeddings.
