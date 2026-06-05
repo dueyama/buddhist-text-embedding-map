@@ -1,0 +1,27 @@
+# Publication checksums
+
+This file records checksums for fixed public artifacts in this repository.
+
+Japanese paper PDF
+  Path: docs/paper/sect-sutra-map-paper.pdf
+  Public URL: https://dueyama.github.io/buddhist-text-embedding-map/paper/sect-sutra-map-paper.pdf
+  SHA-256: 92be9d3cb008b4e1fa368fe2fc9e72d141194e980a63e83ae8645ad9ab079845
+  Verified against: git tags v1.0.0 and v1.0.1
+  Date recorded: 2026-06-05 JST
+
+Japanese errata PDF
+  Path: docs/errata/unicode-safe-chunking-errata-ja.pdf
+  Public URL: https://dueyama.github.io/buddhist-text-embedding-map/errata/unicode-safe-chunking-errata-ja.pdf
+  SHA-256: 6dd41cd62c314e2844c19a8801f9ce5b5f2be8f673326ab19f96a5848b46f708
+  Verified against: git tag v1.0.1
+  Date recorded: 2026-06-05 JST
+
+Purpose
+  The Japanese paper PDF and Japanese errata PDF are treated as the fixed,
+  authoritative Japanese editions. Later corrections and validation notes are
+  published as separate supplements or errata, rather than silent rewrites of
+  these PDFs.
+
+  This is also part of the repository's experiment in publishing a humanities
+  data-analysis paper through GitHub, GitHub Pages, GitHub Releases, and
+  reproducible process records.

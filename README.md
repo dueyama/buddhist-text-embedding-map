@@ -45,6 +45,7 @@ The local development repository also uses `memory.md` as a project ledger. It r
 - GitHub Pages entry point: `docs/index.html`
 - English GitHub Pages entry point: `docs/en/index.html`
 - Public viewer: `docs/viewer/index.html`
+- Publication checksum record: `docs/checksums.txt`
 - Experiment result notes: `docs/results.md`
 - Process report: `docs/process/index.html`, `docs/repo-launch-process-report.md`
 - English process report: `docs/process/en/index.html`, `docs/repo-launch-process-report-en.md`
@@ -53,6 +54,23 @@ The local development repository also uses `memory.md` as a project ledger. It r
 The Japanese paper is the authoritative print/book edition. The English paper is provided as an AI-assisted translation for access by English-language readers; when citing or checking nuance, use the Japanese edition as the primary text.
 
 日本語論文を正式な製本版とし、英語版は英語読者のためのAI支援翻訳版として公開します。引用や細かなニュアンス確認では、日本語版を主たる本文として扱ってください。
+
+## Publication Integrity / 公開版の固定
+
+The Japanese paper PDF and Japanese errata PDF are treated as the fixed public Japanese editions. Their SHA-256 checksums are recorded in `docs/checksums.txt`:
+
+```text
+92be9d3cb008b4e1fa368fe2fc9e72d141194e980a63e83ae8645ad9ab079845  docs/paper/sect-sutra-map-paper.pdf
+6dd41cd62c314e2844c19a8801f9ce5b5f2be8f673326ab19f96a5848b46f708  docs/errata/unicode-safe-chunking-errata-ja.pdf
+```
+
+The paper PDF checksum matches the PDF stored at git tags `v1.0.0` and `v1.0.1`; the Japanese errata PDF checksum matches the PDF stored at git tag `v1.0.1`. Later corrections are therefore published as separate supplements or errata, rather than as silent rewrites of the fixed PDFs.
+
+論文本体の日本語PDFとerrataの日本語PDFを、公開された固定版として扱います。SHA-256ハッシュは `docs/checksums.txt` に記録しています。論文本体PDFのハッシュは git tag `v1.0.0` および `v1.0.1` に含まれるPDFと一致し、errata日本語PDFのハッシュは git tag `v1.0.1` に含まれるPDFと一致します。以後の訂正や検証は、PDF本文を黙って書き換えるのではなく、追補・errata として別に公開します。
+
+This repository also treats the publication method itself as an experiment: a humanities data-analysis paper is published through GitHub Pages and GitHub Releases, while git history, release tags, checksums, and process notes make the public artifact and its later supplements traceable.
+
+本リポジトリでは、この公開方法そのものも試行対象としています。人文系データ解析論文を GitHub Pages と GitHub Releases で公開し、git履歴、release tag、checksum、制作記録によって、公開版と後続の追補を追跡できる形にします。
 
 ## Repository Layout
 

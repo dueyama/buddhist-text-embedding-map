@@ -1155,3 +1155,19 @@ This file records local project changes for the Okyou experiments. Times are JST
   - Updated stale public wording that described repository URL, remote push, Pages enablement, and post-publication link checks as still pending.
   - Regenerated Japanese/English process HTML with `python3 experiments/sect_sutra_map/make_process_html.py` and the English `--input/--output/--lang en` command.
   - Confirmed public GitHub Pages top, paper, and viewer URLs all returned `HTTP/2 200` after deleting `gh-pages`.
+
+## 2026-06-05 12:28 JST
+
+- Summary: Added a public checksum record for the fixed Japanese PDF editions and documented the publication method as an experiment in GitHub/GitHub Pages/GitHub Releases-based paper publication. The paper PDF and errata PDF themselves were not modified.
+- Files:
+  - `README.md`
+  - `docs/index.html`
+  - `docs/en/index.html`
+  - `docs/checksums.txt`
+  - `memory.md`
+- Verification:
+  - Confirmed `docs/paper/sect-sutra-map-paper.pdf` SHA-256 is `92be9d3cb008b4e1fa368fe2fc9e72d141194e980a63e83ae8645ad9ab079845`.
+  - Confirmed the same paper PDF SHA-256 from git tags `v1.0.0` and `v1.0.1`.
+  - Confirmed `docs/errata/unicode-safe-chunking-errata-ja.pdf` SHA-256 is `6dd41cd62c314e2844c19a8801f9ce5b5f2be8f673326ab19f96a5848b46f708`.
+  - Confirmed the same errata PDF SHA-256 from git tag `v1.0.1`.
+  - Parsed `docs/index.html` and `docs/en/index.html` with `/Users/daishin/.pyenv/shims/python`.
